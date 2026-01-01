@@ -55,7 +55,8 @@ function berp_set_setting_value( $section, $key, $value ) {
 	return berp_set_settings_option( $settings );
 }
 
-/* =============================
+/*
+=============================
  * General settings
  * ===========================*/
 
@@ -131,7 +132,8 @@ function berp_set_general_fiscal_year_start_setting( $value ) {
 	return berp_set_setting_value( 'general', 'fiscal_year_start', sanitize_text_field( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Payroll settings
  * ===========================*/
 
@@ -191,7 +193,8 @@ function berp_set_payroll_processing_day_setting( $value ) {
 	return berp_set_setting_value( 'payroll', 'processing_day', berp_normalize_int_option( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Attendance settings
  * ===========================*/
 
@@ -259,7 +262,8 @@ function berp_set_attendance_default_multiplier_setting( $value ) {
 	return berp_set_setting_value( 'attendance', 'default_multiplier', berp_normalize_float_option( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Expense settings
  * ===========================*/
 
@@ -303,7 +307,8 @@ function berp_set_expense_require_receipt_setting( $value ) {
 	return berp_set_setting_value( 'expense', 'require_receipt', berp_normalize_int_option( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Quotation & invoice settings
  * ===========================*/
 
@@ -419,7 +424,8 @@ function berp_set_quotation_enable_invoice_email_setting( $value ) {
 	return berp_set_setting_value( 'quotation', 'enable_invoice_email', berp_normalize_int_option( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Site settings
  * ===========================*/
 
@@ -455,7 +461,8 @@ function berp_set_site_enable_budget_tracking_setting( $value ) {
 	return berp_set_setting_value( 'site', 'enable_budget_tracking', berp_normalize_int_option( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Employee settings
  * ===========================*/
 
@@ -515,7 +522,8 @@ function berp_set_employee_custom_fields_setting( $value ) {
 	return berp_set_setting_value( 'employee', 'custom_fields', berp_normalize_array_option( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Notification settings
  * ===========================*/
 
@@ -607,7 +615,8 @@ function berp_set_notification_email_template_setting( $value ) {
 	return berp_set_setting_value( 'notification', 'email_template', sanitize_textarea_field( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Portal settings
  * ===========================*/
 
@@ -731,7 +740,8 @@ function berp_set_portal_welcome_email_template_setting( $value ) {
 	return berp_set_setting_value( 'portal', 'welcome_email_template', sanitize_textarea_field( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Advanced settings
  * ===========================*/
 
@@ -767,7 +777,8 @@ function berp_set_advanced_report_caching_setting( $value ) {
 	return berp_set_setting_value( 'advanced', 'report_caching', berp_normalize_int_option( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Standalone options
  * ===========================*/
 
@@ -835,7 +846,8 @@ function berp_set_departments_created_option( $value ) {
 	return update_option( 'berp_departments_created', berp_normalize_int_option( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Legacy options
  * ===========================*/
 

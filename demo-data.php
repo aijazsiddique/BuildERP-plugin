@@ -94,49 +94,49 @@ function berp_generate_demo_data( $silent = false ) {
 	// Demo Sites/Projects.
 	$sites_data = array(
 		array(
-			'name'      => 'Downtown Office Tower',
-			'client'    => 0,
-			'address'   => '100 Main Street, Downtown',
-			'status'    => 'in_progress',
-			'start'     => gmdate( 'Y-m-d', strtotime( '-60 days' ) ),
-			'end'       => gmdate( 'Y-m-d', strtotime( '+120 days' ) ),
-			'budget'    => 2500000,
+			'name'    => 'Downtown Office Tower',
+			'client'  => 0,
+			'address' => '100 Main Street, Downtown',
+			'status'  => 'in_progress',
+			'start'   => gmdate( 'Y-m-d', strtotime( '-60 days' ) ),
+			'end'     => gmdate( 'Y-m-d', strtotime( '+120 days' ) ),
+			'budget'  => 2500000,
 		),
 		array(
-			'name'      => 'Residential Complex Phase 1',
-			'client'    => 1,
-			'address'   => '200 Suburb Road, Residential Area',
-			'status'    => 'in_progress',
-			'start'     => gmdate( 'Y-m-d', strtotime( '-30 days' ) ),
-			'end'       => gmdate( 'Y-m-d', strtotime( '+90 days' ) ),
-			'budget'    => 850000,
+			'name'    => 'Residential Complex Phase 1',
+			'client'  => 1,
+			'address' => '200 Suburb Road, Residential Area',
+			'status'  => 'in_progress',
+			'start'   => gmdate( 'Y-m-d', strtotime( '-30 days' ) ),
+			'end'     => gmdate( 'Y-m-d', strtotime( '+90 days' ) ),
+			'budget'  => 850000,
 		),
 		array(
-			'name'      => 'Shopping Mall Renovation',
-			'client'    => 2,
-			'address'   => '300 Commerce Ave, Shopping District',
-			'status'    => 'planning',
-			'start'     => gmdate( 'Y-m-d', strtotime( '+15 days' ) ),
-			'end'       => gmdate( 'Y-m-d', strtotime( '+180 days' ) ),
-			'budget'    => 1200000,
+			'name'    => 'Shopping Mall Renovation',
+			'client'  => 2,
+			'address' => '300 Commerce Ave, Shopping District',
+			'status'  => 'planning',
+			'start'   => gmdate( 'Y-m-d', strtotime( '+15 days' ) ),
+			'end'     => gmdate( 'Y-m-d', strtotime( '+180 days' ) ),
+			'budget'  => 1200000,
 		),
 		array(
-			'name'      => 'Home Extension Project',
-			'client'    => 3,
-			'address'   => '321 Oak Avenue, Suburbia',
-			'status'    => 'completed',
-			'start'     => gmdate( 'Y-m-d', strtotime( '-90 days' ) ),
-			'end'       => gmdate( 'Y-m-d', strtotime( '-10 days' ) ),
-			'budget'    => 75000,
+			'name'    => 'Home Extension Project',
+			'client'  => 3,
+			'address' => '321 Oak Avenue, Suburbia',
+			'status'  => 'completed',
+			'start'   => gmdate( 'Y-m-d', strtotime( '-90 days' ) ),
+			'end'     => gmdate( 'Y-m-d', strtotime( '-10 days' ) ),
+			'budget'  => 75000,
 		),
 		array(
-			'name'      => 'Eco-Friendly Office Building',
-			'client'    => 4,
-			'address'   => '555 Eco Park, Green City',
-			'status'    => 'planning',
-			'start'     => gmdate( 'Y-m-d', strtotime( '+30 days' ) ),
-			'end'       => gmdate( 'Y-m-d', strtotime( '+365 days' ) ),
-			'budget'    => 3500000,
+			'name'    => 'Eco-Friendly Office Building',
+			'client'  => 4,
+			'address' => '555 Eco Park, Green City',
+			'status'  => 'planning',
+			'start'   => gmdate( 'Y-m-d', strtotime( '+30 days' ) ),
+			'end'     => gmdate( 'Y-m-d', strtotime( '+365 days' ) ),
+			'budget'  => 3500000,
 		),
 	);
 
@@ -286,7 +286,7 @@ function berp_generate_demo_data( $silent = false ) {
 	$active_sites     = array_slice( $site_ids, 0, 2 );     // First 2 are in_progress.
 
 	for ( $day = 30; $day >= 1; $day-- ) {
-		$date      = gmdate( 'Y-m-d', strtotime( "-{$day} days" ) );
+		$date        = gmdate( 'Y-m-d', strtotime( "-{$day} days" ) );
 		$day_of_week = gmdate( 'N', strtotime( $date ) );
 
 		// Skip weekends.
@@ -327,16 +327,56 @@ function berp_generate_demo_data( $silent = false ) {
 	$payment_methods    = array( 'cash', 'bank_transfer', 'credit_card', 'check' );
 
 	$expenses_data = array(
-		array( 'title' => 'Cement and Concrete Supply', 'amount' => 15000, 'cat' => 'materials' ),
-		array( 'title' => 'Steel Reinforcement Bars', 'amount' => 8500, 'cat' => 'materials' ),
-		array( 'title' => 'Crane Rental - Weekly', 'amount' => 3500, 'cat' => 'equipment' ),
-		array( 'title' => 'Excavator Fuel', 'amount' => 1200, 'cat' => 'transport' ),
-		array( 'title' => 'Site Electricity Bill', 'amount' => 850, 'cat' => 'utilities' ),
-		array( 'title' => 'Safety Equipment Purchase', 'amount' => 2200, 'cat' => 'equipment' ),
-		array( 'title' => 'Lumber and Wood Materials', 'amount' => 4500, 'cat' => 'materials' ),
-		array( 'title' => 'Plumbing Supplies', 'amount' => 3200, 'cat' => 'materials' ),
-		array( 'title' => 'Electrical Wiring', 'amount' => 2800, 'cat' => 'materials' ),
-		array( 'title' => 'Contractor Payment - Tile Work', 'amount' => 5000, 'cat' => 'labor' ),
+		array(
+			'title'  => 'Cement and Concrete Supply',
+			'amount' => 15000,
+			'cat'    => 'materials',
+		),
+		array(
+			'title'  => 'Steel Reinforcement Bars',
+			'amount' => 8500,
+			'cat'    => 'materials',
+		),
+		array(
+			'title'  => 'Crane Rental - Weekly',
+			'amount' => 3500,
+			'cat'    => 'equipment',
+		),
+		array(
+			'title'  => 'Excavator Fuel',
+			'amount' => 1200,
+			'cat'    => 'transport',
+		),
+		array(
+			'title'  => 'Site Electricity Bill',
+			'amount' => 850,
+			'cat'    => 'utilities',
+		),
+		array(
+			'title'  => 'Safety Equipment Purchase',
+			'amount' => 2200,
+			'cat'    => 'equipment',
+		),
+		array(
+			'title'  => 'Lumber and Wood Materials',
+			'amount' => 4500,
+			'cat'    => 'materials',
+		),
+		array(
+			'title'  => 'Plumbing Supplies',
+			'amount' => 3200,
+			'cat'    => 'materials',
+		),
+		array(
+			'title'  => 'Electrical Wiring',
+			'amount' => 2800,
+			'cat'    => 'materials',
+		),
+		array(
+			'title'  => 'Contractor Payment - Tile Work',
+			'amount' => 5000,
+			'cat'    => 'labor',
+		),
 	);
 
 	foreach ( $expenses_data as $index => $exp ) {
@@ -367,10 +407,26 @@ function berp_generate_demo_data( $silent = false ) {
 			'client' => 0,
 			'title'  => 'Office Building Foundation Work',
 			'items'  => array(
-				array( 'desc' => 'Site Preparation', 'qty' => 1, 'rate' => 25000 ),
-				array( 'desc' => 'Foundation Excavation', 'qty' => 1, 'rate' => 45000 ),
-				array( 'desc' => 'Concrete Foundation', 'qty' => 500, 'rate' => 150 ),
-				array( 'desc' => 'Steel Reinforcement', 'qty' => 200, 'rate' => 85 ),
+				array(
+					'desc' => 'Site Preparation',
+					'qty'  => 1,
+					'rate' => 25000,
+				),
+				array(
+					'desc' => 'Foundation Excavation',
+					'qty'  => 1,
+					'rate' => 45000,
+				),
+				array(
+					'desc' => 'Concrete Foundation',
+					'qty'  => 500,
+					'rate' => 150,
+				),
+				array(
+					'desc' => 'Steel Reinforcement',
+					'qty'  => 200,
+					'rate' => 85,
+				),
 			),
 			'status' => 'accepted',
 		),
@@ -378,11 +434,31 @@ function berp_generate_demo_data( $silent = false ) {
 			'client' => 1,
 			'title'  => 'Residential Kitchen Renovation',
 			'items'  => array(
-				array( 'desc' => 'Demolition Work', 'qty' => 1, 'rate' => 3000 ),
-				array( 'desc' => 'Plumbing Installation', 'qty' => 1, 'rate' => 5500 ),
-				array( 'desc' => 'Electrical Work', 'qty' => 1, 'rate' => 4200 ),
-				array( 'desc' => 'Cabinetry Installation', 'qty' => 8, 'rate' => 850 ),
-				array( 'desc' => 'Countertop Installation', 'qty' => 15, 'rate' => 120 ),
+				array(
+					'desc' => 'Demolition Work',
+					'qty'  => 1,
+					'rate' => 3000,
+				),
+				array(
+					'desc' => 'Plumbing Installation',
+					'qty'  => 1,
+					'rate' => 5500,
+				),
+				array(
+					'desc' => 'Electrical Work',
+					'qty'  => 1,
+					'rate' => 4200,
+				),
+				array(
+					'desc' => 'Cabinetry Installation',
+					'qty'  => 8,
+					'rate' => 850,
+				),
+				array(
+					'desc' => 'Countertop Installation',
+					'qty'  => 15,
+					'rate' => 120,
+				),
 			),
 			'status' => 'sent',
 		),
@@ -390,10 +466,26 @@ function berp_generate_demo_data( $silent = false ) {
 			'client' => 2,
 			'title'  => 'Mall Interior Renovation Phase 1',
 			'items'  => array(
-				array( 'desc' => 'Interior Demolition', 'qty' => 1, 'rate' => 35000 ),
-				array( 'desc' => 'HVAC System Upgrade', 'qty' => 1, 'rate' => 125000 ),
-				array( 'desc' => 'Flooring Installation', 'qty' => 5000, 'rate' => 45 ),
-				array( 'desc' => 'Lighting System', 'qty' => 200, 'rate' => 350 ),
+				array(
+					'desc' => 'Interior Demolition',
+					'qty'  => 1,
+					'rate' => 35000,
+				),
+				array(
+					'desc' => 'HVAC System Upgrade',
+					'qty'  => 1,
+					'rate' => 125000,
+				),
+				array(
+					'desc' => 'Flooring Installation',
+					'qty'  => 5000,
+					'rate' => 45,
+				),
+				array(
+					'desc' => 'Lighting System',
+					'qty'  => 200,
+					'rate' => 350,
+				),
 			),
 			'status' => 'draft',
 		),
@@ -445,8 +537,16 @@ function berp_generate_demo_data( $silent = false ) {
 			'client' => 0,
 			'title'  => 'Invoice - Foundation Work Progress 1',
 			'items'  => array(
-				array( 'desc' => 'Site Preparation - Complete', 'qty' => 1, 'rate' => 25000 ),
-				array( 'desc' => 'Foundation Excavation - 50%', 'qty' => 0.5, 'rate' => 45000 ),
+				array(
+					'desc' => 'Site Preparation - Complete',
+					'qty'  => 1,
+					'rate' => 25000,
+				),
+				array(
+					'desc' => 'Foundation Excavation - 50%',
+					'qty'  => 0.5,
+					'rate' => 45000,
+				),
 			),
 			'status' => 'paid',
 			'paid'   => 47500,
@@ -455,9 +555,21 @@ function berp_generate_demo_data( $silent = false ) {
 			'client' => 3,
 			'title'  => 'Invoice - Home Extension Final',
 			'items'  => array(
-				array( 'desc' => 'Extension Construction', 'qty' => 1, 'rate' => 55000 ),
-				array( 'desc' => 'Interior Finishing', 'qty' => 1, 'rate' => 15000 ),
-				array( 'desc' => 'Final Inspection & Cleanup', 'qty' => 1, 'rate' => 2500 ),
+				array(
+					'desc' => 'Extension Construction',
+					'qty'  => 1,
+					'rate' => 55000,
+				),
+				array(
+					'desc' => 'Interior Finishing',
+					'qty'  => 1,
+					'rate' => 15000,
+				),
+				array(
+					'desc' => 'Final Inspection & Cleanup',
+					'qty'  => 1,
+					'rate' => 2500,
+				),
 			),
 			'status' => 'paid',
 			'paid'   => 79750,
@@ -466,7 +578,11 @@ function berp_generate_demo_data( $silent = false ) {
 			'client' => 1,
 			'title'  => 'Invoice - Kitchen Renovation Deposit',
 			'items'  => array(
-				array( 'desc' => 'Project Deposit (30%)', 'qty' => 1, 'rate' => 6825 ),
+				array(
+					'desc' => 'Project Deposit (30%)',
+					'qty'  => 1,
+					'rate' => 6825,
+				),
 			),
 			'status' => 'sent',
 			'paid'   => 0,

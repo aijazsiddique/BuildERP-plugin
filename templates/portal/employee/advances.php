@@ -41,7 +41,7 @@ $pending_requests = get_posts(
 		),
 	)
 );
-$has_pending = ! empty( $pending_requests );
+$has_pending      = ! empty( $pending_requests );
 
 // Get recent advance history.
 $advance_history = get_posts(
@@ -187,19 +187,32 @@ $advance_history = get_posts(
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach ( $advance_history as $advance ) :
+								<?php
+								foreach ( $advance_history as $advance ) :
 									$request_date = get_post_meta( $advance->ID, '_berp_request_date', true );
 									$amount       = get_post_meta( $advance->ID, '_berp_advance_amount', true );
 									$status       = get_post_meta( $advance->ID, '_berp_advance_status', true );
-									
+
 									$status_labels = array(
-										'pending'  => array( 'label' => __( 'Pending', 'aic_builderp' ), 'class' => 'berp-badge-warning' ),
-										'approved' => array( 'label' => __( 'Approved', 'aic_builderp' ), 'class' => 'berp-badge-success' ),
-										'rejected' => array( 'label' => __( 'Rejected', 'aic_builderp' ), 'class' => 'berp-badge-danger' ),
-										'paid'     => array( 'label' => __( 'Paid', 'aic_builderp' ), 'class' => 'berp-badge-info' ),
+										'pending'  => array(
+											'label' => __( 'Pending', 'aic_builderp' ),
+											'class' => 'berp-badge-warning',
+										),
+										'approved' => array(
+											'label' => __( 'Approved', 'aic_builderp' ),
+											'class' => 'berp-badge-success',
+										),
+										'rejected' => array(
+											'label' => __( 'Rejected', 'aic_builderp' ),
+											'class' => 'berp-badge-danger',
+										),
+										'paid'     => array(
+											'label' => __( 'Paid', 'aic_builderp' ),
+											'class' => 'berp-badge-info',
+										),
 									);
-									$status_data = isset( $status_labels[ $status ] ) ? $status_labels[ $status ] : $status_labels['pending'];
-								?>
+									$status_data   = isset( $status_labels[ $status ] ) ? $status_labels[ $status ] : $status_labels['pending'];
+									?>
 									<tr>
 										<td><?php echo esc_html( berp_format_date( $request_date ) ); ?></td>
 										<td><?php echo esc_html( berp_format_currency( $amount ) ); ?></td>
@@ -207,14 +220,18 @@ $advance_history = get_posts(
 											<span class="berp-badge <?php echo esc_attr( $status_data['class'] ); ?>">
 												<?php echo esc_html( $status_data['label'] ); ?>
 											</span>
-											<?php if ( 'rejected' === $status ) :
+											<?php
+											if ( 'rejected' === $status ) :
 												$rejection_note = get_post_meta( $advance->ID, '_berp_rejection_note', true );
 												if ( $rejection_note ) :
-											?>
+													?>
 												<span class="berp-tooltip" title="<?php echo esc_attr( $rejection_note ); ?>">
 													<span class="dashicons dashicons-info"></span>
 												</span>
-											<?php endif; endif; ?>
+													<?php
+											endif;
+endif;
+											?>
 										</td>
 									</tr>
 								<?php endforeach; ?>

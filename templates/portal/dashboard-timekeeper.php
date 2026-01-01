@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$stats = BERP_Timekeeper_Dashboard::get_stats();
+$stats             = BERP_Timekeeper_Dashboard::get_stats();
 $recent_attendance = BERP_Timekeeper_Dashboard::get_recent_attendance();
-$dashboard_url = get_permalink();
+$dashboard_url     = get_permalink();
 ?>
 
 <div class="berp-portal-dashboard">
@@ -52,15 +52,16 @@ $dashboard_url = get_permalink();
 							</tr>
 						</thead>
 						<tbody>
-							<?php foreach ( $recent_attendance as $attendance ) : 
-								$date = get_post_meta( $attendance->ID, '_berp_date', true );
+							<?php
+							foreach ( $recent_attendance as $attendance ) :
+								$date        = get_post_meta( $attendance->ID, '_berp_date', true );
 								$employee_id = get_post_meta( $attendance->ID, '_berp_employee_id', true );
-								$site_id = get_post_meta( $attendance->ID, '_berp_site_id', true );
-								$overtime = get_post_meta( $attendance->ID, '_berp_overtime_hours', true );
-								
+								$site_id     = get_post_meta( $attendance->ID, '_berp_site_id', true );
+								$overtime    = get_post_meta( $attendance->ID, '_berp_overtime_hours', true );
+
 								$employee_name = $employee_id ? get_the_title( $employee_id ) : '-';
-								$site_name = $site_id ? get_the_title( $site_id ) : '-';
-							?>
+								$site_name     = $site_id ? get_the_title( $site_id ) : '-';
+								?>
 								<tr>
 									<td><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $date ) ) ); ?></td>
 									<td><?php echo esc_html( $employee_name ); ?></td>

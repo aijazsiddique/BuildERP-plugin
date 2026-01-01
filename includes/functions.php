@@ -503,8 +503,8 @@ function berp_get_currency_symbols() {
  * @return string
  */
 function berp_get_currency_symbol() {
-	$settings        = berp_get_general_settings();
-	$currency_code   = isset( $settings['currency'] ) ? $settings['currency'] : 'USD';
+	$settings         = berp_get_general_settings();
+	$currency_code    = isset( $settings['currency'] ) ? $settings['currency'] : 'USD';
 	$currency_symbols = berp_get_currency_symbols();
 
 	return isset( $currency_symbols[ $currency_code ] ) ? $currency_symbols[ $currency_code ] : $currency_code;
@@ -1203,7 +1203,7 @@ function berp_get_invoice( $invoice_id ) {
  * @return string Translated label.
  */
 function berp_get_invoice_status_label( $status ) {
-	$status = strtolower( $status );
+	$status   = strtolower( $status );
 	$statuses = array(
 		'draft'          => __( 'Draft', 'aic_builderp' ),
 		'sent'           => __( 'Sent', 'aic_builderp' ),
@@ -1732,9 +1732,9 @@ function berp_process_advance_repayment( $payroll_id, $employee_id, $expense_id 
 		return;
 	}
 
-	$updated_deductions   = array();
-	$removed_advance_ids  = array();
-	$processed_advances   = array();
+	$updated_deductions  = array();
+	$removed_advance_ids = array();
+	$processed_advances  = array();
 
 	foreach ( $deductions as $deduction ) {
 		// Check if this is an advance repayment deduction

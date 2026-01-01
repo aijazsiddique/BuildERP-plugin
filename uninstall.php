@@ -31,7 +31,7 @@ if ( ! current_user_can( 'activate_plugins' ) ) {
  * This respects the user's preference in settings.
  * Default is to NOT delete data for safety.
  */
-$settings = get_option( 'berp_settings', array() );
+$settings           = get_option( 'berp_settings', array() );
 $uninstall_behavior = isset( $settings['advanced']['uninstall_behavior'] ) ? $settings['advanced']['uninstall_behavior'] : 'keep';
 
 // Also check legacy option.
@@ -56,7 +56,7 @@ $post_types = array(
 	'berp_expense',
 	'berp_quotation',
 	'berp_invoice',
-	'berp_payroll'
+	'berp_payroll',
 );
 
 foreach ( $post_types as $post_type ) {
@@ -66,7 +66,7 @@ foreach ( $post_types as $post_type ) {
 			'post_type'      => $post_type,
 			'posts_per_page' => -1,
 			'post_status'    => 'any',
-			'fields'         => 'ids'
+			'fields'         => 'ids',
 		)
 	);
 
@@ -100,7 +100,7 @@ foreach ( $taxonomies as $taxonomy ) {
 		array(
 			'taxonomy'   => $taxonomy,
 			'hide_empty' => false,
-			'fields'     => 'ids'
+			'fields'     => 'ids',
 		)
 	);
 
@@ -186,7 +186,7 @@ $user_meta_keys = array(
 	'berp_portal_preferences',
 	'berp_dashboard_layout',
 	'berp_last_attendance',
-	'berp_notification_preferences'
+	'berp_notification_preferences',
 );
 
 foreach ( $user_meta_keys as $meta_key ) {
@@ -243,7 +243,7 @@ $caps = array(
 	'berp_delete_invoices',
 	'berp_manage_settings',
 	'berp_view_reports',
-	'berp_view_dashboard'
+	'berp_view_dashboard',
 );
 
 $admin = get_role( 'administrator' );

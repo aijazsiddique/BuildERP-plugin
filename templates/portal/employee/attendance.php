@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $employee_id = BERP_Employee_Dashboard::get_current_employee_id();
-$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+$paged       = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 $args = array(
 	'post_type'      => 'berp_attendance',
@@ -46,12 +46,14 @@ $query = new WP_Query( $args );
 					</tr>
 				</thead>
 				<tbody>
-					<?php while ( $query->have_posts() ) : $query->the_post(); 
-						$date = get_post_meta( get_the_ID(), '_berp_date', true );
-						$site_id = get_post_meta( get_the_ID(), '_berp_site_id', true );
-						$overtime = get_post_meta( get_the_ID(), '_berp_overtime_hours', true );
+					<?php
+					while ( $query->have_posts() ) :
+						$query->the_post();
+						$date      = get_post_meta( get_the_ID(), '_berp_date', true );
+						$site_id   = get_post_meta( get_the_ID(), '_berp_site_id', true );
+						$overtime  = get_post_meta( get_the_ID(), '_berp_overtime_hours', true );
 						$site_name = $site_id ? get_the_title( $site_id ) : '-';
-					?>
+						?>
 						<tr>
 							<td><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $date ) ) ); ?></td>
 							<td><?php echo esc_html( $site_name ); ?></td>
@@ -64,11 +66,13 @@ $query = new WP_Query( $args );
 
 			<div class="berp-pagination">
 				<?php
-				echo paginate_links( array(
-					'total' => $query->max_num_pages,
-					'current' => $paged,
-					'format' => '?paged=%#%',
-				) );
+				echo paginate_links(
+					array(
+						'total'   => $query->max_num_pages,
+						'current' => $paged,
+						'format'  => '?paged=%#%',
+					)
+				);
 				?>
 			</div>
 		<?php else : ?>

@@ -14,11 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Get settings for branding.
-$settings       = get_option( 'berp_settings', array() );
+$settings        = get_option( 'berp_settings', array() );
 $portal_settings = isset( $settings['portal'] ) ? $settings['portal'] : array();
-$branding_color = isset( $portal_settings['branding_color'] ) ? $portal_settings['branding_color'] : '#2271b1';
-$company_name   = isset( $settings['general']['company_name'] ) ? $settings['general']['company_name'] : get_bloginfo( 'name' );
-$company_logo   = isset( $settings['general']['company_logo'] ) ? $settings['general']['company_logo'] : '';
+$branding_color  = isset( $portal_settings['branding_color'] ) ? $portal_settings['branding_color'] : '#2271b1';
+$company_name    = isset( $settings['general']['company_name'] ) ? $settings['general']['company_name'] : get_bloginfo( 'name' );
+$company_logo    = isset( $settings['general']['company_logo'] ) ? $settings['general']['company_logo'] : '';
 
 // Determine the page type.
 $login_page_id     = isset( $portal_settings['login_page_id'] ) ? absint( $portal_settings['login_page_id'] ) : 0;

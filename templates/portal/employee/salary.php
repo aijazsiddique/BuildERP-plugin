@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $employee_id = BERP_Employee_Dashboard::get_current_employee_id();
-$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+$paged       = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 
 $args = array(
 	'post_type'      => 'berp_payroll',
@@ -47,12 +47,14 @@ $query = new WP_Query( $args );
 					</tr>
 				</thead>
 				<tbody>
-					<?php while ( $query->have_posts() ) : $query->the_post(); 
-						$month = get_post_meta( get_the_ID(), '_berp_month', true );
-						$gross = get_post_meta( get_the_ID(), '_berp_gross_salary', true );
+					<?php
+					while ( $query->have_posts() ) :
+						$query->the_post();
+						$month      = get_post_meta( get_the_ID(), '_berp_month', true );
+						$gross      = get_post_meta( get_the_ID(), '_berp_gross_salary', true );
 						$deductions = get_post_meta( get_the_ID(), '_berp_total_deductions', true );
-						$net = get_post_meta( get_the_ID(), '_berp_net_salary', true );
-					?>
+						$net        = get_post_meta( get_the_ID(), '_berp_net_salary', true );
+						?>
 						<tr>
 							<td><?php echo esc_html( date_i18n( 'F Y', strtotime( $month . '-01' ) ) ); ?></td>
 							<td><?php echo esc_html( berp_format_currency( $gross ) ); ?></td>
@@ -68,11 +70,13 @@ $query = new WP_Query( $args );
 
 			<div class="berp-pagination">
 				<?php
-				echo paginate_links( array(
-					'total' => $query->max_num_pages,
-					'current' => $paged,
-					'format' => '?paged=%#%',
-				) );
+				echo paginate_links(
+					array(
+						'total'   => $query->max_num_pages,
+						'current' => $paged,
+						'format'  => '?paged=%#%',
+					)
+				);
 				?>
 			</div>
 		<?php else : ?>

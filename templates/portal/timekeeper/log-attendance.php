@@ -10,37 +10,41 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Get active sites.
-$sites = get_posts( array(
-	'post_type'      => 'berp_site',
-	'posts_per_page' => -1,
-	'meta_key'       => '_berp_site_status',
-	'meta_value'     => 'in_progress',
-) );
+$sites = get_posts(
+	array(
+		'post_type'      => 'berp_site',
+		'posts_per_page' => -1,
+		'meta_key'       => '_berp_site_status',
+		'meta_value'     => 'in_progress',
+	)
+);
 
 // Get active employees (include those with 'active' status or no status set).
-$employees = get_posts( array(
-	'post_type'      => 'berp_employee',
-	'posts_per_page' => -1,
-	'orderby'        => 'title',
-	'order'          => 'ASC',
-	'meta_query'     => array(
-		'relation' => 'OR',
-		array(
-			'key'     => '_berp_employee_status',
-			'value'   => 'active',
-			'compare' => '=',
+$employees = get_posts(
+	array(
+		'post_type'      => 'berp_employee',
+		'posts_per_page' => -1,
+		'orderby'        => 'title',
+		'order'          => 'ASC',
+		'meta_query'     => array(
+			'relation' => 'OR',
+			array(
+				'key'     => '_berp_employee_status',
+				'value'   => 'active',
+				'compare' => '=',
+			),
+			array(
+				'key'     => '_berp_employee_status',
+				'compare' => 'NOT EXISTS',
+			),
+			array(
+				'key'     => '_berp_employee_status',
+				'value'   => '',
+				'compare' => '=',
+			),
 		),
-		array(
-			'key'     => '_berp_employee_status',
-			'compare' => 'NOT EXISTS',
-		),
-		array(
-			'key'     => '_berp_employee_status',
-			'value'   => '',
-			'compare' => '=',
-		),
-	),
-) );
+	)
+);
 ?>
 
 <div class="berp-portal-card">

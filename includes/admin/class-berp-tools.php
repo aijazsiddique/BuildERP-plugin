@@ -244,13 +244,13 @@ class BERP_Tools {
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'nonce'   => wp_create_nonce( 'berp_tools_action' ),
 				'strings' => array(
-					'validating'  => __( 'Validating schema...', 'aic_builderp' ),
-					'fixing'      => __( 'Applying fixes...', 'aic_builderp' ),
-					'exporting'   => __( 'Generating export...', 'aic_builderp' ),
-					'searching'   => __( 'Searching...', 'aic_builderp' ),
-					'generating'  => __( 'Generating helper...', 'aic_builderp' ),
-					'error'       => __( 'An error occurred. Please try again.', 'aic_builderp' ),
-					'success'     => __( 'Operation completed successfully.', 'aic_builderp' ),
+					'validating' => __( 'Validating schema...', 'aic_builderp' ),
+					'fixing'     => __( 'Applying fixes...', 'aic_builderp' ),
+					'exporting'  => __( 'Generating export...', 'aic_builderp' ),
+					'searching'  => __( 'Searching...', 'aic_builderp' ),
+					'generating' => __( 'Generating helper...', 'aic_builderp' ),
+					'error'      => __( 'An error occurred. Please try again.', 'aic_builderp' ),
+					'success'    => __( 'Operation completed successfully.', 'aic_builderp' ),
 				),
 			)
 		);
@@ -287,17 +287,17 @@ class BERP_Tools {
 
 			<h2 class="nav-tab-wrapper">
 				<a href="?page=builderp-tools&tab=demo-data"
-				   class="nav-tab <?php echo 'demo-data' === $active_tab ? 'nav-tab-active' : ''; ?>">
+					class="nav-tab <?php echo 'demo-data' === $active_tab ? 'nav-tab-active' : ''; ?>">
 					<span class="dashicons dashicons-database-add"></span>
 					<?php esc_html_e( 'Demo Data', 'aic_builderp' ); ?>
 				</a>
 				<a href="?page=builderp-tools&tab=system-info"
-				   class="nav-tab <?php echo 'system-info' === $active_tab ? 'nav-tab-active' : ''; ?>">
+					class="nav-tab <?php echo 'system-info' === $active_tab ? 'nav-tab-active' : ''; ?>">
 					<span class="dashicons dashicons-info"></span>
 					<?php esc_html_e( 'System Info', 'aic_builderp' ); ?>
 				</a>
 				<a href="?page=builderp-tools&tab=schema-browser"
-				   class="nav-tab <?php echo 'schema-browser' === $active_tab ? 'nav-tab-active' : ''; ?>">
+					class="nav-tab <?php echo 'schema-browser' === $active_tab ? 'nav-tab-active' : ''; ?>">
 					<span class="dashicons dashicons-search"></span>
 					<?php esc_html_e( 'Schema Browser', 'aic_builderp' ); ?>
 				</a>
@@ -345,8 +345,8 @@ class BERP_Tools {
 		$total_records = 0;
 		$data_counts   = array();
 		foreach ( $post_types as $post_type => $label ) {
-			$count                    = wp_count_posts( $post_type );
-			$total                    = isset( $count->publish ) ? $count->publish : 0;
+			$count                     = wp_count_posts( $post_type );
+			$total                     = isset( $count->publish ) ? $count->publish : 0;
 			$data_counts[ $post_type ] = $total;
 			$total_records            += $total;
 		}

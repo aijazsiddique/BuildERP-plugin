@@ -1062,9 +1062,9 @@ class BERP_Reports_Admin {
 
 			// Overtime cost: (daily_rate / 8) * overtime_multiplier * hours
 			if ( $overtime_hours > 0 ) {
-				$hourly_rate      = $daily_cost['daily_rate'] / 8;
-				$overtime_cost    = $hourly_rate * $overtime_multiplier * $overtime_hours;
-				$day_labor_cost  += $overtime_cost;
+				$hourly_rate     = $daily_cost['daily_rate'] / 8;
+				$overtime_cost   = $hourly_rate * $overtime_multiplier * $overtime_hours;
+				$day_labor_cost += $overtime_cost;
 			}
 
 			$total_labor_cost += $day_labor_cost;
@@ -1153,11 +1153,11 @@ class BERP_Reports_Admin {
 		$employee_daily_cost = array();
 
 		// Get payroll settings
-		$settings             = get_option( 'berp_settings', array() );
-		$payroll_settings     = isset( $settings['payroll'] ) ? $settings['payroll'] : array();
-		$working_days         = isset( $payroll_settings['working_days'] ) ? intval( $payroll_settings['working_days'] ) : 26;
-		$attendance_settings  = isset( $settings['attendance'] ) ? $settings['attendance'] : array();
-		$overtime_multiplier  = isset( $attendance_settings['default_multiplier'] ) ? floatval( $attendance_settings['default_multiplier'] ) : 1.5;
+		$settings            = get_option( 'berp_settings', array() );
+		$payroll_settings    = isset( $settings['payroll'] ) ? $settings['payroll'] : array();
+		$working_days        = isset( $payroll_settings['working_days'] ) ? intval( $payroll_settings['working_days'] ) : 26;
+		$attendance_settings = isset( $settings['attendance'] ) ? $settings['attendance'] : array();
+		$overtime_multiplier = isset( $attendance_settings['default_multiplier'] ) ? floatval( $attendance_settings['default_multiplier'] ) : 1.5;
 
 		foreach ( $attendance_records as $record ) {
 			$employee_id    = get_post_meta( $record->ID, '_berp_employee_id', true );
@@ -2355,11 +2355,11 @@ class BERP_Reports_Admin {
 		);
 
 		// Get payroll settings for working days
-		$settings             = get_option( 'berp_settings', array() );
-		$payroll_settings     = isset( $settings['payroll'] ) ? $settings['payroll'] : array();
-		$working_days         = isset( $payroll_settings['working_days'] ) ? intval( $payroll_settings['working_days'] ) : 26;
-		$attendance_settings  = isset( $settings['attendance'] ) ? $settings['attendance'] : array();
-		$overtime_multiplier  = isset( $attendance_settings['default_multiplier'] ) ? floatval( $attendance_settings['default_multiplier'] ) : 1.5;
+		$settings            = get_option( 'berp_settings', array() );
+		$payroll_settings    = isset( $settings['payroll'] ) ? $settings['payroll'] : array();
+		$working_days        = isset( $payroll_settings['working_days'] ) ? intval( $payroll_settings['working_days'] ) : 26;
+		$attendance_settings = isset( $settings['attendance'] ) ? $settings['attendance'] : array();
+		$overtime_multiplier = isset( $attendance_settings['default_multiplier'] ) ? floatval( $attendance_settings['default_multiplier'] ) : 1.5;
 
 		foreach ( $employee_stats as $emp_id => $stats ) {
 			$employee = get_post( $emp_id );

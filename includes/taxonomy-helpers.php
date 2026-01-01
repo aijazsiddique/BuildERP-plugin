@@ -13,7 +13,8 @@ function berp_ensure_taxonomy_exists( $taxonomy ) {
 	return taxonomy_exists( $taxonomy );
 }
 
-/* =============================
+/*
+=============================
  * Expense categories
  * ===========================*/
 
@@ -50,7 +51,8 @@ function berp_set_post_expense_categories( $post_id, $terms, $append = false ) {
 	return wp_set_post_terms( $post_id, $terms, 'berp_expense_category', $append );
 }
 
-/* =============================
+/*
+=============================
  * Departments
  * ===========================*/
 
@@ -87,7 +89,8 @@ function berp_set_post_departments( $post_id, $terms, $append = false ) {
 	return wp_set_post_terms( $post_id, $terms, 'berp_department', $append );
 }
 
-/* =============================
+/*
+=============================
  * Project statuses
  * ===========================*/
 

@@ -16,9 +16,9 @@ if ( ! $employee_id ) {
 	return;
 }
 
-$stats = BERP_Employee_Dashboard::get_stats( $employee_id );
+$stats             = BERP_Employee_Dashboard::get_stats( $employee_id );
 $recent_attendance = BERP_Employee_Dashboard::get_recent_attendance( $employee_id );
-$latest_salary = BERP_Employee_Dashboard::get_latest_salary_slip( $employee_id );
+$latest_salary     = BERP_Employee_Dashboard::get_latest_salary_slip( $employee_id );
 ?>
 
 <div class="berp-portal-dashboard">
@@ -59,12 +59,13 @@ $latest_salary = BERP_Employee_Dashboard::get_latest_salary_slip( $employee_id )
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach ( $recent_attendance as $attendance ) : 
-									$date = get_post_meta( $attendance->ID, '_berp_date', true );
-									$site_id = get_post_meta( $attendance->ID, '_berp_site_id', true );
-									$overtime = get_post_meta( $attendance->ID, '_berp_overtime_hours', true );
+								<?php
+								foreach ( $recent_attendance as $attendance ) :
+									$date      = get_post_meta( $attendance->ID, '_berp_date', true );
+									$site_id   = get_post_meta( $attendance->ID, '_berp_site_id', true );
+									$overtime  = get_post_meta( $attendance->ID, '_berp_overtime_hours', true );
 									$site_name = $site_id ? get_the_title( $site_id ) : '-';
-								?>
+									?>
 									<tr>
 										<td><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $date ) ) ); ?></td>
 										<td><?php echo esc_html( $site_name ); ?></td>
@@ -86,10 +87,11 @@ $latest_salary = BERP_Employee_Dashboard::get_latest_salary_slip( $employee_id )
 					<h3><?php esc_html_e( 'Latest Salary Slip', 'aic_builderp' ); ?></h3>
 				</div>
 				<div class="berp-card-body">
-					<?php if ( $latest_salary ) : 
-						$month = get_post_meta( $latest_salary->ID, '_berp_month', true );
+					<?php
+					if ( $latest_salary ) :
+						$month      = get_post_meta( $latest_salary->ID, '_berp_month', true );
 						$net_salary = get_post_meta( $latest_salary->ID, '_berp_net_salary', true );
-					?>
+						?>
 						<div class="berp-salary-summary">
 							<div class="berp-salary-month">
 								<strong><?php esc_html_e( 'Month:', 'aic_builderp' ); ?></strong>

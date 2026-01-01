@@ -1458,7 +1458,7 @@ class BERP_Settings {
 	 * @param array $settings Current settings.
 	 */
 	private function render_advance_settings( $settings ) {
-		$defaults = $this->get_defaults();
+		$defaults         = $this->get_defaults();
 		$advance_settings = isset( $settings['advance'] ) ? $settings['advance'] : $defaults['advance'];
 		?>
 		<table class="form-table" role="presentation">

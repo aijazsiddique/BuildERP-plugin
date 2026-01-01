@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $employee_id = BERP_Employee_Dashboard::get_current_employee_id();
-$balance = get_post_meta( $employee_id, '_berp_account_balance', true );
+$balance     = get_post_meta( $employee_id, '_berp_account_balance', true );
 ?>
 
 <div class="berp-portal-card">

@@ -715,7 +715,7 @@ class BERP_Portal {
 			return;
 		}
 
-		$selections = $this->get_user_site_employee_selections( $user_id );
+		$selections                      = $this->get_user_site_employee_selections( $user_id );
 		$selections[ (string) $site_id ] = $employee_ids;
 
 		update_user_meta( $user_id, '_berp_attendance_site_employee_selections', $selections );

@@ -49,8 +49,8 @@ class BERP_Advance_Metaboxes {
 	 * @since 1.0.0
 	 */
 	public function add_meta_boxes() {
-		$is_new = isset( $_GET['post'] ) ? false : true;
-		$details_title = $is_new 
+		$is_new        = isset( $_GET['post'] ) ? false : true;
+		$details_title = $is_new
 			? __( 'Pay Advance to Employee', 'aic_builderp' )
 			: __( 'Advance Details', 'aic_builderp' );
 
@@ -277,7 +277,7 @@ class BERP_Advance_Metaboxes {
 			// Show linked expense if exists.
 			$linked_expense = get_post_meta( $post->ID, '_berp_expense_id', true );
 			if ( $linked_expense && get_post( $linked_expense ) ) :
-			?>
+				?>
 				<div class="berp-field-group" style="margin-top: 15px; padding: 10px; background: #f0f0f1; border-radius: 4px;">
 					<p style="margin: 0;"><strong><?php esc_html_e( 'Expense Record:', 'aic_builderp' ); ?></strong><br>
 						<a href="<?php echo esc_url( get_edit_post_link( $linked_expense ) ); ?>">

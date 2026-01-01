@@ -59,7 +59,8 @@ function berp_normalize_string_meta( $value ) {
 	return is_string( $value ) ? $value : '';
 }
 
-/* =============================
+/*
+=============================
  * Employee meta helpers
  * ===========================*/
 
@@ -207,7 +208,8 @@ function berp_set_employee_address_meta( $post_id, $value ) {
 	return update_post_meta( $post_id, '_berp_employee_address', sanitize_text_field( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Attendance meta helpers
  * ===========================*/
 
@@ -299,7 +301,8 @@ function berp_set_attendance_attendance_date_meta( $post_id, $value ) {
 	return update_post_meta( $post_id, '_berp_date', sanitize_text_field( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Payroll meta helpers
  * ===========================*/
 
@@ -527,7 +530,8 @@ function berp_set_payroll_payment_status_meta( $post_id, $value ) {
 	return update_post_meta( $post_id, '_berp_payment_status', sanitize_text_field( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Expense meta helpers
  * ===========================*/
 
@@ -651,7 +655,8 @@ function berp_set_expense_amount_meta( $post_id, $value ) {
 	return update_post_meta( $post_id, '_berp_amount', berp_normalize_float_meta( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Client meta helpers
  * ===========================*/
 
@@ -775,7 +780,8 @@ function berp_set_client_client_id_meta( $post_id, $value ) {
 	return update_post_meta( $post_id, '_berp_client_id', berp_normalize_int_meta( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Site meta helpers
  * ===========================*/
 
@@ -931,7 +937,8 @@ function berp_set_site_site_id_meta( $post_id, $value ) {
 	return update_post_meta( $post_id, '_berp_site_id', berp_normalize_int_meta( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Quotation meta helpers
  * ===========================*/
 
@@ -1103,7 +1110,8 @@ function berp_set_quotation_invoice_id_meta( $post_id, $value ) {
 	return update_post_meta( $post_id, '_berp_invoice_id', berp_normalize_int_meta( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Invoice meta helpers
  * ===========================*/
 
@@ -1363,7 +1371,8 @@ function berp_set_invoice_milestone_percentage_meta( $post_id, $value ) {
 	return update_post_meta( $post_id, '_berp_milestone_percentage', berp_normalize_float_meta( $value ) );
 }
 
-/* =============================
+/*
+=============================
  * Generic meta helper aliases
  * Short-form helpers for common meta keys
  * ===========================*/

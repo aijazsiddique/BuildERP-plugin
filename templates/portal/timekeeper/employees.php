@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+$paged  = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 $search = isset( $_GET['search'] ) ? sanitize_text_field( $_GET['search'] ) : '';
 
 $args = array(
@@ -69,10 +69,12 @@ $query = new WP_Query( $args );
 					</tr>
 				</thead>
 				<tbody>
-					<?php while ( $query->have_posts() ) : $query->the_post(); 
+					<?php
+					while ( $query->have_posts() ) :
+						$query->the_post();
 						$emp_id = get_post_meta( get_the_ID(), '_berp_employee_id', true );
-						$phone = get_post_meta( get_the_ID(), '_berp_employee_phone', true );
-					?>
+						$phone  = get_post_meta( get_the_ID(), '_berp_employee_phone', true );
+						?>
 						<tr>
 							<td><?php echo esc_html( $emp_id ); ?></td>
 							<td><?php the_title(); ?></td>
@@ -85,11 +87,13 @@ $query = new WP_Query( $args );
 
 			<div class="berp-pagination">
 				<?php
-				echo paginate_links( array(
-					'total' => $query->max_num_pages,
-					'current' => $paged,
-					'format' => '?paged=%#%',
-				) );
+				echo paginate_links(
+					array(
+						'total'   => $query->max_num_pages,
+						'current' => $paged,
+						'format'  => '?paged=%#%',
+					)
+				);
 				?>
 			</div>
 		<?php else : ?>

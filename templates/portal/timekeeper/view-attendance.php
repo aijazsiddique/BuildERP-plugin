@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+$paged       = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 $date_filter = isset( $_GET['date'] ) ? sanitize_text_field( $_GET['date'] ) : '';
 $site_filter = isset( $_GET['site'] ) ? absint( $_GET['site'] ) : '';
 
@@ -41,11 +41,13 @@ if ( $site_filter ) {
 $query = new WP_Query( $args );
 
 // Get sites for filter.
-$sites = get_posts( array(
-	'post_type'      => 'berp_site',
-	'posts_per_page' => -1,
-	'fields'         => 'ids',
-) );
+$sites = get_posts(
+	array(
+		'post_type'      => 'berp_site',
+		'posts_per_page' => -1,
+		'fields'         => 'ids',
+	)
+);
 ?>
 
 <div class="berp-portal-card">
@@ -88,19 +90,21 @@ $sites = get_posts( array(
 					</tr>
 				</thead>
 				<tbody>
-					<?php while ( $query->have_posts() ) : $query->the_post(); 
-						$date = get_post_meta( get_the_ID(), '_berp_date', true );
+					<?php
+					while ( $query->have_posts() ) :
+						$query->the_post();
+						$date        = get_post_meta( get_the_ID(), '_berp_date', true );
 						$employee_id = get_post_meta( get_the_ID(), '_berp_employee_id', true );
-						$site_id = get_post_meta( get_the_ID(), '_berp_site_id', true );
-						$overtime = get_post_meta( get_the_ID(), '_berp_overtime_hours', true );
-						$logged_by = get_post_meta( get_the_ID(), '_berp_logged_by', true );
-						
-						$employee_name = $employee_id ? get_the_title( $employee_id ) : '-';
-						$site_name = $site_id ? get_the_title( $site_id ) : '-';
-						$logger = $logged_by ? get_userdata( $logged_by ) : null;
-						$logger_name = $logger ? $logger->display_name : '-';
+						$site_id     = get_post_meta( get_the_ID(), '_berp_site_id', true );
+						$overtime    = get_post_meta( get_the_ID(), '_berp_overtime_hours', true );
+						$logged_by   = get_post_meta( get_the_ID(), '_berp_logged_by', true );
+
+						$employee_name    = $employee_id ? get_the_title( $employee_id ) : '-';
+						$site_name        = $site_id ? get_the_title( $site_id ) : '-';
+						$logger           = $logged_by ? get_userdata( $logged_by ) : null;
+						$logger_name      = $logger ? $logger->display_name : '-';
 						$overtime_display = is_numeric( $overtime ) ? floatval( $overtime ) : 0;
-					?>
+						?>
 						<tr>
 							<td><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $date ) ) ); ?></td>
 							<td><?php echo esc_html( $employee_name ); ?></td>
@@ -114,11 +118,13 @@ $sites = get_posts( array(
 
 			<div class="berp-pagination">
 				<?php
-				echo paginate_links( array(
-					'total' => $query->max_num_pages,
-					'current' => $paged,
-					'format' => '?paged=%#%',
-				) );
+				echo paginate_links(
+					array(
+						'total'   => $query->max_num_pages,
+						'current' => $paged,
+						'format'  => '?paged=%#%',
+					)
+				);
 				?>
 			</div>
 		<?php else : ?>

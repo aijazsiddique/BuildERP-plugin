@@ -405,9 +405,9 @@ class BERP_Payroll_Calculator {
 		}
 
 		// Get overtime multiplier from attendance settings (default 1.5x)
-		$settings             = get_option( 'berp_settings', array() );
-		$attendance_settings  = isset( $settings['attendance'] ) ? $settings['attendance'] : array();
-		$overtime_multiplier  = isset( $attendance_settings['default_multiplier'] ) ? floatval( $attendance_settings['default_multiplier'] ) : 1.5;
+		$settings            = get_option( 'berp_settings', array() );
+		$attendance_settings = isset( $settings['attendance'] ) ? $settings['attendance'] : array();
+		$overtime_multiplier = isset( $attendance_settings['default_multiplier'] ) ? floatval( $attendance_settings['default_multiplier'] ) : 1.5;
 
 		// Ensure minimum multiplier of 1 to avoid zero/negative calculations
 		if ( $overtime_multiplier <= 0 ) {
@@ -514,7 +514,7 @@ class BERP_Payroll_Calculator {
 	protected function get_working_days() {
 		$settings         = get_option( 'berp_settings', array() );
 		$payroll_settings = isset( $settings['payroll'] ) ? $settings['payroll'] : array();
-		
+
 		// Check for working_days (new key) first, then working_days_per_month (legacy)
 		$working_days = 26;
 		if ( isset( $payroll_settings['working_days'] ) ) {

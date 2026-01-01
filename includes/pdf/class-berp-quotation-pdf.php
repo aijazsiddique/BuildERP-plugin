@@ -224,7 +224,11 @@ class BERP_Quotation_PDF {
 					</tr>
 				</thead>
 				<tbody>
-					<?php $i = 0; foreach ( $data['line_items'] as $item ) : $i++; ?>
+					<?php
+					$i = 0;
+					foreach ( $data['line_items'] as $item ) :
+						++$i;
+						?>
 					<tr class="<?php echo ( $i % 2 == 0 ) ? 'even' : 'odd'; ?>">
 						<td class="col-desc">
 							<div class="item-title"><?php echo esc_html( $item['description'] ); ?></div>

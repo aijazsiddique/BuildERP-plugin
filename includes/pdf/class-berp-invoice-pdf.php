@@ -156,12 +156,12 @@ class BERP_Invoice_PDF {
 		$html .= '<div class="invoice-container">';
 		$html .= $this->get_header();
 		$html .= $this->get_client_info();
-		// Invoice details are now merged into header/client info or handled separately if needed, 
-		// but let's keep the method call if we want a separate bar, or merge it. 
+		// Invoice details are now merged into header/client info or handled separately if needed,
+		// but let's keep the method call if we want a separate bar, or merge it.
 		// Actually, the new design puts invoice details in the header meta table.
 		// So I will remove get_invoice_details() from the main flow and integrate it into get_header().
 		// Wait, get_invoice_details had dates and PO numbers. I should integrate that into the header meta.
-		
+
 		$html .= $this->get_line_items();
 		$html .= $this->get_totals();
 		$html .= $this->get_payment_status();
@@ -281,15 +281,15 @@ class BERP_Invoice_PDF {
 		$company_phone   = isset( $this->settings['company_phone'] ) ? $this->settings['company_phone'] : '';
 		$company_email   = isset( $this->settings['company_email'] ) ? $this->settings['company_email'] : get_bloginfo( 'admin_email' );
 		$company_logo    = isset( $this->settings['company_logo'] ) ? $this->settings['company_logo'] : '';
-		
-		$invoice_number  = get_post_meta( $this->invoice_id, '_berp_invoice_number', true );
-		$status          = get_post_meta( $this->invoice_id, '_berp_status', true );
-		$invoice_date    = get_post_meta( $this->invoice_id, '_berp_invoice_date', true );
-		$due_date        = get_post_meta( $this->invoice_id, '_berp_due_date', true );
-		$po_number       = get_post_meta( $this->invoice_id, '_berp_po_number', true );
 
-		$html  = '<table class="header-table"><tr>';
-		
+		$invoice_number = get_post_meta( $this->invoice_id, '_berp_invoice_number', true );
+		$status         = get_post_meta( $this->invoice_id, '_berp_status', true );
+		$invoice_date   = get_post_meta( $this->invoice_id, '_berp_invoice_date', true );
+		$due_date       = get_post_meta( $this->invoice_id, '_berp_due_date', true );
+		$po_number      = get_post_meta( $this->invoice_id, '_berp_po_number', true );
+
+		$html = '<table class="header-table"><tr>';
+
 		// Left Column: Company Info
 		$html .= '<td class="company-section">';
 		if ( ! empty( $company_logo ) ) {
@@ -297,7 +297,7 @@ class BERP_Invoice_PDF {
 		} else {
 			$html .= '<h1 class="company-name-text">' . esc_html( $company_name ) . '</h1>';
 		}
-		
+
 		$html .= '<div class="company-details">';
 		if ( $company_address ) {
 			$html .= nl2br( esc_html( $company_address ) ) . '<br>';
@@ -315,19 +315,19 @@ class BERP_Invoice_PDF {
 		$html .= '<td class="invoice-meta">';
 		$html .= '<h1 class="doc-title">' . esc_html__( 'INVOICE', 'aic_builderp' ) . '</h1>';
 		$html .= '<span class="status-badge status-' . esc_attr( $status ) . '">' . esc_html( berp_get_invoice_status_label( $status ) ) . '</span>';
-		
+
 		$html .= '<table class="meta-table">';
 		$html .= '<tr><th>' . esc_html__( 'Invoice #:', 'aic_builderp' ) . '</th><td>' . esc_html( $invoice_number ) . '</td></tr>';
 		$html .= '<tr><th>' . esc_html__( 'Date:', 'aic_builderp' ) . '</th><td>' . esc_html( $invoice_date ? gmdate( 'd M Y', strtotime( $invoice_date ) ) : '' ) . '</td></tr>';
 		$html .= '<tr><th>' . esc_html__( 'Due Date:', 'aic_builderp' ) . '</th><td>' . esc_html( $due_date ? gmdate( 'd M Y', strtotime( $due_date ) ) : '' ) . '</td></tr>';
-		
+
 		if ( $po_number ) {
 			$html .= '<tr><th>' . esc_html__( 'PO #:', 'aic_builderp' ) . '</th><td>' . esc_html( $po_number ) . '</td></tr>';
 		}
-		
+
 		$html .= '</table>';
 		$html .= '</td>';
-		
+
 		$html .= '</tr></table>';
 
 		return $html;
@@ -350,7 +350,7 @@ class BERP_Invoice_PDF {
 		$html .= '<td class="client-box">';
 		$html .= '<div class="section-label">' . esc_html__( 'Bill To:', 'aic_builderp' ) . '</div>';
 		$html .= '<div class="client-details">';
-		
+
 		if ( $client_id ) {
 			$client = get_post( $client_id );
 			if ( $client ) {
@@ -385,7 +385,7 @@ class BERP_Invoice_PDF {
 		$html .= '<td class="project-box">';
 		$html .= '<div class="section-label">' . esc_html__( 'Project / Site:', 'aic_builderp' ) . '</div>';
 		$html .= '<div class="client-details">';
-		
+
 		if ( $site_id ) {
 			$site = get_post( $site_id );
 			if ( $site ) {
@@ -399,7 +399,7 @@ class BERP_Invoice_PDF {
 		} else {
 			$html .= '<em>' . esc_html__( 'N/A', 'aic_builderp' ) . '</em>';
 		}
-		
+
 		$html .= '</div>';
 		$html .= '</td>';
 
@@ -436,9 +436,9 @@ class BERP_Invoice_PDF {
 		} else {
 			$i = 0;
 			foreach ( $line_items as $item ) {
-				$i++;
+				++$i;
 				$row_class = ( $i % 2 == 0 ) ? 'even' : 'odd';
-				
+
 				$description = isset( $item['description'] ) ? $item['description'] : '';
 				$quantity    = isset( $item['quantity'] ) ? floatval( $item['quantity'] ) : 0;
 				// Support both 'rate' and 'unit_price' keys for compatibility.
@@ -484,7 +484,7 @@ class BERP_Invoice_PDF {
 		// Get tax rate to show percentage in label.
 		$tax_rate = floatval( get_post_meta( $this->invoice_id, '_berp_tax_rate', true ) );
 
-		$html  = '<table class="totals-table">';
+		$html = '<table class="totals-table">';
 
 		$html .= '<tr>';
 		$html .= '<td class="label">' . esc_html__( 'Subtotal', 'aic_builderp' ) . '</td>';
@@ -526,7 +526,7 @@ class BERP_Invoice_PDF {
 		$html .= '</tr>';
 
 		$html .= '</table>';
-		
+
 		// Clear float
 		$html .= '<div style="clear: both;"></div>';
 
@@ -556,25 +556,25 @@ class BERP_Invoice_PDF {
 		$html  = '<div class="payment-status-box">';
 		$html .= '<table width="100%">';
 		$html .= '<tr>';
-		
+
 		// Status
 		$html .= '<td width="33%">';
 		$html .= '<div class="status-label">' . esc_html__( 'Status', 'aic_builderp' ) . '</div>';
 		$html .= '<div class="status-value ' . esc_attr( $status_class ) . '">' . esc_html( $status_label ) . '</div>';
 		$html .= '</td>';
-		
+
 		// Amount Paid
 		$html .= '<td width="33%">';
 		$html .= '<div class="status-label">' . esc_html__( 'Amount Paid', 'aic_builderp' ) . '</div>';
 		$html .= '<div class="status-value">' . esc_html( $this->currency . number_format( $paid, 2 ) ) . '</div>';
 		$html .= '</td>';
-		
+
 		// Amount Due
 		$html .= '<td width="33%">';
 		$html .= '<div class="status-label">' . esc_html__( 'Amount Due', 'aic_builderp' ) . '</div>';
 		$html .= '<div class="status-value text-danger">' . esc_html( $this->currency . number_format( $due, 2 ) ) . '</div>';
 		$html .= '</td>';
-		
+
 		$html .= '</tr>';
 		$html .= '</table>';
 		$html .= '</div>';

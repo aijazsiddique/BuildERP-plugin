@@ -393,9 +393,9 @@ class BERP_Employee_Metaboxes {
 				'employee_updated',
 				sprintf( 'Employee updated: %s', $post->post_title ),
 				array(
-					'employee_id'    => $post_id,
-					'employee_code'  => $employee_id,
-					'status'         => $status,
+					'employee_id'   => $post_id,
+					'employee_code' => $employee_id,
+					'status'        => $status,
 				)
 			);
 		}
@@ -624,23 +624,23 @@ class BERP_Employee_Metaboxes {
 	 * @param int|string $index       Row index or placeholder.
 	 */
 	protected function render_repeater_row( $name, $row, $is_template = false, $index = 0 ) {
-		$label       = isset( $row['label'] ) ? $row['label'] : '';
-		$amount      = isset( $row['amount'] ) ? $row['amount'] : '';
-		$advance_id  = isset( $row['advance_id'] ) ? absint( $row['advance_id'] ) : 0;
-		$type        = isset( $row['type'] ) ? $row['type'] : '';
-		$is_advance  = ( 'advance_repayment' === $type && $advance_id > 0 );
-		$class       = $is_template ? 'berp-repeater-item berp-repeater-template berp-hidden' : 'berp-repeater-item';
-		$style       = $is_template ? 'style="display:none;" aria-hidden="true"' : '';
-		$key         = $is_template ? '__INDEX__' : intval( $index );
-		$disabled    = $is_template ? 'disabled="disabled"' : '';
+		$label      = isset( $row['label'] ) ? $row['label'] : '';
+		$amount     = isset( $row['amount'] ) ? $row['amount'] : '';
+		$advance_id = isset( $row['advance_id'] ) ? absint( $row['advance_id'] ) : 0;
+		$type       = isset( $row['type'] ) ? $row['type'] : '';
+		$is_advance = ( 'advance_repayment' === $type && $advance_id > 0 );
+		$class      = $is_template ? 'berp-repeater-item berp-repeater-template berp-hidden' : 'berp-repeater-item';
+		$style      = $is_template ? 'style="display:none;" aria-hidden="true"' : '';
+		$key        = $is_template ? '__INDEX__' : intval( $index );
+		$disabled   = $is_template ? 'disabled="disabled"' : '';
 
 		// Get advance info if this is an advance deduction
 		$advance_info = '';
 		if ( $is_advance ) {
-			$remaining = get_post_meta( $advance_id, '_berp_remaining_amount', true );
-			$total     = get_post_meta( $advance_id, '_berp_advance_amount', true );
-			$paid      = get_post_meta( $advance_id, '_berp_installments_paid', true );
-			$total_inst = get_post_meta( $advance_id, '_berp_installments', true );
+			$remaining    = get_post_meta( $advance_id, '_berp_remaining_amount', true );
+			$total        = get_post_meta( $advance_id, '_berp_advance_amount', true );
+			$paid         = get_post_meta( $advance_id, '_berp_installments_paid', true );
+			$total_inst   = get_post_meta( $advance_id, '_berp_installments', true );
 			$advance_info = sprintf(
 				/* translators: 1: Remaining amount, 2: Total amount, 3: Paid installments, 4: Total installments */
 				__( 'Remaining: %1$s of %2$s | Installments: %3$d/%4$d', 'aic_builderp' ),

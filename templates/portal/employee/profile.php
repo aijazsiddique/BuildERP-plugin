@@ -10,18 +10,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $employee_id = BERP_Employee_Dashboard::get_current_employee_id();
-$employee = get_post( $employee_id );
+$employee    = get_post( $employee_id );
 
-$email = get_post_meta( $employee_id, '_berp_employee_email', true );
-$phone = get_post_meta( $employee_id, '_berp_employee_phone', true );
-$address = get_post_meta( $employee_id, '_berp_employee_address', true );
+$email     = get_post_meta( $employee_id, '_berp_employee_email', true );
+$phone     = get_post_meta( $employee_id, '_berp_employee_phone', true );
+$address   = get_post_meta( $employee_id, '_berp_employee_address', true );
 $hire_date = get_post_meta( $employee_id, '_berp_hire_date', true );
-$status = get_post_meta( $employee_id, '_berp_employee_status', true );
+$status    = get_post_meta( $employee_id, '_berp_employee_status', true );
 
 // Salary information (read-only)
 $basic_salary = get_post_meta( $employee_id, '_berp_basic_salary', true );
-$allowances = get_post_meta( $employee_id, '_berp_allowances', true );
-$deductions = get_post_meta( $employee_id, '_berp_deductions', true );
+$allowances   = get_post_meta( $employee_id, '_berp_allowances', true );
+$deductions   = get_post_meta( $employee_id, '_berp_deductions', true );
 
 // Normalize arrays
 if ( ! is_array( $allowances ) ) {
@@ -48,7 +48,7 @@ foreach ( $deductions as $deduction ) {
 }
 
 $gross_salary = floatval( $basic_salary ) + $total_allowances;
-$net_salary = $gross_salary - $total_deductions;
+$net_salary   = $gross_salary - $total_deductions;
 ?>
 
 <div class="berp-portal-card">
@@ -155,10 +155,11 @@ $net_salary = $gross_salary - $total_deductions;
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach ( $allowances as $allowance ) : 
-						$name = isset( $allowance['name'] ) ? $allowance['name'] : __( 'Allowance', 'aic_builderp' );
+					<?php
+					foreach ( $allowances as $allowance ) :
+						$name   = isset( $allowance['name'] ) ? $allowance['name'] : __( 'Allowance', 'aic_builderp' );
 						$amount = isset( $allowance['amount'] ) ? floatval( $allowance['amount'] ) : 0;
-					?>
+						?>
 						<tr>
 							<td><?php echo esc_html( $name ); ?></td>
 							<td class="berp-text-right berp-text-success">+ <?php echo esc_html( berp_format_currency( $amount ) ); ?></td>
@@ -193,10 +194,11 @@ $net_salary = $gross_salary - $total_deductions;
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach ( $deductions as $deduction ) : 
-						$name = isset( $deduction['name'] ) ? $deduction['name'] : __( 'Deduction', 'aic_builderp' );
+					<?php
+					foreach ( $deductions as $deduction ) :
+						$name   = isset( $deduction['name'] ) ? $deduction['name'] : __( 'Deduction', 'aic_builderp' );
 						$amount = isset( $deduction['amount'] ) ? floatval( $deduction['amount'] ) : 0;
-					?>
+						?>
 						<tr>
 							<td><?php echo esc_html( $name ); ?></td>
 							<td class="berp-text-right berp-text-danger">- <?php echo esc_html( berp_format_currency( $amount ) ); ?></td>

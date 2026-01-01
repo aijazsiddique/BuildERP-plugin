@@ -1003,11 +1003,11 @@ class BERP_Payroll_Admin {
 			return;
 		}
 
-		$payroll_ids      = array_map( 'absint', wp_unslash( $_POST['payroll_ids'] ) );
-		$payment_amounts  = isset( $_POST['payment_amounts'] ) ? array_map( 'floatval', wp_unslash( $_POST['payment_amounts'] ) ) : array();
-		$success_count    = 0;
-		$error_count      = 0;
-		$errors           = array();
+		$payroll_ids     = array_map( 'absint', wp_unslash( $_POST['payroll_ids'] ) );
+		$payment_amounts = isset( $_POST['payment_amounts'] ) ? array_map( 'floatval', wp_unslash( $_POST['payment_amounts'] ) ) : array();
+		$success_count   = 0;
+		$error_count     = 0;
+		$errors          = array();
 
 		foreach ( $payroll_ids as $payroll_id ) {
 			$payment_amount = isset( $payment_amounts[ $payroll_id ] ) ? $payment_amounts[ $payroll_id ] : 0;
@@ -1109,12 +1109,12 @@ class BERP_Payroll_Admin {
 				// Only create advance if there's actual advance amount
 				if ( $actual_advance_amount > 0 ) {
 					// Get advance settings
-					$all_settings            = get_option( 'berp_settings', array() );
-					$advance_settings        = isset( $all_settings['advance'] ) ? $all_settings['advance'] : array();
-					$default_repayment_type  = isset( $advance_settings['default_repayment_type'] ) ? $advance_settings['default_repayment_type'] : 'installments';
-					$installment_threshold   = isset( $advance_settings['installment_threshold'] ) ? floatval( $advance_settings['installment_threshold'] ) : 500;
-					$installments_high       = isset( $advance_settings['installments_high'] ) ? absint( $advance_settings['installments_high'] ) : 5;
-					$installments_low        = isset( $advance_settings['installments_low'] ) ? absint( $advance_settings['installments_low'] ) : 2;
+					$all_settings           = get_option( 'berp_settings', array() );
+					$advance_settings       = isset( $all_settings['advance'] ) ? $all_settings['advance'] : array();
+					$default_repayment_type = isset( $advance_settings['default_repayment_type'] ) ? $advance_settings['default_repayment_type'] : 'installments';
+					$installment_threshold  = isset( $advance_settings['installment_threshold'] ) ? floatval( $advance_settings['installment_threshold'] ) : 500;
+					$installments_high      = isset( $advance_settings['installments_high'] ) ? absint( $advance_settings['installments_high'] ) : 5;
+					$installments_low       = isset( $advance_settings['installments_low'] ) ? absint( $advance_settings['installments_low'] ) : 2;
 
 					// Determine number of installments based on amount
 					$num_installments = $actual_advance_amount > $installment_threshold ? $installments_high : $installments_low;
