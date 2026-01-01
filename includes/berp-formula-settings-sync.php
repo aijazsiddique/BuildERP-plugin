@@ -23,10 +23,15 @@ function berp_get_formula_defaults_from_settings() {
 
 	// Working days per month from settings (check both new and legacy keys).
 	$working_days = 26;
-	if ( isset( $payroll_settings['working_days'] ) ) {
+	if ( isset( $payroll_settings['working_days'] ) && absint( $payroll_settings['working_days'] ) > 0 ) {
 		$working_days = absint( $payroll_settings['working_days'] );
-	} elseif ( isset( $payroll_settings['working_days_per_month'] ) ) {
+	} elseif ( isset( $payroll_settings['working_days_per_month'] ) && absint( $payroll_settings['working_days_per_month'] ) > 0 ) {
 		$working_days = absint( $payroll_settings['working_days_per_month'] );
+	}
+
+	// Ensure working_days is never zero to prevent division by zero errors.
+	if ( $working_days <= 0 ) {
+		$working_days = 26;
 	}
 
 	// Calculate weekend days in a typical month.
