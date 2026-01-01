@@ -1,0 +1,118 @@
+# ===========================================
+# BuildERP Plugin - .gitignore
+# ===========================================
+# Essential plugin files (KEEP):
+# - builderp.php, uninstall.php, demo-data.php
+# - composer.json, README.txt
+# - includes/, assets/, templates/, languages/, vendor/
+# ===========================================
+
+# -------------------------------------------
+# Documentation & Markdown Files
+# -------------------------------------------
+AGENTS.md
+ATTENDANCE-INTERFACE-MOCKUP.md
+CHANGELOG.md
+CLAUDE.md
+COMPLETE-INVENTORY.md
+DEVELOPER-GUIDE.md
+DEVELOPER-HOOKS.md
+FAQ.md
+FINAL-VERIFICATION-REPORT.md
+FIX-EXECUTION-SUMMARY.md
+FIXES-APPLIED-REPORT.md
+FORMULA-SETTINGS-SYNC.md
+FULL-VALIDATION-REPORT.md
+INSTALLATION.md
+PHASE-15-SUMMARY.md
+PHASE-7-SUMMARY.md
+PHASE-7-TEST-RESULTS.md
+phase8.md
+plan.md
+progress.md
+requirements.md
+SCHEMA.md
+TESTING-MANUAL.md
+TESTING-PHASE-1.md
+TESTING-PHASE-10.md
+TESTING-PHASE-11-REVISED.md
+TESTING-PHASE-11.md
+TESTING-PHASE-12.md
+TESTING-PHASE-2.md
+TESTING-PHASE-3.md
+TESTING-PHASE-5.md
+TESTING-PHASE-6.md
+TESTING-PHASE-7.md
+TESTING-PHASE-8.md
+TESTING-PHASE-9.md
+TESTING-REPORT.md
+validation-checklist.md
+validation-prompt.md
+VALIDATION-TOOLS-SUMMARY.md
+
+# -------------------------------------------
+# Documentation Folders
+# -------------------------------------------
+docs/
+extracted/
+
+# -------------------------------------------
+# Test Files & Folders
+# -------------------------------------------
+tests/
+test-evaluator-standalone.php
+test-formula-builder.php
+
+# -------------------------------------------
+# Development Tools
+# -------------------------------------------
+tools/
+
+# -------------------------------------------
+# Unused PHP Files (not loaded by plugin)
+# -------------------------------------------
+includes/class-berp-security.php
+includes/functions-updated.php
+
+# -------------------------------------------
+# Temporary Files
+# -------------------------------------------
+temp.txt
+VALIDATION-OVERVIEW.txt
+
+# -------------------------------------------
+# Build Artifacts & Archives
+# -------------------------------------------
+BuildERP.zip
+*.zip
+
+# -------------------------------------------
+# IDE & Editor Files
+# -------------------------------------------
+.vscode/
+.claude/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# -------------------------------------------
+# Development Config Files
+# -------------------------------------------
+phpcs.xml.dist
+composer.lock
+.phpcs-cache
+
+# -------------------------------------------
+# OS Generated Files
+# -------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# -------------------------------------------
+# Log Files
+# -------------------------------------------
+*.log

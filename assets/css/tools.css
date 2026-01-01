@@ -1,0 +1,711 @@
+/**
+ * BuildErp Tools Styles
+ *
+ * Styling for admin tools page
+ *
+ * @package BuildErp
+ * @since   1.0.0
+ */
+
+/* ==========================================================================
+   Tools Page Layout
+   ========================================================================== */
+
+.berp-tools-wrap {
+    margin: 20px 20px 20px 0;
+}
+
+.berp-tools-wrap .nav-tab-wrapper {
+    margin-bottom: 20px;
+}
+
+.berp-tools-wrap .nav-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+}
+
+.berp-tools-wrap .nav-tab .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+}
+
+.berp-tools-content {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   Common Tool Styles
+   ========================================================================== */
+
+.berp-tool-header {
+    margin-bottom: 20px;
+}
+
+.berp-tool-header h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+.berp-tool-header .description {
+    font-size: 14px;
+    color: #646970;
+}
+
+/* Loading Spinner */
+.berp-loading-spinner {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.berp-loading-spinner .spinner {
+    float: none;
+    margin: 0 auto 15px;
+}
+
+.berp-loading-spinner p {
+    color: #646970;
+    font-size: 14px;
+}
+
+/* No Results */
+.berp-no-results {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    color: #646970;
+}
+
+.berp-no-results .dashicons {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    color: #dcdcde;
+    margin-bottom: 15px;
+}
+
+.berp-no-results p {
+    font-size: 16px;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.berp-tools-wrap .button .dashicons {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* ==========================================================================
+   Schema Validator Specific
+   ========================================================================== */
+
+.berp-validator-results {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.berp-compliance-score {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.berp-compliance-score h3 {
+    margin-top: 0;
+    color: #1d2327;
+}
+
+.berp-score-meter {
+    background: #e5e5e5;
+    height: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    margin: 15px 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.berp-score-bar {
+    height: 100%;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.berp-score-text {
+    color: #fff;
+    font-weight: 700;
+    font-size: 16px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.berp-validation-issues h3 {
+    color: #1d2327;
+    margin-top: 0;
+}
+
+.berp-issue-item {
+    background: #fff;
+    border-left: 4px solid;
+    border-radius: 0 4px 4px 0;
+    padding: 15px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.2s ease;
+}
+
+.berp-issue-item:hover {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.berp-issue-item.error {
+    border-left-color: #d63638;
+}
+
+.berp-issue-item.warning {
+    border-left-color: #dba617;
+}
+
+.berp-issue-item.info {
+    border-left-color: #2271b1;
+}
+
+.berp-issue-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.berp-issue-title {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1d2327;
+}
+
+.berp-issue-severity {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.berp-issue-severity.error {
+    background: #d63638;
+    color: #fff;
+}
+
+.berp-issue-severity.warning {
+    background: #dba617;
+    color: #1d2327;
+}
+
+.berp-issue-severity.info {
+    background: #2271b1;
+    color: #fff;
+}
+
+.berp-issue-description {
+    color: #50575e;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.berp-issue-actions {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #f0f0f1;
+}
+
+/* ==========================================================================
+   System Info Specific
+   ========================================================================== */
+
+.berp-system-actions {
+    margin-bottom: 20px;
+}
+
+.berp-system-actions button {
+    margin-right: 10px;
+}
+
+.berp-system-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 20px;
+}
+
+.berp-system-section {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.berp-system-section h3 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2271b1;
+    color: #2271b1;
+    font-size: 16px;
+}
+
+.berp-info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.berp-info-table th,
+.berp-info-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #f0f0f1;
+    font-size: 13px;
+}
+
+.berp-info-table th {
+    width: 40%;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.berp-info-table td {
+    color: #50575e;
+}
+
+.berp-info-table tr:last-child th,
+.berp-info-table tr:last-child td {
+    border-bottom: none;
+}
+
+.berp-info-table code {
+    background: #f6f7f7;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.berp-badge {
+    display: inline-block;
+    background: #f0f0f1;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 5px;
+}
+
+.berp-badge.public {
+    background: #d5e5ff;
+    color: #2271b1;
+}
+
+.berp-status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.berp-status.enabled {
+    background: #d1f0d1;
+    color: #0f6e0f;
+}
+
+.berp-status.disabled {
+    background: #ffebe9;
+    color: #8a1f11;
+}
+
+/* ==========================================================================
+   Schema Browser Specific
+   ========================================================================== */
+
+.berp-browser-search {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.berp-browser-search input {
+    flex: 1;
+    max-width: 400px;
+}
+
+.berp-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.berp-meta-card {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 15px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.berp-meta-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.berp-meta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.berp-meta-header h4 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.berp-meta-header code {
+    background: #f6f7f7;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.berp-usage-badge {
+    background: #2271b1;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.berp-meta-details {
+    margin-bottom: 15px;
+}
+
+.berp-detail-row {
+    display: flex;
+    padding: 8px 0;
+    border-bottom: 1px solid #f6f7f7;
+    font-size: 13px;
+}
+
+.berp-detail-row:last-child {
+    border-bottom: none;
+}
+
+.berp-detail-label {
+    font-weight: 600;
+    color: #50575e;
+    min-width: 120px;
+}
+
+.berp-detail-value {
+    color: #1d2327;
+    flex: 1;
+}
+
+.berp-post-type-tag {
+    display: inline-block;
+    background: #e8f4f8;
+    color: #2271b1;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    margin-right: 5px;
+    margin-bottom: 4px;
+}
+
+.berp-data-type {
+    display: inline-block;
+    background: #f6f7f7;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #2271b1;
+}
+
+.berp-meta-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.berp-meta-actions button {
+    flex: 1;
+    font-size: 12px;
+    padding: 6px 10px;
+}
+
+.berp-usage-details {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f1;
+}
+
+.berp-usage-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.berp-usage-item {
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 3px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.berp-usage-item strong {
+    color: #2271b1;
+}
+
+.berp-sample-value {
+    background: #f6f7f7;
+    padding: 8px;
+    border-radius: 3px;
+    margin-top: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    word-break: break-word;
+    border: 1px solid #e5e5e5;
+}
+
+/* ==========================================================================
+   Helper Generator Specific
+   ========================================================================== */
+
+.berp-generator-form {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.berp-generator-form .form-table {
+    margin-top: 0;
+}
+
+.berp-generator-form .form-table th {
+    padding-left: 0;
+}
+
+.berp-generator-form .submit {
+    margin-top: 20px;
+    margin-bottom: 0;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f1;
+}
+
+.berp-generated-code {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.berp-generated-code h3 {
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #2271b1;
+    color: #2271b1;
+}
+
+.berp-code-actions {
+    margin-bottom: 15px;
+}
+
+.berp-code-actions button {
+    margin-right: 10px;
+}
+
+.berp-code-block {
+    background: #282c34;
+    color: #abb2bf;
+    padding: 20px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    max-height: 600px;
+    overflow-y: auto;
+    border: 1px solid #21252b;
+}
+
+.berp-code-block code {
+    color: inherit;
+    background: none;
+    padding: 0;
+    font-family: inherit;
+}
+
+/* Custom scrollbar for code block */
+.berp-code-block::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.berp-code-block::-webkit-scrollbar-track {
+    background: #21252b;
+}
+
+.berp-code-block::-webkit-scrollbar-thumb {
+    background: #4b5263;
+    border-radius: 5px;
+}
+
+.berp-code-block::-webkit-scrollbar-thumb:hover {
+    background: #5c6370;
+}
+
+.berp-code-info {
+    background: #e8f4f8;
+    border: 1px solid #b8dce8;
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.berp-code-info h4 {
+    margin-top: 0;
+    color: #2271b1;
+}
+
+.berp-code-info ul {
+    margin: 10px 0 0 20px;
+}
+
+.berp-code-info li {
+    margin-bottom: 8px;
+    color: #50575e;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media screen and (max-width: 1200px) {
+    .berp-system-sections {
+        grid-template-columns: 1fr;
+    }
+
+    .berp-meta-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+@media screen and (max-width: 782px) {
+    .berp-tools-wrap .nav-tab {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .berp-tools-wrap .nav-tab .dashicons {
+        font-size: 16px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .berp-tools-content {
+        padding: 15px;
+    }
+
+    .berp-meta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .berp-system-sections {
+        gap: 15px;
+    }
+
+    .berp-info-table th,
+    .berp-info-table td {
+        display: block;
+        width: 100%;
+        padding: 8px 0;
+    }
+
+    .berp-info-table th {
+        font-weight: 600;
+        padding-bottom: 4px;
+    }
+
+    .berp-info-table td {
+        padding-top: 0;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #f0f0f1;
+    }
+}
+
+/* ==========================================================================
+   RTL Support
+   ========================================================================== */
+
+[dir="rtl"] .berp-issue-item {
+    border-left: none;
+    border-right: 4px solid;
+    border-radius: 4px 0 0 4px;
+}
+
+[dir="rtl"] .berp-tools-wrap .button .dashicons {
+    margin-right: 0;
+    margin-left: 5px;
+}
+
+[dir="rtl"] .berp-info-table th,
+[dir="rtl"] .berp-info-table td {
+    text-align: right;
+}
+
+[dir="rtl"] .berp-code-info ul {
+    margin-left: 0;
+    margin-right: 20px;
+}

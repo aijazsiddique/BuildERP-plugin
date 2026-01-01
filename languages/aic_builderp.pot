@@ -1,0 +1,1249 @@
+# BuildERP - Construction ERP Plugin for WordPress
+# Copyright (C) 2025 BuildERP
+# This file is distributed under the same license as the BuildERP plugin.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: BuildERP 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/builderp\n"
+"POT-Creation-Date: 2025-12-03 00:00:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: BuildERP POT Generator\n"
+"X-Domain: aic_builderp\n"
+
+#. Plugin Name of the plugin
+msgid "BuildERP - Construction ERP"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/builderp/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Complete Construction ERP solution for WordPress - manage employees, attendance, payroll, expenses, quotations, invoices, and more."
+msgstr ""
+
+#. Author of the plugin
+msgid "BuildERP Team"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://builderp.example.com"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "BuildErp Dashboard"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "Total Employees"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "Active Sites"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "Today's Attendance"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "Revenue This Month"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "Expenses This Month"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "Pending Invoices"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "Revenue vs Expenses"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "Site Profitability"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "Expense Categories"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "Attendance Trends"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "Recent Activity"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "Alerts"
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "No recent activity."
+msgstr ""
+
+#: includes/admin/class-berp-dashboard.php
+msgid "ago"
+msgstr ""
+
+#: includes/admin/class-berp-admin-menu.php
+msgid "BuildERP"
+msgstr ""
+
+#: includes/admin/class-berp-admin-menu.php
+msgid "Dashboard"
+msgstr ""
+
+#: includes/admin/class-berp-admin-menu.php
+msgid "Employees"
+msgstr ""
+
+#: includes/admin/class-berp-admin-menu.php
+msgid "Attendance"
+msgstr ""
+
+#: includes/admin/class-berp-admin-menu.php
+msgid "Payroll"
+msgstr ""
+
+#: includes/admin/class-berp-admin-menu.php
+msgid "Expenses"
+msgstr ""
+
+#: includes/admin/class-berp-admin-menu.php
+msgid "Clients"
+msgstr ""
+
+#: includes/admin/class-berp-admin-menu.php
+msgid "Sites"
+msgstr ""
+
+#: includes/admin/class-berp-admin-menu.php
+msgid "Quotations"
+msgstr ""
+
+#: includes/admin/class-berp-admin-menu.php
+msgid "Invoices"
+msgstr ""
+
+#: includes/admin/class-berp-admin-menu.php
+msgid "Reports"
+msgstr ""
+
+#: includes/admin/class-berp-admin-menu.php
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "General"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Company"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Payroll Settings"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Attendance Settings"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Invoice Settings"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Email Settings"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Advanced"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Company Name"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Company Address"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Company Phone"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Company Email"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Company Logo"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Currency Symbol"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Currency Position"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Before Amount"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "After Amount"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Date Format"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Working Days Per Month"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Default Overtime Rate"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "PF Percentage"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "ESI Percentage"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Invoice Prefix"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Starting Invoice Number"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Payment Terms"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Default Tax Rate"
+msgstr ""
+
+#: includes/admin/class-berp-settings.php
+msgid "Settings saved successfully."
+msgstr ""
+
+#: includes/cpt/class-berp-employee-cpt.php
+msgid "Employee"
+msgstr ""
+
+#: includes/cpt/class-berp-employee-cpt.php
+msgid "Add New Employee"
+msgstr ""
+
+#: includes/cpt/class-berp-employee-cpt.php
+msgid "Edit Employee"
+msgstr ""
+
+#: includes/cpt/class-berp-employee-cpt.php
+msgid "View Employee"
+msgstr ""
+
+#: includes/cpt/class-berp-employee-cpt.php
+msgid "All Employees"
+msgstr ""
+
+#: includes/cpt/class-berp-employee-cpt.php
+msgid "Search Employees"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Personal Information"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Employment Details"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Salary Information"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Bank Details"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Documents"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Employee Code"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Department"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Designation"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Date of Joining"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Status"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Active"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Inactive"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "On Leave"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Terminated"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Basic Salary"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Dearness Allowance"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "House Rent Allowance"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Other Allowances"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "PF Applicable"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "ESI Applicable"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Yes"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "No"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Bank Name"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Account Number"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "IFSC Code"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Portal Access"
+msgstr ""
+
+#: includes/admin/class-berp-employee-metaboxes.php
+msgid "Enable Portal Access"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "Mark Attendance"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "View Attendance"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "Bulk Entry"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "Quick Entry"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "Select Date"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "Select Site"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "Present"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "Absent"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "Half Day"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "Leave"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "Overtime Hours"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "Notes"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "Save Attendance"
+msgstr ""
+
+#: includes/admin/class-berp-attendance-admin.php
+msgid "Attendance saved successfully."
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "Generate Payroll"
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "View Payroll"
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "Bulk Process"
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "Pay Period"
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "Select Month"
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "Select Year"
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "Generate"
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "Mark as Paid"
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "Download Salary Slip"
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "Gross Salary"
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "Total Deductions"
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "Net Salary"
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "Payroll generated successfully."
+msgstr ""
+
+#: includes/admin/class-berp-payroll-admin.php
+msgid "Payroll marked as paid."
+msgstr ""
+
+#: includes/cpt/class-berp-expense-cpt.php
+msgid "Expense"
+msgstr ""
+
+#: includes/cpt/class-berp-expense-cpt.php
+msgid "Add New Expense"
+msgstr ""
+
+#: includes/cpt/class-berp-expense-cpt.php
+msgid "Edit Expense"
+msgstr ""
+
+#: includes/cpt/class-berp-expense-cpt.php
+msgid "View Expense"
+msgstr ""
+
+#: includes/cpt/class-berp-expense-cpt.php
+msgid "All Expenses"
+msgstr ""
+
+#: includes/cpt/class-berp-expense-cpt.php
+msgid "Search Expenses"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Expense Details"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Amount"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Date"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Category"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Site/Project"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Paid By"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Payment Method"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Cash"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Bank Transfer"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Cheque"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "UPI"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Receipt/Invoice"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Recurring Expense"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Make Recurring"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Frequency"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Monthly"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Quarterly"
+msgstr ""
+
+#: includes/admin/class-berp-expense-metaboxes.php
+msgid "Yearly"
+msgstr ""
+
+#: includes/cpt/class-berp-client-cpt.php
+msgid "Client"
+msgstr ""
+
+#: includes/cpt/class-berp-client-cpt.php
+msgid "Add New Client"
+msgstr ""
+
+#: includes/cpt/class-berp-client-cpt.php
+msgid "Edit Client"
+msgstr ""
+
+#: includes/cpt/class-berp-client-cpt.php
+msgid "View Client"
+msgstr ""
+
+#: includes/cpt/class-berp-client-cpt.php
+msgid "All Clients"
+msgstr ""
+
+#: includes/cpt/class-berp-client-cpt.php
+msgid "Search Clients"
+msgstr ""
+
+#: includes/admin/class-berp-client-metaboxes.php
+msgid "Client Information"
+msgstr ""
+
+#: includes/admin/class-berp-client-metaboxes.php
+msgid "Contact Person"
+msgstr ""
+
+#: includes/admin/class-berp-client-metaboxes.php
+msgid "Email"
+msgstr ""
+
+#: includes/admin/class-berp-client-metaboxes.php
+msgid "Phone"
+msgstr ""
+
+#: includes/admin/class-berp-client-metaboxes.php
+msgid "Address"
+msgstr ""
+
+#: includes/admin/class-berp-client-metaboxes.php
+msgid "GST Number"
+msgstr ""
+
+#: includes/admin/class-berp-client-metaboxes.php
+msgid "PAN Number"
+msgstr ""
+
+#: includes/cpt/class-berp-site-cpt.php
+msgid "Site"
+msgstr ""
+
+#: includes/cpt/class-berp-site-cpt.php
+msgid "Add New Site"
+msgstr ""
+
+#: includes/cpt/class-berp-site-cpt.php
+msgid "Edit Site"
+msgstr ""
+
+#: includes/cpt/class-berp-site-cpt.php
+msgid "View Site"
+msgstr ""
+
+#: includes/cpt/class-berp-site-cpt.php
+msgid "All Sites"
+msgstr ""
+
+#: includes/cpt/class-berp-site-cpt.php
+msgid "Search Sites"
+msgstr ""
+
+#: includes/admin/class-berp-site-metaboxes.php
+msgid "Site Details"
+msgstr ""
+
+#: includes/admin/class-berp-site-metaboxes.php
+msgid "Site Address"
+msgstr ""
+
+#: includes/admin/class-berp-site-metaboxes.php
+msgid "Start Date"
+msgstr ""
+
+#: includes/admin/class-berp-site-metaboxes.php
+msgid "Expected Completion"
+msgstr ""
+
+#: includes/admin/class-berp-site-metaboxes.php
+msgid "Budget"
+msgstr ""
+
+#: includes/admin/class-berp-site-metaboxes.php
+msgid "Site Manager"
+msgstr ""
+
+#: includes/admin/class-berp-site-metaboxes.php
+msgid "Assigned Employees"
+msgstr ""
+
+#: includes/admin/class-berp-site-metaboxes.php
+msgid "Project Type"
+msgstr ""
+
+#: includes/admin/class-berp-site-metaboxes.php
+msgid "Residential"
+msgstr ""
+
+#: includes/admin/class-berp-site-metaboxes.php
+msgid "Commercial"
+msgstr ""
+
+#: includes/admin/class-berp-site-metaboxes.php
+msgid "Industrial"
+msgstr ""
+
+#: includes/cpt/class-berp-quotation-cpt.php
+msgid "Quotation"
+msgstr ""
+
+#: includes/cpt/class-berp-quotation-cpt.php
+msgid "Add New Quotation"
+msgstr ""
+
+#: includes/cpt/class-berp-quotation-cpt.php
+msgid "Edit Quotation"
+msgstr ""
+
+#: includes/cpt/class-berp-quotation-cpt.php
+msgid "View Quotation"
+msgstr ""
+
+#: includes/cpt/class-berp-quotation-cpt.php
+msgid "All Quotations"
+msgstr ""
+
+#: includes/cpt/class-berp-quotation-cpt.php
+msgid "Search Quotations"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Quotation Details"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Quotation Number"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Quotation Date"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Valid Until"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Line Items"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Description"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Quantity"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Unit"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Rate"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Add Item"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Remove"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Subtotal"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Discount"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Tax Rate"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Total"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Terms & Conditions"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Convert to Invoice"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Download PDF"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Send to Client"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Draft"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Sent"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Accepted"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Rejected"
+msgstr ""
+
+#: includes/admin/class-berp-quotation-metaboxes.php
+msgid "Expired"
+msgstr ""
+
+#: includes/cpt/class-berp-invoice-cpt.php
+msgid "Invoice"
+msgstr ""
+
+#: includes/cpt/class-berp-invoice-cpt.php
+msgid "Add New Invoice"
+msgstr ""
+
+#: includes/cpt/class-berp-invoice-cpt.php
+msgid "Edit Invoice"
+msgstr ""
+
+#: includes/cpt/class-berp-invoice-cpt.php
+msgid "View Invoice"
+msgstr ""
+
+#: includes/cpt/class-berp-invoice-cpt.php
+msgid "All Invoices"
+msgstr ""
+
+#: includes/cpt/class-berp-invoice-cpt.php
+msgid "Search Invoices"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Invoice Details"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Invoice Number"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Invoice Date"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Due Date"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Payment Status"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Unpaid"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Partial"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Paid"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Overdue"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Record Payment"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Payment Amount"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Payment Date"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Reference"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Amount Paid"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Balance Due"
+msgstr ""
+
+#: includes/admin/class-berp-invoice-metaboxes.php
+msgid "Send Invoice"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "Reports & Analytics"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "Attendance Summary"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "Employee Attendance"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "Payroll Summary"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "Department Payroll"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "Expense Summary"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "Site Expenses"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "Invoice Summary"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "Outstanding Invoices"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "Revenue Report"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "Export to CSV"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "Export to PDF"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "Filter"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "From Date"
+msgstr ""
+
+#: includes/admin/class-berp-reports-admin.php
+msgid "To Date"
+msgstr ""
+
+#: includes/portal/class-berp-portal-login.php
+msgid "Employee Portal Login"
+msgstr ""
+
+#: includes/portal/class-berp-portal-login.php
+msgid "Username"
+msgstr ""
+
+#: includes/portal/class-berp-portal-login.php
+msgid "Password"
+msgstr ""
+
+#: includes/portal/class-berp-portal-login.php
+msgid "Login"
+msgstr ""
+
+#: includes/portal/class-berp-portal-login.php
+msgid "Forgot Password?"
+msgstr ""
+
+#: includes/portal/class-berp-portal-login.php
+msgid "Invalid username or password."
+msgstr ""
+
+#: includes/portal/class-berp-portal-login.php
+msgid "Portal access is disabled for your account."
+msgstr ""
+
+#: includes/portal/class-berp-employee-dashboard.php
+msgid "My Dashboard"
+msgstr ""
+
+#: includes/portal/class-berp-employee-dashboard.php
+msgid "My Attendance"
+msgstr ""
+
+#: includes/portal/class-berp-employee-dashboard.php
+msgid "My Salary"
+msgstr ""
+
+#: includes/portal/class-berp-employee-dashboard.php
+msgid "Account Statement"
+msgstr ""
+
+#: includes/portal/class-berp-employee-dashboard.php
+msgid "My Profile"
+msgstr ""
+
+#: includes/portal/class-berp-employee-dashboard.php
+msgid "Logout"
+msgstr ""
+
+#: includes/portal/class-berp-timekeeper-dashboard.php
+msgid "Log Attendance"
+msgstr ""
+
+#: includes/portal/class-berp-timekeeper-dashboard.php
+msgid "Employee List"
+msgstr ""
+
+#: includes/portal/class-berp-timekeeper-dashboard.php
+msgid "Save All Attendance"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "Salary Formulas"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "Add New Formula"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "Formula Name"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "Formula Type"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "Earning"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "Deduction"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "Formula Expression"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "Preview"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "Save Formula"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "Available Variables"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "BASIC"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "DAYS_WORKED"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "DAYS_IN_MONTH"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "OVERTIME_HOURS"
+msgstr ""
+
+#: includes/admin/class-berp-formula-builder.php
+msgid "OVERTIME_RATE"
+msgstr ""
+
+#: General error messages
+msgid "An error occurred. Please try again."
+msgstr ""
+
+#: General error messages
+msgid "You do not have permission to perform this action."
+msgstr ""
+
+#: General error messages
+msgid "Invalid request."
+msgstr ""
+
+#: General error messages
+msgid "Data saved successfully."
+msgstr ""
+
+#: General error messages
+msgid "Data deleted successfully."
+msgstr ""
+
+#: General actions
+msgid "Save"
+msgstr ""
+
+#: General actions
+msgid "Cancel"
+msgstr ""
+
+#: General actions
+msgid "Delete"
+msgstr ""
+
+#: General actions
+msgid "Edit"
+msgstr ""
+
+#: General actions
+msgid "View"
+msgstr ""
+
+#: General actions
+msgid "Add New"
+msgstr ""
+
+#: General actions
+msgid "Search"
+msgstr ""
+
+#: General actions
+msgid "Reset"
+msgstr ""
+
+#: General actions
+msgid "Back"
+msgstr ""
+
+#: General actions
+msgid "Next"
+msgstr ""
+
+#: General actions
+msgid "Previous"
+msgstr ""
+
+#: General labels
+msgid "Actions"
+msgstr ""
+
+#: General labels
+msgid "Created"
+msgstr ""
+
+#: General labels
+msgid "Updated"
+msgstr ""
+
+#: General labels
+msgid "Author"
+msgstr ""
+
+#: General labels
+msgid "Loading..."
+msgstr ""
+
+#: General labels
+msgid "No data found."
+msgstr ""
+
+#: General labels
+msgid "Select..."
+msgstr ""
+
+#: General labels
+msgid "All"
+msgstr ""
+
+#: Month names
+msgid "January"
+msgstr ""
+
+#: Month names
+msgid "February"
+msgstr ""
+
+#: Month names
+msgid "March"
+msgstr ""
+
+#: Month names
+msgid "April"
+msgstr ""
+
+#: Month names
+msgid "May"
+msgstr ""
+
+#: Month names
+msgid "June"
+msgstr ""
+
+#: Month names
+msgid "July"
+msgstr ""
+
+#: Month names
+msgid "August"
+msgstr ""
+
+#: Month names
+msgid "September"
+msgstr ""
+
+#: Month names
+msgid "October"
+msgstr ""
+
+#: Month names
+msgid "November"
+msgstr ""
+
+#: Month names
+msgid "December"
+msgstr ""

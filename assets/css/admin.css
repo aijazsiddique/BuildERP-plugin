@@ -1,0 +1,1899 @@
+/**
+ * BuildErp Admin Styles
+ *
+ * @package BuildErp
+ * @since 1.0.0
+ */
+
+/* ==========================================================================
+    General Styles
+    ========================================================================== */
+
+.berp-dashboard,
+.berp-attendance,
+.berp-reports,
+.berp-settings {
+    margin-top: 20px;
+}
+
+/* ==========================================================================
+    Dashboard
+    ========================================================================== */
+
+.berp-dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.berp-stat-card {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.berp-stat-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #646970;
+    font-weight: 400;
+}
+
+.berp-stat-card .stat-value {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+/* ==========================================================================
+    Forms
+    ========================================================================== */
+
+.berp-form-row {
+    margin-bottom: 20px;
+}
+
+.berp-form-row label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.berp-form-row input[type="text"],
+.berp-form-row input[type="email"],
+.berp-form-row input[type="number"],
+.berp-form-row input[type="date"],
+.berp-form-row select,
+.berp-form-row textarea {
+    width: 100%;
+    max-width: 500px;
+}
+
+.berp-form-row .description {
+    font-style: italic;
+    color: #646970;
+    margin-top: 5px;
+}
+
+/* ==========================================================================
+    Settings
+    ========================================================================== */
+
+.builderp-settings-wrap .berp-settings-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.berp-settings-nav {
+    background: #fff;
+    border: 1px solid #dcdcde;
+}
+
+.berp-settings-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.berp-settings-nav li + li {
+    border-top: 1px solid #f0f0f1;
+}
+
+.berp-settings-nav a {
+    display: block;
+    padding: 12px 14px;
+    color: #1d2327;
+    text-decoration: none;
+}
+
+.berp-settings-nav a:hover {
+    background: #f6f7f7;
+}
+
+.berp-settings-nav a.is-active {
+    font-weight: 600;
+    background: #f0f6fc;
+    border-left: 3px solid #2271b1;
+    padding-left: 11px;
+}
+
+.berp-settings-panels {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    padding: 20px;
+}
+
+.berp-tab-panel {
+    display: none;
+}
+
+.berp-tab-panel.is-active {
+    display: block;
+}
+
+.berp-settings-io {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.berp-settings-card {
+    border: 1px solid #dcdcde;
+    background: #fbfbfb;
+    padding: 16px;
+}
+
+.berp-subtab-nav {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #e2e4e7;
+    margin-bottom: 14px;
+}
+
+.berp-subtab-nav a {
+    padding: 6px 10px;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    color: #1d2327;
+    text-decoration: none;
+}
+
+.berp-subtab-nav a.is-active {
+    border-color: #dcdcde #dcdcde #fff;
+    background: #fff;
+    font-weight: 600;
+}
+
+.berp-subtab-panel {
+    display: none;
+}
+
+.berp-subtab-panel.is-active {
+    display: block;
+}
+
+.berp-media-field {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.berp-media-preview {
+    margin-top: 10px;
+}
+
+.berp-media-preview img {
+    max-width: 160px;
+    height: auto;
+    border: 1px solid #dcdcde;
+    padding: 4px;
+    background: #fff;
+}
+
+/* ==========================================================================
+    Metaboxes
+    ========================================================================== */
+
+.berp-metabox-content {
+    padding: 12px;
+}
+
+.berp-metabox-wrapper,
+.berp-metabox-layout {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 16px;
+}
+
+.berp-metabox-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.berp-metabox-tab {
+    text-align: left;
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    padding: 10px 12px;
+    cursor: pointer;
+    color: #1d2327;
+    font-size: 13px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.berp-metabox-tab:hover {
+    background: #fff;
+    border-color: #2271b1;
+}
+
+.berp-metabox-tab .dashicons {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+    flex-shrink: 0;
+}
+
+.berp-metabox-tab.is-active,
+.berp-metabox-tab.active {
+    background: #fff;
+    border-color: #2271b1;
+    color: #2271b1;
+    font-weight: 600;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+.berp-metabox-panels {
+    border: 1px solid #dcdcde;
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.berp-metabox-panel {
+    display: none;
+}
+
+.berp-metabox-panel.is-active,
+.berp-metabox-panel.active {
+    display: block;
+}
+
+.berp-metabox-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+.berp-metabox-panel .berp-field-group input[type="text"],
+.berp-metabox-panel .berp-field-group input[type="email"],
+.berp-metabox-panel .berp-field-group input[type="number"],
+.berp-metabox-panel .berp-field-group input[type="date"],
+.berp-metabox-panel .berp-field-group select,
+.berp-metabox-panel .berp-field-group textarea {
+    max-width: 480px;
+}
+
+.berp-metabox-grid .berp-field-group {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    align-items: center;
+    column-gap: 14px;
+    row-gap: 4px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+.berp-metabox-grid .berp-field-group:last-child {
+    border-bottom: none;
+}
+.berp-metabox-grid .berp-field-group label {
+    margin: 0;
+    font-weight: 600;
+}
+.berp-metabox-grid .berp-field-group input[type="text"],
+.berp-metabox-grid .berp-field-group input[type="email"],
+.berp-metabox-grid .berp-field-group input[type="number"],
+.berp-metabox-grid .berp-field-group input[type="date"],
+.berp-metabox-grid .berp-field-group select,
+.berp-metabox-grid .berp-field-group textarea,
+.berp-metabox-panel table.form-table input[type="text"],
+.berp-metabox-panel table.form-table input[type="email"],
+.berp-metabox-panel table.form-table input[type="number"],
+.berp-metabox-panel table.form-table input[type="date"],
+.berp-metabox-panel table.form-table select,
+.berp-metabox-panel table.form-table textarea {
+    max-width: 420px;
+    width: 100%;
+}
+.berp-metabox-grid .berp-field-group textarea,
+.berp-metabox-panel table.form-table textarea {
+    min-height: 70px;
+}
+.berp-metabox-grid .berp-field-group .description {
+    margin-top: 2px;
+    grid-column: 2 / 3;
+}
+.berp-metabox-grid .berp-field-group .berp-repeater {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+.berp-metabox-grid .berp-field-group .berp-repeater .berp-repeater-remove {
+    top: 6px;
+    right: 6px;
+}
+.berp-metabox-grid .berp-field-group .berp-repeater-item {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.berp-metabox-grid .berp-field-group .berp-repeater-item:last-child {
+    margin-bottom: 0;
+}
+.berp-metabox-grid .berp-field-group .berp-repeater-add {
+    margin-top: 6px;
+}
+.berp-metabox-grid .berp-field-group .berp-media-field {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.berp-metabox-grid .berp-field-group .berp-media-field .berp-media-target {
+    flex: 1 1 240px;
+    min-width: 0;
+}
+.berp-metabox-grid .berp-field-group .berp-media-field .berp-media-upload {
+    white-space: nowrap;
+    flex: 0 0 auto;
+}
+.berp-metabox-panel table.form-table th {
+    width: 200px;
+    padding-top: 12px;
+}
+.berp-metabox-panel table.form-table td {
+    padding-top: 8px;
+    padding-bottom: 12px;
+}
+
+.berp-field-group {
+    margin-bottom: 12px;
+}
+
+.berp-field-group:last-child {
+    margin-bottom: 0;
+}
+
+.berp-field-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.berp-field-group input[type="text"],
+.berp-field-group input[type="email"],
+.berp-field-group input[type="number"],
+.berp-field-group input[type="date"],
+.berp-field-group select,
+.berp-field-group textarea {
+    width: 100%;
+    max-width: 520px;
+    box-sizing: border-box;
+}
+
+.berp-field-group .description {
+    margin-top: 6px;
+}
+
+/* ==========================================================================
+    Repeater Fields
+    ========================================================================== */
+
+.berp-repeater,
+.berp-repeater-wrapper {
+    border: 1px solid #dcdcde;
+    background: #f6f7f7;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.berp-repeater-item {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.berp-repeater-item:last-child {
+    margin-bottom: 0;
+}
+
+.berp-repeater-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.berp-repeater-content .berp-field-group {
+    margin-bottom: 0;
+}
+
+.berp-repeater-content .berp-field-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.berp-repeater-content .berp-field-group input,
+.berp-repeater-content .berp-field-group textarea,
+.berp-repeater-content .berp-field-group select {
+    width: 100%;
+}
+
+.berp-repeater-actions {
+    display: flex;
+    gap: 8px;
+    padding-top: 10px;
+    border-top: 1px solid #dcdcde;
+}
+
+.berp-repeater-remove {
+    color: #d63638;
+    cursor: pointer;
+}
+
+.berp-repeater-remove:hover {
+    color: #b32d2e;
+}
+
+.berp-repeater-add {
+    margin-top: 10px;
+}
+
+.berp-repeater-template {
+    display: none !important;
+}
+
+.berp-media-field {
+    gap: 6px;
+}
+
+.berp-media-field .berp-media-target {
+    flex: 1;
+}
+
+/* ==========================================================================
+    Tables
+    ========================================================================== */
+
+.berp-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.berp-table th,
+.berp-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #dcdcde;
+}
+
+.berp-table th {
+    background: #f6f7f7;
+    font-weight: 600;
+}
+
+.berp-table tbody tr:hover {
+    background: #f6f7f7;
+}
+
+/* ==========================================================================
+    Buttons
+    ========================================================================== */
+
+.berp-button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* ==========================================================================
+    Utility Classes
+    ========================================================================== */
+
+.berp-text-center {
+    text-align: center;
+}
+
+.berp-text-right {
+    text-align: right;
+}
+
+.berp-mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.berp-mt-20 {
+    margin-top: 20px;
+}
+
+.berp-hidden {
+    display: none;
+}
+
+/* ==========================================================================
+    Notices
+    ========================================================================== */
+
+.berp-notice {
+    padding: 12px;
+    border-left: 4px solid;
+    margin: 15px 0;
+}
+
+.berp-notice-success {
+    border-color: #00a32a;
+    background: #f0f6fc;
+}
+
+.berp-notice-error {
+    border-color: #d63638;
+    background: #fcf0f1;
+}
+
+.berp-notice-warning {
+    border-color: #dba617;
+    background: #fcf9e8;
+}
+
+.berp-notice-info {
+    border-color: #72aee6;
+    background: #f0f6fc;
+}
+
+/* ==========================================================================
+    Loading Spinner
+    ========================================================================== */
+
+.berp-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #2271b1;
+    border-radius: 50%;
+    animation: berp-spin 1s linear infinite;
+}
+
+@keyframes berp-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+    Responsive
+    ========================================================================== */
+
+@media (max-width: 782px) {
+    .berp-dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .berp-form-row input[type="text"],
+    .berp-form-row input[type="email"],
+    .berp-form-row input[type="number"],
+    .berp-form-row input[type="date"],
+    .berp-form-row select,
+    .berp-form-row textarea {
+        max-width: 100%;
+    }
+
+    .berp-metabox-wrapper,
+    .berp-metabox-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .berp-metabox-tabs {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+    }
+
+    .berp-metabox-tab {
+        flex: 1 1 45%;
+        font-size: 12px;
+        padding: 8px 10px;
+        justify-content: center;
+    }
+
+    .berp-metabox-grid .berp-field-group {
+        grid-template-columns: 1fr;
+        padding: 10px 0;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .berp-metabox-grid .berp-field-group .description {
+        grid-column: 1 / 2;
+    }
+}
+
+/* ==========================================================================
+    Portal Access Styles
+    ========================================================================== */
+
+.berp-portal-access-panel {
+    padding: 20px 0;
+}
+
+.berp-portal-toggle-wrapper label {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.berp-portal-toggle-wrapper input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.berp-portal-toggle-wrapper .description {
+    margin: 5px 0 0 0;
+    line-height: 1.5;
+}
+
+.berp-error-text {
+    color: #d63638;
+    font-weight: 500;
+}
+
+.berp-portal-info-box {
+    margin-top: 20px;
+    padding: 15px;
+    border-left: 4px solid #2271b1;
+    background: #f0f6fc;
+    border-radius: 4px;
+}
+
+.berp-portal-info-box h4 {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.berp-portal-info-box p {
+    margin: 0 0 10px 0;
+    line-height: 1.6;
+}
+
+.berp-portal-info-box p:last-child {
+    margin-bottom: 0;
+}
+
+.berp-portal-active {
+    border-left-color: #00a32a;
+    background: #f0f6f0;
+}
+
+.berp-portal-pending {
+    border-left-color: #dba617;
+    background: #fcf9f0;
+}
+
+.berp-portal-inactive {
+    border-left-color: #646970;
+    background: #f6f7f7;
+}
+
+.berp-portal-disabled {
+    border-left-color: #dcdcde;
+    background: #f6f7f7;
+}
+
+.berp-portal-warning {
+    margin-top: 15px;
+    padding: 12px;
+    background: #fcf0f1;
+    border-left: 4px solid #d63638;
+    border-radius: 4px;
+}
+
+.berp-portal-warning p {
+    margin: 0;
+    color: #50575e;
+}
+
+.berp-portal-info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+}
+
+.berp-portal-info-table th,
+.berp-portal-info-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #dcdcde;
+}
+
+.berp-portal-info-table th {
+    font-weight: 600;
+    width: 150px;
+    color: #50575e;
+}
+
+.berp-portal-info-table code {
+    background: #f0f0f1;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.berp-portal-actions {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.berp-portal-actions .spinner {
+    float: none;
+    margin: 0;
+}
+
+.berp-portal-actions .spinner.is-active {
+    display: inline-block;
+}
+
+.berp-credentials-status {
+    font-size: 14px;
+}
+
+.berp-credentials-status .berp-success {
+    color: #00a32a;
+    font-weight: 500;
+}
+
+.berp-credentials-status .berp-error {
+    color: #d63638;
+    font-weight: 500;
+}
+
+/* Portal Access Column Badges */
+.berp-portal-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.berp-portal-enabled {
+    background: #d1f2df;
+    color: #00701a;
+}
+
+.berp-portal-pending {
+    background: #fcf9f0;
+    color: #886400;
+    border: 1px solid #dba617;
+}
+
+.berp-portal-disabled {
+    background: #f0f0f1;
+    color: #646970;
+}
+
+/* Attendance */
+.berp-attendance-page .nav-tab {
+    cursor: pointer;
+}
+
+.berp-tab-panel {
+    display: none;
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-top: none;
+    padding: 16px;
+}
+
+.berp-tab-panel.is-active {
+    display: block;
+}
+
+.berp-attendance-bar {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.berp-attendance-bar label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-weight: 600;
+}
+
+.berp-attendance-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.berp-attendance-controls input[type="search"] {
+    min-width: 240px;
+}
+
+.berp-attendance-toggles {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.berp-attendance-list {
+    max-height: 480px;
+    overflow: auto;
+    border: 1px solid #dcdcde;
+    border-radius: 4px;
+    background: #fff;
+}
+
+.berp-attendance-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid #f0f0f1;
+}
+
+.berp-attendance-row:nth-child(even) {
+    background: #fafafa;
+}
+
+.berp-attendance-row .berp-employee-label {
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.berp-attendance-row .berp-attendance-overtime {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.berp-attendance-row .berp-duplicate-flag {
+    color: #886400;
+    font-weight: 600;
+}
+
+.berp-attendance-row.berp-has-duplicate {
+    background: #fff7d6;
+}
+
+.berp-progress {
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.berp-response-message {
+    margin-left: 10px;
+    font-weight: 600;
+}
+
+.berp-quick-employee select {
+    min-width: 260px;
+}
+
+.berp-quick-notes textarea {
+    min-width: 260px;
+}
+
+.berp-attendance-actions {
+    margin: 10px 0 15px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.berp-inline-form {
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.berp-card {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.berp-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    align-items: flex-end;
+}
+
+.berp-row.control-row {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.berp-field.align-center {
+    align-self: center;
+}
+
+.berp-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.berp-field.grow {
+    grid-column: span 2;
+}
+
+.berp-field.compact .berp-attendance-toggles {
+    justify-content: flex-start;
+}
+
+.berp-field.compact {
+    justify-self: end;
+}
+
+.berp-label {
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.berp-label-small {
+    font-size: 12px;
+    color: #50575e;
+}
+
+.berp-card.align-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.berp-attendance-list {
+    max-height: 520px;
+}
+
+.berp-attendance-row {
+    border: 1px solid #f0f0f1;
+    border-radius: 4px;
+    margin: 8px 0;
+}
+
+.berp-attendance-row .berp-attendance-overtime label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.berp-field input[type="search"],
+.berp-field input[type="text"],
+.berp-field input[type="date"],
+.berp-field input[type="number"],
+.berp-field select {
+	width: 100%;
+	max-width: 100%;
+}
+
+.berp-progress {
+    display: inline-block;
+    margin-left: 6px;
+}
+
+.berp-inline-notice {
+    background: #fef9e7;
+    border: 1px solid #f0e1a0;
+    border-radius: 4px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    color: #614a00;
+}
+
+/* ==========================================================================
+    Payroll UI
+    ========================================================================== */
+
+.berp-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.berp-badge-success {
+    background: #d1f2df;
+    color: #006b1b;
+    border: 1px solid #00a32a;
+}
+
+.berp-badge-warning {
+    background: #fff4d7;
+    color: #8a6d00;
+    border: 1px solid #e0b400;
+}
+
+.berp-bulk-payroll-form {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    padding: 20px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.berp-preview-table th,
+.berp-preview-table td {
+    border: 1px solid #c3c4c7;
+    padding: 8px;
+}
+
+.berp-results-summary {
+    padding: 15px;
+    border-left: 4px solid #2271b1;
+    background: #f0f6fc;
+    margin-bottom: 16px;
+}
+
+.berp-results-summary.success {
+    border-left-color: #00a32a;
+    background: #f0fdf4;
+}
+
+.berp-results-summary.error {
+    border-left-color: #d63638;
+    background: #fcf0f1;
+}
+
+.berp-progress-bar {
+    width: 100%;
+    height: 30px;
+    background: #f0f0f1;
+    border: 1px solid #c3c4c7;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.berp-progress-fill {
+    height: 100%;
+    width: 0;
+    background: #2271b1;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.3s ease;
+}
+
+.berp-register-filters {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 16px 0;
+}
+
+.berp-register-filters label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.berp-register-table tfoot th,
+.berp-register-table tfoot td {
+    font-weight: 700;
+    background: #f6f7f7;
+}
+
+.required {
+    color: #d63638;
+}
+
+/* ==========================================================================
+    Attendance Totals Strip (Premium Stats)
+    ========================================================================== */
+
+/* View Attendance filters - 3 column layout */
+.berp-view-filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 16px;
+    align-items: end;
+}
+
+.berp-view-filters .berp-field {
+    margin-bottom: 0;
+}
+
+.berp-view-filters .berp-view-action {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: flex-end;
+    gap: 8px;
+    padding-bottom: 0;
+}
+.berp-view-filters .berp-view-action .berp-label {
+    display: none;
+}
+
+
+.berp-view-filters .berp-view-action .spinner {
+    float: none;
+    margin: 0;
+}
+
+/* Totals strip - hidden by default, shown below filters */
+.berp-totals-strip {
+    display: none;
+}
+
+.berp-totals-strip.is-visible {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e4e7;
+}
+
+.berp-total-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #fff 0%, #f9fafb 100%);
+    border: 1px solid #e2e4e7;
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    min-width: 140px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.berp-total-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+.berp-total-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.berp-total-overtime .berp-total-icon {
+    background: rgba(34, 113, 177, 0.1);
+    color: #2271b1;
+}
+
+.berp-total-days .berp-total-icon {
+    background: rgba(0, 163, 42, 0.1);
+    color: #00a32a;
+}
+
+.berp-total-holidays .berp-total-icon {
+    background: rgba(219, 166, 23, 0.12);
+    color: #9d7600;
+}
+
+.berp-total-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.berp-total-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1d2327;
+    line-height: 1.2;
+}
+
+.berp-total-label {
+    font-size: 12px;
+    color: #646970;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+/* Formula Builder */
+.berp-formula-builder .berp-card {
+    background: #fff;
+    border: 1px solid #dcdcde;
+    padding: 16px;
+    margin: 0 0 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.berp-formula-builder .berp-template-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.berp-formula-builder .berp-formula-preview {
+    margin-top: 12px;
+    padding: 12px;
+    border: 1px dashed #c3c4c7;
+    background: #f6f7f7;
+    border-radius: 4px;
+}
+
+.berp-formula-builder .berp-formula-preview.is-error {
+    border-color: #d63638;
+    background: #fef2f2;
+    color: #8a1f1f;
+}
+
+.berp-formula-summary code {
+    display: block;
+    margin: 8px 0;
+    padding: 8px;
+    background: #f6f7f7;
+    border: 1px solid #dcdcde;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+/* ==========================================================================
+    Receipt Attachments (Expense System)
+    ========================================================================== */
+
+.berp-receipt-row {
+    margin-bottom: 12px;
+}
+
+.berp-receipt-row:last-child {
+    margin-bottom: 0;
+}
+
+.berp-receipt-fields {
+    display: grid;
+    grid-template-columns: 1fr 2fr auto;
+    gap: 12px;
+    align-items: start;
+    background: #fff;
+    border: 1px solid #dcdcde;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.berp-receipt-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.berp-receipt-field label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1d2327;
+    margin: 0;
+}
+
+.berp-receipt-field input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.berp-receipt-field .button.berp-upload-receipt {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    height: auto;
+    line-height: 1.4;
+}
+
+.berp-receipt-field .button.berp-upload-receipt .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.berp-receipt-preview {
+    margin-top: 8px;
+    padding: 8px 10px;
+    background: #f6f7f7;
+    border: 1px solid #e2e4e7;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.berp-receipt-preview a {
+    color: #2271b1;
+    text-decoration: none;
+    word-break: break-all;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.berp-receipt-preview a::before {
+    content: "\f103";
+    font-family: dashicons;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.berp-receipt-preview a:hover {
+    color: #135e96;
+    text-decoration: underline;
+}
+
+.berp-receipt-actions {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 6px;
+}
+
+.berp-receipt-actions .button.berp-remove-receipt {
+    padding: 6px;
+    min-width: 32px;
+    height: 32px;
+    background: #fff;
+    border-color: #d63638;
+    color: #d63638;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.berp-receipt-actions .button.berp-remove-receipt:hover {
+    background: #d63638;
+    border-color: #b32d2e;
+    color: #fff;
+}
+
+.berp-receipt-actions .button.berp-remove-receipt .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+}
+
+.berp-add-receipt {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.berp-add-receipt .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+/* Receipt row hover effect */
+.berp-receipt-fields:hover {
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+}
+
+/* Responsive: Stack on small screens */
+@media (max-width: 782px) {
+    .berp-receipt-fields {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .berp-receipt-actions {
+        align-items: flex-start;
+        padding-bottom: 0;
+    }
+
+    .berp-receipt-actions .button.berp-remove-receipt {
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+    Quotation Status Badges
+    ========================================================================== */
+
+.berp-status-badge {
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.berp-status-draft {
+    background: #f0f0f1;
+    color: #2c3338;
+}
+
+.berp-status-sent {
+    background: #72aee6;
+    color: #fff;
+}
+
+.berp-status-accepted {
+    background: #00a32a;
+    color: #fff;
+}
+
+.berp-status-rejected {
+    background: #d63638;
+    color: #fff;
+}
+
+.berp-status-expired {
+    background: #dba617;
+    color: #fff;
+}
+
+/* ==========================================================================
+    Invoice Status Badges
+    ========================================================================== */
+
+.berp-status-partially_paid {
+    background: #f0b849;
+    color: #1e1e1e;
+}
+
+.berp-status-partial {
+    background: #f0b849;
+    color: #1e1e1e;
+}
+
+.berp-status-paid {
+    background: #00a32a;
+    color: #fff;
+}
+
+.berp-status-overdue {
+    background: #d63638;
+    color: #fff;
+}
+
+.berp-status-cancelled {
+    background: #787c82;
+    color: #fff;
+}
+
+/* ==========================================================================
+    Invoice List Table Styles
+    ========================================================================== */
+
+/* Row hover effect for invoice list table */
+.post-type-berp_invoice .wp-list-table tbody tr:hover {
+    background-color: #f0f6fc;
+}
+
+.post-type-berp_invoice .wp-list-table tbody tr:hover td {
+    background-color: #f0f6fc;
+}
+
+/* Alternating row colors with hover */
+.post-type-berp_invoice .wp-list-table tbody tr.alternate:hover,
+.post-type-berp_invoice .wp-list-table tbody tr.alternate:hover td {
+    background-color: #e8f0fe;
+}
+
+/* Row actions - show only on hover (WordPress standard behavior) */
+.post-type-berp_invoice .wp-list-table .row-actions {
+    visibility: hidden;
+}
+
+.post-type-berp_invoice .wp-list-table tr:hover .row-actions,
+.post-type-berp_invoice .wp-list-table tr:focus-within .row-actions {
+    visibility: visible;
+}
+
+/* Keep row actions visible when focused for accessibility */
+.post-type-berp_invoice .wp-list-table .row-actions a:focus {
+    visibility: visible;
+}
+
+/* Column alignments */
+.post-type-berp_invoice .column-grand_total,
+.post-type-berp_invoice .column-amount_paid,
+.post-type-berp_invoice .column-amount_due {
+    text-align: right;
+}
+
+/* Status column */
+.post-type-berp_invoice .column-status {
+    width: 100px;
+}
+
+/* Date columns */
+.post-type-berp_invoice .column-invoice_date,
+.post-type-berp_invoice .column-due_date {
+    width: 120px;
+}
+
+/* Money columns */
+.post-type-berp_invoice .column-grand_total,
+.post-type-berp_invoice .column-amount_paid,
+.post-type-berp_invoice .column-amount_due {
+    width: 100px;
+}
+
+/* ==========================================================================
+    Quotation Line Items Styles
+    ========================================================================== */
+
+.berp-line-items-wrapper {
+    margin-top: 15px;
+}
+
+.berp-item-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr auto;
+    gap: 10px;
+    align-items: end;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.berp-item-field label {
+    display: block;
+    margin-bottom: 3px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #646970;
+}
+
+.berp-item-field input {
+    width: 100%;
+}
+
+.berp-item-description-field input {
+    width: 100%;
+}
+
+.berp-item-actions-field {
+    text-align: center;
+}
+
+.berp-remove-item {
+    padding: 6px 10px;
+    height: 32px;
+}
+
+.berp-remove-item .dashicons {
+    line-height: 20px;
+}
+
+#berp-add-item {
+    margin-top: 10px;
+}
+
+#berp-add-item .dashicons {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* ==========================================================================
+    Responsive Adjustments for Quotations
+    ========================================================================== */
+
+
+@media (max-width: 782px) {
+    .berp-item-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .berp-item-actions-field {
+        text-align: left;
+    }
+
+    .berp-remove-item {
+        width: 100%;
+    }
+}
+
+/* ==========================================================================
+    Accessibility Enhancements
+    ========================================================================== */
+
+/* Focus states for keyboard navigation */
+.berp-metabox-tab:focus,
+.berp-btn:focus,
+.berp-nav-tab:focus,
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #2271b1;
+    outline-offset: 2px;
+}
+
+/* Screen reader only text */
+.berp-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus visible for modern browsers */
+@supports selector(:focus-visible) {
+    .berp-metabox-tab:focus:not(:focus-visible),
+    .berp-btn:focus:not(:focus-visible),
+    button:focus:not(:focus-visible),
+    a:focus:not(:focus-visible),
+    input:focus:not(:focus-visible),
+    select:focus:not(:focus-visible),
+    textarea:focus:not(:focus-visible) {
+        outline: none;
+    }
+
+    .berp-metabox-tab:focus-visible,
+    .berp-btn:focus-visible,
+    button:focus-visible,
+    a:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+        outline: 2px solid #2271b1;
+        outline-offset: 2px;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print styles for admin reports */
+@media print {
+    .berp-actions,
+    .berp-filters,
+    .nav-tab-wrapper,
+    .notice,
+    #adminmenu,
+    #wpadminbar,
+    #wpfooter,
+    .no-print {
+        display: none !important;
+    }
+
+    .berp-card {
+        border: 1px solid #000;
+        box-shadow: none;
+        break-inside: avoid;
+    }
+
+    .berp-table {
+        font-size: 12px;
+    }
+
+    .berp-table th,
+    .berp-table td {
+        border: 1px solid #000 !important;
+    }
+}
+
+/* ==========================================================================
+    RTL (Right-to-Left) Support
+    ========================================================================== */
+
+/* RTL language support for Arabic, Hebrew, Farsi, etc. */
+html[dir="rtl"] .berp-dashboard-stats,
+.rtl .berp-dashboard-stats {
+    direction: rtl;
+}
+
+html[dir="rtl"] .berp-stat-card,
+.rtl .berp-stat-card {
+    text-align: right;
+}
+
+html[dir="rtl"] .berp-card,
+.rtl .berp-card {
+    text-align: right;
+}
+
+/* Flip border directions for RTL */
+html[dir="rtl"] .nav-tab-wrapper .nav-tab.nav-tab-active,
+.rtl .nav-tab-wrapper .nav-tab.nav-tab-active {
+    border-left: 3px solid #2271b1;
+    border-right: none;
+    padding-left: 11px;
+    padding-right: 0;
+}
+
+html[dir="rtl"] .berp-formula-info,
+.rtl .berp-formula-info {
+    border-left: 4px solid #2271b1;
+    border-right: none;
+}
+
+html[dir="rtl"] .berp-formula-error,
+.rtl .berp-formula-error {
+    border-left: 4px solid #d63638;
+    border-right: none;
+}
+
+/* RTL table alignment */
+html[dir="rtl"] .berp-table th,
+html[dir="rtl"] .berp-table td,
+.rtl .berp-table th,
+.rtl .berp-table td {
+    text-align: right;
+}
+
+html[dir="rtl"] .berp-table th:first-child,
+html[dir="rtl"] .berp-table td:first-child,
+.rtl .berp-table th:first-child,
+.rtl .berp-table td:first-child {
+    text-align: right;
+}
+
+/* RTL form alignment */
+html[dir="rtl"] .berp-form-table th,
+.rtl .berp-form-table th {
+    text-align: right;
+    padding-right: 0;
+    padding-left: 20px;
+}
+
+/* RTL button icons */
+html[dir="rtl"] .berp-btn .dashicons,
+.rtl .berp-btn .dashicons {
+    margin-left: 8px;
+    margin-right: 0;
+}
+
+/* RTL notice alignment */
+html[dir="rtl"] .berp-notice,
+.rtl .berp-notice {
+    border-left: 4px solid;
+    border-right: none;
+    padding-left: 12px;
+    padding-right: 0;
+}
+
+/* RTL status indicators */
+html[dir="rtl"] .berp-status-indicator,
+.rtl .berp-status-indicator {
+    margin-left: 6px;
+    margin-right: 0;
+}
+
+/* RTL dropdown menus */
+html[dir="rtl"] .berp-dropdown-menu,
+.rtl .berp-dropdown-menu {
+    left: auto;
+    right: 0;
+}
+
+/* RTL flex containers */
+html[dir="rtl"] .berp-flex-row,
+.rtl .berp-flex-row {
+    flex-direction: row-reverse;
+}
+
+/* RTL list items */
+html[dir="rtl"] .berp-list-item,
+.rtl .berp-list-item {
+    padding-left: 0;
+    padding-right: 15px;
+}
+
+/* RTL checkbox and radio */
+html[dir="rtl"] .berp-checkbox-label,
+html[dir="rtl"] .berp-radio-label,
+.rtl .berp-checkbox-label,
+.rtl .berp-radio-label {
+    padding-left: 0;
+    padding-right: 25px;
+}
+
+/* RTL navigation */
+html[dir="rtl"] .berp-nav-tabs,
+.rtl .berp-nav-tabs {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+html[dir="rtl"] .berp-nav-tabs .nav-tab,
+.rtl .berp-nav-tabs .nav-tab {
+    margin-left: 0;
+    margin-right: 4px;
+}
+
+/* ==========================================================================
+    Advance Deduction Styles
+    ========================================================================== */
+
+.berp-advance-deduction {
+    background-color: #fef3cd;
+    border-left: 3px solid #ffc107;
+    padding-left: 10px;
+}
+
+.berp-advance-deduction input[readonly] {
+    background-color: #f0f0f1;
+    cursor: not-allowed;
+}
+
+.berp-advance-icon {
+    color: #ffc107;
+    margin-right: 8px;
+}
+
+.berp-advance-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed #dcdcde;
+    width: 100%;
+}
+
+.berp-advance-info small {
+    color: #646970;
+    font-style: italic;
+}
+
+.berp-advance-info .button-small {
+    font-size: 11px;
+    line-height: 22px;
+    padding: 0 8px;
+}

@@ -1,0 +1,856 @@
+/* Portal Styles */
+
+:root {
+	--berp-primary: #0073aa;
+	--berp-primary-dark: #005177;
+	--berp-secondary: #23282d;
+	--berp-light: #f1f1f1;
+	--berp-white: #ffffff;
+	--berp-border: #ccd0d4;
+	--berp-text: #3c434a;
+	--berp-success: #46b450;
+	--berp-danger: #dc3232;
+	--berp-warning: #ffb900;
+}
+
+.berp-portal-wrapper {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	color: var(--berp-text);
+	background: var(--berp-light);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Header */
+.berp-portal-header {
+	background: var(--berp-secondary);
+	color: var(--berp-white);
+	padding: 15px 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.berp-portal-brand h1 {
+	margin: 0;
+	font-size: 20px;
+	color: var(--berp-white);
+}
+
+.berp-portal-user-menu {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.berp-logout-link {
+	color: var(--berp-white);
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.berp-logout-link:hover {
+	text-decoration: underline;
+}
+
+/* Layout */
+.berp-portal-main {
+	display: flex;
+	flex: 1;
+	min-height: calc(100vh - 120px);
+}
+
+.berp-portal-sidebar {
+	width: 250px;
+	min-width: 250px;
+	background: var(--berp-white);
+	border-right: 1px solid var(--berp-border);
+	flex-shrink: 0;
+}
+
+.berp-portal-content {
+	flex: 1;
+	padding: 30px;
+	overflow-x: auto;
+	overflow-y: auto;
+	min-width: 0; /* Important for flex children to allow shrinking */
+	width: 100%;
+}
+
+/* Navigation */
+.berp-portal-nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.berp-portal-nav li a {
+	display: block;
+	padding: 15px 20px;
+	color: var(--berp-text);
+	text-decoration: none;
+	border-bottom: 1px solid var(--berp-light);
+	transition: background 0.2s;
+}
+
+.berp-portal-nav li a:hover,
+.berp-portal-nav li a.active {
+	background: var(--berp-light);
+	color: var(--berp-primary);
+	font-weight: 500;
+}
+
+/* Navigation Section Titles */
+.berp-nav-section-title {
+	padding: 12px 20px 8px;
+	font-size: 11px;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #888;
+	letter-spacing: 0.5px;
+	background: var(--berp-light);
+	border-bottom: 1px solid var(--berp-border);
+	margin-top: 10px;
+}
+
+.berp-portal-nav li:first-child.berp-nav-section-title {
+	margin-top: 0;
+}
+
+/* Cards */
+.berp-portal-card {
+	background: var(--berp-white);
+	border: 1px solid var(--berp-border);
+	border-radius: 4px;
+	margin-bottom: 20px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+	width: 100%;
+}
+
+.berp-card-header {
+	padding: 15px 20px;
+	border-bottom: 1px solid var(--berp-border);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.berp-card-header h3 {
+	margin: 0;
+	font-size: 16px;
+}
+
+.berp-card-body {
+	padding: 20px;
+}
+
+/* Stats Grid */
+.berp-portal-stats-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 20px;
+	margin-bottom: 30px;
+}
+
+.berp-portal-stat-card {
+	background: var(--berp-white);
+	padding: 20px;
+	border-radius: 4px;
+	border: 1px solid var(--berp-border);
+	text-align: center;
+}
+
+.berp-portal-stat-card h3 {
+	margin: 0 0 10px;
+	font-size: 14px;
+	color: #666;
+	text-transform: uppercase;
+}
+
+.berp-stat-value {
+	font-size: 32px;
+	font-weight: bold;
+	color: var(--berp-primary);
+	margin-bottom: 5px;
+}
+
+.berp-stat-label {
+	font-size: 12px;
+	color: #888;
+}
+
+/* Tables */
+.berp-portal-table {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: auto;
+}
+
+.berp-portal-table th,
+.berp-portal-table td {
+	padding: 12px 15px;
+	text-align: left;
+	border-bottom: 1px solid var(--berp-border);
+	white-space: nowrap;
+}
+
+.berp-portal-table th {
+	background: #f9f9f9;
+	font-weight: 600;
+}
+
+/* Table responsive wrapper */
+.berp-table-responsive {
+	width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+/* Forms */
+.berp-form-group {
+	margin-bottom: 15px;
+}
+
+.berp-form-control {
+	width: 100%;
+	padding: 8px 12px;
+	border: 1px solid var(--berp-border);
+	border-radius: 4px;
+	font-size: 14px;
+}
+
+.berp-btn {
+	display: inline-block;
+	padding: 8px 15px;
+	border-radius: 4px;
+	text-decoration: none;
+	cursor: pointer;
+	font-size: 14px;
+	border: 1px solid transparent;
+}
+
+.berp-btn-primary {
+	background: var(--berp-primary);
+	color: var(--berp-white);
+	border-color: var(--berp-primary);
+}
+
+.berp-btn-primary:hover {
+	background: var(--berp-primary-dark);
+}
+
+.berp-btn-outline {
+	background: transparent;
+	border-color: var(--berp-border);
+	color: var(--berp-text);
+}
+
+.berp-btn-outline:hover {
+	background: var(--berp-light);
+}
+
+.berp-btn-sm {
+	padding: 4px 10px;
+	font-size: 12px;
+}
+
+.berp-form-row {
+	display: flex;
+	margin: 0 -10px;
+	flex-wrap: wrap;
+}
+
+.berp-col-4 { width: 33.33%; padding: 0 10px; }
+.berp-col-6 { width: 50%; padding: 0 10px; }
+.berp-col-8 { width: 66.66%; padding: 0 10px; }
+
+/* Filter form styles */
+.berp-filter-form {
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid var(--berp-border);
+}
+
+/* Attendance status indicator */
+.status-indicator {
+	display: inline-block;
+	font-size: 12px;
+	padding: 2px 8px;
+	border-radius: 3px;
+	color: #999;
+}
+
+.status-indicator.logged {
+	background-color: #d4edda;
+	color: #155724;
+	font-weight: 500;
+}
+
+.status-indicator.submitted {
+	background-color: #d4edda;
+	color: #155724;
+	font-weight: 500;
+}
+
+.berp-filter-form .berp-form-row {
+	align-items: flex-end;
+}
+
+.berp-filter-form .berp-form-group {
+	margin-bottom: 10px;
+}
+
+/* Pagination styles */
+.berp-pagination {
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 1px solid var(--berp-border);
+	text-align: center;
+}
+
+.berp-pagination .page-numbers {
+	display: inline-block;
+	padding: 8px 12px;
+	margin: 0 2px;
+	border: 1px solid var(--berp-border);
+	border-radius: 4px;
+	text-decoration: none;
+	color: var(--berp-text);
+}
+
+.berp-pagination .page-numbers.current {
+	background: var(--berp-primary-color, var(--berp-primary));
+	border-color: var(--berp-primary-color, var(--berp-primary));
+	color: #fff;
+}
+
+.berp-pagination .page-numbers:hover:not(.current) {
+	background: var(--berp-light);
+}
+
+/* Login Page */
+.berp-portal-login-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: var(--berp-light);
+}
+
+.berp-portal-login-card {
+	background: var(--berp-white);
+	padding: 40px;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+	width: 100%;
+	max-width: 400px;
+}
+
+.berp-portal-login-header {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.berp-portal-login-header h2 {
+	margin: 0 0 10px;
+	color: var(--berp-primary);
+}
+
+.berp-portal-alert {
+	padding: 10px 15px;
+	border-radius: 4px;
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+
+.berp-portal-alert-danger {
+	background: #fbeaea;
+	color: var(--berp-danger);
+	border: 1px solid #f5c6c6;
+}
+
+.berp-btn-block {
+	display: block;
+	width: 100%;
+}
+
+.berp-portal-login-footer {
+	text-align: center;
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+/* Footer */
+.berp-portal-footer {
+	background: var(--berp-white);
+	padding: 15px 20px;
+	text-align: center;
+	border-top: 1px solid var(--berp-border);
+	font-size: 12px;
+	color: #888;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+	.berp-portal-main {
+		flex-direction: column;
+	}
+	.berp-portal-sidebar {
+		width: 100%;
+		min-width: 100%;
+		border-right: none;
+		border-bottom: 1px solid var(--berp-border);
+	}
+	.berp-portal-nav ul {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 10px;
+	}
+	.berp-portal-nav li {
+		flex: 1 1 auto;
+	}
+	.berp-portal-nav li a {
+		text-align: center;
+		padding: 10px 15px;
+		border-bottom: none;
+		border-radius: 4px;
+		margin: 2px;
+	}
+	.berp-portal-content {
+		padding: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+	.berp-form-row {
+		flex-direction: column;
+	}
+	.berp-col-4, .berp-col-6, .berp-col-8 {
+		width: 100%;
+	}
+	.berp-portal-table th,
+	.berp-portal-table td {
+		padding: 8px 10px;
+		font-size: 13px;
+	}
+	.berp-portal-content {
+		padding: 15px;
+	}
+}
+
+/* Badges */
+.berp-badge {
+	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 10px;
+	font-size: 11px;
+	font-weight: 600;
+}
+
+.berp-badge-success {
+	background: #e7f6e7;
+	color: var(--berp-success);
+}
+
+/* Sticky Footer for Forms */
+.sticky-footer {
+	position: sticky;
+	bottom: 0;
+	background: var(--berp-white);
+	padding: 15px;
+	border-top: 1px solid var(--berp-border);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 -20px -20px -20px;
+}
+
+/* ==========================================
+   Standalone Template Specific Styles
+   ========================================== */
+
+/* Reset box-sizing for standalone */
+.berp-standalone-body,
+.berp-standalone-body *,
+.berp-standalone-body *::before,
+.berp-standalone-body *::after {
+	box-sizing: border-box;
+}
+
+/* Ensure full width layout in standalone mode */
+.berp-standalone-body .berp-portal-wrapper {
+	width: 100%;
+	max-width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.berp-standalone-body .berp-portal-main {
+	width: 100%;
+	max-width: 100%;
+}
+
+.berp-standalone-body .berp-portal-content {
+	width: 100%;
+	max-width: 100%;
+}
+
+.berp-standalone-body .berp-portal-card {
+	width: 100%;
+	max-width: 100%;
+}
+
+.berp-standalone-body .berp-card-body {
+	width: 100%;
+	overflow-x: auto;
+}
+
+/* Override login container for standalone */
+.berp-standalone-body .berp-portal-login-container {
+	min-height: auto;
+	padding: 0;
+	background: transparent;
+}
+
+.berp-login-page .berp-portal-login-card {
+	background: #fff;
+	padding: 40px;
+	border-radius: 12px;
+	box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+.berp-login-page .berp-portal-login-header h2 {
+	color: var(--berp-primary-color, #0073aa);
+}
+
+/* Dashboard wrapper for standalone */
+.berp-dashboard-page .berp-portal-wrapper {
+	min-height: 100vh;
+}
+
+/* Use CSS variable for primary color */
+.berp-standalone-body .berp-btn-primary {
+	background: var(--berp-primary-color, #0073aa);
+	border-color: var(--berp-primary-color, #0073aa);
+}
+
+.berp-standalone-body .berp-btn-primary:hover {
+	background: var(--berp-primary-hover, #005177);
+	border-color: var(--berp-primary-hover, #005177);
+}
+
+.berp-standalone-body .berp-portal-login-header h2 {
+	color: var(--berp-primary-color, #0073aa);
+}
+
+.berp-standalone-body .berp-portal-nav li a:hover,
+.berp-standalone-body .berp-portal-nav li a.active {
+	color: var(--berp-primary-color, #0073aa);
+}
+
+.berp-standalone-body .berp-stat-value {
+	color: var(--berp-primary-color, #0073aa);
+}
+
+/* Form checkbox styling */
+.berp-form-check {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.berp-form-check input[type="checkbox"] {
+	width: 16px;
+	height: 16px;
+}
+
+.berp-form-check label {
+	margin: 0;
+	font-size: 14px;
+}
+
+/* Form actions */
+.berp-form-actions {
+	margin-top: 20px;
+}
+
+/* Notice styles for settings */
+.berp-notice {
+	padding: 12px 16px;
+	border-radius: 4px;
+	margin-bottom: 20px;
+}
+
+.berp-notice-info {
+	background: #e7f3ff;
+	border: 1px solid #72aee6;
+	color: #1d4ed8;
+}
+
+.berp-notice ol {
+	margin: 10px 0 0 20px;
+	padding: 0;
+}
+
+.berp-notice li {
+	margin-bottom: 5px;
+}
+
+/* Company logo in login */
+.berp-portal-login-logo {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.berp-portal-login-logo img {
+	max-width: 200px;
+	max-height: 80px;
+	height: auto;
+}
+
+/* ============================================
+   Accessibility Enhancements
+   ============================================ */
+
+/* Focus states for keyboard navigation */
+.berp-portal-nav li a:focus,
+.berp-btn:focus,
+.berp-form-control:focus,
+button:focus,
+a:focus {
+	outline: 2px solid var(--berp-primary);
+	outline-offset: 2px;
+}
+
+/* Skip link for screen readers */
+.berp-skip-link {
+	position: absolute;
+	left: -9999px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	z-index: 9999;
+}
+
+.berp-skip-link:focus {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	width: auto;
+	height: auto;
+	padding: 15px 20px;
+	background: var(--berp-secondary);
+	color: var(--berp-white);
+	text-decoration: none;
+	font-weight: 600;
+	border-radius: 4px;
+}
+
+/* Screen reader only text */
+.berp-sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* Ensure sufficient color contrast */
+.berp-portal-nav li a:hover,
+.berp-portal-nav li a.active {
+	background: var(--berp-light);
+	color: var(--berp-primary-dark);
+	font-weight: 500;
+}
+
+/* Focus visible for modern browsers */
+@supports selector(:focus-visible) {
+	.berp-portal-nav li a:focus:not(:focus-visible),
+	.berp-btn:focus:not(:focus-visible),
+	.berp-form-control:focus:not(:focus-visible),
+	button:focus:not(:focus-visible),
+	a:focus:not(:focus-visible) {
+		outline: none;
+	}
+
+	.berp-portal-nav li a:focus-visible,
+	.berp-btn:focus-visible,
+	.berp-form-control:focus-visible,
+	button:focus-visible,
+	a:focus-visible {
+		outline: 2px solid var(--berp-primary);
+		outline-offset: 2px;
+	}
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+	.berp-portal-wrapper {
+		--berp-primary: #0066cc;
+		--berp-primary-dark: #004499;
+		--berp-border: #333333;
+	}
+
+	.berp-portal-nav li a,
+	.berp-btn,
+	.berp-form-control {
+		border: 2px solid currentColor;
+	}
+}
+
+/* Print styles */
+@media print {
+	.berp-portal-sidebar,
+	.berp-portal-header,
+	.berp-portal-footer,
+	.berp-btn,
+	.no-print {
+		display: none !important;
+	}
+
+	.berp-portal-content {
+		padding: 0;
+		width: 100%;
+	}
+
+	.berp-card {
+		border: 1px solid #000;
+		box-shadow: none;
+		break-inside: avoid;
+	}
+}
+
+/* ==========================================================================
+    RTL (Right-to-Left) Support for Portal
+    ========================================================================== */
+
+/* RTL language support for Arabic, Hebrew, Farsi, etc. */
+html[dir="rtl"] .berp-portal-wrapper,
+.rtl .berp-portal-wrapper {
+	direction: rtl;
+	text-align: right;
+}
+
+/* RTL sidebar positioning */
+html[dir="rtl"] .berp-portal-sidebar,
+.rtl .berp-portal-sidebar {
+	border-left: 1px solid var(--berp-border);
+	border-right: none;
+}
+
+/* RTL navigation */
+html[dir="rtl"] .berp-portal-nav li a,
+.rtl .berp-portal-nav li a {
+	text-align: right;
+	padding-left: 0;
+	padding-right: 15px;
+}
+
+/* RTL cards */
+html[dir="rtl"] .berp-card,
+.rtl .berp-card {
+	text-align: right;
+}
+
+/* RTL tables */
+html[dir="rtl"] .berp-table th,
+html[dir="rtl"] .berp-table td,
+.rtl .berp-table th,
+.rtl .berp-table td {
+	text-align: right;
+}
+
+/* RTL forms */
+html[dir="rtl"] .berp-form-group label,
+.rtl .berp-form-group label {
+	text-align: right;
+}
+
+html[dir="rtl"] .berp-form-control,
+.rtl .berp-form-control {
+	text-align: right;
+}
+
+/* RTL buttons with icons */
+html[dir="rtl"] .berp-btn .dashicons,
+html[dir="rtl"] .berp-btn svg,
+.rtl .berp-btn .dashicons,
+.rtl .berp-btn svg {
+	margin-left: 8px;
+	margin-right: 0;
+}
+
+/* RTL attendance status cards */
+html[dir="rtl"] .berp-attendance-status,
+.rtl .berp-attendance-status {
+	text-align: right;
+}
+
+/* RTL payslip details */
+html[dir="rtl"] .berp-payslip-detail,
+.rtl .berp-payslip-detail {
+	flex-direction: row-reverse;
+}
+
+/* RTL profile info */
+html[dir="rtl"] .berp-profile-info,
+.rtl .berp-profile-info {
+	text-align: right;
+}
+
+/* RTL list items */
+html[dir="rtl"] .berp-list-item,
+.rtl .berp-list-item {
+	padding-left: 0;
+	padding-right: 15px;
+}
+
+/* RTL grid layouts - maintain visual order */
+html[dir="rtl"] .berp-grid,
+.rtl .berp-grid {
+	direction: rtl;
+}
+
+/* RTL alerts and notices */
+html[dir="rtl"] .berp-alert,
+.rtl .berp-alert {
+	text-align: right;
+	border-left: 4px solid;
+	border-right: none;
+	padding-left: 15px;
+	padding-right: 0;
+}
+
+/* RTL badge positioning */
+html[dir="rtl"] .berp-badge,
+.rtl .berp-badge {
+	margin-left: 0;
+	margin-right: 8px;
+}
+
+/* RTL responsive adjustments */
+@media (max-width: 768px) {
+	html[dir="rtl"] .berp-portal-sidebar,
+	.rtl .berp-portal-sidebar {
+		border-left: none;
+		border-bottom: 1px solid var(--berp-border);
+	}
+}
