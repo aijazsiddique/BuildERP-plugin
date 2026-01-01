@@ -31,6 +31,9 @@ $current_view = isset( $_GET['view'] ) ? sanitize_key( $_GET['view'] ) : 'dashbo
 <div class="berp-portal-wrapper">
 	<header class="berp-portal-header">
 		<div class="berp-portal-brand">
+			<button class="berp-mobile-menu-toggle" aria-label="<?php esc_attr_e( 'Toggle Menu', 'aic_builderp' ); ?>" aria-expanded="false">
+				<span class="berp-hamburger"></span>
+			</button>
 			<h1><?php esc_html_e( 'BuildErp Portal', 'aic_builderp' ); ?></h1>
 		</div>
 		<div class="berp-portal-user-menu">

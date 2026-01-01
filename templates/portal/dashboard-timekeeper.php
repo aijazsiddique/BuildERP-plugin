@@ -41,34 +41,36 @@ $dashboard_url = get_permalink();
 		</div>
 		<div class="berp-card-body">
 			<?php if ( $recent_attendance ) : ?>
-				<table class="berp-portal-table">
-					<thead>
-						<tr>
-							<th><?php esc_html_e( 'Date', 'aic_builderp' ); ?></th>
-							<th><?php esc_html_e( 'Employee', 'aic_builderp' ); ?></th>
-							<th><?php esc_html_e( 'Site', 'aic_builderp' ); ?></th>
-							<th><?php esc_html_e( 'Overtime', 'aic_builderp' ); ?></th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php foreach ( $recent_attendance as $attendance ) : 
-							$date = get_post_meta( $attendance->ID, '_berp_date', true );
-							$employee_id = get_post_meta( $attendance->ID, '_berp_employee_id', true );
-							$site_id = get_post_meta( $attendance->ID, '_berp_site_id', true );
-							$overtime = get_post_meta( $attendance->ID, '_berp_overtime_hours', true );
-							
-							$employee_name = $employee_id ? get_the_title( $employee_id ) : '-';
-							$site_name = $site_id ? get_the_title( $site_id ) : '-';
-						?>
+				<div class="berp-table-responsive">
+					<table class="berp-portal-table">
+						<thead>
 							<tr>
-								<td><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $date ) ) ); ?></td>
-								<td><?php echo esc_html( $employee_name ); ?></td>
-								<td><?php echo esc_html( $site_name ); ?></td>
-								<td><?php echo esc_html( $overtime ); ?></td>
+								<th><?php esc_html_e( 'Date', 'aic_builderp' ); ?></th>
+								<th><?php esc_html_e( 'Employee', 'aic_builderp' ); ?></th>
+								<th><?php esc_html_e( 'Site', 'aic_builderp' ); ?></th>
+								<th><?php esc_html_e( 'Overtime', 'aic_builderp' ); ?></th>
 							</tr>
-						<?php endforeach; ?>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<?php foreach ( $recent_attendance as $attendance ) : 
+								$date = get_post_meta( $attendance->ID, '_berp_date', true );
+								$employee_id = get_post_meta( $attendance->ID, '_berp_employee_id', true );
+								$site_id = get_post_meta( $attendance->ID, '_berp_site_id', true );
+								$overtime = get_post_meta( $attendance->ID, '_berp_overtime_hours', true );
+								
+								$employee_name = $employee_id ? get_the_title( $employee_id ) : '-';
+								$site_name = $site_id ? get_the_title( $site_id ) : '-';
+							?>
+								<tr>
+									<td><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $date ) ) ); ?></td>
+									<td><?php echo esc_html( $employee_name ); ?></td>
+									<td><?php echo esc_html( $site_name ); ?></td>
+									<td><?php echo esc_html( $overtime ); ?></td>
+								</tr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
+				</div>
 			<?php else : ?>
 				<p><?php esc_html_e( 'No recent attendance found.', 'aic_builderp' ); ?></p>
 			<?php endif; ?>

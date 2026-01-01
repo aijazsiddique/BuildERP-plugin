@@ -23,6 +23,45 @@ jQuery(document).ready(function($) {
     };
     
     // =============================================
+    // Mobile Menu Toggle
+    // =============================================
+    
+    var $menuToggle = $('.berp-mobile-menu-toggle');
+    var $sidebar = $('.berp-portal-sidebar');
+    
+    $menuToggle.on('click', function() {
+        var isExpanded = $(this).attr('aria-expanded') === 'true';
+        $(this).attr('aria-expanded', !isExpanded);
+        $sidebar.toggleClass('berp-menu-open');
+    });
+    
+    // Close menu when clicking on a nav link (mobile)
+    $('.berp-portal-nav a').on('click', function() {
+        if ($(window).width() <= 991) {
+            $menuToggle.attr('aria-expanded', 'false');
+            $sidebar.removeClass('berp-menu-open');
+        }
+    });
+    
+    // Close menu when clicking outside
+    $(document).on('click', function(e) {
+        if ($(window).width() <= 991) {
+            if (!$(e.target).closest('.berp-portal-sidebar, .berp-mobile-menu-toggle').length) {
+                $menuToggle.attr('aria-expanded', 'false');
+                $sidebar.removeClass('berp-menu-open');
+            }
+        }
+    });
+    
+    // Handle window resize - reset menu state when switching to desktop
+    $(window).on('resize', debounce(function() {
+        if ($(window).width() > 991) {
+            $menuToggle.attr('aria-expanded', 'false');
+            $sidebar.removeClass('berp-menu-open');
+        }
+    }, 250));
+    
+    // =============================================
     // Timekeeper Log Attendance Functions
     // =============================================
 
