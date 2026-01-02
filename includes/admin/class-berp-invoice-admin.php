@@ -44,11 +44,11 @@ class BERP_Invoice_Admin {
 			$invoice_id = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : 0;
 
 			if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ), 'berp_send_invoice_' . $invoice_id ) ) {
-				wp_die( esc_html__( 'Security check failed', 'builderp' ) );
+				wp_die( esc_html__( 'Security check failed', 'BuildERP' ) );
 			}
 
 			if ( ! current_user_can( 'berp_manage_invoices' ) ) {
-				wp_die( esc_html__( 'You do not have permission', 'builderp' ) );
+				wp_die( esc_html__( 'You do not have permission', 'BuildERP' ) );
 			}
 
 			$result = $this->send_invoice_email( $invoice_id );
@@ -56,7 +56,7 @@ class BERP_Invoice_Admin {
 			if ( is_wp_error( $result ) ) {
 				set_transient( 'berp_invoice_send_error', $result->get_error_message(), 30 );
 			} else {
-				set_transient( 'berp_invoice_send_success', __( 'Invoice sent successfully', 'builderp' ), 30 );
+				set_transient( 'berp_invoice_send_success', __( 'Invoice sent successfully', 'BuildERP' ), 30 );
 			}
 
 			wp_safe_redirect( admin_url( 'edit.php?post_type=berp_invoice' ) );
@@ -68,11 +68,11 @@ class BERP_Invoice_Admin {
 			$invoice_id = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : 0;
 
 			if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ), 'berp_mark_paid_' . $invoice_id ) ) {
-				wp_die( esc_html__( 'Security check failed', 'builderp' ) );
+				wp_die( esc_html__( 'Security check failed', 'BuildERP' ) );
 			}
 
 			if ( ! current_user_can( 'berp_manage_invoices' ) ) {
-				wp_die( esc_html__( 'You do not have permission', 'builderp' ) );
+				wp_die( esc_html__( 'You do not have permission', 'BuildERP' ) );
 			}
 
 			$result = $this->mark_invoice_paid( $invoice_id );
@@ -80,7 +80,7 @@ class BERP_Invoice_Admin {
 			if ( is_wp_error( $result ) ) {
 				set_transient( 'berp_invoice_paid_error', $result->get_error_message(), 30 );
 			} else {
-				set_transient( 'berp_invoice_paid_success', __( 'Invoice marked as paid', 'builderp' ), 30 );
+				set_transient( 'berp_invoice_paid_success', __( 'Invoice marked as paid', 'BuildERP' ), 30 );
 			}
 
 			wp_safe_redirect( admin_url( 'edit.php?post_type=berp_invoice' ) );
@@ -99,18 +99,18 @@ class BERP_Invoice_Admin {
 		$invoice = berp_get_invoice( $invoice_id );
 
 		if ( ! $invoice ) {
-			return new WP_Error( 'invalid_invoice', __( 'Invalid invoice', 'builderp' ) );
+			return new WP_Error( 'invalid_invoice', __( 'Invalid invoice', 'BuildERP' ) );
 		}
 
 		// Get client email.
 		$client_id = get_post_meta( $invoice_id, '_berp_client_id', true );
 		if ( ! $client_id ) {
-			return new WP_Error( 'no_client', __( 'No client assigned to invoice', 'builderp' ) );
+			return new WP_Error( 'no_client', __( 'No client assigned to invoice', 'BuildERP' ) );
 		}
 
 		$client_email = get_post_meta( $client_id, '_berp_client_email', true );
 		if ( ! $client_email || ! is_email( $client_email ) ) {
-			return new WP_Error( 'invalid_email', __( 'Client email is invalid', 'builderp' ) );
+			return new WP_Error( 'invalid_email', __( 'Client email is invalid', 'BuildERP' ) );
 		}
 
 		// Generate PDF.
@@ -132,14 +132,14 @@ class BERP_Invoice_Admin {
 
 		$subject = sprintf(
 			/* translators: 1: Invoice number, 2: Company name */
-			__( 'Invoice %1$s from %2$s', 'builderp' ),
+			__( 'Invoice %1$s from %2$s', 'BuildERP' ),
 			$invoice_number,
 			$company_name
 		);
 
 		$message = sprintf(
 			/* translators: 1: Client name, 2: Invoice number, 3: Amount, 4: Due date, 5: Company name */
-			__( "Dear %1\$s,\n\nPlease find attached invoice %2\$s for %3\$s.\n\nPayment is due by %4\$s.\n\nThank you for your business.\n\nBest regards,\n%5\$s", 'builderp' ),
+			__( "Dear %1\$s,\n\nPlease find attached invoice %2\$s for %3\$s.\n\nPayment is due by %4\$s.\n\nThank you for your business.\n\nBest regards,\n%5\$s", 'BuildERP' ),
 			$client->post_title,
 			$invoice_number,
 			$currency . number_format( floatval( $grand_total ), 2 ),
@@ -166,7 +166,7 @@ class BERP_Invoice_Admin {
 		}
 
 		if ( ! $sent ) {
-			return new WP_Error( 'email_failed', __( 'Failed to send email', 'builderp' ) );
+			return new WP_Error( 'email_failed', __( 'Failed to send email', 'BuildERP' ) );
 		}
 
 		// Update invoice status and metadata.
@@ -195,7 +195,7 @@ class BERP_Invoice_Admin {
 		$invoice = berp_get_invoice( $invoice_id );
 
 		if ( ! $invoice ) {
-			return new WP_Error( 'invalid_invoice', __( 'Invalid invoice', 'builderp' ) );
+			return new WP_Error( 'invalid_invoice', __( 'Invalid invoice', 'BuildERP' ) );
 		}
 
 		$grand_total = floatval( get_post_meta( $invoice_id, '_berp_grand_total', true ) );
@@ -213,8 +213,8 @@ class BERP_Invoice_Admin {
 				'date'      => current_time( 'Y-m-d' ),
 				'amount'    => $remaining,
 				'method'    => 'other',
-				'reference' => __( 'Final payment', 'builderp' ),
-				'notes'     => __( 'Automatically recorded when marked as paid', 'builderp' ),
+				'reference' => __( 'Final payment', 'BuildERP' ),
+				'notes'     => __( 'Automatically recorded when marked as paid', 'BuildERP' ),
 			);
 
 			update_post_meta( $invoice_id, '_berp_payments', $payments );
@@ -251,11 +251,11 @@ class BERP_Invoice_Admin {
 		$invoice_id = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : 0;
 
 		if ( ! $invoice_id ) {
-			wp_die( esc_html__( 'Invalid invoice ID', 'builderp' ) );
+			wp_die( esc_html__( 'Invalid invoice ID', 'BuildERP' ) );
 		}
 
 		if ( ! current_user_can( 'berp_view_invoices', $invoice_id ) ) {
-			wp_die( esc_html__( 'You do not have permission', 'builderp' ) );
+			wp_die( esc_html__( 'You do not have permission', 'BuildERP' ) );
 		}
 
 		$pdf_generator = new BERP_Invoice_PDF();
@@ -274,11 +274,11 @@ class BERP_Invoice_Admin {
 		}
 
 		if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ), 'berp_export_invoices' ) ) {
-			wp_die( esc_html__( 'Security check failed', 'builderp' ) );
+			wp_die( esc_html__( 'Security check failed', 'BuildERP' ) );
 		}
 
 		if ( ! current_user_can( 'berp_manage_invoices' ) ) {
-			wp_die( esc_html__( 'You do not have permission', 'builderp' ) );
+			wp_die( esc_html__( 'You do not have permission', 'BuildERP' ) );
 		}
 
 		$exporter = new BERP_Invoice_CSV_Exporter();
@@ -318,9 +318,9 @@ class BERP_Invoice_Admin {
 			?>
 			<div class="notice notice-info">
 				<p>
-					<?php esc_html_e( 'Export invoices:', 'builderp' ); ?>
+					<?php esc_html_e( 'Export invoices:', 'BuildERP' ); ?>
 					<a href="<?php echo esc_url( wp_nonce_url( add_query_arg( 'berp_export_invoices', '1' ), 'berp_export_invoices' ) ); ?>" class="button button-secondary">
-						<?php esc_html_e( 'Export to CSV', 'builderp' ); ?>
+						<?php esc_html_e( 'Export to CSV', 'BuildERP' ); ?>
 					</a>
 				</p>
 			</div>

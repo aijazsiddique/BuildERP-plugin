@@ -51,14 +51,14 @@ class BERP_Expense_CSV_Exporter {
 
 		// Headers
 		$csv_data[] = array(
-			__( 'Title', 'builderp' ),
-			__( 'Date', 'builderp' ),
-			__( 'Amount', 'builderp' ),
-			__( 'Category', 'builderp' ),
-			__( 'Site', 'builderp' ),
-			__( 'Payment Method', 'builderp' ),
-			__( 'Description', 'builderp' ),
-			__( 'Recurring', 'builderp' ),
+			__( 'Title', 'BuildERP' ),
+			__( 'Date', 'BuildERP' ),
+			__( 'Amount', 'BuildERP' ),
+			__( 'Category', 'BuildERP' ),
+			__( 'Site', 'BuildERP' ),
+			__( 'Payment Method', 'BuildERP' ),
+			__( 'Description', 'BuildERP' ),
+			__( 'Recurring', 'BuildERP' ),
 		);
 
 		// Data rows
@@ -85,7 +85,7 @@ class BERP_Expense_CSV_Exporter {
 				$site_name,
 				ucfirst( str_replace( '_', ' ', $payment_method ) ),
 				$description,
-				$is_recurring == '1' ? __( 'Yes', 'builderp' ) : __( 'No', 'builderp' ),
+				$is_recurring == '1' ? __( 'Yes', 'BuildERP' ) : __( 'No', 'BuildERP' ),
 			);
 
 			$total_amount += $amount;
@@ -94,7 +94,7 @@ class BERP_Expense_CSV_Exporter {
 		// Add total row
 		$csv_data[] = array();
 		$csv_data[] = array(
-			__( 'TOTAL', 'builderp' ),
+			__( 'TOTAL', 'BuildERP' ),
 			'',
 			$currency_symbol . number_format( $total_amount, 2 ),
 			'',

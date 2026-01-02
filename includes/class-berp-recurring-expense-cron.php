@@ -141,7 +141,7 @@ class BERP_Recurring_Expense_Cron {
 		$template = get_post( $template_id );
 
 		if ( ! $template || $template->post_type !== 'berp_expense' ) {
-			return new WP_Error( 'berp_invalid_template', __( 'Invalid expense template', 'builderp' ) );
+			return new WP_Error( 'berp_invalid_template', __( 'Invalid expense template', 'BuildERP' ) );
 		}
 
 		// Create new expense post

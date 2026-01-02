@@ -46,15 +46,15 @@ class BERP_Invoice_List_Table {
 	public function add_columns( $columns ) {
 		$new_columns = array(
 			'cb'           => $columns['cb'],
-			'title'        => __( 'Invoice #', 'builderp' ),
-			'client'       => __( 'Client', 'builderp' ),
-			'site'         => __( 'Site', 'builderp' ),
-			'invoice_date' => __( 'Date', 'builderp' ),
-			'due_date'     => __( 'Due Date', 'builderp' ),
-			'status'       => __( 'Status', 'builderp' ),
-			'grand_total'  => __( 'Total', 'builderp' ),
-			'amount_paid'  => __( 'Paid', 'builderp' ),
-			'amount_due'   => __( 'Due', 'builderp' ),
+			'title'        => __( 'Invoice #', 'BuildERP' ),
+			'client'       => __( 'Client', 'BuildERP' ),
+			'site'         => __( 'Site', 'BuildERP' ),
+			'invoice_date' => __( 'Date', 'BuildERP' ),
+			'due_date'     => __( 'Due Date', 'BuildERP' ),
+			'status'       => __( 'Status', 'BuildERP' ),
+			'grand_total'  => __( 'Total', 'BuildERP' ),
+			'amount_paid'  => __( 'Paid', 'BuildERP' ),
+			'amount_due'   => __( 'Due', 'BuildERP' ),
 		);
 		return $new_columns;
 	}
@@ -106,7 +106,7 @@ class BERP_Invoice_List_Table {
 					if ( $is_overdue && ! in_array( $status, array( 'paid', 'cancelled' ), true ) ) {
 						$days_overdue = berp_get_invoice_days_overdue( $post_id );
 						/* translators: %d: number of overdue days */
-						echo ' <strong>(' . esc_html( sprintf( __( '%d days overdue', 'builderp' ), $days_overdue ) ) . ')</strong>';
+						echo ' <strong>(' . esc_html( sprintf( __( '%d days overdue', 'BuildERP' ), $days_overdue ) ) . ')</strong>';
 					}
 					echo '</span>';
 				} else {
@@ -231,7 +231,7 @@ class BERP_Invoice_List_Table {
 		$selected_client = isset( $_GET['berp_client_filter'] ) ? absint( $_GET['berp_client_filter'] ) : 0;
 		?>
 		<select name="berp_client_filter">
-			<option value=""><?php esc_html_e( 'All Clients', 'builderp' ); ?></option>
+			<option value=""><?php esc_html_e( 'All Clients', 'BuildERP' ); ?></option>
 			<?php foreach ( $clients as $client ) : ?>
 				<option value="<?php echo esc_attr( $client->ID ); ?>" <?php selected( $selected_client, $client->ID ); ?>>
 					<?php echo esc_html( $client->post_title ); ?>
@@ -254,7 +254,7 @@ class BERP_Invoice_List_Table {
 		$selected_site = isset( $_GET['berp_site_filter'] ) ? absint( $_GET['berp_site_filter'] ) : 0;
 		?>
 		<select name="berp_site_filter">
-			<option value=""><?php esc_html_e( 'All Sites', 'builderp' ); ?></option>
+			<option value=""><?php esc_html_e( 'All Sites', 'BuildERP' ); ?></option>
 			<?php foreach ( $sites as $site ) : ?>
 				<option value="<?php echo esc_attr( $site->ID ); ?>" <?php selected( $selected_site, $site->ID ); ?>>
 					<?php echo esc_html( $site->post_title ); ?>
@@ -268,7 +268,7 @@ class BERP_Invoice_List_Table {
 		$selected_status = isset( $_GET['berp_status_filter'] ) ? sanitize_text_field( $_GET['berp_status_filter'] ) : '';
 		?>
 		<select name="berp_status_filter">
-			<option value=""><?php esc_html_e( 'All Statuses', 'builderp' ); ?></option>
+			<option value=""><?php esc_html_e( 'All Statuses', 'BuildERP' ); ?></option>
 			<?php foreach ( $statuses as $status ) : ?>
 				<option value="<?php echo esc_attr( $status ); ?>" <?php selected( $selected_status, $status ); ?>>
 					<?php echo esc_html( berp_get_invoice_status_label( $status ) ); ?>
@@ -279,16 +279,16 @@ class BERP_Invoice_List_Table {
 		<?php
 		// Aging filter.
 		$aging_options  = array(
-			'current' => __( 'Current (not due)', 'builderp' ),
-			'1-30'    => __( '1-30 days overdue', 'builderp' ),
-			'31-60'   => __( '31-60 days overdue', 'builderp' ),
-			'61-90'   => __( '61-90 days overdue', 'builderp' ),
-			'90+'     => __( '90+ days overdue', 'builderp' ),
+			'current' => __( 'Current (not due)', 'BuildERP' ),
+			'1-30'    => __( '1-30 days overdue', 'BuildERP' ),
+			'31-60'   => __( '31-60 days overdue', 'BuildERP' ),
+			'61-90'   => __( '61-90 days overdue', 'BuildERP' ),
+			'90+'     => __( '90+ days overdue', 'BuildERP' ),
 		);
 		$selected_aging = isset( $_GET['berp_aging_filter'] ) ? sanitize_text_field( $_GET['berp_aging_filter'] ) : '';
 		?>
 		<select name="berp_aging_filter">
-			<option value=""><?php esc_html_e( 'All Ages', 'builderp' ); ?></option>
+			<option value=""><?php esc_html_e( 'All Ages', 'BuildERP' ); ?></option>
 			<?php foreach ( $aging_options as $key => $label ) : ?>
 				<option value="<?php echo esc_attr( $key ); ?>" <?php selected( $selected_aging, $key ); ?>>
 					<?php echo esc_html( $label ); ?>
@@ -436,7 +436,7 @@ class BERP_Invoice_List_Table {
 					admin_url( 'admin-ajax.php' )
 				)
 			),
-			__( 'View PDF', 'builderp' )
+			__( 'View PDF', 'BuildERP' )
 		);
 
 		// Add "Send to Client" action.
@@ -454,7 +454,7 @@ class BERP_Invoice_List_Table {
 						'berp_send_invoice_' . $post->ID
 					)
 				),
-				__( 'Send to Client', 'builderp' )
+				__( 'Send to Client', 'BuildERP' )
 			);
 		}
 
@@ -463,7 +463,7 @@ class BERP_Invoice_List_Table {
 			$actions['record_payment'] = sprintf(
 				'<a href="%s">%s</a>',
 				esc_url( get_edit_post_link( $post->ID ) . '#payments-tab' ),
-				__( 'Record Payment', 'builderp' )
+				__( 'Record Payment', 'BuildERP' )
 			);
 		}
 
@@ -482,7 +482,7 @@ class BERP_Invoice_List_Table {
 						'berp_mark_paid_' . $post->ID
 					)
 				),
-				__( 'Mark as Paid', 'builderp' )
+				__( 'Mark as Paid', 'BuildERP' )
 			);
 		}
 

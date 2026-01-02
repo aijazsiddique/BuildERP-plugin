@@ -117,20 +117,20 @@ class BERP_Expense_PDF_Exporter {
 		</head>
 		<body>
 			<h1><?php echo esc_html( $company_name ); ?></h1>
-			<h2><?php esc_html_e( 'Expense Report', 'builderp' ); ?></h2>
+			<h2><?php esc_html_e( 'Expense Report', 'BuildERP' ); ?></h2>
 
 			<div class="meta-info">
 				<?php
 				/* translators: %s: generated date */
 				printf(
-					esc_html__( 'Generated on %s', 'builderp' ),
+					esc_html__( 'Generated on %s', 'BuildERP' ),
 					esc_html( date_i18n( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ) )
 				);
 				?>
 				<br>
 				<?php
 				if ( ! empty( $args['meta_query'] ) || ! empty( $args['date_query'] ) ) {
-					esc_html_e( 'Filtered Results', 'builderp' );
+					esc_html_e( 'Filtered Results', 'BuildERP' );
 				}
 				?>
 			</div>
@@ -138,11 +138,11 @@ class BERP_Expense_PDF_Exporter {
 			<table>
 				<thead>
 					<tr>
-						<th><?php esc_html_e( 'Date', 'builderp' ); ?></th>
-						<th><?php esc_html_e( 'Title', 'builderp' ); ?></th>
-						<th><?php esc_html_e( 'Category', 'builderp' ); ?></th>
-						<th><?php esc_html_e( 'Site', 'builderp' ); ?></th>
-						<th class="text-right"><?php esc_html_e( 'Amount', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Date', 'BuildERP' ); ?></th>
+						<th><?php esc_html_e( 'Title', 'BuildERP' ); ?></th>
+						<th><?php esc_html_e( 'Category', 'BuildERP' ); ?></th>
+						<th><?php esc_html_e( 'Site', 'BuildERP' ); ?></th>
+						<th class="text-right"><?php esc_html_e( 'Amount', 'BuildERP' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -180,7 +180,7 @@ class BERP_Expense_PDF_Exporter {
 					}
 					?>
 					<tr class="total-row">
-						<td colspan="4" class="text-right"><strong><?php esc_html_e( 'TOTAL:', 'builderp' ); ?></strong></td>
+						<td colspan="4" class="text-right"><strong><?php esc_html_e( 'TOTAL:', 'BuildERP' ); ?></strong></td>
 						<td class="text-right"><strong><?php echo esc_html( $currency_symbol . number_format( $total_amount, 2 ) ); ?></strong></td>
 					</tr>
 				</tbody>
@@ -190,7 +190,7 @@ class BERP_Expense_PDF_Exporter {
 				<?php
 				/* translators: %d: total expenses count */
 				printf(
-					esc_html__( 'Total Expenses: %d', 'builderp' ),
+					esc_html__( 'Total Expenses: %d', 'BuildERP' ),
 					count( $expenses )
 				);
 				?>
@@ -220,7 +220,7 @@ class BERP_Expense_PDF_Exporter {
 			wp_die(
 				sprintf(
 					/* translators: %s: Error message */
-					esc_html__( 'PDF generation failed: %s', 'builderp' ),
+					esc_html__( 'PDF generation failed: %s', 'BuildERP' ),
 					esc_html( $e->getMessage() )
 				)
 			);

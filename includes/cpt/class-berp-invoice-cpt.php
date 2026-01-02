@@ -26,19 +26,19 @@ class BERP_Invoice_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Invoices', 'Post type general name', 'builderp' ),
-			'singular_name'      => _x( 'Invoice', 'Post type singular name', 'builderp' ),
-			'menu_name'          => _x( 'Invoices', 'Admin Menu text', 'builderp' ),
-			'name_admin_bar'     => _x( 'Invoice', 'Add New on Toolbar', 'builderp' ),
-			'add_new'            => __( 'Add New', 'builderp' ),
-			'add_new_item'       => __( 'Add New Invoice', 'builderp' ),
-			'new_item'           => __( 'New Invoice', 'builderp' ),
-			'edit_item'          => __( 'Edit Invoice', 'builderp' ),
-			'view_item'          => __( 'View Invoice', 'builderp' ),
-			'all_items'          => __( 'All Invoices', 'builderp' ),
-			'search_items'       => __( 'Search Invoices', 'builderp' ),
-			'not_found'          => __( 'No invoices found.', 'builderp' ),
-			'not_found_in_trash' => __( 'No invoices found in Trash.', 'builderp' ),
+			'name'               => _x( 'Invoices', 'Post type general name', 'BuildERP' ),
+			'singular_name'      => _x( 'Invoice', 'Post type singular name', 'BuildERP' ),
+			'menu_name'          => _x( 'Invoices', 'Admin Menu text', 'BuildERP' ),
+			'name_admin_bar'     => _x( 'Invoice', 'Add New on Toolbar', 'BuildERP' ),
+			'add_new'            => __( 'Add New', 'BuildERP' ),
+			'add_new_item'       => __( 'Add New Invoice', 'BuildERP' ),
+			'new_item'           => __( 'New Invoice', 'BuildERP' ),
+			'edit_item'          => __( 'Edit Invoice', 'BuildERP' ),
+			'view_item'          => __( 'View Invoice', 'BuildERP' ),
+			'all_items'          => __( 'All Invoices', 'BuildERP' ),
+			'search_items'       => __( 'Search Invoices', 'BuildERP' ),
+			'not_found'          => __( 'No invoices found.', 'BuildERP' ),
+			'not_found_in_trash' => __( 'No invoices found in Trash.', 'BuildERP' ),
 		);
 
 		$args = array(

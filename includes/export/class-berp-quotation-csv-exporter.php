@@ -41,15 +41,15 @@ class BERP_Quotation_CSV_Exporter {
 		fputcsv(
 			$output,
 			array(
-				__( 'Quotation #', 'builderp' ),
-				__( 'Client', 'builderp' ),
-				__( 'Date', 'builderp' ),
-				__( 'Valid Until', 'builderp' ),
-				__( 'Status', 'builderp' ),
-				__( 'Subtotal', 'builderp' ),
-				__( 'Tax', 'builderp' ),
-				__( 'Discount', 'builderp' ),
-				__( 'Total', 'builderp' ),
+				__( 'Quotation #', 'BuildERP' ),
+				__( 'Client', 'BuildERP' ),
+				__( 'Date', 'BuildERP' ),
+				__( 'Valid Until', 'BuildERP' ),
+				__( 'Status', 'BuildERP' ),
+				__( 'Subtotal', 'BuildERP' ),
+				__( 'Tax', 'BuildERP' ),
+				__( 'Discount', 'BuildERP' ),
+				__( 'Total', 'BuildERP' ),
 			)
 		);
 

@@ -26,19 +26,19 @@ class BERP_Payroll_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Payroll', 'Post type general name', 'builderp' ),
-			'singular_name'      => _x( 'Payroll Record', 'Post type singular name', 'builderp' ),
-			'menu_name'          => _x( 'Payroll', 'Admin Menu text', 'builderp' ),
-			'name_admin_bar'     => _x( 'Payroll', 'Add New on Toolbar', 'builderp' ),
-			'add_new'            => __( 'Process Payroll', 'builderp' ),
-			'add_new_item'       => __( 'Process Payroll', 'builderp' ),
-			'new_item'           => __( 'New Payroll Record', 'builderp' ),
-			'edit_item'          => __( 'Edit Payroll Record', 'builderp' ),
-			'view_item'          => __( 'View Payroll Record', 'builderp' ),
-			'all_items'          => __( 'All Payroll', 'builderp' ),
-			'search_items'       => __( 'Search Payroll', 'builderp' ),
-			'not_found'          => __( 'No payroll records found.', 'builderp' ),
-			'not_found_in_trash' => __( 'No payroll records found in Trash.', 'builderp' ),
+			'name'               => _x( 'Payroll', 'Post type general name', 'BuildERP' ),
+			'singular_name'      => _x( 'Payroll Record', 'Post type singular name', 'BuildERP' ),
+			'menu_name'          => _x( 'Payroll', 'Admin Menu text', 'BuildERP' ),
+			'name_admin_bar'     => _x( 'Payroll', 'Add New on Toolbar', 'BuildERP' ),
+			'add_new'            => __( 'Process Payroll', 'BuildERP' ),
+			'add_new_item'       => __( 'Process Payroll', 'BuildERP' ),
+			'new_item'           => __( 'New Payroll Record', 'BuildERP' ),
+			'edit_item'          => __( 'Edit Payroll Record', 'BuildERP' ),
+			'view_item'          => __( 'View Payroll Record', 'BuildERP' ),
+			'all_items'          => __( 'All Payroll', 'BuildERP' ),
+			'search_items'       => __( 'Search Payroll', 'BuildERP' ),
+			'not_found'          => __( 'No payroll records found.', 'BuildERP' ),
+			'not_found_in_trash' => __( 'No payroll records found in Trash.', 'BuildERP' ),
 		);
 
 		$args = array(

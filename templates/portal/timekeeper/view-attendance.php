@@ -52,7 +52,7 @@ $sites = get_posts(
 
 <div class="berp-portal-card">
 	<div class="berp-card-header">
-		<h3><?php esc_html_e( 'Attendance Records', 'builderp' ); ?></h3>
+		<h3><?php esc_html_e( 'Attendance Records', 'BuildERP' ); ?></h3>
 	</div>
 	<div class="berp-card-body">
 		<form method="get" class="berp-filter-form">
@@ -61,19 +61,19 @@ $sites = get_posts(
 			
 			<div class="berp-form-row">
 				<div class="berp-form-group berp-col-4">
-					<input type="date" name="date" class="berp-form-control" value="<?php echo esc_attr( $date_filter ); ?>" placeholder="<?php esc_attr_e( 'Filter by Date', 'builderp' ); ?>">
+					<input type="date" name="date" class="berp-form-control" value="<?php echo esc_attr( $date_filter ); ?>" placeholder="<?php esc_attr_e( 'Filter by Date', 'BuildERP' ); ?>">
 				</div>
 				<div class="berp-form-group berp-col-4">
 					<select name="site" class="berp-form-control">
-						<option value=""><?php esc_html_e( 'All Sites', 'builderp' ); ?></option>
+						<option value=""><?php esc_html_e( 'All Sites', 'BuildERP' ); ?></option>
 						<?php foreach ( $sites as $site_id ) : ?>
 							<option value="<?php echo esc_attr( $site_id ); ?>" <?php selected( $site_filter, $site_id ); ?>><?php echo esc_html( get_the_title( $site_id ) ); ?></option>
 						<?php endforeach; ?>
 					</select>
 				</div>
 				<div class="berp-form-group berp-col-4">
-					<button type="submit" class="berp-btn berp-btn-primary"><?php esc_html_e( 'Filter', 'builderp' ); ?></button>
-					<a href="<?php echo esc_url( remove_query_arg( array( 'date', 'site' ) ) ); ?>" class="berp-btn berp-btn-outline"><?php esc_html_e( 'Reset', 'builderp' ); ?></a>
+					<button type="submit" class="berp-btn berp-btn-primary"><?php esc_html_e( 'Filter', 'BuildERP' ); ?></button>
+					<a href="<?php echo esc_url( remove_query_arg( array( 'date', 'site' ) ) ); ?>" class="berp-btn berp-btn-outline"><?php esc_html_e( 'Reset', 'BuildERP' ); ?></a>
 				</div>
 			</div>
 		</form>
@@ -82,11 +82,11 @@ $sites = get_posts(
 			<table class="berp-portal-table">
 				<thead>
 					<tr>
-						<th><?php esc_html_e( 'Date', 'builderp' ); ?></th>
-						<th><?php esc_html_e( 'Employee', 'builderp' ); ?></th>
-						<th><?php esc_html_e( 'Site', 'builderp' ); ?></th>
-						<th><?php esc_html_e( 'Overtime', 'builderp' ); ?></th>
-						<th><?php esc_html_e( 'Logged By', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Date', 'BuildERP' ); ?></th>
+						<th><?php esc_html_e( 'Employee', 'BuildERP' ); ?></th>
+						<th><?php esc_html_e( 'Site', 'BuildERP' ); ?></th>
+						<th><?php esc_html_e( 'Overtime', 'BuildERP' ); ?></th>
+						<th><?php esc_html_e( 'Logged By', 'BuildERP' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -130,8 +130,8 @@ $sites = get_posts(
 				?>
 			</div>
 		<?php else : ?>
-			<p class="berp-no-data"><?php esc_html_e( 'No attendance records found.', 'builderp' ); ?></p>
-			<p class="berp-help-text"><?php esc_html_e( 'Submit attendance from the "Log Attendance" page to see records here.', 'builderp' ); ?></p>
+			<p class="berp-no-data"><?php esc_html_e( 'No attendance records found.', 'BuildERP' ); ?></p>
+			<p class="berp-help-text"><?php esc_html_e( 'Submit attendance from the "Log Attendance" page to see records here.', 'BuildERP' ); ?></p>
 		<?php endif; ?>
 		<?php wp_reset_postdata(); ?>
 	</div>

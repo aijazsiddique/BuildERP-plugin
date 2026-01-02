@@ -66,7 +66,7 @@ class BERP_Employee_Metaboxes {
 	public function register_meta_boxes() {
 		add_meta_box(
 			'berp-employee-main',
-			__( 'Employee Details', 'builderp' ),
+			__( 'Employee Details', 'BuildERP' ),
 			array( $this, 'render_main_metabox' ),
 			'berp_employee',
 			'normal',
@@ -116,44 +116,44 @@ class BERP_Employee_Metaboxes {
 		?>
 		<div class="berp-metabox-content">
 			<div class="berp-metabox-layout">
-				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Employee sections', 'builderp' ); ?>">
-					<button type="button" class="berp-metabox-tab is-active" data-tab-target="berp-emp-details"><?php esc_html_e( 'Details', 'builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="berp-emp-salary"><?php esc_html_e( 'Salary', 'builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="berp-emp-documents"><?php esc_html_e( 'Documents', 'builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="berp-emp-portal"><?php esc_html_e( 'Portal Access', 'builderp' ); ?></button>
+				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Employee sections', 'BuildERP' ); ?>">
+					<button type="button" class="berp-metabox-tab is-active" data-tab-target="berp-emp-details"><?php esc_html_e( 'Details', 'BuildERP' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="berp-emp-salary"><?php esc_html_e( 'Salary', 'BuildERP' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="berp-emp-documents"><?php esc_html_e( 'Documents', 'BuildERP' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="berp-emp-portal"><?php esc_html_e( 'Portal Access', 'BuildERP' ); ?></button>
 				</nav>
 
 				<div class="berp-metabox-panels">
 					<div class="berp-metabox-panel is-active" data-tab-panel="berp-emp-details">
 						<div class="berp-metabox-grid">
 						<div class="berp-field-group">
-							<label for="berp_employee_id"><?php esc_html_e( 'Employee ID', 'builderp' ); ?></label>
+							<label for="berp_employee_id"><?php esc_html_e( 'Employee ID', 'BuildERP' ); ?></label>
 							<input type="text" id="berp_employee_id" name="berp_employee_details[employee_id]" value="<?php echo esc_attr( $values['employee_id'] ); ?>" />
-							<p class="description"><?php esc_html_e( 'Unique employee number used across attendance and payroll.', 'builderp' ); ?></p>
+							<p class="description"><?php esc_html_e( 'Unique employee number used across attendance and payroll.', 'BuildERP' ); ?></p>
 						</div>
 
 						<div class="berp-field-group">
-							<label for="berp_employee_email"><?php esc_html_e( 'Email', 'builderp' ); ?></label>
+							<label for="berp_employee_email"><?php esc_html_e( 'Email', 'BuildERP' ); ?></label>
 							<input type="email" id="berp_employee_email" name="berp_employee_details[email]" value="<?php echo esc_attr( $values['email'] ); ?>" />
 						</div>
 
 						<div class="berp-field-group">
-							<label for="berp_employee_phone"><?php esc_html_e( 'Phone', 'builderp' ); ?></label>
+							<label for="berp_employee_phone"><?php esc_html_e( 'Phone', 'BuildERP' ); ?></label>
 							<input type="text" id="berp_employee_phone" name="berp_employee_details[phone]" value="<?php echo esc_attr( $values['phone'] ); ?>" />
 						</div>
 
 						<div class="berp-field-group">
-							<label for="berp_employee_address"><?php esc_html_e( 'Address', 'builderp' ); ?></label>
+							<label for="berp_employee_address"><?php esc_html_e( 'Address', 'BuildERP' ); ?></label>
 							<textarea id="berp_employee_address" name="berp_employee_details[address]" rows="3"><?php echo esc_textarea( $values['address'] ); ?></textarea>
 						</div>
 
 						<div class="berp-field-group">
-							<label for="berp_employee_hire_date"><?php esc_html_e( 'Hire Date', 'builderp' ); ?></label>
+							<label for="berp_employee_hire_date"><?php esc_html_e( 'Hire Date', 'BuildERP' ); ?></label>
 							<input type="date" id="berp_employee_hire_date" name="berp_employee_details[hire_date]" value="<?php echo esc_attr( $values['hire_date'] ); ?>" />
 						</div>
 
 						<div class="berp-field-group">
-							<label for="berp_employee_status"><?php esc_html_e( 'Status', 'builderp' ); ?></label>
+							<label for="berp_employee_status"><?php esc_html_e( 'Status', 'BuildERP' ); ?></label>
 							<select id="berp_employee_status" name="berp_employee_details[status]">
 								<?php foreach ( $statuses as $status_key => $status_label ) : ?>
 									<option value="<?php echo esc_attr( $status_key ); ?>" <?php selected( $values['status'], $status_key ); ?>>
@@ -165,7 +165,7 @@ class BERP_Employee_Metaboxes {
 
 		<?php if ( ! empty( $custom_fields ) ) : ?>
 							<div class="berp-custom-fields">
-								<h4><?php esc_html_e( 'Custom Fields', 'builderp' ); ?></h4>
+								<h4><?php esc_html_e( 'Custom Fields', 'BuildERP' ); ?></h4>
 								<div class="berp-metabox-grid">
 			<?php foreach ( $custom_fields as $field ) : ?>
 				<?php
@@ -211,7 +211,7 @@ class BERP_Employee_Metaboxes {
 					case 'select':
 						?>
 												<select id="berp_cf_<?php echo esc_attr( $field_key ); ?>" name="berp_employee_custom[<?php echo esc_attr( $field_key ); ?>]">
-													<option value=""><?php esc_html_e( 'Select', 'builderp' ); ?></option>
+													<option value=""><?php esc_html_e( 'Select', 'BuildERP' ); ?></option>
 						<?php foreach ( $field_opts as $opt ) : ?>
 														<option value="<?php echo esc_attr( $opt ); ?>" <?php selected( $field_value, $opt ); ?>><?php echo esc_html( $opt ); ?></option>
 					<?php endforeach; ?>
@@ -220,7 +220,7 @@ class BERP_Employee_Metaboxes {
 						break;
 					case 'checkbox':
 						?>
-												<label><input type="checkbox" id="berp_cf_<?php echo esc_attr( $field_key ); ?>" name="berp_employee_custom[<?php echo esc_attr( $field_key ); ?>]" value="1" <?php checked( ! empty( $field_value ), true ); ?> /> <?php esc_html_e( 'Yes', 'builderp' ); ?></label>
+												<label><input type="checkbox" id="berp_cf_<?php echo esc_attr( $field_key ); ?>" name="berp_employee_custom[<?php echo esc_attr( $field_key ); ?>]" value="1" <?php checked( ! empty( $field_value ), true ); ?> /> <?php esc_html_e( 'Yes', 'BuildERP' ); ?></label>
 						<?php
 						break;
 					default:
@@ -241,24 +241,24 @@ class BERP_Employee_Metaboxes {
 					<div class="berp-metabox-panel" data-tab-panel="berp-emp-salary">
 						<div class="berp-metabox-grid">
 							<div class="berp-field-group">
-								<label for="berp_basic_salary"><?php esc_html_e( 'Basic Salary', 'builderp' ); ?></label>
+								<label for="berp_basic_salary"><?php esc_html_e( 'Basic Salary', 'BuildERP' ); ?></label>
 								<input type="number" id="berp_basic_salary" name="berp_employee_salary[basic_salary]" value="<?php echo esc_attr( $basic_salary ); ?>" step="0.01" min="0" />
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_account_balance"><?php esc_html_e( 'Account Balance', 'builderp' ); ?></label>
+								<label for="berp_account_balance"><?php esc_html_e( 'Account Balance', 'BuildERP' ); ?></label>
 								<input type="number" id="berp_account_balance" name="berp_employee_salary[account_balance]" value="<?php echo esc_attr( $account_balance ); ?>" step="0.01" />
-								<p class="description"><?php esc_html_e( 'Track advances or dues. Negative values indicate employee owes the company.', 'builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Track advances or dues. Negative values indicate employee owes the company.', 'BuildERP' ); ?></p>
 							</div>
 
 							<div class="berp-field-group">
-								<label><?php esc_html_e( 'Allowances', 'builderp' ); ?></label>
-			<?php $this->render_repeater( 'berp_employee_salary[allowances]', $allowances, __( 'Add Allowance', 'builderp' ) ); ?>
+								<label><?php esc_html_e( 'Allowances', 'BuildERP' ); ?></label>
+			<?php $this->render_repeater( 'berp_employee_salary[allowances]', $allowances, __( 'Add Allowance', 'BuildERP' ) ); ?>
 							</div>
 
 							<div class="berp-field-group">
-								<label><?php esc_html_e( 'Deductions', 'builderp' ); ?></label>
-			<?php $this->render_repeater( 'berp_employee_salary[deductions]', $deductions, __( 'Add Deduction', 'builderp' ) ); ?>
+								<label><?php esc_html_e( 'Deductions', 'BuildERP' ); ?></label>
+			<?php $this->render_repeater( 'berp_employee_salary[deductions]', $deductions, __( 'Add Deduction', 'BuildERP' ) ); ?>
 							</div>
 						</div>
 					</div>
@@ -266,8 +266,8 @@ class BERP_Employee_Metaboxes {
 					<div class="berp-metabox-panel" data-tab-panel="berp-emp-documents">
 						<div class="berp-metabox-grid">
 							<div class="berp-field-group">
-								<label><?php esc_html_e( 'Employee Documents', 'builderp' ); ?></label>
-			<?php $this->render_document_repeater( 'berp_employee_documents', $documents, __( 'Add Document', 'builderp' ) ); ?>
+								<label><?php esc_html_e( 'Employee Documents', 'BuildERP' ); ?></label>
+			<?php $this->render_document_repeater( 'berp_employee_documents', $documents, __( 'Add Document', 'BuildERP' ) ); ?>
 							</div>
 						</div>
 					</div>
@@ -299,8 +299,8 @@ class BERP_Employee_Metaboxes {
 		?>
 		<div class="berp-metabox-content">
 			<div class="berp-field-group">
-				<label><?php esc_html_e( 'Documents', 'builderp' ); ?></label>
-		<?php $this->render_document_repeater( 'berp_employee_documents', $documents, __( 'Add Document', 'builderp' ) ); ?>
+				<label><?php esc_html_e( 'Documents', 'BuildERP' ); ?></label>
+		<?php $this->render_document_repeater( 'berp_employee_documents', $documents, __( 'Add Document', 'BuildERP' ) ); ?>
 			</div>
 		</div>
 		<?php
@@ -335,15 +335,15 @@ class BERP_Employee_Metaboxes {
 		$email       = isset( $details['email'] ) ? sanitize_email( $details['email'] ) : '';
 
 		if ( ! empty( $employee_id ) && $this->is_duplicate_meta( $this->meta_keys['employee_id'], $employee_id, $post_id ) ) {
-			$this->add_notice( 'error', __( 'Employee ID must be unique. Duplicate ID found.', 'builderp' ) );
+			$this->add_notice( 'error', __( 'Employee ID must be unique. Duplicate ID found.', 'BuildERP' ) );
 			$employee_id = get_post_meta( $post_id, $this->meta_keys['employee_id'], true );
 		}
 
 		if ( ! empty( $email ) && ! is_email( $email ) ) {
-			$this->add_notice( 'error', __( 'Please enter a valid email address.', 'builderp' ) );
+			$this->add_notice( 'error', __( 'Please enter a valid email address.', 'BuildERP' ) );
 			$email = get_post_meta( $post_id, $this->meta_keys['email'], true );
 		} elseif ( ! empty( $email ) && $this->is_duplicate_meta( $this->meta_keys['email'], $email, $post_id ) ) {
-			$this->add_notice( 'error', __( 'Email must be unique. Duplicate email found.', 'builderp' ) );
+			$this->add_notice( 'error', __( 'Email must be unique. Duplicate email found.', 'BuildERP' ) );
 			$email = get_post_meta( $post_id, $this->meta_keys['email'], true );
 		}
 
@@ -416,11 +416,11 @@ class BERP_Employee_Metaboxes {
 			$new_columns[ $key ] = $label;
 
 			if ( 'title' === $key ) {
-				$new_columns['employee_id']   = __( 'Employee ID', 'builderp' );
-				$new_columns['status']        = __( 'Status', 'builderp' );
-				$new_columns['basic_salary']  = __( 'Basic Salary', 'builderp' );
-				$new_columns['hire_date']     = __( 'Hire Date', 'builderp' );
-				$new_columns['portal_access'] = __( 'Portal Access', 'builderp' );
+				$new_columns['employee_id']   = __( 'Employee ID', 'BuildERP' );
+				$new_columns['status']        = __( 'Status', 'BuildERP' );
+				$new_columns['basic_salary']  = __( 'Basic Salary', 'BuildERP' );
+				$new_columns['hire_date']     = __( 'Hire Date', 'BuildERP' );
+				$new_columns['portal_access'] = __( 'Portal Access', 'BuildERP' );
 			}
 		}
 
@@ -443,7 +443,7 @@ class BERP_Employee_Metaboxes {
 			case 'status':
 				$status   = get_post_meta( $post_id, $this->meta_keys['status'], true );
 				$statuses = $this->get_statuses();
-				echo esc_html( isset( $statuses[ $status ] ) ? $statuses[ $status ] : __( 'Active', 'builderp' ) );
+				echo esc_html( isset( $statuses[ $status ] ) ? $statuses[ $status ] : __( 'Active', 'BuildERP' ) );
 				break;
 			case 'basic_salary':
 				$salary = get_post_meta( $post_id, $this->meta_keys['basic_salary'], true );
@@ -459,11 +459,11 @@ class BERP_Employee_Metaboxes {
 				$user_exists    = $linked_user_id && get_userdata( $linked_user_id );
 
 				if ( $portal_enabled && $user_exists ) {
-					echo '<span class="berp-portal-badge berp-portal-enabled">' . esc_html__( 'Enabled', 'builderp' ) . '</span>';
+					echo '<span class="berp-portal-badge berp-portal-enabled">' . esc_html__( 'Enabled', 'BuildERP' ) . '</span>';
 				} elseif ( $portal_enabled && ! $user_exists ) {
-					echo '<span class="berp-portal-badge berp-portal-pending">' . esc_html__( 'Pending', 'builderp' ) . '</span>';
+					echo '<span class="berp-portal-badge berp-portal-pending">' . esc_html__( 'Pending', 'BuildERP' ) . '</span>';
 				} else {
-					echo '<span class="berp-portal-badge berp-portal-disabled">' . esc_html__( 'Disabled', 'builderp' ) . '</span>';
+					echo '<span class="berp-portal-badge berp-portal-disabled">' . esc_html__( 'Disabled', 'BuildERP' ) . '</span>';
 				}
 				break;
 		}
@@ -568,9 +568,9 @@ class BERP_Employee_Metaboxes {
 	 */
 	protected function get_statuses() {
 		return array(
-			'active'   => __( 'Active', 'builderp' ),
-			'inactive' => __( 'Inactive', 'builderp' ),
-			'on_leave' => __( 'On Leave', 'builderp' ),
+			'active'   => __( 'Active', 'BuildERP' ),
+			'inactive' => __( 'Inactive', 'BuildERP' ),
+			'on_leave' => __( 'On Leave', 'BuildERP' ),
 		);
 	}
 
@@ -641,7 +641,7 @@ class BERP_Employee_Metaboxes {
 			$total_inst   = get_post_meta( $advance_id, '_berp_installments', true );
 			$advance_info = sprintf(
 				/* translators: 1: Remaining amount, 2: Total amount, 3: Paid installments, 4: Total installments */
-				__( 'Remaining: %1$s of %2$s | Installments: %3$d/%4$d', 'builderp' ),
+				__( 'Remaining: %1$s of %2$s | Installments: %3$d/%4$d', 'BuildERP' ),
 				berp_format_currency( $remaining ),
 				berp_format_currency( $total ),
 				absint( $paid ),
@@ -652,16 +652,16 @@ class BERP_Employee_Metaboxes {
 		?>
 		<div class="<?php echo esc_attr( $class ); ?>"<?php if ( $is_template ) : ?> style="display:none;" aria-hidden="true"<?php endif; ?>>
 			<?php if ( ! $is_advance ) : ?>
-				<span class="berp-repeater-remove dashicons dashicons-no-alt" aria-label="<?php esc_attr_e( 'Remove item', 'builderp' ); ?>"></span>
+				<span class="berp-repeater-remove dashicons dashicons-no-alt" aria-label="<?php esc_attr_e( 'Remove item', 'BuildERP' ); ?>"></span>
 			<?php else : ?>
-				<span class="berp-advance-icon dashicons dashicons-money-alt" title="<?php esc_attr_e( 'Advance Repayment (Auto-managed)', 'builderp' ); ?>"></span>
+				<span class="berp-advance-icon dashicons dashicons-money-alt" title="<?php esc_attr_e( 'Advance Repayment (Auto-managed)', 'BuildERP' ); ?>"></span>
 			<?php endif; ?>
 			<div class="berp-field-group">
-				<label><?php esc_html_e( 'Label', 'builderp' ); ?></label>
+				<label><?php esc_html_e( 'Label', 'BuildERP' ); ?></label>
 				<input type="text" name="<?php echo esc_attr( $name ); ?>[<?php echo esc_attr( $key ); ?>][label]" value="<?php echo esc_attr( $label ); ?>"<?php if ( $is_template ) : ?> disabled="disabled"<?php endif; ?><?php if ( $is_advance ) : ?> readonly="readonly"<?php endif; ?> />
 			</div>
 			<div class="berp-field-group">
-				<label><?php esc_html_e( 'Amount', 'builderp' ); ?></label>
+				<label><?php esc_html_e( 'Amount', 'BuildERP' ); ?></label>
 				<input type="number" name="<?php echo esc_attr( $name ); ?>[<?php echo esc_attr( $key ); ?>][amount]" value="<?php echo esc_attr( $amount ); ?>" step="0.01" min="0"<?php if ( $is_template ) : ?> disabled="disabled"<?php endif; ?><?php if ( $is_advance ) : ?> readonly="readonly"<?php endif; ?> />
 			</div>
 			<?php if ( $is_advance ) : ?>
@@ -669,7 +669,7 @@ class BERP_Employee_Metaboxes {
 				<input type="hidden" name="<?php echo esc_attr( $name ); ?>[<?php echo esc_attr( $key ); ?>][type]" value="advance_repayment" />
 				<div class="berp-advance-info">
 					<small><?php echo esc_html( $advance_info ); ?></small>
-					<a href="<?php echo esc_url( get_edit_post_link( $advance_id ) ); ?>" target="_blank" class="button button-small"><?php esc_html_e( 'View Advance', 'builderp' ); ?></a>
+					<a href="<?php echo esc_url( get_edit_post_link( $advance_id ) ); ?>" target="_blank" class="button button-small"><?php esc_html_e( 'View Advance', 'BuildERP' ); ?></a>
 				</div>
 			<?php endif; ?>
 		</div>
@@ -732,18 +732,18 @@ class BERP_Employee_Metaboxes {
 		$key      = $is_template ? '__INDEX__' : intval( $index );
 		?>
 		<div class="<?php echo esc_attr( $class ); ?>"<?php if ( $is_template ) : ?> style="display:none;" aria-hidden="true"<?php endif; ?>>
-			<span class="berp-repeater-remove dashicons dashicons-no-alt" aria-label="<?php esc_attr_e( 'Remove item', 'builderp' ); ?>"></span>
+			<span class="berp-repeater-remove dashicons dashicons-no-alt" aria-label="<?php esc_attr_e( 'Remove item', 'BuildERP' ); ?>"></span>
 			<div class="berp-field-group">
-				<label><?php esc_html_e( 'Document Name', 'builderp' ); ?></label>
+				<label><?php esc_html_e( 'Document Name', 'BuildERP' ); ?></label>
 				<input type="text" name="<?php echo esc_attr( $name ); ?>[<?php echo esc_attr( $key ); ?>][label]" value="<?php echo esc_attr( $label ); ?>"<?php if ( $is_template ) : ?> disabled="disabled"<?php endif; ?> />
 			</div>
 			<div class="berp-field-group">
-				<label><?php esc_html_e( 'File URL', 'builderp' ); ?></label>
+				<label><?php esc_html_e( 'File URL', 'BuildERP' ); ?></label>
 				<div class="berp-media-field">
 					<input type="url" class="berp-media-target" name="<?php echo esc_attr( $name ); ?>[<?php echo esc_attr( $key ); ?>][url]" value="<?php echo esc_attr( $url ); ?>"<?php if ( $is_template ) : ?> disabled="disabled"<?php endif; ?> />
-					<button type="button" class="button button-secondary berp-media-upload"><?php esc_html_e( 'Select File', 'builderp' ); ?></button>
+					<button type="button" class="button button-secondary berp-media-upload"><?php esc_html_e( 'Select File', 'BuildERP' ); ?></button>
 				</div>
-				<p class="description"><?php esc_html_e( 'Upload or paste a link to employee documents (ID copies, certificates, contracts).', 'builderp' ); ?></p>
+				<p class="description"><?php esc_html_e( 'Upload or paste a link to employee documents (ID copies, certificates, contracts).', 'BuildERP' ); ?></p>
 			</div>
 		</div>
 		<?php
@@ -986,7 +986,7 @@ class BERP_Employee_Metaboxes {
 		if ( $portal_enabled ) {
 			// Validate email exists.
 			if ( empty( $email ) || ! is_email( $email ) ) {
-				$this->add_notice( 'error', __( 'Cannot enable portal access: Valid email address required.', 'builderp' ) );
+				$this->add_notice( 'error', __( 'Cannot enable portal access: Valid email address required.', 'BuildERP' ) );
 				update_post_meta( $post_id, $this->meta_keys['portal_access_enabled'], '0' );
 				return;
 			}
@@ -997,7 +997,7 @@ class BERP_Employee_Metaboxes {
 				$user = new WP_User( $linked_user_id );
 				if ( ! in_array( 'berp_employee', $user->roles, true ) ) {
 					$user->add_role( 'berp_employee' );
-					$this->add_notice( 'success', __( 'Portal access re-enabled successfully.', 'builderp' ) );
+					$this->add_notice( 'success', __( 'Portal access re-enabled successfully.', 'BuildERP' ) );
 
 					/**
 					 * Fires after portal access is re-enabled for an employee.
@@ -1018,7 +1018,7 @@ class BERP_Employee_Metaboxes {
 						'error',
 						sprintf(
 						/* translators: %s: error message */
-							__( 'Error creating portal user: %s', 'builderp' ),
+							__( 'Error creating portal user: %s', 'BuildERP' ),
 							$user_result->get_error_message()
 						)
 					);
@@ -1037,9 +1037,9 @@ class BERP_Employee_Metaboxes {
 				$email_sent = $this->send_portal_credentials_email( $post_id, $user_id );
 
 				if ( $email_sent ) {
-					$this->add_notice( 'success', __( 'Portal access enabled successfully. Credentials sent to employee email.', 'builderp' ) );
+					$this->add_notice( 'success', __( 'Portal access enabled successfully. Credentials sent to employee email.', 'BuildERP' ) );
 				} else {
-					$this->add_notice( 'warning', __( 'Portal access enabled, but email notification failed to send. Please manually reset the password.', 'builderp' ) );
+					$this->add_notice( 'warning', __( 'Portal access enabled, but email notification failed to send. Please manually reset the password.', 'BuildERP' ) );
 				}
 
 				/**
@@ -1094,7 +1094,7 @@ class BERP_Employee_Metaboxes {
 
 		// Check if email already exists.
 		if ( email_exists( $email ) ) {
-			return new WP_Error( 'email_exists', __( 'An account with this email address already exists.', 'builderp' ) );
+			return new WP_Error( 'email_exists', __( 'An account with this email address already exists.', 'BuildERP' ) );
 		}
 
 		// Generate random password.
@@ -1172,7 +1172,7 @@ class BERP_Employee_Metaboxes {
 		if ( ! current_user_can( 'berp_manage_employees' ) ) {
 			wp_send_json_error(
 				array(
-					'message' => __( 'You do not have permission to perform this action.', 'builderp' ),
+					'message' => __( 'You do not have permission to perform this action.', 'BuildERP' ),
 				)
 			);
 		}
@@ -1183,7 +1183,7 @@ class BERP_Employee_Metaboxes {
 		if ( ! $employee_id ) {
 			wp_send_json_error(
 				array(
-					'message' => __( 'Invalid employee ID.', 'builderp' ),
+					'message' => __( 'Invalid employee ID.', 'BuildERP' ),
 				)
 			);
 		}
@@ -1194,7 +1194,7 @@ class BERP_Employee_Metaboxes {
 		if ( ! $linked_user_id || ! get_userdata( $linked_user_id ) ) {
 			wp_send_json_error(
 				array(
-					'message' => __( 'No user account found for this employee.', 'builderp' ),
+					'message' => __( 'No user account found for this employee.', 'BuildERP' ),
 				)
 			);
 		}
@@ -1205,13 +1205,13 @@ class BERP_Employee_Metaboxes {
 		if ( $email_sent ) {
 			wp_send_json_success(
 				array(
-					'message' => __( 'Password reset email sent successfully.', 'builderp' ),
+					'message' => __( 'Password reset email sent successfully.', 'BuildERP' ),
 				)
 			);
 		} else {
 			wp_send_json_error(
 				array(
-					'message' => __( 'Failed to send email. Please check your WordPress email configuration.', 'builderp' ),
+					'message' => __( 'Failed to send email. Please check your WordPress email configuration.', 'BuildERP' ),
 				)
 			);
 		}
@@ -1233,7 +1233,7 @@ class BERP_Employee_Metaboxes {
 		}
 
 		$employee      = get_post( $employee_id );
-		$employee_name = $employee ? $employee->post_title : __( 'Employee', 'builderp' );
+		$employee_name = $employee ? $employee->post_title : __( 'Employee', 'BuildERP' );
 
 		// Get portal settings.
 		$general_settings = berp_get_general_settings();
@@ -1251,42 +1251,42 @@ class BERP_Employee_Metaboxes {
 		// Email subject.
 		$subject = sprintf(
 			/* translators: %s: company name */
-			__( 'Your Employee Portal Access - %s', 'builderp' ),
+			__( 'Your Employee Portal Access - %s', 'BuildERP' ),
 			$company_name
 		);
 
 		// Email message.
 		$message = sprintf(
 			/* translators: %s: employee name */
-			__( 'Hello %s,', 'builderp' ),
+			__( 'Hello %s,', 'BuildERP' ),
 			$employee_name
 		) . "\r\n\r\n";
 
-		$message .= __( 'Your employee portal account has been created. You can now access your attendance records, salary information, and account statements online.', 'builderp' ) . "\r\n\r\n";
+		$message .= __( 'Your employee portal account has been created. You can now access your attendance records, salary information, and account statements online.', 'BuildERP' ) . "\r\n\r\n";
 
-		$message .= __( 'Login Details:', 'builderp' ) . "\r\n";
+		$message .= __( 'Login Details:', 'BuildERP' ) . "\r\n";
 		$message .= sprintf(
 			/* translators: %s: username */
-			__( 'Username: %s', 'builderp' ),
+			__( 'Username: %s', 'BuildERP' ),
 			$user->user_login
 		) . "\r\n";
 		$message .= sprintf(
 			/* translators: %s: email address */
-			__( 'Email: %s', 'builderp' ),
+			__( 'Email: %s', 'BuildERP' ),
 			$user->user_email
 		) . "\r\n\r\n";
 
-		$message .= __( 'To set your password and access the portal, please click the link below:', 'builderp' ) . "\r\n";
+		$message .= __( 'To set your password and access the portal, please click the link below:', 'BuildERP' ) . "\r\n";
 		$message .= $reset_url . "\r\n\r\n";
 
-		$message .= __( 'After setting your password, you can log in at:', 'builderp' ) . "\r\n";
+		$message .= __( 'After setting your password, you can log in at:', 'BuildERP' ) . "\r\n";
 		$message .= $login_url . "\r\n\r\n";
 
-		$message .= __( 'If you did not request this account, please contact your administrator.', 'builderp' ) . "\r\n\r\n";
+		$message .= __( 'If you did not request this account, please contact your administrator.', 'BuildERP' ) . "\r\n\r\n";
 
 		$message .= sprintf(
 			/* translators: %s: company name */
-			__( 'Thank you,%s', 'builderp' ),
+			__( 'Thank you,%s', 'BuildERP' ),
 			"\r\n" . $company_name
 		);
 
@@ -1352,62 +1352,62 @@ class BERP_Employee_Metaboxes {
 							<?php checked( $portal_enabled, '1' ); ?>
 							<?php disabled( empty( $employee_email ) ); ?>
 						/>
-						<?php esc_html_e( 'Enable Portal Access', 'builderp' ); ?>
+						<?php esc_html_e( 'Enable Portal Access', 'BuildERP' ); ?>
 					</label>
 					<p class="description">
-						<?php esc_html_e( 'Allow this employee to log in to the employee portal to view attendance, salary, and account statement.', 'builderp' ); ?>
+						<?php esc_html_e( 'Allow this employee to log in to the employee portal to view attendance, salary, and account statement.', 'BuildERP' ); ?>
 					</p>
 					<?php if ( empty( $employee_email ) ) : ?>
 						<p class="description berp-error-text">
-							<?php esc_html_e( 'Please add an email address in the Details tab before enabling portal access.', 'builderp' ); ?>
+							<?php esc_html_e( 'Please add an email address in the Details tab before enabling portal access.', 'BuildERP' ); ?>
 						</p>
 					<?php endif; ?>
 				</div>
 
 				<?php if ( $portal_enabled && $user_exists && $user_data ) : ?>
 					<div class="berp-portal-info-box berp-portal-active">
-						<h4><?php esc_html_e( 'Portal Access: Active', 'builderp' ); ?></h4>
+						<h4><?php esc_html_e( 'Portal Access: Active', 'BuildERP' ); ?></h4>
 
 						<table class="berp-portal-info-table">
 							<tr>
-								<th><?php esc_html_e( 'Username:', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'Username:', 'BuildERP' ); ?></th>
 								<td><code><?php echo esc_html( $user_data->user_login ); ?></code></td>
 							</tr>
 							<tr>
-								<th><?php esc_html_e( 'Email:', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'Email:', 'BuildERP' ); ?></th>
 								<td><?php echo esc_html( $user_data->user_email ); ?></td>
 							</tr>
 							<tr>
-								<th><?php esc_html_e( 'User ID:', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'User ID:', 'BuildERP' ); ?></th>
 								<td><?php echo esc_html( $linked_user_id ); ?></td>
 							</tr>
 							<tr>
-								<th><?php esc_html_e( 'Account Created:', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'Account Created:', 'BuildERP' ); ?></th>
 								<td><?php echo esc_html( date_i18n( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), strtotime( $user_data->user_registered ) ) ); ?></td>
 							</tr>
 						</table>
 
 						<div class="berp-portal-actions">
 							<button type="button" class="button button-secondary berp-resend-credentials" data-employee-id="<?php echo esc_attr( $post->ID ); ?>">
-								<?php esc_html_e( 'Resend Login Credentials', 'builderp' ); ?>
+								<?php esc_html_e( 'Resend Login Credentials', 'BuildERP' ); ?>
 							</button>
 							<span class="spinner"></span>
 							<span class="berp-credentials-status"></span>
 						</div>
 
 						<p class="description">
-							<?php esc_html_e( 'A password reset email will be sent to the employee\'s email address.', 'builderp' ); ?>
+							<?php esc_html_e( 'A password reset email will be sent to the employee\'s email address.', 'BuildERP' ); ?>
 						</p>
 					</div>
 				<?php elseif ( $portal_enabled && ! $user_exists ) : ?>
 					<div class="berp-portal-info-box berp-portal-pending">
-						<h4><?php esc_html_e( 'Portal Access: Pending Setup', 'builderp' ); ?></h4>
-						<p><?php esc_html_e( 'Save this employee to create the WordPress user account and send login credentials.', 'builderp' ); ?></p>
+						<h4><?php esc_html_e( 'Portal Access: Pending Setup', 'BuildERP' ); ?></h4>
+						<p><?php esc_html_e( 'Save this employee to create the WordPress user account and send login credentials.', 'BuildERP' ); ?></p>
 						<p class="description">
 							<?php
 							printf(
 								/* translators: %s: employee email address */
-								esc_html__( 'A user account will be created with username generated from employee name and credentials will be sent to %s', 'builderp' ),
+								esc_html__( 'A user account will be created with username generated from employee name and credentials will be sent to %s', 'BuildERP' ),
 								'<strong>' . esc_html( $employee_email ) . '</strong>'
 							);
 							?>
@@ -1415,16 +1415,16 @@ class BERP_Employee_Metaboxes {
 					</div>
 				<?php elseif ( ! $portal_enabled && $user_exists ) : ?>
 					<div class="berp-portal-info-box berp-portal-inactive">
-						<h4><?php esc_html_e( 'Portal Access: Disabled', 'builderp' ); ?></h4>
-						<p><?php esc_html_e( 'Portal access is currently disabled for this employee. Enable the checkbox above to grant access.', 'builderp' ); ?></p>
+						<h4><?php esc_html_e( 'Portal Access: Disabled', 'BuildERP' ); ?></h4>
+						<p><?php esc_html_e( 'Portal access is currently disabled for this employee. Enable the checkbox above to grant access.', 'BuildERP' ); ?></p>
 						<p class="description">
-							<?php esc_html_e( 'Note: The WordPress user account still exists and can be re-enabled at any time.', 'builderp' ); ?>
+							<?php esc_html_e( 'Note: The WordPress user account still exists and can be re-enabled at any time.', 'BuildERP' ); ?>
 						</p>
 					</div>
 				<?php else : ?>
 					<div class="berp-portal-info-box berp-portal-disabled">
-						<h4><?php esc_html_e( 'Portal Access: Not Configured', 'builderp' ); ?></h4>
-						<p><?php esc_html_e( 'Enable the checkbox above and save to create a portal account for this employee.', 'builderp' ); ?></p>
+						<h4><?php esc_html_e( 'Portal Access: Not Configured', 'BuildERP' ); ?></h4>
+						<p><?php esc_html_e( 'Enable the checkbox above and save to create a portal account for this employee.', 'BuildERP' ); ?></p>
 					</div>
 				<?php endif; ?>
 
@@ -1434,11 +1434,11 @@ class BERP_Employee_Metaboxes {
 					?>
 					<div class="berp-portal-warning">
 						<p>
-							<strong><?php esc_html_e( 'Warning:', 'builderp' ); ?></strong>
+							<strong><?php esc_html_e( 'Warning:', 'BuildERP' ); ?></strong>
 							<?php
 							printf(
 								/* translators: %d: WordPress user ID */
-								esc_html__( 'This employee was linked to WordPress user ID %d, but that user account no longer exists. Enabling portal access will create a new user account.', 'builderp' ),
+								esc_html__( 'This employee was linked to WordPress user ID %d, but that user account no longer exists. Enabling portal access will create a new user account.', 'BuildERP' ),
 								absint( $linked_user_id )
 							);
 							?>

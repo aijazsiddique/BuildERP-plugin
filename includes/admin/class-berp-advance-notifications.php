@@ -117,20 +117,20 @@ class BERP_Advance_Notifications {
 		}
 
 		$employee      = get_post( $employee_id );
-		$employee_name = $employee ? $employee->post_title : __( 'Unknown Employee', 'builderp' );
+		$employee_name = $employee ? $employee->post_title : __( 'Unknown Employee', 'BuildERP' );
 		$amount        = isset( $data['amount'] ) ? berp_format_currency( $data['amount'] ) : '—';
-		$reason        = isset( $data['reason'] ) ? $data['reason'] : __( 'No reason provided', 'builderp' );
+		$reason        = isset( $data['reason'] ) ? $data['reason'] : __( 'No reason provided', 'BuildERP' );
 		$edit_link     = admin_url( 'post.php?post=' . $advance_id . '&action=edit' );
 
 		$subject = sprintf(
 			/* translators: 1: employee name */
-			__( '[BuildERP] New Advance Request from %s', 'builderp' ),
+			__( '[BuildERP] New Advance Request from %s', 'BuildERP' ),
 			$employee_name
 		);
 
 		$message = sprintf(
 			/* translators: 1: employee name, 2: amount, 3: reason, 4: edit link */
-			__( "A new salary advance request has been submitted.\n\nEmployee: %1\$s\nAmount: %2\$s\nReason: %3\$s\n\nReview and approve/reject this request:\n%4\$s", 'builderp' ),
+			__( "A new salary advance request has been submitted.\n\nEmployee: %1\$s\nAmount: %2\$s\nReason: %3\$s\n\nReview and approve/reject this request:\n%4\$s", 'BuildERP' ),
 			$employee_name,
 			$amount,
 			$reason,
@@ -162,20 +162,20 @@ class BERP_Advance_Notifications {
 		$repayment     = get_post_meta( $advance_id, '_berp_repayment_type', true );
 		$installments  = get_post_meta( $advance_id, '_berp_installments', true );
 
-		$repayment_info = __( 'Full deduction in next payroll', 'builderp' );
+		$repayment_info = __( 'Full deduction in next payroll', 'BuildERP' );
 		if ( 'installments' === $repayment && $installments > 1 ) {
 			$repayment_info = sprintf(
 				/* translators: %d: number of installments */
-				__( '%d equal installments from your upcoming payrolls', 'builderp' ),
+				__( '%d equal installments from your upcoming payrolls', 'BuildERP' ),
 				$installments
 			);
 		}
 
-		$subject = __( '[BuildERP] Your Advance Request Has Been Approved', 'builderp' );
+		$subject = __( '[BuildERP] Your Advance Request Has Been Approved', 'BuildERP' );
 
 		$message = sprintf(
 			/* translators: 1: employee name, 2: amount, 3: repayment info */
-			__( "Dear %1\$s,\n\nYour salary advance request has been approved!\n\nAmount: %2\$s\nRepayment: %3\$s\n\nThe amount has been added to your account. It will be deducted from your upcoming payroll(s).\n\nBest regards,\nBuildERP", 'builderp' ),
+			__( "Dear %1\$s,\n\nYour salary advance request has been approved!\n\nAmount: %2\$s\nRepayment: %3\$s\n\nThe amount has been added to your account. It will be deducted from your upcoming payroll(s).\n\nBest regards,\nBuildERP", 'BuildERP' ),
 			$employee_name,
 			berp_format_currency( $amount ),
 			$repayment_info
@@ -209,15 +209,15 @@ class BERP_Advance_Notifications {
 		$employee_name = $employee ? $employee->post_title : '';
 		$amount        = get_post_meta( $advance_id, '_berp_advance_amount', true );
 
-		$subject = __( '[BuildERP] Your Advance Request Has Been Declined', 'builderp' );
+		$subject = __( '[BuildERP] Your Advance Request Has Been Declined', 'BuildERP' );
 
 		$rejection_text = ! empty( $rejection_note )
 			? $rejection_note
-			: __( 'No specific reason provided.', 'builderp' );
+			: __( 'No specific reason provided.', 'BuildERP' );
 
 		$message = sprintf(
 			/* translators: 1: employee name, 2: amount, 3: rejection reason */
-			__( "Dear %1\$s,\n\nUnfortunately, your salary advance request has been declined.\n\nRequested Amount: %2\$s\nReason: %3\$s\n\nIf you have questions, please contact HR or your manager.\n\nBest regards,\nBuildERP", 'builderp' ),
+			__( "Dear %1\$s,\n\nUnfortunately, your salary advance request has been declined.\n\nRequested Amount: %2\$s\nReason: %3\$s\n\nIf you have questions, please contact HR or your manager.\n\nBest regards,\nBuildERP", 'BuildERP' ),
 			$employee_name,
 			berp_format_currency( $amount ),
 			$rejection_text

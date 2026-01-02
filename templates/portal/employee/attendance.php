@@ -32,17 +32,17 @@ $query = new WP_Query( $args );
 
 <div class="berp-portal-card">
 	<div class="berp-card-header">
-		<h3><?php esc_html_e( 'My Attendance History', 'builderp' ); ?></h3>
+		<h3><?php esc_html_e( 'My Attendance History', 'BuildERP' ); ?></h3>
 	</div>
 	<div class="berp-card-body">
 		<?php if ( $query->have_posts() ) : ?>
 			<table class="berp-portal-table">
 				<thead>
 					<tr>
-						<th><?php esc_html_e( 'Date', 'builderp' ); ?></th>
-						<th><?php esc_html_e( 'Site', 'builderp' ); ?></th>
-						<th><?php esc_html_e( 'Overtime (Hrs)', 'builderp' ); ?></th>
-						<th><?php esc_html_e( 'Status', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Date', 'BuildERP' ); ?></th>
+						<th><?php esc_html_e( 'Site', 'BuildERP' ); ?></th>
+						<th><?php esc_html_e( 'Overtime (Hrs)', 'BuildERP' ); ?></th>
+						<th><?php esc_html_e( 'Status', 'BuildERP' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -58,7 +58,7 @@ $query = new WP_Query( $args );
 							<td><?php echo esc_html( date_i18n( get_option( 'date_format' ), strtotime( $date ) ) ); ?></td>
 							<td><?php echo esc_html( $site_name ); ?></td>
 							<td><?php echo esc_html( $overtime ); ?></td>
-							<td><span class="berp-badge berp-badge-success"><?php esc_html_e( 'Present', 'builderp' ); ?></span></td>
+							<td><span class="berp-badge berp-badge-success"><?php esc_html_e( 'Present', 'BuildERP' ); ?></span></td>
 						</tr>
 					<?php endwhile; ?>
 				</tbody>
@@ -78,7 +78,7 @@ $query = new WP_Query( $args );
 				?>
 			</div>
 		<?php else : ?>
-			<p><?php esc_html_e( 'No attendance records found.', 'builderp' ); ?></p>
+			<p><?php esc_html_e( 'No attendance records found.', 'BuildERP' ); ?></p>
 		<?php endif; ?>
 		<?php wp_reset_postdata(); ?>
 	</div>

@@ -104,7 +104,7 @@ class BERP_Dashboard {
 
 		?>
 		<div class="wrap berp-dashboard-wrap">
-			<h1 class="wp-heading-inline"><?php esc_html_e( 'BuildErp Dashboard', 'builderp' ); ?></h1>
+			<h1 class="wp-heading-inline"><?php esc_html_e( 'BuildErp Dashboard', 'BuildERP' ); ?></h1>
 			<hr class="wp-header-end">
 
 			<!-- Quick Stats Cards -->
@@ -113,42 +113,42 @@ class BERP_Dashboard {
 					<div class="berp-stat-icon employees"><span class="dashicons dashicons-groups"></span></div>
 					<div class="berp-stat-content">
 						<h3><?php echo esc_html( $stats['employees'] ); ?></h3>
-						<p><?php esc_html_e( 'Active Employees', 'builderp' ); ?></p>
+						<p><?php esc_html_e( 'Active Employees', 'BuildERP' ); ?></p>
 					</div>
 				</div>
 				<div class="berp-stat-card">
 					<div class="berp-stat-icon sites"><span class="dashicons dashicons-building"></span></div>
 					<div class="berp-stat-content">
 						<h3><?php echo esc_html( $stats['sites'] ); ?></h3>
-						<p><?php esc_html_e( 'Active Sites', 'builderp' ); ?></p>
+						<p><?php esc_html_e( 'Active Sites', 'BuildERP' ); ?></p>
 					</div>
 				</div>
 				<div class="berp-stat-card">
 					<div class="berp-stat-icon attendance"><span class="dashicons dashicons-calendar-alt"></span></div>
 					<div class="berp-stat-content">
 						<h3><?php echo esc_html( $stats['attendance'] ); ?>%</h3>
-						<p><?php esc_html_e( 'Attendance Today', 'builderp' ); ?></p>
+						<p><?php esc_html_e( 'Attendance Today', 'BuildERP' ); ?></p>
 					</div>
 				</div>
 				<div class="berp-stat-card">
 					<div class="berp-stat-icon revenue"><span class="dashicons dashicons-money-alt"></span></div>
 					<div class="berp-stat-content">
 						<h3><?php echo esc_html( berp_format_currency( $stats['revenue'] ) ); ?></h3>
-						<p><?php esc_html_e( 'Revenue (This Month)', 'builderp' ); ?></p>
+						<p><?php esc_html_e( 'Revenue (This Month)', 'BuildERP' ); ?></p>
 					</div>
 				</div>
 				<div class="berp-stat-card">
 					<div class="berp-stat-icon expenses"><span class="dashicons dashicons-cart"></span></div>
 					<div class="berp-stat-content">
 						<h3><?php echo esc_html( berp_format_currency( $stats['expenses'] ) ); ?></h3>
-						<p><?php esc_html_e( 'Expenses (This Month)', 'builderp' ); ?></p>
+						<p><?php esc_html_e( 'Expenses (This Month)', 'BuildERP' ); ?></p>
 					</div>
 				</div>
 				<div class="berp-stat-card">
 					<div class="berp-stat-icon pending"><span class="dashicons dashicons-clock"></span></div>
 					<div class="berp-stat-content">
 						<h3><?php echo esc_html( berp_format_currency( $stats['pending_invoices'] ) ); ?></h3>
-						<p><?php esc_html_e( 'Pending Invoices', 'builderp' ); ?></p>
+						<p><?php esc_html_e( 'Pending Invoices', 'BuildERP' ); ?></p>
 					</div>
 				</div>
 			</div>
@@ -158,14 +158,14 @@ class BERP_Dashboard {
 				<div class="berp-dashboard-main">
 					<!-- Charts -->
 					<div class="berp-dashboard-widget">
-						<h2 class="berp-widget-title"><?php esc_html_e( 'Revenue vs Expenses (Last 6 Months)', 'builderp' ); ?></h2>
+						<h2 class="berp-widget-title"><?php esc_html_e( 'Revenue vs Expenses (Last 6 Months)', 'BuildERP' ); ?></h2>
 						<div class="berp-chart-container">
 							<canvas id="berp-revenue-chart"></canvas>
 						</div>
 					</div>
 
 					<div class="berp-dashboard-widget">
-						<h2 class="berp-widget-title"><?php esc_html_e( 'Site Profitability', 'builderp' ); ?></h2>
+						<h2 class="berp-widget-title"><?php esc_html_e( 'Site Profitability', 'BuildERP' ); ?></h2>
 						<div class="berp-chart-container">
 							<canvas id="berp-profitability-chart"></canvas>
 						</div>
@@ -177,7 +177,7 @@ class BERP_Dashboard {
 					<!-- Alerts -->
 					<?php if ( ! empty( $alerts ) ) : ?>
 					<div class="berp-dashboard-widget alerts-widget">
-						<h2 class="berp-widget-title"><?php esc_html_e( 'Alerts & Notifications', 'builderp' ); ?></h2>
+						<h2 class="berp-widget-title"><?php esc_html_e( 'Alerts & Notifications', 'BuildERP' ); ?></h2>
 						<ul class="berp-alerts-list">
 							<?php foreach ( $alerts as $alert ) : ?>
 								<li class="alert-<?php echo esc_attr( $alert['type'] ); ?>">
@@ -191,14 +191,14 @@ class BERP_Dashboard {
 
 					<!-- Recent Activity -->
 					<div class="berp-dashboard-widget">
-						<h2 class="berp-widget-title"><?php esc_html_e( 'Recent Activity', 'builderp' ); ?></h2>
+						<h2 class="berp-widget-title"><?php esc_html_e( 'Recent Activity', 'BuildERP' ); ?></h2>
 						<ul class="berp-activity-list">
 							<?php if ( empty( $activity ) ) : ?>
-								<li><?php esc_html_e( 'No recent activity.', 'builderp' ); ?></li>
+								<li><?php esc_html_e( 'No recent activity.', 'BuildERP' ); ?></li>
 							<?php else : ?>
 								<?php foreach ( $activity as $item ) : ?>
 									<li>
-										<span class="activity-time"><?php echo esc_html( human_time_diff( strtotime( $item['date'] ) ) . ' ' . __( 'ago', 'builderp' ) ); ?></span>
+										<span class="activity-time"><?php echo esc_html( human_time_diff( strtotime( $item['date'] ) ) . ' ' . __( 'ago', 'BuildERP' ) ); ?></span>
 										<span class="activity-text"><?php echo wp_kses_post( $item['text'] ); ?></span>
 									</li>
 								<?php endforeach; ?>
@@ -218,7 +218,7 @@ class BERP_Dashboard {
 		if ( current_user_can( 'berp_view_dashboard' ) ) {
 			wp_add_dashboard_widget(
 				'berp_dashboard_widget',
-				__( 'BuildErp Overview', 'builderp' ),
+				__( 'BuildErp Overview', 'BuildERP' ),
 				array( $this, 'render_dashboard_widget' )
 			);
 		}
@@ -235,21 +235,21 @@ class BERP_Dashboard {
 				<div class="berp-wp-widget-item">
 					<span class="dashicons dashicons-groups"></span>
 					<strong><?php echo esc_html( $stats['employees'] ); ?></strong>
-					<span><?php esc_html_e( 'Employees', 'builderp' ); ?></span>
+					<span><?php esc_html_e( 'Employees', 'BuildERP' ); ?></span>
 				</div>
 				<div class="berp-wp-widget-item">
 					<span class="dashicons dashicons-building"></span>
 					<strong><?php echo esc_html( $stats['sites'] ); ?></strong>
-					<span><?php esc_html_e( 'Sites', 'builderp' ); ?></span>
+					<span><?php esc_html_e( 'Sites', 'BuildERP' ); ?></span>
 				</div>
 				<div class="berp-wp-widget-item">
 					<span class="dashicons dashicons-clock"></span>
 					<strong><?php echo esc_html( berp_format_currency( $stats['pending_invoices'] ) ); ?></strong>
-					<span><?php esc_html_e( 'Pending', 'builderp' ); ?></span>
+					<span><?php esc_html_e( 'Pending', 'BuildERP' ); ?></span>
 				</div>
 			</div>
 			<div class="berp-wp-widget-footer">
-				<a href="<?php echo esc_url( admin_url( 'admin.php?page=builderp' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Go to Dashboard', 'builderp' ); ?></a>
+				<a href="<?php echo esc_url( admin_url( 'admin.php?page=builderp' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Go to Dashboard', 'BuildERP' ); ?></a>
 			</div>
 		</div>
 		<style>
@@ -475,7 +475,7 @@ class BERP_Dashboard {
 				'date' => $post->post_date,
 				/* translators: %1$s is invoice number, %2$s is client name, %3$s is formatted amount. */
 				'text' => sprintf(
-					__( 'Invoice <strong>%1$s</strong> created for %2$s (%3$s)', 'builderp' ),
+					__( 'Invoice <strong>%1$s</strong> created for %2$s (%3$s)', 'BuildERP' ),
 					get_post_meta( $post->ID, '_berp_invoice_number', true ),
 					$client_name,
 					berp_format_currency( $amount )
@@ -499,7 +499,7 @@ class BERP_Dashboard {
 				'date' => $post->post_date,
 				/* translators: %1$s is expense amount, %2$s is expense title. */
 				'text' => sprintf(
-					__( 'Expense <strong>%1$s</strong> recorded: %2$s', 'builderp' ),
+					__( 'Expense <strong>%1$s</strong> recorded: %2$s', 'BuildERP' ),
 					berp_format_currency( $amount ),
 					$post->post_title
 				),
@@ -545,7 +545,7 @@ class BERP_Dashboard {
 				'type'    => 'danger',
 				'icon'    => 'dashicons-warning',
 				// translators: %d is number of overdue invoices.
-				'message' => sprintf( __( '%d Overdue Invoices', 'builderp' ), count( $invoices ) ),
+				'message' => sprintf( __( '%d Overdue Invoices', 'BuildERP' ), count( $invoices ) ),
 			);
 		}
 
@@ -568,7 +568,7 @@ class BERP_Dashboard {
 				'type'    => 'danger',
 				'icon'    => 'dashicons-money',
 				// translators: %d is number of sites that exceeded budget.
-				'message' => sprintf( __( '%d Sites Exceeded Budget', 'builderp' ), count( $sites ) ),
+				'message' => sprintf( __( '%d Sites Exceeded Budget', 'BuildERP' ), count( $sites ) ),
 			);
 		}
 
@@ -637,14 +637,14 @@ class BERP_Dashboard {
 				'labels'   => $months,
 				'datasets' => array(
 					array(
-						'label'           => __( 'Revenue', 'builderp' ),
+						'label'           => __( 'Revenue', 'BuildERP' ),
 						'data'            => $revenue_data,
 						'borderColor'     => '#2271b1',
 						'backgroundColor' => 'rgba(34, 113, 177, 0.1)',
 						'fill'            => true,
 					),
 					array(
-						'label'           => __( 'Expenses', 'builderp' ),
+						'label'           => __( 'Expenses', 'BuildERP' ),
 						'data'            => $expense_data,
 						'borderColor'     => '#d63638',
 						'backgroundColor' => 'rgba(214, 54, 56, 0.1)',
@@ -656,12 +656,12 @@ class BERP_Dashboard {
 				'labels'   => $site_labels,
 				'datasets' => array(
 					array(
-						'label'           => __( 'Budget', 'builderp' ),
+						'label'           => __( 'Budget', 'BuildERP' ),
 						'data'            => $site_budgets,
 						'backgroundColor' => '#2271b1',
 					),
 					array(
-						'label'           => __( 'Spent', 'builderp' ),
+						'label'           => __( 'Spent', 'BuildERP' ),
 						'data'            => $site_expenses,
 						'backgroundColor' => '#d63638',
 					),

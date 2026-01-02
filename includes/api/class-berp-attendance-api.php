@@ -145,7 +145,7 @@ class BERP_Attendance_API {
 		$user_id             = get_current_user_id();
 
 		if ( empty( $attendance_items ) || ! is_array( $attendance_items ) ) {
-			return new WP_Error( 'invalid_attendance', __( 'No attendance records provided.', 'builderp' ), array( 'status' => 400 ) );
+			return new WP_Error( 'invalid_attendance', __( 'No attendance records provided.', 'BuildERP' ), array( 'status' => 400 ) );
 		}
 
 		$selected_employee_ids = array();
@@ -202,7 +202,7 @@ class BERP_Attendance_API {
 				'duplicates' => $duplicates,
 				'message'    => sprintf(
 					/* translators: 1: created count */
-					__( '%d attendance records processed.', 'builderp' ),
+					__( '%d attendance records processed.', 'BuildERP' ),
 					$created + $updated
 				),
 			),
@@ -228,7 +228,7 @@ class BERP_Attendance_API {
 		$notes       = sanitize_textarea_field( $request->get_param( 'notes' ) );
 
 		if ( ! $employee_id ) {
-			return new WP_Error( 'invalid_employee', __( 'Employee is required.', 'builderp' ), array( 'status' => 400 ) );
+			return new WP_Error( 'invalid_employee', __( 'Employee is required.', 'BuildERP' ), array( 'status' => 400 ) );
 		}
 
 		$date        = $valid['date'];
@@ -255,7 +255,7 @@ class BERP_Attendance_API {
 				'success' => true,
 				'id'      => $result_id,
 				'action'  => $action,
-				'message' => __( 'Attendance saved.', 'builderp' ),
+				'message' => __( 'Attendance saved.', 'BuildERP' ),
 			),
 			200
 		);
@@ -271,7 +271,7 @@ class BERP_Attendance_API {
 	public function edit( WP_REST_Request $request ) {
 		$attendance_id = absint( $request->get_param( 'attendance_id' ) );
 		if ( ! $attendance_id ) {
-			return new WP_Error( 'invalid_attendance', __( 'Attendance ID is required.', 'builderp' ), array( 'status' => 400 ) );
+			return new WP_Error( 'invalid_attendance', __( 'Attendance ID is required.', 'BuildERP' ), array( 'status' => 400 ) );
 		}
 
 		$date     = sanitize_text_field( $request->get_param( 'date' ) );
@@ -289,7 +289,7 @@ class BERP_Attendance_API {
 		return new WP_REST_Response(
 			array(
 				'success' => true,
-				'message' => __( 'Attendance updated.', 'builderp' ),
+				'message' => __( 'Attendance updated.', 'BuildERP' ),
 			),
 			200
 		);
@@ -305,28 +305,28 @@ class BERP_Attendance_API {
 	public function delete( WP_REST_Request $request ) {
 		$nonce = $request->get_header( 'X-WP-Nonce' );
 		if ( ! $nonce || ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
-			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce.', 'builderp' ), array( 'status' => 403 ) );
+			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce.', 'BuildERP' ), array( 'status' => 403 ) );
 		}
 
 		$attendance_id = absint( $request->get_param( 'attendance_id' ) );
 		if ( ! $attendance_id ) {
-			return new WP_Error( 'invalid_attendance', __( 'Attendance ID is required.', 'builderp' ), array( 'status' => 400 ) );
+			return new WP_Error( 'invalid_attendance', __( 'Attendance ID is required.', 'BuildERP' ), array( 'status' => 400 ) );
 		}
 
 		$post = get_post( $attendance_id );
 		if ( ! $post || 'berp_attendance' !== $post->post_type ) {
-			return new WP_Error( 'invalid_attendance', __( 'Invalid attendance record.', 'builderp' ), array( 'status' => 404 ) );
+			return new WP_Error( 'invalid_attendance', __( 'Invalid attendance record.', 'BuildERP' ), array( 'status' => 404 ) );
 		}
 
 		$result = wp_trash_post( $attendance_id );
 		if ( ! $result ) {
-			return new WP_Error( 'delete_failed', __( 'Failed to delete attendance record.', 'builderp' ), array( 'status' => 500 ) );
+			return new WP_Error( 'delete_failed', __( 'Failed to delete attendance record.', 'BuildERP' ), array( 'status' => 500 ) );
 		}
 
 		return new WP_REST_Response(
 			array(
 				'success' => true,
-				'message' => __( 'Attendance deleted successfully.', 'builderp' ),
+				'message' => __( 'Attendance deleted successfully.', 'BuildERP' ),
 			),
 			200
 		);
@@ -349,7 +349,7 @@ class BERP_Attendance_API {
 		}
 
 		if ( empty( $employees ) || ! is_array( $employees ) ) {
-			return new WP_Error( 'invalid_employees', __( 'Employees are required.', 'builderp' ), array( 'status' => 400 ) );
+			return new WP_Error( 'invalid_employees', __( 'Employees are required.', 'BuildERP' ), array( 'status' => 400 ) );
 		}
 
 		$found        = array();
@@ -386,7 +386,7 @@ class BERP_Attendance_API {
 	protected function validate_request( WP_REST_Request $request ) {
 		$nonce = $request->get_header( 'X-WP-Nonce' );
 		if ( ! $nonce || ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
-			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce.', 'builderp' ), array( 'status' => 403 ) );
+			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce.', 'BuildERP' ), array( 'status' => 403 ) );
 		}
 
 		$date           = sanitize_text_field( $request->get_param( 'date' ) );
@@ -399,7 +399,7 @@ class BERP_Attendance_API {
 
 		$settings = $this->get_attendance_settings();
 		if ( 1 === (int) $settings['require_site'] && ! $site_id ) {
-			return new WP_Error( 'site_required', __( 'Please select a site.', 'builderp' ), array( 'status' => 400 ) );
+			return new WP_Error( 'site_required', __( 'Please select a site.', 'BuildERP' ), array( 'status' => 400 ) );
 		}
 
 		return array(
@@ -419,7 +419,7 @@ class BERP_Attendance_API {
 	public function list_records( WP_REST_Request $request ) {
 		$nonce = $request->get_header( 'X-WP-Nonce' );
 		if ( ! $nonce || ! wp_verify_nonce( $nonce, 'wp_rest' ) ) {
-			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce.', 'builderp' ), array( 'status' => 403 ) );
+			return new WP_Error( 'invalid_nonce', __( 'Invalid nonce.', 'BuildERP' ), array( 'status' => 403 ) );
 		}
 
 		$employee_id = absint( $request->get_param( 'employee_id' ) );
@@ -548,7 +548,7 @@ class BERP_Attendance_API {
 	 */
 	protected function validate_date_rules( $date ) {
 		if ( empty( $date ) ) {
-			return new WP_Error( 'invalid_date', __( 'Date is required.', 'builderp' ), array( 'status' => 400 ) );
+			return new WP_Error( 'invalid_date', __( 'Date is required.', 'BuildERP' ), array( 'status' => 400 ) );
 		}
 
 		$settings = $this->get_attendance_settings();
@@ -556,11 +556,11 @@ class BERP_Attendance_API {
 		$date_ts  = strtotime( $date );
 
 		if ( false === $date_ts ) {
-			return new WP_Error( 'invalid_date', __( 'Invalid date format.', 'builderp' ), array( 'status' => 400 ) );
+			return new WP_Error( 'invalid_date', __( 'Invalid date format.', 'BuildERP' ), array( 'status' => 400 ) );
 		}
 
 		if ( 1 === (int) $settings['block_future'] && $date_ts > $today_ts ) {
-			return new WP_Error( 'future_blocked', __( 'Cannot log attendance for future dates.', 'builderp' ), array( 'status' => 400 ) );
+			return new WP_Error( 'future_blocked', __( 'Cannot log attendance for future dates.', 'BuildERP' ), array( 'status' => 400 ) );
 		}
 
 		$editable_limit = isset( $settings['editable_days_limit'] ) ? absint( $settings['editable_days_limit'] ) : 0;
@@ -571,7 +571,7 @@ class BERP_Attendance_API {
 					'edit_window_closed',
 					sprintf(
 						/* translators: %d: number of days */
-						__( 'Attendance older than %d days cannot be logged or edited.', 'builderp' ),
+						__( 'Attendance older than %d days cannot be logged or edited.', 'BuildERP' ),
 						$editable_limit
 					),
 					array( 'status' => 400 )
@@ -597,7 +597,7 @@ class BERP_Attendance_API {
 	protected function create_attendance_post( $employee_id, $date, $site_id, $overtime, $notes, $user_id ) {
 		$title = sprintf(
 			/* translators: 1: employee id 2: date */
-			__( 'Attendance - %1$s - %2$s', 'builderp' ),
+			__( 'Attendance - %1$s - %2$s', 'BuildERP' ),
 			$employee_id,
 			$date
 		);

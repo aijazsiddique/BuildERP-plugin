@@ -26,19 +26,19 @@ class BERP_Quotation_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Quotations', 'Post type general name', 'builderp' ),
-			'singular_name'      => _x( 'Quotation', 'Post type singular name', 'builderp' ),
-			'menu_name'          => _x( 'Quotations', 'Admin Menu text', 'builderp' ),
-			'name_admin_bar'     => _x( 'Quotation', 'Add New on Toolbar', 'builderp' ),
-			'add_new'            => __( 'Add New', 'builderp' ),
-			'add_new_item'       => __( 'Add New Quotation', 'builderp' ),
-			'new_item'           => __( 'New Quotation', 'builderp' ),
-			'edit_item'          => __( 'Edit Quotation', 'builderp' ),
-			'view_item'          => __( 'View Quotation', 'builderp' ),
-			'all_items'          => __( 'All Quotations', 'builderp' ),
-			'search_items'       => __( 'Search Quotations', 'builderp' ),
-			'not_found'          => __( 'No quotations found.', 'builderp' ),
-			'not_found_in_trash' => __( 'No quotations found in Trash.', 'builderp' ),
+			'name'               => _x( 'Quotations', 'Post type general name', 'BuildERP' ),
+			'singular_name'      => _x( 'Quotation', 'Post type singular name', 'BuildERP' ),
+			'menu_name'          => _x( 'Quotations', 'Admin Menu text', 'BuildERP' ),
+			'name_admin_bar'     => _x( 'Quotation', 'Add New on Toolbar', 'BuildERP' ),
+			'add_new'            => __( 'Add New', 'BuildERP' ),
+			'add_new_item'       => __( 'Add New Quotation', 'BuildERP' ),
+			'new_item'           => __( 'New Quotation', 'BuildERP' ),
+			'edit_item'          => __( 'Edit Quotation', 'BuildERP' ),
+			'view_item'          => __( 'View Quotation', 'BuildERP' ),
+			'all_items'          => __( 'All Quotations', 'BuildERP' ),
+			'search_items'       => __( 'Search Quotations', 'BuildERP' ),
+			'not_found'          => __( 'No quotations found.', 'BuildERP' ),
+			'not_found_in_trash' => __( 'No quotations found in Trash.', 'BuildERP' ),
 		);
 
 		$args = array(

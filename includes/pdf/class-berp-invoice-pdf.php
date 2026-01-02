@@ -67,7 +67,7 @@ class BERP_Invoice_PDF {
 		$this->invoice    = berp_get_invoice( $invoice_id );
 
 		if ( ! $this->invoice ) {
-			return new WP_Error( 'invalid_invoice', __( 'Invalid invoice', 'builderp' ) );
+			return new WP_Error( 'invalid_invoice', __( 'Invalid invoice', 'BuildERP' ) );
 		}
 
 		$this->currency = berp_get_currency_symbol();
@@ -140,7 +140,7 @@ class BERP_Invoice_PDF {
 		$invoice_number = get_post_meta( $this->invoice_id, '_berp_invoice_number', true );
 		return sprintf(
 			/* translators: Invoice number */
-			__( 'Invoice %s', 'builderp' ),
+			__( 'Invoice %s', 'BuildERP' ),
 			$invoice_number
 		);
 	}
@@ -303,26 +303,26 @@ class BERP_Invoice_PDF {
 			$html .= nl2br( esc_html( $company_address ) ) . '<br>';
 		}
 		if ( $company_phone ) {
-			$html .= esc_html__( 'Phone:', 'builderp' ) . ' ' . esc_html( $company_phone ) . '<br>';
+			$html .= esc_html__( 'Phone:', 'BuildERP' ) . ' ' . esc_html( $company_phone ) . '<br>';
 		}
 		if ( $company_email ) {
-			$html .= esc_html__( 'Email:', 'builderp' ) . ' ' . esc_html( $company_email );
+			$html .= esc_html__( 'Email:', 'BuildERP' ) . ' ' . esc_html( $company_email );
 		}
 		$html .= '</div>';
 		$html .= '</td>';
 
 		// Right Column: Invoice Meta
 		$html .= '<td class="invoice-meta">';
-		$html .= '<h1 class="doc-title">' . esc_html__( 'INVOICE', 'builderp' ) . '</h1>';
+		$html .= '<h1 class="doc-title">' . esc_html__( 'INVOICE', 'BuildERP' ) . '</h1>';
 		$html .= '<span class="status-badge status-' . esc_attr( $status ) . '">' . esc_html( berp_get_invoice_status_label( $status ) ) . '</span>';
 
 		$html .= '<table class="meta-table">';
-		$html .= '<tr><th>' . esc_html__( 'Invoice #:', 'builderp' ) . '</th><td>' . esc_html( $invoice_number ) . '</td></tr>';
-		$html .= '<tr><th>' . esc_html__( 'Date:', 'builderp' ) . '</th><td>' . esc_html( $invoice_date ? gmdate( 'd M Y', strtotime( $invoice_date ) ) : '' ) . '</td></tr>';
-		$html .= '<tr><th>' . esc_html__( 'Due Date:', 'builderp' ) . '</th><td>' . esc_html( $due_date ? gmdate( 'd M Y', strtotime( $due_date ) ) : '' ) . '</td></tr>';
+		$html .= '<tr><th>' . esc_html__( 'Invoice #:', 'BuildERP' ) . '</th><td>' . esc_html( $invoice_number ) . '</td></tr>';
+		$html .= '<tr><th>' . esc_html__( 'Date:', 'BuildERP' ) . '</th><td>' . esc_html( $invoice_date ? gmdate( 'd M Y', strtotime( $invoice_date ) ) : '' ) . '</td></tr>';
+		$html .= '<tr><th>' . esc_html__( 'Due Date:', 'BuildERP' ) . '</th><td>' . esc_html( $due_date ? gmdate( 'd M Y', strtotime( $due_date ) ) : '' ) . '</td></tr>';
 
 		if ( $po_number ) {
-			$html .= '<tr><th>' . esc_html__( 'PO #:', 'builderp' ) . '</th><td>' . esc_html( $po_number ) . '</td></tr>';
+			$html .= '<tr><th>' . esc_html__( 'PO #:', 'BuildERP' ) . '</th><td>' . esc_html( $po_number ) . '</td></tr>';
 		}
 
 		$html .= '</table>';
@@ -348,7 +348,7 @@ class BERP_Invoice_PDF {
 
 		// Bill To Box
 		$html .= '<td class="client-box">';
-		$html .= '<div class="section-label">' . esc_html__( 'Bill To:', 'builderp' ) . '</div>';
+		$html .= '<div class="section-label">' . esc_html__( 'Bill To:', 'BuildERP' ) . '</div>';
 		$html .= '<div class="client-details">';
 
 		if ( $client_id ) {
@@ -362,7 +362,7 @@ class BERP_Invoice_PDF {
 				$phone          = get_post_meta( $client_id, '_berp_client_phone', true );
 
 				if ( $contact_person ) {
-					$html .= esc_html__( 'Attn:', 'builderp' ) . ' ' . esc_html( $contact_person ) . '<br>';
+					$html .= esc_html__( 'Attn:', 'BuildERP' ) . ' ' . esc_html( $contact_person ) . '<br>';
 				}
 				if ( $address ) {
 					$html .= nl2br( esc_html( $address ) ) . '<br>';
@@ -383,7 +383,7 @@ class BERP_Invoice_PDF {
 
 		// Project/Site Box
 		$html .= '<td class="project-box">';
-		$html .= '<div class="section-label">' . esc_html__( 'Project / Site:', 'builderp' ) . '</div>';
+		$html .= '<div class="section-label">' . esc_html__( 'Project / Site:', 'BuildERP' ) . '</div>';
 		$html .= '<div class="client-details">';
 
 		if ( $site_id ) {
@@ -397,7 +397,7 @@ class BERP_Invoice_PDF {
 				}
 			}
 		} else {
-			$html .= '<em>' . esc_html__( 'N/A', 'builderp' ) . '</em>';
+			$html .= '<em>' . esc_html__( 'N/A', 'BuildERP' ) . '</em>';
 		}
 
 		$html .= '</div>';
@@ -422,16 +422,16 @@ class BERP_Invoice_PDF {
 
 		$html  = '<table class="items-table">';
 		$html .= '<thead><tr>';
-		$html .= '<th class="col-desc">' . esc_html__( 'Description', 'builderp' ) . '</th>';
-		$html .= '<th class="col-qty">' . esc_html__( 'Qty', 'builderp' ) . '</th>';
-		$html .= '<th class="col-rate">' . esc_html__( 'Unit Price', 'builderp' ) . '</th>';
-		$html .= '<th class="col-amount">' . esc_html__( 'Amount', 'builderp' ) . '</th>';
+		$html .= '<th class="col-desc">' . esc_html__( 'Description', 'BuildERP' ) . '</th>';
+		$html .= '<th class="col-qty">' . esc_html__( 'Qty', 'BuildERP' ) . '</th>';
+		$html .= '<th class="col-rate">' . esc_html__( 'Unit Price', 'BuildERP' ) . '</th>';
+		$html .= '<th class="col-amount">' . esc_html__( 'Amount', 'BuildERP' ) . '</th>';
 		$html .= '</tr></thead><tbody>';
 
 		if ( ! is_array( $line_items ) || empty( $line_items ) ) {
 			// Show empty row or message to maintain layout
 			$html .= '<tr>';
-			$html .= '<td colspan="4" style="text-align: center; padding: 20px; color: #999;">' . esc_html__( 'No items found', 'builderp' ) . '</td>';
+			$html .= '<td colspan="4" style="text-align: center; padding: 20px; color: #999;">' . esc_html__( 'No items found', 'BuildERP' ) . '</td>';
 			$html .= '</tr>';
 		} else {
 			$i = 0;
@@ -487,12 +487,12 @@ class BERP_Invoice_PDF {
 		$html = '<table class="totals-table">';
 
 		$html .= '<tr>';
-		$html .= '<td class="label">' . esc_html__( 'Subtotal', 'builderp' ) . '</td>';
+		$html .= '<td class="label">' . esc_html__( 'Subtotal', 'BuildERP' ) . '</td>';
 		$html .= '<td class="value">' . esc_html( $this->currency . number_format( $subtotal, 2 ) ) . '</td>';
 		$html .= '</tr>';
 
 		if ( $tax_total > 0 || $tax_rate > 0 ) {
-			$tax_label = __( 'Tax', 'builderp' );
+			$tax_label = __( 'Tax', 'BuildERP' );
 			if ( $tax_rate > 0 ) {
 				$tax_label .= ' (' . number_format( $tax_rate, 0 ) . '%)';
 			}
@@ -503,7 +503,7 @@ class BERP_Invoice_PDF {
 		}
 
 		if ( $discount > 0 ) {
-			$discount_label = __( 'Discount', 'builderp' );
+			$discount_label = __( 'Discount', 'BuildERP' );
 			if ( 'percentage' === $discount_type ) {
 				$discount_label .= ' (' . number_format( $discount, 0 ) . '%)';
 				$discount_amount = floatval( get_post_meta( $this->invoice_id, '_berp_discount_amount', true ) );
@@ -521,7 +521,7 @@ class BERP_Invoice_PDF {
 		}
 
 		$html .= '<tr class="grand-total">';
-		$html .= '<td class="label">' . esc_html__( 'Total', 'builderp' ) . '</td>';
+		$html .= '<td class="label">' . esc_html__( 'Total', 'BuildERP' ) . '</td>';
 		$html .= '<td class="value">' . esc_html( $this->currency . number_format( $grand_total, 2 ) ) . '</td>';
 		$html .= '</tr>';
 
@@ -559,19 +559,19 @@ class BERP_Invoice_PDF {
 
 		// Status
 		$html .= '<td width="33%">';
-		$html .= '<div class="status-label">' . esc_html__( 'Status', 'builderp' ) . '</div>';
+		$html .= '<div class="status-label">' . esc_html__( 'Status', 'BuildERP' ) . '</div>';
 		$html .= '<div class="status-value ' . esc_attr( $status_class ) . '">' . esc_html( $status_label ) . '</div>';
 		$html .= '</td>';
 
 		// Amount Paid
 		$html .= '<td width="33%">';
-		$html .= '<div class="status-label">' . esc_html__( 'Amount Paid', 'builderp' ) . '</div>';
+		$html .= '<div class="status-label">' . esc_html__( 'Amount Paid', 'BuildERP' ) . '</div>';
 		$html .= '<div class="status-value">' . esc_html( $this->currency . number_format( $paid, 2 ) ) . '</div>';
 		$html .= '</td>';
 
 		// Amount Due
 		$html .= '<td width="33%">';
-		$html .= '<div class="status-label">' . esc_html__( 'Amount Due', 'builderp' ) . '</div>';
+		$html .= '<div class="status-label">' . esc_html__( 'Amount Due', 'BuildERP' ) . '</div>';
 		$html .= '<div class="status-value text-danger">' . esc_html( $this->currency . number_format( $due, 2 ) ) . '</div>';
 		$html .= '</td>';
 
@@ -596,14 +596,14 @@ class BERP_Invoice_PDF {
 		}
 
 		$html  = '<div class="history-section">';
-		$html .= '<div class="history-title">' . esc_html__( 'Payment History', 'builderp' ) . '</div>';
+		$html .= '<div class="history-title">' . esc_html__( 'Payment History', 'BuildERP' ) . '</div>';
 		$html .= '<table class="history-table">';
 		$html .= '<thead>';
 		$html .= '<tr>';
-		$html .= '<th width="25%">' . esc_html__( 'Date', 'builderp' ) . '</th>';
-		$html .= '<th width="25%">' . esc_html__( 'Method', 'builderp' ) . '</th>';
-		$html .= '<th width="25%">' . esc_html__( 'Reference', 'builderp' ) . '</th>';
-		$html .= '<th width="25%" align="right">' . esc_html__( 'Amount', 'builderp' ) . '</th>';
+		$html .= '<th width="25%">' . esc_html__( 'Date', 'BuildERP' ) . '</th>';
+		$html .= '<th width="25%">' . esc_html__( 'Method', 'BuildERP' ) . '</th>';
+		$html .= '<th width="25%">' . esc_html__( 'Reference', 'BuildERP' ) . '</th>';
+		$html .= '<th width="25%" align="right">' . esc_html__( 'Amount', 'BuildERP' ) . '</th>';
 		$html .= '</tr>';
 		$html .= '</thead>';
 		$html .= '<tbody>';
@@ -640,7 +640,7 @@ class BERP_Invoice_PDF {
 
 		if ( $notes ) {
 			$html .= '<div class="notes-box">';
-			$html .= '<div class="notes-title">' . esc_html__( 'Notes:', 'builderp' ) . '</div>';
+			$html .= '<div class="notes-title">' . esc_html__( 'Notes:', 'BuildERP' ) . '</div>';
 			$html .= nl2br( esc_html( $notes ) );
 			$html .= '</div>';
 		}
@@ -648,7 +648,7 @@ class BERP_Invoice_PDF {
 		$terms_text = $terms ? $terms : $default_terms;
 		if ( $terms_text ) {
 			$html .= '<div class="notes-box">';
-			$html .= '<div class="notes-title">' . esc_html__( 'Terms & Conditions:', 'builderp' ) . '</div>';
+			$html .= '<div class="notes-title">' . esc_html__( 'Terms & Conditions:', 'BuildERP' ) . '</div>';
 			$html .= nl2br( esc_html( $terms_text ) );
 			$html .= '</div>';
 		}
@@ -658,7 +658,7 @@ class BERP_Invoice_PDF {
 		$html .= esc_html(
 			sprintf(
 			/* translators: Company name */
-				__( 'Thank you for your business! | %s', 'builderp' ),
+				__( 'Thank you for your business! | %s', 'BuildERP' ),
 				$company_name
 			)
 		);

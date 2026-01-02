@@ -42,12 +42,12 @@ class BERP_Advance_List_Table {
 	public function set_columns( $columns ) {
 		$new_columns = array(
 			'cb'             => $columns['cb'],
-			'title'          => __( 'Advance ID', 'builderp' ),
-			'employee'       => __( 'Employee', 'builderp' ),
-			'amount'         => __( 'Amount', 'builderp' ),
-			'request_date'   => __( 'Date', 'builderp' ),
-			'repayment'      => __( 'Repayment', 'builderp' ),
-			'advance_status' => __( 'Status', 'builderp' ),
+			'title'          => __( 'Advance ID', 'BuildERP' ),
+			'employee'       => __( 'Employee', 'BuildERP' ),
+			'amount'         => __( 'Amount', 'BuildERP' ),
+			'request_date'   => __( 'Date', 'BuildERP' ),
+			'repayment'      => __( 'Repayment', 'BuildERP' ),
+			'advance_status' => __( 'Status', 'BuildERP' ),
 		);
 		return $new_columns;
 	}
@@ -89,9 +89,9 @@ class BERP_Advance_List_Table {
 				$installments = get_post_meta( $post_id, '_berp_installments', true );
 				if ( 'installments' === $type && $installments > 1 ) {
 					/* translators: %d: number of installments */
-					echo esc_html( sprintf( __( '%d Installments', 'builderp' ), $installments ) );
+					echo esc_html( sprintf( __( '%d Installments', 'BuildERP' ), $installments ) );
 				} else {
-					esc_html_e( 'Full', 'builderp' );
+					esc_html_e( 'Full', 'BuildERP' );
 				}
 				break;
 
@@ -99,19 +99,19 @@ class BERP_Advance_List_Table {
 				$status   = get_post_meta( $post_id, '_berp_advance_status', true );
 				$statuses = array(
 					'pending'  => array(
-						'label' => __( 'Pending Approval', 'builderp' ),
+						'label' => __( 'Pending Approval', 'BuildERP' ),
 						'class' => 'berp-badge-warning',
 					),
 					'approved' => array(
-						'label' => __( 'Paid', 'builderp' ),
+						'label' => __( 'Paid', 'BuildERP' ),
 						'class' => 'berp-badge-success',
 					),
 					'rejected' => array(
-						'label' => __( 'Rejected', 'builderp' ),
+						'label' => __( 'Rejected', 'BuildERP' ),
 						'class' => 'berp-badge-error',
 					),
 					'paid'     => array(
-						'label' => __( 'Paid', 'builderp' ),
+						'label' => __( 'Paid', 'BuildERP' ),
 						'class' => 'berp-badge-info',
 					),
 				);
@@ -147,11 +147,11 @@ class BERP_Advance_List_Table {
 		// Status filter.
 		$current_status = isset( $_GET['advance_status'] ) ? sanitize_text_field( wp_unslash( $_GET['advance_status'] ) ) : '';
 		$statuses       = array(
-			''         => __( 'All Statuses', 'builderp' ),
-			'pending'  => __( 'Pending', 'builderp' ),
-			'approved' => __( 'Approved', 'builderp' ),
-			'rejected' => __( 'Rejected', 'builderp' ),
-			'paid'     => __( 'Paid', 'builderp' ),
+			''         => __( 'All Statuses', 'BuildERP' ),
+			'pending'  => __( 'Pending', 'BuildERP' ),
+			'approved' => __( 'Approved', 'BuildERP' ),
+			'rejected' => __( 'Rejected', 'BuildERP' ),
+			'paid'     => __( 'Paid', 'BuildERP' ),
 		);
 
 		echo '<select name="advance_status">';
@@ -179,7 +179,7 @@ class BERP_Advance_List_Table {
 		if ( ! empty( $employees ) ) {
 			$current_employee = isset( $_GET['employee_id'] ) ? absint( $_GET['employee_id'] ) : 0;
 			echo '<select name="employee_id">';
-			echo '<option value="">' . esc_html__( 'All Employees', 'builderp' ) . '</option>';
+			echo '<option value="">' . esc_html__( 'All Employees', 'BuildERP' ) . '</option>';
 			foreach ( $employees as $emp ) {
 				printf(
 					'<option value="%d" %s>%s</option>',
@@ -261,8 +261,8 @@ class BERP_Advance_List_Table {
 				'berp_reject_advance_' . $post->ID
 			);
 
-			$actions['approve'] = '<a href="' . esc_url( $approve_url ) . '" style="color: green;">' . esc_html__( 'Approve', 'builderp' ) . '</a>';
-			$actions['reject']  = '<a href="' . esc_url( $reject_url ) . '" style="color: red;">' . esc_html__( 'Reject', 'builderp' ) . '</a>';
+			$actions['approve'] = '<a href="' . esc_url( $approve_url ) . '" style="color: green;">' . esc_html__( 'Approve', 'BuildERP' ) . '</a>';
+			$actions['reject']  = '<a href="' . esc_url( $reject_url ) . '" style="color: red;">' . esc_html__( 'Reject', 'BuildERP' ) . '</a>';
 		}
 
 		return $actions;
@@ -273,19 +273,19 @@ class BERP_Advance_List_Table {
 	 */
 	public function handle_quick_approve() {
 		if ( ! isset( $_GET['post'] ) ) {
-			wp_die( esc_html__( 'Invalid request.', 'builderp' ) );
+			wp_die( esc_html__( 'Invalid request.', 'BuildERP' ) );
 		}
 
 		$post_id = absint( $_GET['post'] );
 
 		// Verify nonce.
 		if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ?? '' ) ), 'berp_approve_advance_' . $post_id ) ) {
-			wp_die( esc_html__( 'Security check failed.', 'builderp' ) );
+			wp_die( esc_html__( 'Security check failed.', 'BuildERP' ) );
 		}
 
 		// Check permissions.
 		if ( ! current_user_can( 'berp_manage_advances' ) ) {
-			wp_die( esc_html__( 'Permission denied.', 'builderp' ) );
+			wp_die( esc_html__( 'Permission denied.', 'BuildERP' ) );
 		}
 
 		// Update status.
@@ -333,7 +333,7 @@ class BERP_Advance_List_Table {
 		// Create expense title.
 		/* translators: %s: Employee name */
 		/* translators: %s: employee name */
-		$expense_title = sprintf( __( 'Salary Advance - %s', 'builderp' ), $employee_name );
+		$expense_title = sprintf( __( 'Salary Advance - %s', 'BuildERP' ), $employee_name );
 
 		// Create the expense post.
 		$expense_id = wp_insert_post(
@@ -356,7 +356,7 @@ class BERP_Advance_List_Table {
 			// Set description with reference to advance.
 			/* translators: 1: Advance ID, 2: Reason */
 			$description = sprintf(
-				__( 'Salary advance payment (Advance #%1$d). %2$s', 'builderp' ),
+				__( 'Salary advance payment (Advance #%1$d). %2$s', 'BuildERP' ),
 				$advance_id,
 				$reason ? $reason : ''
 			);
@@ -376,7 +376,7 @@ class BERP_Advance_List_Table {
 	 * @param int $expense_id Expense post ID.
 	 */
 	private function assign_salary_advance_category( $expense_id ) {
-		$category_name = __( 'Salary Advance', 'builderp' );
+		$category_name = __( 'Salary Advance', 'BuildERP' );
 
 		// Set the category as post meta (this is how expenses store category).
 		update_post_meta( $expense_id, '_berp_expense_category', $category_name );
@@ -408,19 +408,19 @@ class BERP_Advance_List_Table {
 	 */
 	public function handle_quick_reject() {
 		if ( ! isset( $_GET['post'] ) ) {
-			wp_die( esc_html__( 'Invalid request.', 'builderp' ) );
+			wp_die( esc_html__( 'Invalid request.', 'BuildERP' ) );
 		}
 
 		$post_id = absint( $_GET['post'] );
 
 		// Verify nonce.
 		if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ?? '' ) ), 'berp_reject_advance_' . $post_id ) ) {
-			wp_die( esc_html__( 'Security check failed.', 'builderp' ) );
+			wp_die( esc_html__( 'Security check failed.', 'BuildERP' ) );
 		}
 
 		// Check permissions.
 		if ( ! current_user_can( 'berp_manage_advances' ) ) {
-			wp_die( esc_html__( 'Permission denied.', 'builderp' ) );
+			wp_die( esc_html__( 'Permission denied.', 'BuildERP' ) );
 		}
 
 		// Update status.

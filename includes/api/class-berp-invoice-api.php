@@ -271,7 +271,7 @@ class BERP_Invoice_API {
 		if ( ! $invoice ) {
 			return new WP_Error(
 				'invoice_not_found',
-				__( 'Invoice not found', 'builderp' ),
+				__( 'Invoice not found', 'BuildERP' ),
 				array( 'status' => 404 )
 			);
 		}
@@ -346,7 +346,7 @@ class BERP_Invoice_API {
 		if ( ! $invoice ) {
 			return new WP_Error(
 				'invoice_not_found',
-				__( 'Invoice not found', 'builderp' ),
+				__( 'Invoice not found', 'BuildERP' ),
 				array( 'status' => 404 )
 			);
 		}
@@ -360,7 +360,7 @@ class BERP_Invoice_API {
 		if ( $amount <= 0 ) {
 			return new WP_Error(
 				'invalid_amount',
-				__( 'Payment amount must be greater than zero', 'builderp' ),
+				__( 'Payment amount must be greater than zero', 'BuildERP' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -403,7 +403,7 @@ class BERP_Invoice_API {
 		return rest_ensure_response(
 			array(
 				'success' => true,
-				'message' => __( 'Payment recorded successfully', 'builderp' ),
+				'message' => __( 'Payment recorded successfully', 'BuildERP' ),
 				'invoice' => $this->format_invoice( $invoice_id ),
 			)
 		);
@@ -423,7 +423,7 @@ class BERP_Invoice_API {
 		if ( ! $invoice ) {
 			return new WP_Error(
 				'invoice_not_found',
-				__( 'Invoice not found', 'builderp' ),
+				__( 'Invoice not found', 'BuildERP' ),
 				array( 'status' => 404 )
 			);
 		}
@@ -467,7 +467,7 @@ class BERP_Invoice_API {
 		if ( ! $invoice ) {
 			return new WP_Error(
 				'invoice_not_found',
-				__( 'Invoice not found', 'builderp' ),
+				__( 'Invoice not found', 'BuildERP' ),
 				array( 'status' => 404 )
 			);
 		}
@@ -476,7 +476,7 @@ class BERP_Invoice_API {
 		if ( ! is_array( $payments ) || ! isset( $payments[ $payment_index ] ) ) {
 			return new WP_Error(
 				'payment_not_found',
-				__( 'Payment not found', 'builderp' ),
+				__( 'Payment not found', 'BuildERP' ),
 				array( 'status' => 404 )
 			);
 		}
@@ -514,7 +514,7 @@ class BERP_Invoice_API {
 		return rest_ensure_response(
 			array(
 				'success' => true,
-				'message' => __( 'Payment deleted successfully', 'builderp' ),
+				'message' => __( 'Payment deleted successfully', 'BuildERP' ),
 				'invoice' => $this->format_invoice( $invoice_id ),
 			)
 		);
@@ -535,7 +535,7 @@ class BERP_Invoice_API {
 		if ( ! $invoice ) {
 			return new WP_Error(
 				'invoice_not_found',
-				__( 'Invoice not found', 'builderp' ),
+				__( 'Invoice not found', 'BuildERP' ),
 				array( 'status' => 404 )
 			);
 		}
@@ -552,7 +552,7 @@ class BERP_Invoice_API {
 		return rest_ensure_response(
 			array(
 				'success' => true,
-				'message' => __( 'Status updated successfully', 'builderp' ),
+				'message' => __( 'Status updated successfully', 'BuildERP' ),
 				'invoice' => $this->format_invoice( $invoice_id ),
 			)
 		);

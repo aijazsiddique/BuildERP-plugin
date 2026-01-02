@@ -59,13 +59,13 @@ class BERP_Attendance_List {
 
 		$new                   = array();
 		$new['cb']             = $columns['cb'];
-		$new['title']          = __( 'Title', 'builderp' );
-		$new['berp_employee']  = __( 'Employee', 'builderp' );
-		$new['berp_date']      = __( 'Date', 'builderp' );
-		$new['berp_site']      = __( 'Site/Project', 'builderp' );
-		$new['berp_overtime']  = __( 'Overtime (hrs)', 'builderp' );
-		$new['berp_logged_by'] = __( 'Logged By', 'builderp' );
-		$new['date']           = __( 'Created', 'builderp' );
+		$new['title']          = __( 'Title', 'BuildERP' );
+		$new['berp_employee']  = __( 'Employee', 'BuildERP' );
+		$new['berp_date']      = __( 'Date', 'BuildERP' );
+		$new['berp_site']      = __( 'Site/Project', 'BuildERP' );
+		$new['berp_overtime']  = __( 'Overtime (hrs)', 'BuildERP' );
+		$new['berp_logged_by'] = __( 'Logged By', 'BuildERP' );
+		$new['date']           = __( 'Created', 'BuildERP' );
 
 		return $new;
 	}
@@ -82,16 +82,16 @@ class BERP_Attendance_List {
 			case 'berp_employee':
 				$employee_id = (int) get_post_meta( $post_id, $this->meta_keys['employee'], true );
 				$name        = $employee_id ? berp_get_employee_name( $employee_id ) : '';
-				echo esc_html( $name ? $name : __( 'N/A', 'builderp' ) );
+				echo esc_html( $name ? $name : __( 'N/A', 'BuildERP' ) );
 				break;
 			case 'berp_date':
 				$date = get_post_meta( $post_id, $this->meta_keys['date'], true );
-				echo esc_html( $date ? $date : __( 'N/A', 'builderp' ) );
+				echo esc_html( $date ? $date : __( 'N/A', 'BuildERP' ) );
 				break;
 			case 'berp_site':
 				$site_id = (int) get_post_meta( $post_id, $this->meta_keys['site'], true );
 				$name    = $site_id ? berp_get_site_name( $site_id ) : '';
-				echo esc_html( $name ? $name : __( 'N/A', 'builderp' ) );
+				echo esc_html( $name ? $name : __( 'N/A', 'BuildERP' ) );
 				break;
 			case 'berp_overtime':
 				$overtime = get_post_meta( $post_id, $this->meta_keys['overtime'], true );
@@ -101,7 +101,7 @@ class BERP_Attendance_List {
 			case 'berp_logged_by':
 				$user_id = (int) get_post_meta( $post_id, $this->meta_keys['logged_by'], true );
 				$user    = $user_id ? get_user_by( 'id', $user_id ) : null;
-				echo esc_html( $user ? $user->display_name : __( 'System', 'builderp' ) );
+				echo esc_html( $user ? $user->display_name : __( 'System', 'BuildERP' ) );
 				break;
 		}
 	}
@@ -166,9 +166,9 @@ class BERP_Attendance_List {
 		$employees = function_exists( 'berp_get_employees' ) ? berp_get_employees() : array();
 
 		?>
-		<label class="screen-reader-text" for="berp_site"><?php esc_html_e( 'Filter by site', 'builderp' ); ?></label>
+		<label class="screen-reader-text" for="berp_site"><?php esc_html_e( 'Filter by site', 'BuildERP' ); ?></label>
 		<select name="berp_site" id="berp_site">
-			<option value="0"><?php esc_html_e( 'All Sites', 'builderp' ); ?></option>
+			<option value="0"><?php esc_html_e( 'All Sites', 'BuildERP' ); ?></option>
 			<?php foreach ( $sites as $site ) : ?>
 				<option value="<?php echo esc_attr( $site->ID ); ?>" <?php selected( $selected_site, $site->ID ); ?>>
 					<?php echo esc_html( $site->post_title ); ?>
@@ -176,9 +176,9 @@ class BERP_Attendance_List {
 			<?php endforeach; ?>
 		</select>
 
-		<label class="screen-reader-text" for="berp_employee"><?php esc_html_e( 'Filter by employee', 'builderp' ); ?></label>
+		<label class="screen-reader-text" for="berp_employee"><?php esc_html_e( 'Filter by employee', 'BuildERP' ); ?></label>
 		<select name="berp_employee" id="berp_employee">
-			<option value="0"><?php esc_html_e( 'All Employees', 'builderp' ); ?></option>
+			<option value="0"><?php esc_html_e( 'All Employees', 'BuildERP' ); ?></option>
 			<?php foreach ( $employees as $employee ) : ?>
 				<option value="<?php echo esc_attr( $employee->ID ); ?>" <?php selected( $selected_employee, $employee->ID ); ?>>
 					<?php echo esc_html( $employee->post_title ); ?>
@@ -186,8 +186,8 @@ class BERP_Attendance_List {
 			<?php endforeach; ?>
 		</select>
 
-		<input type="date" name="berp_date_from" value="<?php echo esc_attr( $date_from ); ?>" placeholder="<?php esc_attr_e( 'From date', 'builderp' ); ?>" />
-		<input type="date" name="berp_date_to" value="<?php echo esc_attr( $date_to ); ?>" placeholder="<?php esc_attr_e( 'To date', 'builderp' ); ?>" />
+		<input type="date" name="berp_date_from" value="<?php echo esc_attr( $date_from ); ?>" placeholder="<?php esc_attr_e( 'From date', 'BuildERP' ); ?>" />
+		<input type="date" name="berp_date_to" value="<?php echo esc_attr( $date_to ); ?>" placeholder="<?php esc_attr_e( 'To date', 'BuildERP' ); ?>" />
 		<?php
 	}
 
@@ -251,7 +251,7 @@ class BERP_Attendance_List {
 	 * @return array
 	 */
 	public function register_bulk_actions( $actions ) {
-		$actions['berp_export_csv'] = __( 'Export CSV', 'builderp' );
+		$actions['berp_export_csv'] = __( 'Export CSV', 'BuildERP' );
 		return $actions;
 	}
 
@@ -296,11 +296,11 @@ class BERP_Attendance_List {
 		fputcsv(
 			$output,
 			array(
-				__( 'Employee', 'builderp' ),
-				__( 'Date', 'builderp' ),
-				__( 'Site', 'builderp' ),
-				__( 'Overtime (hrs)', 'builderp' ),
-				__( 'Logged By', 'builderp' ),
+				__( 'Employee', 'BuildERP' ),
+				__( 'Date', 'BuildERP' ),
+				__( 'Site', 'BuildERP' ),
+				__( 'Overtime (hrs)', 'BuildERP' ),
+				__( 'Logged By', 'BuildERP' ),
 			)
 		);
 

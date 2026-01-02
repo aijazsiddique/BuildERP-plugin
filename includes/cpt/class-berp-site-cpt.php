@@ -26,21 +26,21 @@ class BERP_Site_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Sites', 'Post type general name', 'builderp' ),
-			'singular_name'      => _x( 'Site', 'Post type singular name', 'builderp' ),
-			'menu_name'          => _x( 'Sites/Projects', 'Admin Menu text', 'builderp' ),
-			'name_admin_bar'     => _x( 'Site', 'Add New on Toolbar', 'builderp' ),
-			'add_new'            => __( 'Add New', 'builderp' ),
-			'add_new_item'       => __( 'Add New Site', 'builderp' ),
-			'new_item'           => __( 'New Site', 'builderp' ),
-			'edit_item'          => __( 'Edit Site', 'builderp' ),
-			'view_item'          => __( 'View Site', 'builderp' ),
-			'all_items'          => __( 'All Sites', 'builderp' ),
-			'search_items'       => __( 'Search Sites', 'builderp' ),
-			'not_found'          => __( 'No sites found.', 'builderp' ),
-			'not_found_in_trash' => __( 'No sites found in Trash.', 'builderp' ),
-			'featured_image'     => _x( 'Site Image', 'Overrides the "Featured Image" phrase', 'builderp' ),
-			'set_featured_image' => _x( 'Set site image', 'Overrides the "Set featured image" phrase', 'builderp' ),
+			'name'               => _x( 'Sites', 'Post type general name', 'BuildERP' ),
+			'singular_name'      => _x( 'Site', 'Post type singular name', 'BuildERP' ),
+			'menu_name'          => _x( 'Sites/Projects', 'Admin Menu text', 'BuildERP' ),
+			'name_admin_bar'     => _x( 'Site', 'Add New on Toolbar', 'BuildERP' ),
+			'add_new'            => __( 'Add New', 'BuildERP' ),
+			'add_new_item'       => __( 'Add New Site', 'BuildERP' ),
+			'new_item'           => __( 'New Site', 'BuildERP' ),
+			'edit_item'          => __( 'Edit Site', 'BuildERP' ),
+			'view_item'          => __( 'View Site', 'BuildERP' ),
+			'all_items'          => __( 'All Sites', 'BuildERP' ),
+			'search_items'       => __( 'Search Sites', 'BuildERP' ),
+			'not_found'          => __( 'No sites found.', 'BuildERP' ),
+			'not_found_in_trash' => __( 'No sites found in Trash.', 'BuildERP' ),
+			'featured_image'     => _x( 'Site Image', 'Overrides the "Featured Image" phrase', 'BuildERP' ),
+			'set_featured_image' => _x( 'Set site image', 'Overrides the "Set featured image" phrase', 'BuildERP' ),
 		);
 
 		$args = array(

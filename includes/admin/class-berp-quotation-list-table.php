@@ -46,12 +46,12 @@ class BERP_Quotation_List_Table {
 	public function add_columns( $columns ) {
 		$new_columns = array(
 			'cb'             => $columns['cb'],
-			'title'          => __( 'Quotation #', 'builderp' ),
-			'client'         => __( 'Client', 'builderp' ),
-			'quotation_date' => __( 'Date', 'builderp' ),
-			'validity_date'  => __( 'Valid Until', 'builderp' ),
-			'status'         => __( 'Status', 'builderp' ),
-			'grand_total'    => __( 'Total', 'builderp' ),
+			'title'          => __( 'Quotation #', 'BuildERP' ),
+			'client'         => __( 'Client', 'BuildERP' ),
+			'quotation_date' => __( 'Date', 'BuildERP' ),
+			'validity_date'  => __( 'Valid Until', 'BuildERP' ),
+			'status'         => __( 'Status', 'BuildERP' ),
+			'grand_total'    => __( 'Total', 'BuildERP' ),
 		);
 		return $new_columns;
 	}
@@ -189,7 +189,7 @@ class BERP_Quotation_List_Table {
 		$selected_client = isset( $_GET['berp_client_filter'] ) ? absint( $_GET['berp_client_filter'] ) : 0;
 		?>
 		<select name="berp_client_filter">
-			<option value=""><?php esc_html_e( 'All Clients', 'builderp' ); ?></option>
+			<option value=""><?php esc_html_e( 'All Clients', 'BuildERP' ); ?></option>
 			<?php foreach ( $clients as $client ) : ?>
 				<option value="<?php echo esc_attr( $client->ID ); ?>" <?php selected( $selected_client, $client->ID ); ?>>
 					<?php echo esc_html( $client->post_title ); ?>
@@ -203,7 +203,7 @@ class BERP_Quotation_List_Table {
 		$selected_status = isset( $_GET['berp_status_filter'] ) ? sanitize_text_field( $_GET['berp_status_filter'] ) : '';
 		?>
 		<select name="berp_status_filter">
-			<option value=""><?php esc_html_e( 'All Statuses', 'builderp' ); ?></option>
+			<option value=""><?php esc_html_e( 'All Statuses', 'BuildERP' ); ?></option>
 			<?php foreach ( $statuses as $status ) : ?>
 				<option value="<?php echo esc_attr( $status ); ?>" <?php selected( $selected_status, $status ); ?>>
 					<?php echo esc_html( berp_get_quotation_status_label( $status ) ); ?>
@@ -280,7 +280,7 @@ class BERP_Quotation_List_Table {
 					admin_url( 'admin-ajax.php' )
 				)
 			),
-			__( 'View PDF', 'builderp' )
+			__( 'View PDF', 'BuildERP' )
 		);
 
 		// Add "Send to Client" action (if not sent or status is draft).
@@ -298,7 +298,7 @@ class BERP_Quotation_List_Table {
 						'berp_send_quotation_' . $post->ID
 					)
 				),
-				__( 'Send to Client', 'builderp' )
+				__( 'Send to Client', 'BuildERP' )
 			);
 		}
 
@@ -319,7 +319,7 @@ class BERP_Quotation_List_Table {
 							'berp_convert_site_' . $post->ID
 						)
 					),
-					__( 'Convert to Site', 'builderp' )
+					__( 'Convert to Site', 'BuildERP' )
 				);
 			}
 		}

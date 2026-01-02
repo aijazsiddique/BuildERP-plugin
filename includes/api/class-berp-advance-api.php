@@ -126,7 +126,7 @@ class BERP_Advance_API {
 		if ( ! $employee_id ) {
 			return new WP_Error(
 				'berp_not_employee',
-				__( 'You are not linked to an employee record.', 'builderp' ),
+				__( 'You are not linked to an employee record.', 'BuildERP' ),
 				array( 'status' => 403 )
 			);
 		}
@@ -136,7 +136,7 @@ class BERP_Advance_API {
 		if ( $amount <= 0 ) {
 			return new WP_Error(
 				'berp_invalid_amount',
-				__( 'Amount must be greater than zero.', 'builderp' ),
+				__( 'Amount must be greater than zero.', 'BuildERP' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -152,7 +152,7 @@ class BERP_Advance_API {
 					'berp_exceeds_max',
 					sprintf(
 						/* translators: 1: max percentage, 2: max amount */
-						__( 'Amount exceeds maximum allowed (%1$d%% of salary = %2$s).', 'builderp' ),
+						__( 'Amount exceeds maximum allowed (%1$d%% of salary = %2$s).', 'BuildERP' ),
 						$max_percent,
 						berp_format_currency( $max_amount )
 					),
@@ -183,7 +183,7 @@ class BERP_Advance_API {
 		if ( ! empty( $existing ) ) {
 			return new WP_Error(
 				'berp_pending_exists',
-				__( 'You already have a pending advance request. Please wait for it to be processed.', 'builderp' ),
+				__( 'You already have a pending advance request. Please wait for it to be processed.', 'BuildERP' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -196,7 +196,7 @@ class BERP_Advance_API {
 		$employee = get_post( $employee_id );
 		$title    = sprintf(
 			/* translators: 1: employee name, 2: date */
-			__( 'Advance Request - %1$s - %2$s', 'builderp' ),
+			__( 'Advance Request - %1$s - %2$s', 'BuildERP' ),
 			$employee ? $employee->post_title : 'Unknown',
 			current_time( 'Y-m-d' )
 		);
@@ -260,8 +260,8 @@ class BERP_Advance_API {
 			array(
 				'success'    => true,
 				'message'    => $requires_approval
-					? __( 'Your advance request has been submitted and is pending approval.', 'builderp' )
-					: __( 'Your advance request has been approved.', 'builderp' ),
+					? __( 'Your advance request has been submitted and is pending approval.', 'BuildERP' )
+					: __( 'Your advance request has been approved.', 'BuildERP' ),
 				'advance_id' => $advance_id,
 				'status'     => $initial_status,
 			),
@@ -399,7 +399,7 @@ class BERP_Advance_API {
 		if ( ! in_array( $new_status, array( 'approved', 'rejected' ), true ) ) {
 			return new WP_Error(
 				'berp_invalid_status',
-				__( 'Invalid status. Must be "approved" or "rejected".', 'builderp' ),
+				__( 'Invalid status. Must be "approved" or "rejected".', 'BuildERP' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -408,7 +408,7 @@ class BERP_Advance_API {
 		if ( ! $advance || 'berp_advance' !== $advance->post_type ) {
 			return new WP_Error(
 				'berp_not_found',
-				__( 'Advance request not found.', 'builderp' ),
+				__( 'Advance request not found.', 'BuildERP' ),
 				array( 'status' => 404 )
 			);
 		}
@@ -417,7 +417,7 @@ class BERP_Advance_API {
 		if ( 'pending' !== $current_status ) {
 			return new WP_Error(
 				'berp_already_processed',
-				__( 'This request has already been processed.', 'builderp' ),
+				__( 'This request has already been processed.', 'BuildERP' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -449,8 +449,8 @@ class BERP_Advance_API {
 			array(
 				'success' => true,
 				'message' => 'approved' === $new_status
-					? __( 'Advance request approved.', 'builderp' )
-					: __( 'Advance request rejected.', 'builderp' ),
+					? __( 'Advance request approved.', 'BuildERP' )
+					: __( 'Advance request rejected.', 'BuildERP' ),
 				'status'  => $new_status,
 			),
 			200

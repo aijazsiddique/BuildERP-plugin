@@ -53,50 +53,50 @@ $net_salary   = $gross_salary - $total_deductions;
 
 <div class="berp-portal-card">
 	<div class="berp-card-header">
-		<h3><?php esc_html_e( 'My Profile', 'builderp' ); ?></h3>
+		<h3><?php esc_html_e( 'My Profile', 'BuildERP' ); ?></h3>
 	</div>
 	<div class="berp-card-body">
 		<form class="berp-portal-form">
 			<div class="berp-form-row">
 				<div class="berp-form-group berp-col-6">
-					<label><?php esc_html_e( 'Full Name', 'builderp' ); ?></label>
+					<label><?php esc_html_e( 'Full Name', 'BuildERP' ); ?></label>
 					<input type="text" class="berp-form-control" value="<?php echo esc_attr( $employee->post_title ); ?>" readonly>
 				</div>
 				<div class="berp-form-group berp-col-6">
-					<label><?php esc_html_e( 'Employee ID', 'builderp' ); ?></label>
+					<label><?php esc_html_e( 'Employee ID', 'BuildERP' ); ?></label>
 					<input type="text" class="berp-form-control" value="<?php echo esc_attr( get_post_meta( $employee_id, '_berp_employee_id', true ) ); ?>" readonly>
 				</div>
 			</div>
 
 			<div class="berp-form-row">
 				<div class="berp-form-group berp-col-6">
-					<label><?php esc_html_e( 'Email', 'builderp' ); ?></label>
+					<label><?php esc_html_e( 'Email', 'BuildERP' ); ?></label>
 					<input type="email" class="berp-form-control" value="<?php echo esc_attr( $email ); ?>" readonly>
 				</div>
 				<div class="berp-form-group berp-col-6">
-					<label><?php esc_html_e( 'Phone', 'builderp' ); ?></label>
+					<label><?php esc_html_e( 'Phone', 'BuildERP' ); ?></label>
 					<input type="text" class="berp-form-control" value="<?php echo esc_attr( $phone ); ?>" readonly>
 				</div>
 			</div>
 
 			<div class="berp-form-group">
-				<label><?php esc_html_e( 'Address', 'builderp' ); ?></label>
+				<label><?php esc_html_e( 'Address', 'BuildERP' ); ?></label>
 				<textarea class="berp-form-control" readonly><?php echo esc_textarea( $address ); ?></textarea>
 			</div>
 
 			<div class="berp-form-row">
 				<div class="berp-form-group berp-col-6">
-					<label><?php esc_html_e( 'Hire Date', 'builderp' ); ?></label>
+					<label><?php esc_html_e( 'Hire Date', 'BuildERP' ); ?></label>
 					<input type="text" class="berp-form-control" value="<?php echo esc_attr( $hire_date ); ?>" readonly>
 				</div>
 				<div class="berp-form-group berp-col-6">
-					<label><?php esc_html_e( 'Status', 'builderp' ); ?></label>
+					<label><?php esc_html_e( 'Status', 'BuildERP' ); ?></label>
 					<input type="text" class="berp-form-control" value="<?php echo esc_attr( ucfirst( $status ) ); ?>" readonly>
 				</div>
 			</div>
 
 			<div class="berp-form-actions">
-				<p class="berp-text-muted"><?php esc_html_e( 'To update your profile information, please contact HR.', 'builderp' ); ?></p>
+				<p class="berp-text-muted"><?php esc_html_e( 'To update your profile information, please contact HR.', 'BuildERP' ); ?></p>
 			</div>
 		</form>
 	</div>
@@ -105,33 +105,33 @@ $net_salary   = $gross_salary - $total_deductions;
 <!-- Salary Information Card -->
 <div class="berp-portal-card">
 	<div class="berp-card-header">
-		<h3><?php esc_html_e( 'Salary Information', 'builderp' ); ?></h3>
+		<h3><?php esc_html_e( 'Salary Information', 'BuildERP' ); ?></h3>
 	</div>
 	<div class="berp-card-body">
 		<div class="berp-salary-summary">
 			<div class="berp-form-row">
 				<div class="berp-form-group berp-col-6">
-					<label><?php esc_html_e( 'Basic Salary', 'builderp' ); ?></label>
+					<label><?php esc_html_e( 'Basic Salary', 'BuildERP' ); ?></label>
 					<input type="text" class="berp-form-control" value="<?php echo esc_attr( berp_format_currency( $basic_salary ) ); ?>" readonly>
 				</div>
 				<div class="berp-form-group berp-col-6">
-					<label><?php esc_html_e( 'Gross Salary', 'builderp' ); ?></label>
+					<label><?php esc_html_e( 'Gross Salary', 'BuildERP' ); ?></label>
 					<input type="text" class="berp-form-control" value="<?php echo esc_attr( berp_format_currency( $gross_salary ) ); ?>" readonly>
 				</div>
 			</div>
 			<div class="berp-form-row">
 				<div class="berp-form-group berp-col-6">
-					<label><?php esc_html_e( 'Total Allowances', 'builderp' ); ?></label>
+					<label><?php esc_html_e( 'Total Allowances', 'BuildERP' ); ?></label>
 					<input type="text" class="berp-form-control berp-text-success" value="+ <?php echo esc_attr( berp_format_currency( $total_allowances ) ); ?>" readonly>
 				</div>
 				<div class="berp-form-group berp-col-6">
-					<label><?php esc_html_e( 'Total Deductions', 'builderp' ); ?></label>
+					<label><?php esc_html_e( 'Total Deductions', 'BuildERP' ); ?></label>
 					<input type="text" class="berp-form-control berp-text-danger" value="- <?php echo esc_attr( berp_format_currency( $total_deductions ) ); ?>" readonly>
 				</div>
 			</div>
 			<div class="berp-form-row">
 				<div class="berp-form-group berp-col-12">
-					<label><?php esc_html_e( 'Net Salary', 'builderp' ); ?></label>
+					<label><?php esc_html_e( 'Net Salary', 'BuildERP' ); ?></label>
 					<input type="text" class="berp-form-control berp-net-salary" value="<?php echo esc_attr( berp_format_currency( $net_salary ) ); ?>" readonly>
 				</div>
 			</div>
@@ -143,21 +143,21 @@ $net_salary   = $gross_salary - $total_deductions;
 <!-- Allowances Breakdown Card -->
 <div class="berp-portal-card">
 	<div class="berp-card-header">
-		<h3><?php esc_html_e( 'Allowances Breakdown', 'builderp' ); ?></h3>
+		<h3><?php esc_html_e( 'Allowances Breakdown', 'BuildERP' ); ?></h3>
 	</div>
 	<div class="berp-card-body">
 		<div class="berp-table-responsive">
 			<table class="berp-portal-table">
 				<thead>
 					<tr>
-						<th><?php esc_html_e( 'Allowance Type', 'builderp' ); ?></th>
-						<th class="berp-text-right"><?php esc_html_e( 'Amount', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Allowance Type', 'BuildERP' ); ?></th>
+						<th class="berp-text-right"><?php esc_html_e( 'Amount', 'BuildERP' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
 					foreach ( $allowances as $allowance ) :
-						$name   = isset( $allowance['name'] ) ? $allowance['name'] : __( 'Allowance', 'builderp' );
+						$name   = isset( $allowance['name'] ) ? $allowance['name'] : __( 'Allowance', 'BuildERP' );
 						$amount = isset( $allowance['amount'] ) ? floatval( $allowance['amount'] ) : 0;
 						?>
 						<tr>
@@ -168,7 +168,7 @@ $net_salary   = $gross_salary - $total_deductions;
 				</tbody>
 				<tfoot>
 					<tr>
-						<th><?php esc_html_e( 'Total Allowances', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Total Allowances', 'BuildERP' ); ?></th>
 						<th class="berp-text-right berp-text-success">+ <?php echo esc_html( berp_format_currency( $total_allowances ) ); ?></th>
 					</tr>
 				</tfoot>
@@ -182,21 +182,21 @@ $net_salary   = $gross_salary - $total_deductions;
 <!-- Deductions Breakdown Card -->
 <div class="berp-portal-card">
 	<div class="berp-card-header">
-		<h3><?php esc_html_e( 'Deductions Breakdown', 'builderp' ); ?></h3>
+		<h3><?php esc_html_e( 'Deductions Breakdown', 'BuildERP' ); ?></h3>
 	</div>
 	<div class="berp-card-body">
 		<div class="berp-table-responsive">
 			<table class="berp-portal-table">
 				<thead>
 					<tr>
-						<th><?php esc_html_e( 'Deduction Type', 'builderp' ); ?></th>
-						<th class="berp-text-right"><?php esc_html_e( 'Amount', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Deduction Type', 'BuildERP' ); ?></th>
+						<th class="berp-text-right"><?php esc_html_e( 'Amount', 'BuildERP' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
 					foreach ( $deductions as $deduction ) :
-						$name   = isset( $deduction['name'] ) ? $deduction['name'] : __( 'Deduction', 'builderp' );
+						$name   = isset( $deduction['name'] ) ? $deduction['name'] : __( 'Deduction', 'BuildERP' );
 						$amount = isset( $deduction['amount'] ) ? floatval( $deduction['amount'] ) : 0;
 						?>
 						<tr>
@@ -207,7 +207,7 @@ $net_salary   = $gross_salary - $total_deductions;
 				</tbody>
 				<tfoot>
 					<tr>
-						<th><?php esc_html_e( 'Total Deductions', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Total Deductions', 'BuildERP' ); ?></th>
 						<th class="berp-text-right berp-text-danger">- <?php echo esc_html( berp_format_currency( $total_deductions ) ); ?></th>
 					</tr>
 				</tfoot>
@@ -218,6 +218,6 @@ $net_salary   = $gross_salary - $total_deductions;
 <?php endif; ?>
 
 <div class="berp-salary-notice">
-	<p class="berp-text-muted"><em><?php esc_html_e( 'Note: Salary information is for reference only. Actual payment may vary based on attendance, overtime, and other factors. For any queries, please contact HR.', 'builderp' ); ?></em></p>
+	<p class="berp-text-muted"><em><?php esc_html_e( 'Note: Salary information is for reference only. Actual payment may vary based on attendance, overtime, and other factors. For any queries, please contact HR.', 'BuildERP' ); ?></em></p>
 </div>
 

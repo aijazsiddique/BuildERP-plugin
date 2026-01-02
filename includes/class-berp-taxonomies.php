@@ -38,17 +38,17 @@ class BERP_Taxonomies {
 	 */
 	private function register_expense_category() {
 		$labels = array(
-			'name'              => _x( 'Expense Categories', 'taxonomy general name', 'builderp' ),
-			'singular_name'     => _x( 'Expense Category', 'taxonomy singular name', 'builderp' ),
-			'search_items'      => __( 'Search Categories', 'builderp' ),
-			'all_items'         => __( 'All Categories', 'builderp' ),
-			'parent_item'       => __( 'Parent Category', 'builderp' ),
-			'parent_item_colon' => __( 'Parent Category:', 'builderp' ),
-			'edit_item'         => __( 'Edit Category', 'builderp' ),
-			'update_item'       => __( 'Update Category', 'builderp' ),
-			'add_new_item'      => __( 'Add New Category', 'builderp' ),
-			'new_item_name'     => __( 'New Category Name', 'builderp' ),
-			'menu_name'         => __( 'Expense Categories', 'builderp' ),
+			'name'              => _x( 'Expense Categories', 'taxonomy general name', 'BuildERP' ),
+			'singular_name'     => _x( 'Expense Category', 'taxonomy singular name', 'BuildERP' ),
+			'search_items'      => __( 'Search Categories', 'BuildERP' ),
+			'all_items'         => __( 'All Categories', 'BuildERP' ),
+			'parent_item'       => __( 'Parent Category', 'BuildERP' ),
+			'parent_item_colon' => __( 'Parent Category:', 'BuildERP' ),
+			'edit_item'         => __( 'Edit Category', 'BuildERP' ),
+			'update_item'       => __( 'Update Category', 'BuildERP' ),
+			'add_new_item'      => __( 'Add New Category', 'BuildERP' ),
+			'new_item_name'     => __( 'New Category Name', 'BuildERP' ),
+			'menu_name'         => __( 'Expense Categories', 'BuildERP' ),
 		);
 
 		$args = array(
@@ -77,17 +77,17 @@ class BERP_Taxonomies {
 	 */
 	private function register_department() {
 		$labels = array(
-			'name'              => _x( 'Departments', 'taxonomy general name', 'builderp' ),
-			'singular_name'     => _x( 'Department', 'taxonomy singular name', 'builderp' ),
-			'search_items'      => __( 'Search Departments', 'builderp' ),
-			'all_items'         => __( 'All Departments', 'builderp' ),
-			'parent_item'       => __( 'Parent Department', 'builderp' ),
-			'parent_item_colon' => __( 'Parent Department:', 'builderp' ),
-			'edit_item'         => __( 'Edit Department', 'builderp' ),
-			'update_item'       => __( 'Update Department', 'builderp' ),
-			'add_new_item'      => __( 'Add New Department', 'builderp' ),
-			'new_item_name'     => __( 'New Department Name', 'builderp' ),
-			'menu_name'         => __( 'Departments', 'builderp' ),
+			'name'              => _x( 'Departments', 'taxonomy general name', 'BuildERP' ),
+			'singular_name'     => _x( 'Department', 'taxonomy singular name', 'BuildERP' ),
+			'search_items'      => __( 'Search Departments', 'BuildERP' ),
+			'all_items'         => __( 'All Departments', 'BuildERP' ),
+			'parent_item'       => __( 'Parent Department', 'BuildERP' ),
+			'parent_item_colon' => __( 'Parent Department:', 'BuildERP' ),
+			'edit_item'         => __( 'Edit Department', 'BuildERP' ),
+			'update_item'       => __( 'Update Department', 'BuildERP' ),
+			'add_new_item'      => __( 'Add New Department', 'BuildERP' ),
+			'new_item_name'     => __( 'New Department Name', 'BuildERP' ),
+			'menu_name'         => __( 'Departments', 'BuildERP' ),
 		);
 
 		$args = array(
@@ -116,15 +116,15 @@ class BERP_Taxonomies {
 	 */
 	private function register_project_status() {
 		$labels = array(
-			'name'          => _x( 'Project Statuses', 'taxonomy general name', 'builderp' ),
-			'singular_name' => _x( 'Project Status', 'taxonomy singular name', 'builderp' ),
-			'search_items'  => __( 'Search Statuses', 'builderp' ),
-			'all_items'     => __( 'All Statuses', 'builderp' ),
-			'edit_item'     => __( 'Edit Status', 'builderp' ),
-			'update_item'   => __( 'Update Status', 'builderp' ),
-			'add_new_item'  => __( 'Add New Status', 'builderp' ),
-			'new_item_name' => __( 'New Status Name', 'builderp' ),
-			'menu_name'     => __( 'Project Status', 'builderp' ),
+			'name'          => _x( 'Project Statuses', 'taxonomy general name', 'BuildERP' ),
+			'singular_name' => _x( 'Project Status', 'taxonomy singular name', 'BuildERP' ),
+			'search_items'  => __( 'Search Statuses', 'BuildERP' ),
+			'all_items'     => __( 'All Statuses', 'BuildERP' ),
+			'edit_item'     => __( 'Edit Status', 'BuildERP' ),
+			'update_item'   => __( 'Update Status', 'BuildERP' ),
+			'add_new_item'  => __( 'Add New Status', 'BuildERP' ),
+			'new_item_name' => __( 'New Status Name', 'BuildERP' ),
+			'menu_name'     => __( 'Project Status', 'BuildERP' ),
 		);
 
 		$args = array(

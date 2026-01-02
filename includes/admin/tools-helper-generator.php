@@ -23,9 +23,9 @@ class BERP_Tools_Helper_Generator {
 		?>
 		<div class="berp-helper-generator-tool">
 			<div class="berp-tool-header">
-				<h2><?php esc_html_e( 'Helper Function Generator', 'builderp' ); ?></h2>
+				<h2><?php esc_html_e( 'Helper Function Generator', 'BuildERP' ); ?></h2>
 				<p class="description">
-					<?php esc_html_e( 'Auto-generate helper functions for meta keys. Follow BuildErp naming conventions and best practices.', 'builderp' ); ?>
+					<?php esc_html_e( 'Auto-generate helper functions for meta keys. Follow BuildErp naming conventions and best practices.', 'BuildERP' ); ?>
 				</p>
 			</div>
 
@@ -33,76 +33,76 @@ class BERP_Tools_Helper_Generator {
 				<table class="form-table">
 					<tr>
 						<th scope="row">
-							<label for="berp-meta-key"><?php esc_html_e( 'Meta Key', 'builderp' ); ?></label>
+							<label for="berp-meta-key"><?php esc_html_e( 'Meta Key', 'BuildERP' ); ?></label>
 						</th>
 						<td>
 							<input type="text" id="berp-meta-key" class="regular-text" placeholder="_berp_example_field">
-							<p class="description"><?php esc_html_e( 'Enter the meta key (e.g., _berp_employee_id)', 'builderp' ); ?></p>
+							<p class="description"><?php esc_html_e( 'Enter the meta key (e.g., _berp_employee_id)', 'BuildERP' ); ?></p>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="berp-data-type"><?php esc_html_e( 'Data Type', 'builderp' ); ?></label>
+							<label for="berp-data-type"><?php esc_html_e( 'Data Type', 'BuildERP' ); ?></label>
 						</th>
 						<td>
 							<select id="berp-data-type" class="regular-text">
-								<option value="string"><?php esc_html_e( 'String', 'builderp' ); ?></option>
-								<option value="integer"><?php esc_html_e( 'Integer', 'builderp' ); ?></option>
-								<option value="float"><?php esc_html_e( 'Float/Decimal', 'builderp' ); ?></option>
-								<option value="boolean"><?php esc_html_e( 'Boolean', 'builderp' ); ?></option>
-								<option value="array"><?php esc_html_e( 'Array (serialized)', 'builderp' ); ?></option>
-								<option value="date"><?php esc_html_e( 'Date', 'builderp' ); ?></option>
-								<option value="email"><?php esc_html_e( 'Email', 'builderp' ); ?></option>
+								<option value="string"><?php esc_html_e( 'String', 'BuildERP' ); ?></option>
+								<option value="integer"><?php esc_html_e( 'Integer', 'BuildERP' ); ?></option>
+								<option value="float"><?php esc_html_e( 'Float/Decimal', 'BuildERP' ); ?></option>
+								<option value="boolean"><?php esc_html_e( 'Boolean', 'BuildERP' ); ?></option>
+								<option value="array"><?php esc_html_e( 'Array (serialized)', 'BuildERP' ); ?></option>
+								<option value="date"><?php esc_html_e( 'Date', 'BuildERP' ); ?></option>
+								<option value="email"><?php esc_html_e( 'Email', 'BuildERP' ); ?></option>
 							</select>
-							<p class="description"><?php esc_html_e( 'Select the data type for proper sanitization', 'builderp' ); ?></p>
+							<p class="description"><?php esc_html_e( 'Select the data type for proper sanitization', 'BuildERP' ); ?></p>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="berp-post-type"><?php esc_html_e( 'Post Type', 'builderp' ); ?></label>
+							<label for="berp-post-type"><?php esc_html_e( 'Post Type', 'BuildERP' ); ?></label>
 						</th>
 						<td>
 							<select id="berp-post-type" class="regular-text">
-								<option value=""><?php esc_html_e( 'Any', 'builderp' ); ?></option>
-								<option value="berp_employee"><?php esc_html_e( 'Employee', 'builderp' ); ?></option>
-								<option value="berp_attendance"><?php esc_html_e( 'Attendance', 'builderp' ); ?></option>
-								<option value="berp_payroll"><?php esc_html_e( 'Payroll', 'builderp' ); ?></option>
-								<option value="berp_expense"><?php esc_html_e( 'Expense', 'builderp' ); ?></option>
-								<option value="berp_client"><?php esc_html_e( 'Client', 'builderp' ); ?></option>
-								<option value="berp_site"><?php esc_html_e( 'Site', 'builderp' ); ?></option>
-								<option value="berp_quotation"><?php esc_html_e( 'Quotation', 'builderp' ); ?></option>
-								<option value="berp_invoice"><?php esc_html_e( 'Invoice', 'builderp' ); ?></option>
+								<option value=""><?php esc_html_e( 'Any', 'BuildERP' ); ?></option>
+								<option value="berp_employee"><?php esc_html_e( 'Employee', 'BuildERP' ); ?></option>
+								<option value="berp_attendance"><?php esc_html_e( 'Attendance', 'BuildERP' ); ?></option>
+								<option value="berp_payroll"><?php esc_html_e( 'Payroll', 'BuildERP' ); ?></option>
+								<option value="berp_expense"><?php esc_html_e( 'Expense', 'BuildERP' ); ?></option>
+								<option value="berp_client"><?php esc_html_e( 'Client', 'BuildERP' ); ?></option>
+								<option value="berp_site"><?php esc_html_e( 'Site', 'BuildERP' ); ?></option>
+								<option value="berp_quotation"><?php esc_html_e( 'Quotation', 'BuildERP' ); ?></option>
+								<option value="berp_invoice"><?php esc_html_e( 'Invoice', 'BuildERP' ); ?></option>
 							</select>
-							<p class="description"><?php esc_html_e( 'Specify post type for better documentation (optional)', 'builderp' ); ?></p>
+							<p class="description"><?php esc_html_e( 'Specify post type for better documentation (optional)', 'BuildERP' ); ?></p>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="berp-description"><?php esc_html_e( 'Description', 'builderp' ); ?></label>
+							<label for="berp-description"><?php esc_html_e( 'Description', 'BuildERP' ); ?></label>
 						</th>
 						<td>
-							<textarea id="berp-description" class="large-text" rows="3" placeholder="<?php esc_attr_e( 'Brief description of what this meta field stores', 'builderp' ); ?>"></textarea>
-							<p class="description"><?php esc_html_e( 'Add description for better documentation', 'builderp' ); ?></p>
+							<textarea id="berp-description" class="large-text" rows="3" placeholder="<?php esc_attr_e( 'Brief description of what this meta field stores', 'BuildERP' ); ?>"></textarea>
+							<p class="description"><?php esc_html_e( 'Add description for better documentation', 'BuildERP' ); ?></p>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">
-							<label><?php esc_html_e( 'Generate Functions', 'builderp' ); ?></label>
+							<label><?php esc_html_e( 'Generate Functions', 'BuildERP' ); ?></label>
 						</th>
 						<td>
 							<label>
 								<input type="checkbox" id="berp-gen-getter" checked>
-								<?php esc_html_e( 'Getter Function', 'builderp' ); ?>
+								<?php esc_html_e( 'Getter Function', 'BuildERP' ); ?>
 							</label>
 							<br>
 							<label>
 								<input type="checkbox" id="berp-gen-setter" checked>
-								<?php esc_html_e( 'Setter Function', 'builderp' ); ?>
+								<?php esc_html_e( 'Setter Function', 'BuildERP' ); ?>
 							</label>
 							<br>
 							<label>
 								<input type="checkbox" id="berp-gen-delete">
-								<?php esc_html_e( 'Delete Function', 'builderp' ); ?>
+								<?php esc_html_e( 'Delete Function', 'BuildERP' ); ?>
 							</label>
 						</td>
 					</tr>
@@ -111,32 +111,32 @@ class BERP_Tools_Helper_Generator {
 				<p class="submit">
 					<button type="button" id="berp-generate-helper" class="button button-primary">
 						<span class="dashicons dashicons-editor-code"></span>
-						<?php esc_html_e( 'Generate Helper Functions', 'builderp' ); ?>
+						<?php esc_html_e( 'Generate Helper Functions', 'BuildERP' ); ?>
 					</button>
 				</p>
 			</div>
 
 			<div id="berp-generated-code" class="berp-generated-code" style="display: none;">
-				<h3><?php esc_html_e( 'Generated Code', 'builderp' ); ?></h3>
+				<h3><?php esc_html_e( 'Generated Code', 'BuildERP' ); ?></h3>
 				<div class="berp-code-actions">
 					<button type="button" id="berp-copy-code" class="button button-secondary">
 						<span class="dashicons dashicons-clipboard"></span>
-						<?php esc_html_e( 'Copy to Clipboard', 'builderp' ); ?>
+						<?php esc_html_e( 'Copy to Clipboard', 'BuildERP' ); ?>
 					</button>
 					<button type="button" id="berp-download-code" class="button button-secondary">
 						<span class="dashicons dashicons-download"></span>
-						<?php esc_html_e( 'Download as PHP File', 'builderp' ); ?>
+						<?php esc_html_e( 'Download as PHP File', 'BuildERP' ); ?>
 					</button>
 				</div>
 				<pre id="berp-code-output" class="berp-code-block"><code></code></pre>
 
 				<div class="berp-code-info">
-					<h4><?php esc_html_e( 'Implementation Notes', 'builderp' ); ?></h4>
+					<h4><?php esc_html_e( 'Implementation Notes', 'BuildERP' ); ?></h4>
 					<ul>
-						<li><?php esc_html_e( 'Add these functions to your includes/functions.php file', 'builderp' ); ?></li>
-						<li><?php esc_html_e( 'All functions follow BuildErp naming conventions', 'builderp' ); ?></li>
-						<li><?php esc_html_e( 'Input is sanitized and output is escaped', 'builderp' ); ?></li>
-						<li><?php esc_html_e( 'Functions include proper documentation', 'builderp' ); ?></li>
+						<li><?php esc_html_e( 'Add these functions to your includes/functions.php file', 'BuildERP' ); ?></li>
+						<li><?php esc_html_e( 'All functions follow BuildErp naming conventions', 'BuildERP' ); ?></li>
+						<li><?php esc_html_e( 'Input is sanitized and output is escaped', 'BuildERP' ); ?></li>
+						<li><?php esc_html_e( 'Functions include proper documentation', 'BuildERP' ); ?></li>
 					</ul>
 				</div>
 			</div>

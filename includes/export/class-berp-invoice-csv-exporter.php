@@ -108,23 +108,23 @@ class BERP_Invoice_CSV_Exporter {
 		fputcsv(
 			$output,
 			array(
-				__( 'Invoice Number', 'builderp' ),
-				__( 'Invoice Date', 'builderp' ),
-				__( 'Due Date', 'builderp' ),
-				__( 'Client', 'builderp' ),
-				__( 'Site/Project', 'builderp' ),
-				__( 'Status', 'builderp' ),
-				__( 'Reference', 'builderp' ),
-				__( 'PO Number', 'builderp' ),
-				__( 'Subtotal', 'builderp' ),
-				__( 'Tax', 'builderp' ),
-				__( 'Discount', 'builderp' ),
-				__( 'Grand Total', 'builderp' ),
-				__( 'Amount Paid', 'builderp' ),
-				__( 'Amount Due', 'builderp' ),
-				__( 'Days Overdue', 'builderp' ),
-				__( 'Payments Count', 'builderp' ),
-				__( 'Created Date', 'builderp' ),
+				__( 'Invoice Number', 'BuildERP' ),
+				__( 'Invoice Date', 'BuildERP' ),
+				__( 'Due Date', 'BuildERP' ),
+				__( 'Client', 'BuildERP' ),
+				__( 'Site/Project', 'BuildERP' ),
+				__( 'Status', 'BuildERP' ),
+				__( 'Reference', 'BuildERP' ),
+				__( 'PO Number', 'BuildERP' ),
+				__( 'Subtotal', 'BuildERP' ),
+				__( 'Tax', 'BuildERP' ),
+				__( 'Discount', 'BuildERP' ),
+				__( 'Grand Total', 'BuildERP' ),
+				__( 'Amount Paid', 'BuildERP' ),
+				__( 'Amount Due', 'BuildERP' ),
+				__( 'Days Overdue', 'BuildERP' ),
+				__( 'Payments Count', 'BuildERP' ),
+				__( 'Created Date', 'BuildERP' ),
 			)
 		);
 
@@ -205,22 +205,22 @@ class BERP_Invoice_CSV_Exporter {
 		fputcsv(
 			$output,
 			array(
-				__( 'Invoice Number', 'builderp' ),
-				__( 'Client', 'builderp' ),
-				__( 'Payment Date', 'builderp' ),
-				__( 'Amount', 'builderp' ),
-				__( 'Method', 'builderp' ),
-				__( 'Reference', 'builderp' ),
-				__( 'Notes', 'builderp' ),
+				__( 'Invoice Number', 'BuildERP' ),
+				__( 'Client', 'BuildERP' ),
+				__( 'Payment Date', 'BuildERP' ),
+				__( 'Amount', 'BuildERP' ),
+				__( 'Method', 'BuildERP' ),
+				__( 'Reference', 'BuildERP' ),
+				__( 'Notes', 'BuildERP' ),
 			)
 		);
 
 		$payment_methods = array(
-			'cash'          => __( 'Cash', 'builderp' ),
-			'check'         => __( 'Check', 'builderp' ),
-			'bank_transfer' => __( 'Bank Transfer', 'builderp' ),
-			'credit_card'   => __( 'Credit Card', 'builderp' ),
-			'other'         => __( 'Other', 'builderp' ),
+			'cash'          => __( 'Cash', 'BuildERP' ),
+			'check'         => __( 'Check', 'BuildERP' ),
+			'bank_transfer' => __( 'Bank Transfer', 'BuildERP' ),
+			'credit_card'   => __( 'Credit Card', 'BuildERP' ),
+			'other'         => __( 'Other', 'BuildERP' ),
 		);
 
 		// Write data rows.
@@ -296,15 +296,15 @@ class BERP_Invoice_CSV_Exporter {
 		fputcsv(
 			$output,
 			array(
-				__( 'Invoice Number', 'builderp' ),
-				__( 'Client', 'builderp' ),
-				__( 'Invoice Date', 'builderp' ),
-				__( 'Due Date', 'builderp' ),
-				__( 'Days Overdue', 'builderp' ),
-				__( 'Aging Bucket', 'builderp' ),
-				__( 'Grand Total', 'builderp' ),
-				__( 'Amount Paid', 'builderp' ),
-				__( 'Amount Due', 'builderp' ),
+				__( 'Invoice Number', 'BuildERP' ),
+				__( 'Client', 'BuildERP' ),
+				__( 'Invoice Date', 'BuildERP' ),
+				__( 'Due Date', 'BuildERP' ),
+				__( 'Days Overdue', 'BuildERP' ),
+				__( 'Aging Bucket', 'BuildERP' ),
+				__( 'Grand Total', 'BuildERP' ),
+				__( 'Amount Paid', 'BuildERP' ),
+				__( 'Amount Due', 'BuildERP' ),
 			)
 		);
 
@@ -327,15 +327,15 @@ class BERP_Invoice_CSV_Exporter {
 
 			// Determine aging bucket.
 			if ( $days_overdue <= 0 ) {
-				$bucket = __( 'Current', 'builderp' );
+				$bucket = __( 'Current', 'BuildERP' );
 			} elseif ( $days_overdue <= 30 ) {
-				$bucket = __( '1-30 Days', 'builderp' );
+				$bucket = __( '1-30 Days', 'BuildERP' );
 			} elseif ( $days_overdue <= 60 ) {
-				$bucket = __( '31-60 Days', 'builderp' );
+				$bucket = __( '31-60 Days', 'BuildERP' );
 			} elseif ( $days_overdue <= 90 ) {
-				$bucket = __( '61-90 Days', 'builderp' );
+				$bucket = __( '61-90 Days', 'BuildERP' );
 			} else {
-				$bucket = __( '90+ Days', 'builderp' );
+				$bucket = __( '90+ Days', 'BuildERP' );
 			}
 
 			fputcsv(

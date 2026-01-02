@@ -65,15 +65,15 @@ class BERP_Attendance_Admin {
 				'employees'      => $employees,
 				'sites'          => $sites,
 				'strings'        => array(
-					'save_success'      => __( 'Attendance saved successfully.', 'builderp' ),
-					'save_error'        => __( 'Unable to save attendance.', 'builderp' ),
-					'select_date'       => __( 'Please select a date.', 'builderp' ),
-					'select_employee'   => __( 'Please select at least one employee.', 'builderp' ),
-					'select_employee_q' => __( 'Please select an employee.', 'builderp' ),
-					'select_site'       => __( 'Please select a site.', 'builderp' ),
-					'selected'          => __( 'selected', 'builderp' ),
-					'duplicate'         => __( 'Already logged', 'builderp' ),
-					'no_match'          => __( 'No employee matched your search.', 'builderp' ),
+					'save_success'      => __( 'Attendance saved successfully.', 'BuildERP' ),
+					'save_error'        => __( 'Unable to save attendance.', 'BuildERP' ),
+					'select_date'       => __( 'Please select a date.', 'BuildERP' ),
+					'select_employee'   => __( 'Please select at least one employee.', 'BuildERP' ),
+					'select_employee_q' => __( 'Please select an employee.', 'BuildERP' ),
+					'select_site'       => __( 'Please select a site.', 'BuildERP' ),
+					'selected'          => __( 'selected', 'BuildERP' ),
+					'duplicate'         => __( 'Already logged', 'BuildERP' ),
+					'no_match'          => __( 'No employee matched your search.', 'BuildERP' ),
 				),
 			)
 		);
@@ -132,7 +132,7 @@ class BERP_Attendance_Admin {
 	 */
 	public function render_page() {
 		if ( ! current_user_can( 'berp_view_attendance' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'BuildERP' ) );
 		}
 
 		$settings      = $this->get_attendance_settings();
@@ -153,28 +153,28 @@ class BERP_Attendance_Admin {
 				<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="berp-inline-form">
 					<?php wp_nonce_field( 'berp_attendance_export', 'berp_attendance_export_nonce' ); ?>
 					<input type="hidden" name="action" value="berp_attendance_export" />
-					<button type="submit" class="button"><?php esc_html_e( 'Export Attendance (CSV)', 'builderp' ); ?></button>
+					<button type="submit" class="button"><?php esc_html_e( 'Export Attendance (CSV)', 'BuildERP' ); ?></button>
 				</form>
 				<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="berp-inline-form">
 					<?php wp_nonce_field( 'berp_attendance_export', 'berp_attendance_export_nonce' ); ?>
 					<input type="hidden" name="action" value="berp_attendance_export_pdf" />
-					<button type="submit" class="button"><?php esc_html_e( 'Export Attendance (PDF)', 'builderp' ); ?></button>
+					<button type="submit" class="button"><?php esc_html_e( 'Export Attendance (PDF)', 'BuildERP' ); ?></button>
 				</form>
 
 				<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" enctype="multipart/form-data" class="berp-inline-form">
 					<?php wp_nonce_field( 'berp_attendance_import', 'berp_attendance_import_nonce' ); ?>
 					<input type="hidden" name="action" value="berp_attendance_import" />
-					<label class="screen-reader-text" for="berp_attendance_csv"><?php esc_html_e( 'Import Attendance CSV', 'builderp' ); ?></label>
+					<label class="screen-reader-text" for="berp_attendance_csv"><?php esc_html_e( 'Import Attendance CSV', 'BuildERP' ); ?></label>
 					<input type="file" id="berp_attendance_csv" name="berp_attendance_csv" accept=".csv,text/csv" />
-					<button type="submit" class="button button-secondary"><?php esc_html_e( 'Import CSV', 'builderp' ); ?></button>
+					<button type="submit" class="button button-secondary"><?php esc_html_e( 'Import CSV', 'BuildERP' ); ?></button>
 				</form>
-				<p class="description"><?php esc_html_e( 'CSV columns: employee_code, date (YYYY-MM-DD), site_id, overtime_hours, notes', 'builderp' ); ?></p>
+				<p class="description"><?php esc_html_e( 'CSV columns: employee_code, date (YYYY-MM-DD), site_id, overtime_hours, notes', 'BuildERP' ); ?></p>
 			</div>
 
 			<h2 class="nav-tab-wrapper">
-				<a href="#berp-attendance-bulk" class="nav-tab nav-tab-active" data-berp-tab="bulk"><?php esc_html_e( 'Bulk Entry', 'builderp' ); ?></a>
-				<a href="#berp-attendance-quick" class="nav-tab" data-berp-tab="quick"><?php esc_html_e( 'Quick Entry', 'builderp' ); ?></a>
-				<a href="#berp-attendance-view" class="nav-tab" data-berp-tab="view"><?php esc_html_e( 'View Attendance', 'builderp' ); ?></a>
+				<a href="#berp-attendance-bulk" class="nav-tab nav-tab-active" data-berp-tab="bulk"><?php esc_html_e( 'Bulk Entry', 'BuildERP' ); ?></a>
+				<a href="#berp-attendance-quick" class="nav-tab" data-berp-tab="quick"><?php esc_html_e( 'Quick Entry', 'BuildERP' ); ?></a>
+				<a href="#berp-attendance-view" class="nav-tab" data-berp-tab="view"><?php esc_html_e( 'View Attendance', 'BuildERP' ); ?></a>
 			</h2>
 
 			<div id="berp-attendance-bulk" class="berp-tab-panel is-active">
@@ -183,16 +183,16 @@ class BERP_Attendance_Admin {
 					<div class="berp-card">
 						<div class="berp-row">
 							<label class="berp-field">
-								<span class="berp-label"><?php esc_html_e( 'Date', 'builderp' ); ?></span>
+								<span class="berp-label"><?php esc_html_e( 'Date', 'BuildERP' ); ?></span>
 								<input type="date" name="date" value="<?php echo esc_attr( $today ); ?>" <?php echo $max_date_attr ? 'max="' . esc_attr( $max_date_attr ) . '"' : ''; ?> required />
 							</label>
 							<label class="berp-field">
 								<p>
-								<span class="berp-label"><?php esc_html_e( 'Site', 'builderp' ); ?> </span> 
-								<small class="description"><?php esc_html_e( 'Remembers your last selection.', 'builderp' ); ?></small>
+								<span class="berp-label"><?php esc_html_e( 'Site', 'BuildERP' ); ?> </span> 
+								<small class="description"><?php esc_html_e( 'Remembers your last selection.', 'BuildERP' ); ?></small>
 								</p>
 								<select name="site_id" id="berp-bulk-site">
-									<option value=""><?php esc_html_e( 'Select site', 'builderp' ); ?></option>
+									<option value=""><?php esc_html_e( 'Select site', 'BuildERP' ); ?></option>
 									<?php foreach ( $sites as $site ) : ?>
 										<option value="<?php echo esc_attr( $site['id'] ); ?>" <?php selected( $last_site, $site['id'] ); ?>>
 											<?php echo esc_html( $site['name'] ); ?>
@@ -202,18 +202,18 @@ class BERP_Attendance_Admin {
 								
 							</label>
 							<label class="berp-field">
-								<span class="berp-label"><?php esc_html_e( 'Default OT (hrs)', 'builderp' ); ?></span>
+								<span class="berp-label"><?php esc_html_e( 'Default OT (hrs)', 'BuildERP' ); ?></span>
 								<input type="number" name="default_overtime" min="0" step="0.25" value="<?php echo esc_attr( $default_ot ); ?>" />
 							</label>
 							<label class="berp-field berp-toggle">
-								<span class="berp-label"><?php esc_html_e( 'Override duplicates', 'builderp' ); ?></span>
+								<span class="berp-label"><?php esc_html_e( 'Override duplicates', 'BuildERP' ); ?></span>
 								<input type="checkbox" name="override_duplicates" value="1" />
 							</label>
 							<div class="berp-field compact align-center">
-								<span class="berp-label"><?php esc_html_e( 'Selection', 'builderp' ); ?></span>
+								<span class="berp-label"><?php esc_html_e( 'Selection', 'BuildERP' ); ?></span>
 								<div class="berp-attendance-toggles">
-									<button type="button" class="button button-secondary" id="berp-select-all"><?php esc_html_e( 'Select All', 'builderp' ); ?></button>
-									<button type="button" class="button button-secondary" id="berp-deselect-all"><?php esc_html_e( 'Deselect All', 'builderp' ); ?></button>
+									<button type="button" class="button button-secondary" id="berp-select-all"><?php esc_html_e( 'Select All', 'BuildERP' ); ?></button>
+									<button type="button" class="button button-secondary" id="berp-deselect-all"><?php esc_html_e( 'Deselect All', 'BuildERP' ); ?></button>
 									<span class="berp-progress" id="berp-selection-progress"></span>
 								</div>
 							</div>
@@ -221,8 +221,8 @@ class BERP_Attendance_Admin {
 
 						<div class="berp-row control-row">
 							<label class="berp-field grow">
-								<span class="berp-label"><?php esc_html_e( 'Search employees', 'builderp' ); ?></span>
-								<input type="search" id="berp-employee-search" placeholder="<?php esc_attr_e( 'Search employee...', 'builderp' ); ?>" />
+								<span class="berp-label"><?php esc_html_e( 'Search employees', 'BuildERP' ); ?></span>
+								<input type="search" id="berp-employee-search" placeholder="<?php esc_attr_e( 'Search employee...', 'BuildERP' ); ?>" />
 							</label>
 							
 						</div>
@@ -230,10 +230,10 @@ class BERP_Attendance_Admin {
 
 					<div class="berp-card">
 						<?php if ( empty( $employees ) ) : ?>
-							<p class="description"><?php esc_html_e( 'No employees found. Please add active employees first.', 'builderp' ); ?></p>
+							<p class="description"><?php esc_html_e( 'No employees found. Please add active employees first.', 'BuildERP' ); ?></p>
 						<?php else : ?>
 							<div class="berp-inline-notice">
-								<p><strong><?php esc_html_e( 'Duplicate handling:', 'builderp' ); ?></strong> <?php esc_html_e( 'Existing attendance on this date is highlighted. Enable "Override duplicates" to update those entries; otherwise they are skipped.', 'builderp' ); ?></p>
+								<p><strong><?php esc_html_e( 'Duplicate handling:', 'BuildERP' ); ?></strong> <?php esc_html_e( 'Existing attendance on this date is highlighted. Enable "Override duplicates" to update those entries; otherwise they are skipped.', 'BuildERP' ); ?></p>
 							</div>
 							<div class="berp-attendance-list" id="berp-attendance-list">
 								<?php foreach ( $employees as $employee ) : ?>
@@ -246,7 +246,7 @@ class BERP_Attendance_Admin {
 										</label>
 										<div class="berp-attendance-overtime">
 											<label>
-												<span class="berp-label-small"><?php esc_html_e( 'Overtime', 'builderp' ); ?></span>
+												<span class="berp-label-small"><?php esc_html_e( 'Overtime', 'BuildERP' ); ?></span>
 												<input type="number" step="0.25" min="0" name="overtime[<?php echo esc_attr( $employee['id'] ); ?>]" value="<?php echo esc_attr( $default_ot ); ?>" />
 											</label>
 											<span class="berp-duplicate-flag" aria-live="polite"></span>
@@ -260,7 +260,7 @@ class BERP_Attendance_Admin {
 					<div class="berp-card align-end">
 						<p class="submit">
 							<button type="submit" class="button button-primary">
-								<?php esc_html_e( 'Save Attendance', 'builderp' ); ?>
+								<?php esc_html_e( 'Save Attendance', 'BuildERP' ); ?>
 							</button>
 							<span class="spinner" aria-hidden="true"></span>
 							<span class="berp-response-message" aria-live="polite"></span>
@@ -274,13 +274,13 @@ class BERP_Attendance_Admin {
 					<?php wp_nonce_field( 'berp_attendance_quick', 'berp_attendance_quick_nonce' ); ?>
 					<div class="berp-row">
 						<label class="berp-field">
-							<span class="berp-label"><?php esc_html_e( 'Date', 'builderp' ); ?></span>
+							<span class="berp-label"><?php esc_html_e( 'Date', 'BuildERP' ); ?></span>
 							<input type="date" name="date" value="<?php echo esc_attr( $today ); ?>" <?php echo $max_date_attr ? 'max="' . esc_attr( $max_date_attr ) . '"' : ''; ?> required />
 						</label>
 						<label class="berp-field">
-							<span class="berp-label"><?php esc_html_e( 'Site', 'builderp' ); ?></span>
+							<span class="berp-label"><?php esc_html_e( 'Site', 'BuildERP' ); ?></span>
 							<select name="site_id">
-								<option value=""><?php esc_html_e( 'Select site', 'builderp' ); ?></option>
+								<option value=""><?php esc_html_e( 'Select site', 'BuildERP' ); ?></option>
 								<?php foreach ( $sites as $site ) : ?>
 									<option value="<?php echo esc_attr( $site['id'] ); ?>" <?php selected( $last_site, $site['id'] ); ?>>
 										<?php echo esc_html( $site['name'] ); ?>
@@ -289,15 +289,15 @@ class BERP_Attendance_Admin {
 							</select>
 						</label>
 						<label class="berp-field">
-							<span class="berp-label"><?php esc_html_e( 'Overtime (hrs)', 'builderp' ); ?></span>
+							<span class="berp-label"><?php esc_html_e( 'Overtime (hrs)', 'BuildERP' ); ?></span>
 							<input type="number" name="overtime" step="0.25" min="0" value="<?php echo esc_attr( $default_ot ); ?>" />
 						</label>
 					</div>
 
 					<div class="berp-row">
 						<label class="berp-field grow">
-							<span class="berp-label"><?php esc_html_e( 'Employee', 'builderp' ); ?></span>
-							<input type="text" id="berp-quick-employee-input" list="berp-quick-employee-list" autocomplete="off" placeholder="<?php esc_attr_e( 'Search employee...', 'builderp' ); ?>" />
+							<span class="berp-label"><?php esc_html_e( 'Employee', 'BuildERP' ); ?></span>
+							<input type="text" id="berp-quick-employee-input" list="berp-quick-employee-list" autocomplete="off" placeholder="<?php esc_attr_e( 'Search employee...', 'BuildERP' ); ?>" />
 							<input type="hidden" name="employee_id" id="berp-quick-employee-id" value="" />
 							<datalist id="berp-quick-employee-list">
 								<?php foreach ( $employees as $employee ) : ?>
@@ -306,14 +306,14 @@ class BERP_Attendance_Admin {
 							</datalist>
 						</label>
 						<label class="berp-field grow">
-							<span class="berp-label"><?php esc_html_e( 'Notes', 'builderp' ); ?></span>
-							<textarea name="notes" rows="2" placeholder="<?php esc_attr_e( 'Optional notes...', 'builderp' ); ?>"></textarea>
+							<span class="berp-label"><?php esc_html_e( 'Notes', 'BuildERP' ); ?></span>
+							<textarea name="notes" rows="2" placeholder="<?php esc_attr_e( 'Optional notes...', 'BuildERP' ); ?>"></textarea>
 						</label>
 					</div>
 
 					<div class="align-end">
 						<p class="submit">
-							<button type="submit" class="button button-primary"><?php esc_html_e( 'Save & Next', 'builderp' ); ?></button>
+							<button type="submit" class="button button-primary"><?php esc_html_e( 'Save & Next', 'BuildERP' ); ?></button>
 							<span class="spinner" aria-hidden="true"></span>
 							<span class="berp-response-message" aria-live="polite"></span>
 						</p>
@@ -325,9 +325,9 @@ class BERP_Attendance_Admin {
 				<div class="berp-card">
 					<div class="berp-view-filters">
 						<label class="berp-field">
-							<span class="berp-label"><?php esc_html_e( 'Employee', 'builderp' ); ?></span>
+							<span class="berp-label"><?php esc_html_e( 'Employee', 'BuildERP' ); ?></span>
 							<select id="berp-view-employee">
-								<option value="0"><?php esc_html_e( 'All employees (last 7 days)', 'builderp' ); ?></option>
+								<option value="0"><?php esc_html_e( 'All employees (last 7 days)', 'BuildERP' ); ?></option>
 								<?php foreach ( $employees as $employee ) : ?>
 									<option value="<?php echo esc_attr( $employee['id'] ); ?>">
 										<?php echo esc_html( $employee['code'] . ' - ' . $employee['name'] ); ?>
@@ -336,13 +336,13 @@ class BERP_Attendance_Admin {
 							</select>
 						</label>
 						<label class="berp-field">
-							<span class="berp-label"><?php esc_html_e( 'Month', 'builderp' ); ?></span>
+							<span class="berp-label"><?php esc_html_e( 'Month', 'BuildERP' ); ?></span>
 							<input type="month" id="berp-view-month" value="<?php echo esc_attr( gmdate( 'Y-m' ) ); ?>" />
 						</label>
 						<div class="berp-field berp-view-action">
 							
-							<span class="berp-label"><?php esc_html_e( 'Load Attendance', 'builderp' ); ?></span>
-							<button type="button" class="button button-primary" id="berp-view-load"><?php esc_html_e( 'Load Attendance', 'builderp' ); ?></button>
+							<span class="berp-label"><?php esc_html_e( 'Load Attendance', 'BuildERP' ); ?></span>
+							<button type="button" class="button button-primary" id="berp-view-load"><?php esc_html_e( 'Load Attendance', 'BuildERP' ); ?></button>
 							<span class="spinner" id="berp-view-spinner"></span>
 						</div>
 					</div>
@@ -351,21 +351,21 @@ class BERP_Attendance_Admin {
 							<span class="berp-total-icon dashicons dashicons-clock"></span>
 							<div class="berp-total-content">
 								<span class="berp-total-value" id="berp-view-total-overtime">0</span>
-								<span class="berp-total-label"><?php esc_html_e( 'Overtime Hours', 'builderp' ); ?></span>
+								<span class="berp-total-label"><?php esc_html_e( 'Overtime Hours', 'BuildERP' ); ?></span>
 							</div>
 						</div>
 						<div class="berp-total-card berp-total-days">
 							<span class="berp-total-icon dashicons dashicons-calendar-alt"></span>
 							<div class="berp-total-content">
 								<span class="berp-total-value" id="berp-view-total-days">0</span>
-								<span class="berp-total-label"><?php esc_html_e( 'Days Worked', 'builderp' ); ?></span>
+								<span class="berp-total-label"><?php esc_html_e( 'Days Worked', 'BuildERP' ); ?></span>
 							</div>
 						</div>
 						<div class="berp-total-card berp-total-holidays">
 							<span class="berp-total-icon dashicons dashicons-palmtree"></span>
 							<div class="berp-total-content">
 								<span class="berp-total-value" id="berp-view-total-holidays">0</span>
-								<span class="berp-total-label"><?php esc_html_e( 'Paid Holidays', 'builderp' ); ?></span>
+								<span class="berp-total-label"><?php esc_html_e( 'Paid Holidays', 'BuildERP' ); ?></span>
 							</div>
 						</div>
 					</div>
@@ -374,16 +374,16 @@ class BERP_Attendance_Admin {
 					<table class="widefat fixed striped" id="berp-view-table">
 						<thead>
 							<tr>
-								<th><?php esc_html_e( 'Date', 'builderp' ); ?></th>
-								<th><?php esc_html_e( 'Employee', 'builderp' ); ?></th>
-								<th><?php esc_html_e( 'Site', 'builderp' ); ?></th>
-								<th><?php esc_html_e( 'Overtime', 'builderp' ); ?></th>
-								<th><?php esc_html_e( 'Notes', 'builderp' ); ?></th>
-								<th><?php esc_html_e( 'Actions', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'Date', 'BuildERP' ); ?></th>
+								<th><?php esc_html_e( 'Employee', 'BuildERP' ); ?></th>
+								<th><?php esc_html_e( 'Site', 'BuildERP' ); ?></th>
+								<th><?php esc_html_e( 'Overtime', 'BuildERP' ); ?></th>
+								<th><?php esc_html_e( 'Notes', 'BuildERP' ); ?></th>
+								<th><?php esc_html_e( 'Actions', 'BuildERP' ); ?></th>
 							</tr>
 						</thead>
 						<tbody id="berp-view-body">
-							<tr><td colspan="6"><?php esc_html_e( 'Use the filters above to load attendance.', 'builderp' ); ?></td></tr>
+							<tr><td colspan="6"><?php esc_html_e( 'Use the filters above to load attendance.', 'BuildERP' ); ?></td></tr>
 						</tbody>
 					</table>
 				</div>
@@ -437,16 +437,16 @@ class BERP_Attendance_Admin {
 			$skipped = isset( $_GET['skipped'] ) ? absint( $_GET['skipped'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification
 			$message = sprintf(
 				/* translators: 1: created count, 2: skipped count */
-				esc_html__( 'Attendance import completed: %1$d created, %2$d skipped.', 'builderp' ),
+				esc_html__( 'Attendance import completed: %1$d created, %2$d skipped.', 'BuildERP' ),
 				$created,
 				$skipped
 			);
 			$class = 'notice notice-success';
 		} elseif ( 'import_error' === $code ) {
-			$message = esc_html__( 'Attendance import failed. Please check the file and try again.', 'builderp' );
+			$message = esc_html__( 'Attendance import failed. Please check the file and try again.', 'BuildERP' );
 			$class   = 'notice notice-error';
 		} elseif ( 'export_error' === $code ) {
-			$message = esc_html__( 'Attendance export failed.', 'builderp' );
+			$message = esc_html__( 'Attendance export failed.', 'BuildERP' );
 			$class   = 'notice notice-error';
 		}
 
@@ -462,7 +462,7 @@ class BERP_Attendance_Admin {
 	 */
 	public function handle_export() {
 		if ( ! current_user_can( 'berp_view_attendance' ) ) {
-			wp_die( esc_html__( 'You do not have permission to export attendance.', 'builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to export attendance.', 'BuildERP' ) );
 		}
 
 		check_admin_referer( 'berp_attendance_export', 'berp_attendance_export_nonce' );
@@ -526,7 +526,7 @@ class BERP_Attendance_Admin {
 	 */
 	public function handle_export_pdf() {
 		if ( ! current_user_can( 'berp_view_attendance' ) ) {
-			wp_die( esc_html__( 'You do not have permission to export attendance.', 'builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to export attendance.', 'BuildERP' ) );
 		}
 
 		check_admin_referer( 'berp_attendance_export', 'berp_attendance_export_nonce' );
@@ -571,8 +571,8 @@ class BERP_Attendance_Admin {
 		// If a PDF generator is available (TCPDF/mPDF), use it; otherwise, force browser print-to-PDF fallback.
 		if ( class_exists( 'TCPDF' ) ) {
 			$pdf = new TCPDF();
-			$pdf->SetCreator( 'BuildErp' );
-			$pdf->SetAuthor( 'BuildErp' );
+			$pdf->SetCreator( 'BuildERP' );
+			$pdf->SetAuthor( 'BuildERP' );
 			$pdf->SetTitle( 'Attendance Export' );
 			$pdf->AddPage();
 			$pdf->writeHTML( $html, true, false, true, false, '' );
@@ -600,7 +600,7 @@ class BERP_Attendance_Admin {
 	 */
 	public function handle_import() {
 		if ( ! current_user_can( 'berp_log_attendance' ) ) {
-			wp_die( esc_html__( 'You do not have permission to import attendance.', 'builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to import attendance.', 'BuildERP' ) );
 		}
 
 		check_admin_referer( 'berp_attendance_import', 'berp_attendance_import_nonce' );
@@ -673,7 +673,7 @@ class BERP_Attendance_Admin {
 					'post_type'   => 'berp_attendance',
 					'post_status' => 'publish',
 					/* translators: 1: employee code, 2: date. */
-					'post_title'  => sprintf( __( 'Attendance - %1$s - %2$s', 'builderp' ), $employee_code, $date ),
+					'post_title'  => sprintf( __( 'Attendance - %1$s - %2$s', 'BuildERP' ), $employee_code, $date ),
 				)
 			);
 

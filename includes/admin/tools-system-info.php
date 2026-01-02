@@ -24,20 +24,20 @@ class BERP_Tools_System_Info {
 		?>
 		<div class="berp-system-info-tool">
 			<div class="berp-tool-header">
-				<h2><?php esc_html_e( 'System Information', 'builderp' ); ?></h2>
+				<h2><?php esc_html_e( 'System Information', 'BuildERP' ); ?></h2>
 				<p class="description">
-					<?php esc_html_e( 'Complete inventory of BuildErp plugin elements and system configuration.', 'builderp' ); ?>
+					<?php esc_html_e( 'Complete inventory of BuildErp plugin elements and system configuration.', 'BuildERP' ); ?>
 				</p>
 			</div>
 
 			<div class="berp-system-actions">
 				<button type="button" id="berp-export-system-info" class="button button-secondary">
 					<span class="dashicons dashicons-download"></span>
-					<?php esc_html_e( 'Export Report', 'builderp' ); ?>
+					<?php esc_html_e( 'Export Report', 'BuildERP' ); ?>
 				</button>
 				<button type="button" id="berp-copy-system-info" class="button button-secondary">
 					<span class="dashicons dashicons-clipboard"></span>
-					<?php esc_html_e( 'Copy to Clipboard', 'builderp' ); ?>
+					<?php esc_html_e( 'Copy to Clipboard', 'BuildERP' ); ?>
 				</button>
 			</div>
 
@@ -45,31 +45,31 @@ class BERP_Tools_System_Info {
 
 				<!-- WordPress Environment -->
 				<div class="berp-system-section">
-					<h3><?php esc_html_e( 'WordPress Environment', 'builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'WordPress Environment', 'BuildERP' ); ?></h3>
 					<table class="berp-info-table">
 						<tr>
-							<th><?php esc_html_e( 'WordPress Version', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'WordPress Version', 'BuildERP' ); ?></th>
 							<td><?php echo esc_html( $info['wordpress']['version'] ); ?></td>
 						</tr>
 						<tr>
-							<th><?php esc_html_e( 'Site URL', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'Site URL', 'BuildERP' ); ?></th>
 							<td><?php echo esc_html( $info['wordpress']['site_url'] ); ?></td>
 						</tr>
 						<tr>
-							<th><?php esc_html_e( 'Home URL', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'Home URL', 'BuildERP' ); ?></th>
 							<td><?php echo esc_html( $info['wordpress']['home_url'] ); ?></td>
 						</tr>
 						<tr>
-							<th><?php esc_html_e( 'Language', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'Language', 'BuildERP' ); ?></th>
 							<td><?php echo esc_html( $info['wordpress']['language'] ); ?></td>
 						</tr>
 						<tr>
-							<th><?php esc_html_e( 'Debug Mode', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'Debug Mode', 'BuildERP' ); ?></th>
 							<td>
 								<?php if ( $info['wordpress']['debug_mode'] ) : ?>
-									<span class="berp-status enabled"><?php esc_html_e( 'Enabled', 'builderp' ); ?></span>
+									<span class="berp-status enabled"><?php esc_html_e( 'Enabled', 'BuildERP' ); ?></span>
 								<?php else : ?>
-									<span class="berp-status disabled"><?php esc_html_e( 'Disabled', 'builderp' ); ?></span>
+									<span class="berp-status disabled"><?php esc_html_e( 'Disabled', 'BuildERP' ); ?></span>
 								<?php endif; ?>
 							</td>
 						</tr>
@@ -78,30 +78,30 @@ class BERP_Tools_System_Info {
 
 				<!-- Server Environment -->
 				<div class="berp-system-section">
-					<h3><?php esc_html_e( 'Server Environment', 'builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'Server Environment', 'BuildERP' ); ?></h3>
 					<table class="berp-info-table">
 						<tr>
-							<th><?php esc_html_e( 'PHP Version', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'PHP Version', 'BuildERP' ); ?></th>
 							<td><?php echo esc_html( $info['server']['php_version'] ); ?></td>
 						</tr>
 						<tr>
-							<th><?php esc_html_e( 'MySQL Version', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'MySQL Version', 'BuildERP' ); ?></th>
 							<td><?php echo esc_html( $info['server']['mysql_version'] ); ?></td>
 						</tr>
 						<tr>
-							<th><?php esc_html_e( 'Server Software', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'Server Software', 'BuildERP' ); ?></th>
 							<td><?php echo esc_html( $info['server']['server_software'] ); ?></td>
 						</tr>
 						<tr>
-							<th><?php esc_html_e( 'Memory Limit', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'Memory Limit', 'BuildERP' ); ?></th>
 							<td><?php echo esc_html( $info['server']['memory_limit'] ); ?></td>
 						</tr>
 						<tr>
-							<th><?php esc_html_e( 'Max Execution Time', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'Max Execution Time', 'BuildERP' ); ?></th>
 							<td><?php echo esc_html( $info['server']['max_execution_time'] ); ?></td>
 						</tr>
 						<tr>
-							<th><?php esc_html_e( 'Max Upload Size', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'Max Upload Size', 'BuildERP' ); ?></th>
 							<td><?php echo esc_html( $info['server']['max_upload_size'] ); ?></td>
 						</tr>
 					</table>
@@ -109,18 +109,18 @@ class BERP_Tools_System_Info {
 
 				<!-- BuildErp Plugin -->
 				<div class="berp-system-section">
-					<h3><?php esc_html_e( 'BuildErp Plugin', 'builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'BuildErp Plugin', 'BuildERP' ); ?></h3>
 					<table class="berp-info-table">
 						<tr>
-							<th><?php esc_html_e( 'Plugin Version', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'Plugin Version', 'BuildERP' ); ?></th>
 							<td><?php echo esc_html( $info['plugin']['version'] ); ?></td>
 						</tr>
 						<tr>
-							<th><?php esc_html_e( 'Plugin Path', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'Plugin Path', 'BuildERP' ); ?></th>
 							<td><?php echo esc_html( $info['plugin']['path'] ); ?></td>
 						</tr>
 						<tr>
-							<th><?php esc_html_e( 'Plugin URL', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'Plugin URL', 'BuildERP' ); ?></th>
 							<td><?php echo esc_html( $info['plugin']['url'] ); ?></td>
 						</tr>
 					</table>
@@ -128,15 +128,15 @@ class BERP_Tools_System_Info {
 
 				<!-- Post Types -->
 				<div class="berp-system-section">
-					<h3><?php esc_html_e( 'Registered Post Types', 'builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'Registered Post Types', 'BuildERP' ); ?></h3>
 					<table class="berp-info-table">
 						<?php foreach ( $info['post_types'] as $post_type => $data ) : ?>
 							<tr>
 								<th><?php echo esc_html( $post_type ); ?></th>
 								<td>
-									<span class="berp-badge"><?php echo esc_html( number_format( $data['count'] ) ); ?> <?php esc_html_e( 'items', 'builderp' ); ?></span>
+									<span class="berp-badge"><?php echo esc_html( number_format( $data['count'] ) ); ?> <?php esc_html_e( 'items', 'BuildERP' ); ?></span>
 									<?php if ( $data['public'] ) : ?>
-										<span class="berp-badge public"><?php esc_html_e( 'Public', 'builderp' ); ?></span>
+										<span class="berp-badge public"><?php esc_html_e( 'Public', 'BuildERP' ); ?></span>
 									<?php endif; ?>
 								</td>
 							</tr>
@@ -146,7 +146,7 @@ class BERP_Tools_System_Info {
 
 				<!-- Capabilities -->
 				<div class="berp-system-section">
-					<h3><?php esc_html_e( 'Custom Capabilities', 'builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'Custom Capabilities', 'BuildERP' ); ?></h3>
 					<table class="berp-info-table">
 						<?php foreach ( $info['capabilities'] as $cap => $roles ) : ?>
 							<tr>
@@ -159,15 +159,15 @@ class BERP_Tools_System_Info {
 
 				<!-- User Roles -->
 				<div class="berp-system-section">
-					<h3><?php esc_html_e( 'Custom User Roles', 'builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'Custom User Roles', 'BuildERP' ); ?></h3>
 					<table class="berp-info-table">
 						<?php foreach ( $info['roles'] as $role_slug => $role_data ) : ?>
 							<tr>
 								<th><?php echo esc_html( $role_data['name'] ); ?></th>
 								<td>
-									<span class="berp-badge"><?php echo esc_html( number_format( $role_data['user_count'] ) ); ?> <?php esc_html_e( 'users', 'builderp' ); ?></span>
+									<span class="berp-badge"><?php echo esc_html( number_format( $role_data['user_count'] ) ); ?> <?php esc_html_e( 'users', 'BuildERP' ); ?></span>
 									<details>
-										<summary><?php esc_html_e( 'Capabilities', 'builderp' ); ?></summary>
+										<summary><?php esc_html_e( 'Capabilities', 'BuildERP' ); ?></summary>
 										<code><?php echo esc_html( implode( ', ', $role_data['capabilities'] ) ); ?></code>
 									</details>
 								</td>
@@ -178,12 +178,12 @@ class BERP_Tools_System_Info {
 
 				<!-- Meta Keys -->
 				<div class="berp-system-section">
-					<h3><?php esc_html_e( 'Meta Keys', 'builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'Meta Keys', 'BuildERP' ); ?></h3>
 					<table class="berp-info-table">
 						<?php foreach ( $info['meta_keys'] as $meta_key => $count ) : ?>
 							<tr>
 								<th><code><?php echo esc_html( $meta_key ); ?></code></th>
-								<td><span class="berp-badge"><?php echo esc_html( number_format( $count ) ); ?> <?php esc_html_e( 'uses', 'builderp' ); ?></span></td>
+								<td><span class="berp-badge"><?php echo esc_html( number_format( $count ) ); ?> <?php esc_html_e( 'uses', 'BuildERP' ); ?></span></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
@@ -191,14 +191,14 @@ class BERP_Tools_System_Info {
 
 				<!-- Options -->
 				<div class="berp-system-section">
-					<h3><?php esc_html_e( 'Plugin Options', 'builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'Plugin Options', 'BuildERP' ); ?></h3>
 					<table class="berp-info-table">
 						<?php foreach ( $info['options'] as $option => $value ) : ?>
 							<tr>
 								<th><code><?php echo esc_html( $option ); ?></code></th>
 								<td>
 									<?php if ( is_array( $value ) ) : ?>
-										<span class="berp-badge"><?php echo esc_html( count( $value ) ); ?> <?php esc_html_e( 'items', 'builderp' ); ?></span>
+										<span class="berp-badge"><?php echo esc_html( count( $value ) ); ?> <?php esc_html_e( 'items', 'BuildERP' ); ?></span>
 									<?php else : ?>
 										<?php echo esc_html( $value ); ?>
 									<?php endif; ?>
@@ -540,7 +540,7 @@ class BERP_Tools_System_Info {
 
 		foreach ( $options as $option ) {
 			$value           = get_option( $option );
-			$info[ $option ] = $value !== false ? $value : __( 'Not set', 'builderp' );
+			$info[ $option ] = $value !== false ? $value : __( 'Not set', 'BuildERP' );
 		}
 
 		return $info;

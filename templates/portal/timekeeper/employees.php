@@ -43,17 +43,17 @@ $query = new WP_Query( $args );
 
 <div class="berp-portal-card">
 	<div class="berp-card-header">
-		<h3><?php esc_html_e( 'Active Employees', 'builderp' ); ?></h3>
+		<h3><?php esc_html_e( 'Active Employees', 'BuildERP' ); ?></h3>
 	</div>
 	<div class="berp-card-body">
 		<form method="get" class="berp-filter-form">
 			<input type="hidden" name="view" value="employees">
 			<div class="berp-form-row">
 				<div class="berp-form-group berp-col-8">
-					<input type="text" name="search" class="berp-form-control" value="<?php echo esc_attr( $search ); ?>" placeholder="<?php esc_attr_e( 'Search by name...', 'builderp' ); ?>">
+					<input type="text" name="search" class="berp-form-control" value="<?php echo esc_attr( $search ); ?>" placeholder="<?php esc_attr_e( 'Search by name...', 'BuildERP' ); ?>">
 				</div>
 				<div class="berp-form-group berp-col-4">
-					<button type="submit" class="berp-btn berp-btn-primary"><?php esc_html_e( 'Search', 'builderp' ); ?></button>
+					<button type="submit" class="berp-btn berp-btn-primary"><?php esc_html_e( 'Search', 'BuildERP' ); ?></button>
 				</div>
 			</div>
 		</form>
@@ -62,10 +62,10 @@ $query = new WP_Query( $args );
 			<table class="berp-portal-table">
 				<thead>
 					<tr>
-						<th><?php esc_html_e( 'Employee ID', 'builderp' ); ?></th>
-						<th><?php esc_html_e( 'Name', 'builderp' ); ?></th>
-						<th><?php esc_html_e( 'Phone', 'builderp' ); ?></th>
-						<th><?php esc_html_e( 'Status', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Employee ID', 'BuildERP' ); ?></th>
+						<th><?php esc_html_e( 'Name', 'BuildERP' ); ?></th>
+						<th><?php esc_html_e( 'Phone', 'BuildERP' ); ?></th>
+						<th><?php esc_html_e( 'Status', 'BuildERP' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -79,7 +79,7 @@ $query = new WP_Query( $args );
 							<td><?php echo esc_html( $emp_id ); ?></td>
 							<td><?php the_title(); ?></td>
 							<td><?php echo esc_html( $phone ); ?></td>
-							<td><span class="berp-badge berp-badge-success"><?php esc_html_e( 'Active', 'builderp' ); ?></span></td>
+							<td><span class="berp-badge berp-badge-success"><?php esc_html_e( 'Active', 'BuildERP' ); ?></span></td>
 						</tr>
 					<?php endwhile; ?>
 				</tbody>
@@ -99,7 +99,7 @@ $query = new WP_Query( $args );
 				?>
 			</div>
 		<?php else : ?>
-			<p><?php esc_html_e( 'No employees found.', 'builderp' ); ?></p>
+			<p><?php esc_html_e( 'No employees found.', 'BuildERP' ); ?></p>
 		<?php endif; ?>
 		<?php wp_reset_postdata(); ?>
 	</div>

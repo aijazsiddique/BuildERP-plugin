@@ -39,7 +39,7 @@ class BERP_Quotation_Metaboxes {
 	public function add_metaboxes() {
 		add_meta_box(
 			'berp_quotation_main',
-			__( 'Quotation Information', 'builderp' ),
+			__( 'Quotation Information', 'BuildERP' ),
 			array( $this, 'render_main_metabox' ),
 			'berp_quotation',
 			'normal',
@@ -117,11 +117,11 @@ class BERP_Quotation_Metaboxes {
 		<div class="berp-metabox-content">
 			<div class="berp-metabox-layout">
 				<!-- Tab Navigation -->
-				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Quotation sections', 'builderp' ); ?>">
-					<button type="button" class="berp-metabox-tab is-active" data-tab-target="details-tab"><?php esc_html_e( 'Details', 'builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="items-tab"><?php esc_html_e( 'Line Items', 'builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="calculations-tab"><?php esc_html_e( 'Calculations', 'builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="terms-tab"><?php esc_html_e( 'Terms & Attachments', 'builderp' ); ?></button>
+				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Quotation sections', 'BuildERP' ); ?>">
+					<button type="button" class="berp-metabox-tab is-active" data-tab-target="details-tab"><?php esc_html_e( 'Details', 'BuildERP' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="items-tab"><?php esc_html_e( 'Line Items', 'BuildERP' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="calculations-tab"><?php esc_html_e( 'Calculations', 'BuildERP' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="terms-tab"><?php esc_html_e( 'Terms & Attachments', 'BuildERP' ); ?></button>
 				</nav>
 
 			<!-- Tab Panels -->
@@ -167,22 +167,22 @@ class BERP_Quotation_Metaboxes {
 		?>
 		<table class="form-table berp-form-table">
 			<tr>
-				<th><label for="berp_quotation_number"><?php esc_html_e( 'Quotation Number', 'builderp' ); ?></label></th>
+				<th><label for="berp_quotation_number"><?php esc_html_e( 'Quotation Number', 'BuildERP' ); ?></label></th>
 				<td>
 					<input type="text" name="berp_quotation_number" id="berp_quotation_number"
 						value="<?php echo esc_attr( $quotation_number ); ?>"
 						class="regular-text" readonly />
 					<p class="description">
-						<?php esc_html_e( 'Auto-generated. Will be assigned when you save this quotation.', 'builderp' ); ?>
+						<?php esc_html_e( 'Auto-generated. Will be assigned when you save this quotation.', 'BuildERP' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_client_id"><?php esc_html_e( 'Client', 'builderp' ); ?> <span class="required">*</span></label></th>
+				<th><label for="berp_client_id"><?php esc_html_e( 'Client', 'BuildERP' ); ?> <span class="required">*</span></label></th>
 				<td>
 					<select name="berp_client_id" id="berp_client_id" class="regular-text" required>
-						<option value=""><?php esc_html_e( '-- Select Client --', 'builderp' ); ?></option>
+						<option value=""><?php esc_html_e( '-- Select Client --', 'BuildERP' ); ?></option>
 						<?php foreach ( $clients as $client ) : ?>
 							<option value="<?php echo esc_attr( $client->ID ); ?>" <?php selected( $client_id, $client->ID ); ?>>
 								<?php echo esc_html( $client->post_title ); ?>
@@ -190,13 +190,13 @@ class BERP_Quotation_Metaboxes {
 						<?php endforeach; ?>
 					</select>
 					<p class="description">
-						<?php esc_html_e( 'Select the client for this quotation.', 'builderp' ); ?>
+						<?php esc_html_e( 'Select the client for this quotation.', 'BuildERP' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_quotation_date"><?php esc_html_e( 'Quotation Date', 'builderp' ); ?></label></th>
+				<th><label for="berp_quotation_date"><?php esc_html_e( 'Quotation Date', 'BuildERP' ); ?></label></th>
 				<td>
 					<input type="date" name="berp_quotation_date" id="berp_quotation_date"
 						value="<?php echo esc_attr( $quotation_date ); ?>"
@@ -205,26 +205,26 @@ class BERP_Quotation_Metaboxes {
 			</tr>
 
 			<tr>
-				<th><label for="berp_validity_date"><?php esc_html_e( 'Valid Until', 'builderp' ); ?></label></th>
+				<th><label for="berp_validity_date"><?php esc_html_e( 'Valid Until', 'BuildERP' ); ?></label></th>
 				<td>
 					<input type="date" name="berp_validity_date" id="berp_validity_date"
 						value="<?php echo esc_attr( $validity_date ); ?>"
 						class="regular-text" />
 					<p class="description">
-						<?php esc_html_e( 'Date until which this quotation is valid.', 'builderp' ); ?>
+						<?php esc_html_e( 'Date until which this quotation is valid.', 'BuildERP' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_status"><?php esc_html_e( 'Status', 'builderp' ); ?></label></th>
+				<th><label for="berp_status"><?php esc_html_e( 'Status', 'BuildERP' ); ?></label></th>
 				<td>
 					<select name="berp_status" id="berp_status" class="regular-text">
-						<option value="draft" <?php selected( $status, 'draft' ); ?>><?php esc_html_e( 'Draft', 'builderp' ); ?></option>
-						<option value="sent" <?php selected( $status, 'sent' ); ?>><?php esc_html_e( 'Sent', 'builderp' ); ?></option>
-						<option value="accepted" <?php selected( $status, 'accepted' ); ?>><?php esc_html_e( 'Accepted', 'builderp' ); ?></option>
-						<option value="rejected" <?php selected( $status, 'rejected' ); ?>><?php esc_html_e( 'Rejected', 'builderp' ); ?></option>
-						<option value="expired" <?php selected( $status, 'expired' ); ?>><?php esc_html_e( 'Expired', 'builderp' ); ?></option>
+						<option value="draft" <?php selected( $status, 'draft' ); ?>><?php esc_html_e( 'Draft', 'BuildERP' ); ?></option>
+						<option value="sent" <?php selected( $status, 'sent' ); ?>><?php esc_html_e( 'Sent', 'BuildERP' ); ?></option>
+						<option value="accepted" <?php selected( $status, 'accepted' ); ?>><?php esc_html_e( 'Accepted', 'BuildERP' ); ?></option>
+						<option value="rejected" <?php selected( $status, 'rejected' ); ?>><?php esc_html_e( 'Rejected', 'BuildERP' ); ?></option>
+						<option value="expired" <?php selected( $status, 'expired' ); ?>><?php esc_html_e( 'Expired', 'BuildERP' ); ?></option>
 					</select>
 				</td>
 			</tr>
@@ -238,10 +238,10 @@ class BERP_Quotation_Metaboxes {
 				$site = get_post( $converted_site );
 				?>
 				<tr>
-					<th><?php esc_html_e( 'Converted to Site', 'builderp' ); ?></th>
+					<th><?php esc_html_e( 'Converted to Site', 'BuildERP' ); ?></th>
 					<td>
 						<a href="<?php echo esc_url( get_edit_post_link( $converted_site ) ); ?>">
-							<?php echo esc_html( $site ? $site->post_title : __( 'View Site', 'builderp' ) ); ?>
+							<?php echo esc_html( $site ? $site->post_title : __( 'View Site', 'BuildERP' ) ); ?>
 						</a>
 					</td>
 				</tr>
@@ -249,7 +249,7 @@ class BERP_Quotation_Metaboxes {
 
 			<?php if ( ! empty( $converted_invoices ) && is_array( $converted_invoices ) ) : ?>
 				<tr>
-					<th><?php esc_html_e( 'Converted to Invoices', 'builderp' ); ?></th>
+					<th><?php esc_html_e( 'Converted to Invoices', 'BuildERP' ); ?></th>
 					<td>
 						<?php
 						foreach ( $converted_invoices as $invoice_id ) {
@@ -293,7 +293,7 @@ class BERP_Quotation_Metaboxes {
 
 				<button type="button" class="button button-secondary" id="berp-add-item">
 					<span class="dashicons dashicons-plus-alt"></span>
-					<?php esc_html_e( 'Add Line Item', 'builderp' ); ?>
+					<?php esc_html_e( 'Add Line Item', 'BuildERP' ); ?>
 				</button>
 			</div>
 		</div>
@@ -316,15 +316,15 @@ class BERP_Quotation_Metaboxes {
 		?>
 		<div class="berp-item-row" data-index="<?php echo esc_attr( $index ); ?>">
 			<div class="berp-item-field berp-item-description-field">
-				<label><?php esc_html_e( 'Description', 'builderp' ); ?></label>
+				<label><?php esc_html_e( 'Description', 'BuildERP' ); ?></label>
 				<input type="text" name="berp_items[<?php echo esc_attr( $index ); ?>][description]"
 					class="berp-item-description"
 					value="<?php echo esc_attr( $description ); ?>"
-					placeholder="<?php esc_attr_e( 'Item description', 'builderp' ); ?>" />
+					placeholder="<?php esc_attr_e( 'Item description', 'BuildERP' ); ?>" />
 			</div>
 
 			<div class="berp-item-field berp-item-quantity-field">
-				<label><?php esc_html_e( 'Quantity', 'builderp' ); ?></label>
+				<label><?php esc_html_e( 'Quantity', 'BuildERP' ); ?></label>
 				<input type="number" name="berp_items[<?php echo esc_attr( $index ); ?>][quantity]"
 					class="berp-item-quantity"
 					value="<?php echo esc_attr( $quantity ); ?>"
@@ -334,7 +334,7 @@ class BERP_Quotation_Metaboxes {
 			</div>
 
 			<div class="berp-item-field berp-item-rate-field">
-				<label><?php esc_html_e( 'Rate', 'builderp' ); ?></label>
+				<label><?php esc_html_e( 'Rate', 'BuildERP' ); ?></label>
 				<input type="number" name="berp_items[<?php echo esc_attr( $index ); ?>][rate]"
 					class="berp-item-rate"
 					value="<?php echo esc_attr( $rate ); ?>"
@@ -344,7 +344,7 @@ class BERP_Quotation_Metaboxes {
 			</div>
 
 			<div class="berp-item-field berp-item-amount-field">
-				<label><?php esc_html_e( 'Amount', 'builderp' ); ?></label>
+				<label><?php esc_html_e( 'Amount', 'BuildERP' ); ?></label>
 				<input type="number" name="berp_items[<?php echo esc_attr( $index ); ?>][amount]"
 					class="berp-item-amount"
 					value="<?php echo esc_attr( $amount ); ?>"
@@ -381,7 +381,7 @@ class BERP_Quotation_Metaboxes {
 		?>
 		<table class="form-table berp-form-table">
 			<tr>
-				<th><label for="berp_subtotal"><?php esc_html_e( 'Subtotal', 'builderp' ); ?></label></th>
+				<th><label for="berp_subtotal"><?php esc_html_e( 'Subtotal', 'BuildERP' ); ?></label></th>
 				<td>
 					<input type="number" name="berp_subtotal" id="berp_subtotal"
 						value="<?php echo esc_attr( $subtotal ); ?>"
@@ -389,13 +389,13 @@ class BERP_Quotation_Metaboxes {
 						step="0.01"
 						readonly />
 					<p class="description">
-						<?php esc_html_e( 'Calculated automatically from line items.', 'builderp' ); ?>
+						<?php esc_html_e( 'Calculated automatically from line items.', 'BuildERP' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_tax_rate"><?php esc_html_e( 'Tax Rate (%)', 'builderp' ); ?></label></th>
+				<th><label for="berp_tax_rate"><?php esc_html_e( 'Tax Rate (%)', 'BuildERP' ); ?></label></th>
 				<td>
 					<input type="number" name="berp_tax_rate" id="berp_tax_rate"
 						value="<?php echo esc_attr( $tax_rate ); ?>"
@@ -404,13 +404,13 @@ class BERP_Quotation_Metaboxes {
 						min="0"
 						max="100" />
 					<p class="description">
-						<?php esc_html_e( 'Tax percentage applied to (Subtotal - Discount).', 'builderp' ); ?>
+						<?php esc_html_e( 'Tax percentage applied to (Subtotal - Discount).', 'BuildERP' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_tax_amount"><?php esc_html_e( 'Tax Amount', 'builderp' ); ?></label></th>
+				<th><label for="berp_tax_amount"><?php esc_html_e( 'Tax Amount', 'BuildERP' ); ?></label></th>
 				<td>
 					<input type="number" name="berp_tax_amount" id="berp_tax_amount"
 						value="<?php echo esc_attr( $tax_amount ); ?>"
@@ -418,30 +418,30 @@ class BERP_Quotation_Metaboxes {
 						step="0.01"
 						readonly />
 					<p class="description">
-						<?php esc_html_e( 'Calculated automatically: (Subtotal - Discount) × Tax Rate.', 'builderp' ); ?>
+						<?php esc_html_e( 'Calculated automatically: (Subtotal - Discount) × Tax Rate.', 'BuildERP' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label><?php esc_html_e( 'Discount Type', 'builderp' ); ?></label></th>
+				<th><label><?php esc_html_e( 'Discount Type', 'BuildERP' ); ?></label></th>
 				<td>
 					<label>
 						<input type="radio" name="berp_discount_type" value="fixed"
 							<?php checked( $discount_type, 'fixed' ); ?> />
-						<?php esc_html_e( 'Fixed Amount', 'builderp' ); ?>
+						<?php esc_html_e( 'Fixed Amount', 'BuildERP' ); ?>
 					</label>
 					&nbsp;&nbsp;
 					<label>
 						<input type="radio" name="berp_discount_type" value="percentage"
 							<?php checked( $discount_type, 'percentage' ); ?> />
-						<?php esc_html_e( 'Percentage', 'builderp' ); ?>
+						<?php esc_html_e( 'Percentage', 'BuildERP' ); ?>
 					</label>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_discount_value"><?php esc_html_e( 'Discount Value', 'builderp' ); ?></label></th>
+				<th><label for="berp_discount_value"><?php esc_html_e( 'Discount Value', 'BuildERP' ); ?></label></th>
 				<td>
 					<input type="number" name="berp_discount_value" id="berp_discount_value"
 						value="<?php echo esc_attr( $discount_value ); ?>"
@@ -449,13 +449,13 @@ class BERP_Quotation_Metaboxes {
 						step="0.01"
 						min="0" />
 					<p class="description">
-						<?php esc_html_e( 'Enter discount amount or percentage based on type selected above.', 'builderp' ); ?>
+						<?php esc_html_e( 'Enter discount amount or percentage based on type selected above.', 'BuildERP' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_discount_amount"><?php esc_html_e( 'Discount Amount', 'builderp' ); ?></label></th>
+				<th><label for="berp_discount_amount"><?php esc_html_e( 'Discount Amount', 'BuildERP' ); ?></label></th>
 				<td>
 					<input type="number" name="berp_discount_amount" id="berp_discount_amount"
 						value="<?php echo esc_attr( $discount_amount ); ?>"
@@ -463,13 +463,13 @@ class BERP_Quotation_Metaboxes {
 						step="0.01"
 						readonly />
 					<p class="description">
-						<?php esc_html_e( 'Calculated automatically based on discount type and value.', 'builderp' ); ?>
+						<?php esc_html_e( 'Calculated automatically based on discount type and value.', 'BuildERP' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_grand_total"><?php esc_html_e( 'Grand Total', 'builderp' ); ?></label></th>
+				<th><label for="berp_grand_total"><?php esc_html_e( 'Grand Total', 'BuildERP' ); ?></label></th>
 				<td>
 					<input type="number" name="berp_grand_total" id="berp_grand_total"
 						value="<?php echo esc_attr( $grand_total ); ?>"
@@ -478,7 +478,7 @@ class BERP_Quotation_Metaboxes {
 						readonly
 						style="font-weight: bold; font-size: 1.2em;" />
 					<p class="description">
-						<?php esc_html_e( 'Final amount: (Subtotal - Discount) + Tax.', 'builderp' ); ?>
+						<?php esc_html_e( 'Final amount: (Subtotal - Discount) + Tax.', 'BuildERP' ); ?>
 					</p>
 				</td>
 			</tr>
@@ -499,31 +499,31 @@ class BERP_Quotation_Metaboxes {
 		?>
 		<table class="form-table berp-form-table">
 			<tr>
-				<th><label for="berp_payment_terms"><?php esc_html_e( 'Payment Terms', 'builderp' ); ?></label></th>
+				<th><label for="berp_payment_terms"><?php esc_html_e( 'Payment Terms', 'BuildERP' ); ?></label></th>
 				<td>
 					<textarea name="berp_payment_terms" id="berp_payment_terms"
 						rows="4"
 						class="large-text"><?php echo esc_textarea( $payment_terms ); ?></textarea>
 					<p class="description">
-						<?php esc_html_e( 'Payment terms and conditions for this quotation.', 'builderp' ); ?>
+						<?php esc_html_e( 'Payment terms and conditions for this quotation.', 'BuildERP' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_notes"><?php esc_html_e( 'Notes', 'builderp' ); ?></label></th>
+				<th><label for="berp_notes"><?php esc_html_e( 'Notes', 'BuildERP' ); ?></label></th>
 				<td>
 					<textarea name="berp_notes" id="berp_notes"
 						rows="4"
 						class="large-text"><?php echo esc_textarea( $notes ); ?></textarea>
 					<p class="description">
-						<?php esc_html_e( 'Additional notes or information for this quotation.', 'builderp' ); ?>
+						<?php esc_html_e( 'Additional notes or information for this quotation.', 'BuildERP' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label><?php esc_html_e( 'Attachments', 'builderp' ); ?></label></th>
+				<th><label><?php esc_html_e( 'Attachments', 'BuildERP' ); ?></label></th>
 				<td>
 					<div class="berp-repeater berp-attachments-repeater" id="berp-attachments-repeater">
 						<div class="berp-repeater-items">
@@ -542,7 +542,7 @@ class BERP_Quotation_Metaboxes {
 
 						<button type="button" class="button button-secondary" id="berp-add-attachment">
 							<span class="dashicons dashicons-plus-alt"></span>
-							<?php esc_html_e( 'Add Attachment', 'builderp' ); ?>
+							<?php esc_html_e( 'Add Attachment', 'BuildERP' ); ?>
 						</button>
 					</div>
 				</td>
@@ -565,15 +565,15 @@ class BERP_Quotation_Metaboxes {
 		?>
 		<div class="berp-attachment-row" style="margin-bottom: 10px;">
 			<input type="text" name="berp_attachments[<?php echo esc_attr( $index ); ?>][name]"
-				placeholder="<?php esc_attr_e( 'Attachment name', 'builderp' ); ?>"
+				placeholder="<?php esc_attr_e( 'Attachment name', 'BuildERP' ); ?>"
 				value="<?php echo esc_attr( $name ); ?>"
 				class="regular-text" />
 			<input type="text" name="berp_attachments[<?php echo esc_attr( $index ); ?>][url]"
-				placeholder="<?php esc_attr_e( 'URL or file path', 'builderp' ); ?>"
+				placeholder="<?php esc_attr_e( 'URL or file path', 'BuildERP' ); ?>"
 				value="<?php echo esc_attr( $url ); ?>"
 				class="berp-attachment-url large-text" />
 			<button type="button" class="button button-secondary berp-upload-attachment">
-				<?php esc_html_e( 'Upload', 'builderp' ); ?>
+				<?php esc_html_e( 'Upload', 'BuildERP' ); ?>
 			</button>
 			<button type="button" class="button button-secondary berp-remove-attachment">
 				<span class="dashicons dashicons-trash"></span>

@@ -39,7 +39,7 @@ class BERP_Expense_Metaboxes {
 	public function add_metaboxes() {
 		add_meta_box(
 			'berp_expense_main',
-			__( 'Expense Information', 'builderp' ),
+			__( 'Expense Information', 'BuildERP' ),
 			array( $this, 'render_main_metabox' ),
 			'berp_expense',
 			'normal',
@@ -109,10 +109,10 @@ class BERP_Expense_Metaboxes {
 		?>
 		<div class="berp-metabox-content">
 			<div class="berp-metabox-layout">
-				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Expense sections', 'builderp' ); ?>">
-					<button type="button" class="berp-metabox-tab is-active" data-tab-target="berp-expense-details"><?php esc_html_e( 'Details', 'builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="berp-expense-receipts"><?php esc_html_e( 'Receipts', 'builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="berp-expense-recurring"><?php esc_html_e( 'Recurring Settings', 'builderp' ); ?></button>
+				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Expense sections', 'BuildERP' ); ?>">
+					<button type="button" class="berp-metabox-tab is-active" data-tab-target="berp-expense-details"><?php esc_html_e( 'Details', 'BuildERP' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="berp-expense-receipts"><?php esc_html_e( 'Receipts', 'BuildERP' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="berp-expense-recurring"><?php esc_html_e( 'Recurring Settings', 'BuildERP' ); ?></button>
 				</nav>
 
 				<div class="berp-metabox-panels">
@@ -123,16 +123,16 @@ class BERP_Expense_Metaboxes {
 								<div class="berp-field-group berp-field-full">
 									<div class="notice notice-info inline">
 										<p>
-											<strong><?php esc_html_e( 'Note:', 'builderp' ); ?></strong>
-											<?php esc_html_e( 'This expense was automatically created from payroll.', 'builderp' ); ?>
+											<strong><?php esc_html_e( 'Note:', 'BuildERP' ); ?></strong>
+											<?php esc_html_e( 'This expense was automatically created from payroll.', 'BuildERP' ); ?>
 											<?php if ( $linked_payroll_id ) : ?>
 												<a href="<?php echo esc_url( get_edit_post_link( $linked_payroll_id ) ); ?>">
-													<?php esc_html_e( 'View Payroll Record', 'builderp' ); ?>
+													<?php esc_html_e( 'View Payroll Record', 'BuildERP' ); ?>
 												</a>
 											<?php endif; ?>
 											<?php if ( $linked_employee_id ) : ?>
 												| <a href="<?php echo esc_url( get_edit_post_link( $linked_employee_id ) ); ?>">
-													<?php esc_html_e( 'View Employee', 'builderp' ); ?>
+													<?php esc_html_e( 'View Employee', 'BuildERP' ); ?>
 												</a>
 											<?php endif; ?>
 										</p>
@@ -141,12 +141,12 @@ class BERP_Expense_Metaboxes {
 							<?php endif; ?>
 
 							<div class="berp-field-group">
-								<label for="berp_expense_date"><?php esc_html_e( 'Date', 'builderp' ); ?> <span class="required">*</span></label>
+								<label for="berp_expense_date"><?php esc_html_e( 'Date', 'BuildERP' ); ?> <span class="required">*</span></label>
 								<input type="date" id="berp_expense_date" name="berp_expense_date" value="<?php echo esc_attr( $expense_date ); ?>" required />
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_expense_amount"><?php esc_html_e( 'Amount', 'builderp' ); ?> <span class="required">*</span></label>
+								<label for="berp_expense_amount"><?php esc_html_e( 'Amount', 'BuildERP' ); ?> <span class="required">*</span></label>
 								<div class="berp-input-with-prefix">
 									<span class="berp-input-prefix"><?php echo esc_html( $currency_symbol ); ?></span>
 									<input type="number" id="berp_expense_amount" name="berp_expense_amount" value="<?php echo esc_attr( $expense_amount ); ?>" min="0" step="0.01" required />
@@ -154,9 +154,9 @@ class BERP_Expense_Metaboxes {
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_expense_category"><?php esc_html_e( 'Category', 'builderp' ); ?> <span class="required">*</span></label>
+								<label for="berp_expense_category"><?php esc_html_e( 'Category', 'BuildERP' ); ?> <span class="required">*</span></label>
 								<select id="berp_expense_category" name="berp_expense_category" required>
-									<option value=""><?php esc_html_e( '-- Select Category --', 'builderp' ); ?></option>
+									<option value=""><?php esc_html_e( '-- Select Category --', 'BuildERP' ); ?></option>
 									<?php foreach ( $categories as $category ) : ?>
 										<option value="<?php echo esc_attr( strtolower( $category ) ); ?>" <?php selected( $expense_category, strtolower( $category ) ); ?>>
 											<?php echo esc_html( $category ); ?>
@@ -167,30 +167,30 @@ class BERP_Expense_Metaboxes {
 									<?php
 									printf(
 										/* translators: %s: URL to settings page */
-										esc_html__( 'Manage categories in %s', 'builderp' ),
-										'<a href="' . esc_url( admin_url( 'admin.php?page=builderp-settings' ) ) . '">' . esc_html__( 'Settings', 'builderp' ) . '</a>'
+										esc_html__( 'Manage categories in %s', 'BuildERP' ),
+										'<a href="' . esc_url( admin_url( 'admin.php?page=builderp-settings' ) ) . '">' . esc_html__( 'Settings', 'BuildERP' ) . '</a>'
 									);
 									?>
 								</p>
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_site_id"><?php esc_html_e( 'Site / Project', 'builderp' ); ?></label>
+								<label for="berp_site_id"><?php esc_html_e( 'Site / Project', 'BuildERP' ); ?></label>
 								<select id="berp_site_id" name="berp_site_id">
-									<option value=""><?php esc_html_e( '-- None --', 'builderp' ); ?></option>
+									<option value=""><?php esc_html_e( '-- None --', 'BuildERP' ); ?></option>
 									<?php foreach ( $sites as $site ) : ?>
 										<option value="<?php echo esc_attr( $site->ID ); ?>" <?php selected( $site_id, $site->ID ); ?>>
 											<?php echo esc_html( $site->post_title ); ?>
 										</option>
 									<?php endforeach; ?>
 								</select>
-								<p class="description"><?php esc_html_e( 'Link this expense to a specific site/project for budget tracking.', 'builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Link this expense to a specific site/project for budget tracking.', 'BuildERP' ); ?></p>
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_payment_method"><?php esc_html_e( 'Payment Method', 'builderp' ); ?> <span class="required">*</span></label>
+								<label for="berp_payment_method"><?php esc_html_e( 'Payment Method', 'BuildERP' ); ?> <span class="required">*</span></label>
 								<select id="berp_payment_method" name="berp_payment_method" required>
-									<option value=""><?php esc_html_e( '-- Select Method --', 'builderp' ); ?></option>
+									<option value=""><?php esc_html_e( '-- Select Method --', 'BuildERP' ); ?></option>
 									<?php foreach ( $payment_methods as $method ) : ?>
 										<option value="<?php echo esc_attr( strtolower( str_replace( ' ', '_', $method ) ) ); ?>" <?php selected( $payment_method, strtolower( str_replace( ' ', '_', $method ) ) ); ?>>
 											<?php echo esc_html( $method ); ?>
@@ -200,7 +200,7 @@ class BERP_Expense_Metaboxes {
 							</div>
 
 							<div class="berp-field-group berp-field-full">
-								<label for="berp_expense_description"><?php esc_html_e( 'Description / Notes', 'builderp' ); ?></label>
+								<label for="berp_expense_description"><?php esc_html_e( 'Description / Notes', 'BuildERP' ); ?></label>
 								<textarea id="berp_expense_description" name="berp_expense_description" rows="4"><?php echo esc_textarea( $expense_description ); ?></textarea>
 							</div>
 						</div>
@@ -209,8 +209,8 @@ class BERP_Expense_Metaboxes {
 					<!-- Receipts Tab -->
 					<div class="berp-metabox-panel" data-tab-panel="berp-expense-receipts">
 						<div class="berp-repeater-wrapper">
-							<h4><?php esc_html_e( 'Receipt Attachments', 'builderp' ); ?></h4>
-							<p class="description"><?php esc_html_e( 'Upload receipt images or documents for this expense.', 'builderp' ); ?></p>
+							<h4><?php esc_html_e( 'Receipt Attachments', 'BuildERP' ); ?></h4>
+							<p class="description"><?php esc_html_e( 'Upload receipt images or documents for this expense.', 'BuildERP' ); ?></p>
 
 							<div class="berp-repeater berp-receipts-repeater" id="berp-receipts-repeater">
 								<div class="berp-repeater-items">
@@ -230,7 +230,7 @@ class BERP_Expense_Metaboxes {
 
 								<button type="button" class="button button-secondary berp-add-receipt">
 									<span class="dashicons dashicons-plus-alt"></span>
-									<?php esc_html_e( 'Add Receipt', 'builderp' ); ?>
+									<?php esc_html_e( 'Add Receipt', 'BuildERP' ); ?>
 								</button>
 							</div>
 						</div>
@@ -242,35 +242,35 @@ class BERP_Expense_Metaboxes {
 							<div class="berp-field-group berp-field-full">
 								<label>
 									<input type="checkbox" id="berp_is_recurring" name="berp_is_recurring" value="1" <?php checked( $is_recurring, '1' ); ?> />
-									<?php esc_html_e( 'This is a recurring expense', 'builderp' ); ?>
+									<?php esc_html_e( 'This is a recurring expense', 'BuildERP' ); ?>
 								</label>
-								<p class="description"><?php esc_html_e( 'Enable to automatically create this expense on a regular schedule.', 'builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Enable to automatically create this expense on a regular schedule.', 'BuildERP' ); ?></p>
 							</div>
 
 							<div class="berp-recurring-fields" style="<?php echo ( $is_recurring != '1' ) ? 'display: none;' : ''; ?>">
 								<div class="berp-field-group">
-									<label for="berp_recurring_interval"><?php esc_html_e( 'Interval', 'builderp' ); ?></label>
+									<label for="berp_recurring_interval"><?php esc_html_e( 'Interval', 'BuildERP' ); ?></label>
 									<select id="berp_recurring_interval" name="berp_recurring_interval">
-										<option value="monthly" <?php selected( $recurring_interval, 'monthly' ); ?>><?php esc_html_e( 'Monthly', 'builderp' ); ?></option>
-										<option value="yearly" <?php selected( $recurring_interval, 'yearly' ); ?>><?php esc_html_e( 'Yearly', 'builderp' ); ?></option>
+										<option value="monthly" <?php selected( $recurring_interval, 'monthly' ); ?>><?php esc_html_e( 'Monthly', 'BuildERP' ); ?></option>
+										<option value="yearly" <?php selected( $recurring_interval, 'yearly' ); ?>><?php esc_html_e( 'Yearly', 'BuildERP' ); ?></option>
 									</select>
 								</div>
 
 								<div class="berp-field-group">
-									<label for="berp_recurring_next_date"><?php esc_html_e( 'Next Due Date', 'builderp' ); ?></label>
+									<label for="berp_recurring_next_date"><?php esc_html_e( 'Next Due Date', 'BuildERP' ); ?></label>
 									<input type="date" id="berp_recurring_next_date" name="berp_recurring_next_date" value="<?php echo esc_attr( $recurring_next_date ); ?>" />
-									<p class="description"><?php esc_html_e( 'The date when the next expense should be created.', 'builderp' ); ?></p>
+									<p class="description"><?php esc_html_e( 'The date when the next expense should be created.', 'BuildERP' ); ?></p>
 								</div>
 
 								<div class="berp-field-group">
-									<label for="berp_recurring_end_date"><?php esc_html_e( 'End Date (Optional)', 'builderp' ); ?></label>
+									<label for="berp_recurring_end_date"><?php esc_html_e( 'End Date (Optional)', 'BuildERP' ); ?></label>
 									<input type="date" id="berp_recurring_end_date" name="berp_recurring_end_date" value="<?php echo esc_attr( $recurring_end_date ); ?>" />
-									<p class="description"><?php esc_html_e( 'Leave empty for no end date.', 'builderp' ); ?></p>
+									<p class="description"><?php esc_html_e( 'Leave empty for no end date.', 'BuildERP' ); ?></p>
 								</div>
 
 								<div class="berp-field-group berp-field-full">
 									<div class="notice notice-warning inline">
-										<p><?php esc_html_e( 'Note: Recurring expenses are processed daily by a scheduled task. The new expense will be created on or after the next due date.', 'builderp' ); ?></p>
+										<p><?php esc_html_e( 'Note: Recurring expenses are processed daily by a scheduled task. The new expense will be created on or after the next due date.', 'BuildERP' ); ?></p>
 									</div>
 								</div>
 							</div>
@@ -326,9 +326,9 @@ class BERP_Expense_Metaboxes {
 				var preview = button.siblings('.berp-receipt-preview');
 
 				var mediaUploader = wp.media({
-					title: '<?php echo esc_js( __( 'Select Receipt', 'builderp' ) ); ?>',
+					title: '<?php echo esc_js( __( 'Select Receipt', 'BuildERP' ) ); ?>',
 					button: {
-						text: '<?php echo esc_js( __( 'Use this file', 'builderp' ) ); ?>'
+						text: '<?php echo esc_js( __( 'Use this file', 'BuildERP' ) ); ?>'
 					},
 					multiple: false
 				});
@@ -365,17 +365,17 @@ class BERP_Expense_Metaboxes {
 		<div class="berp-receipt-row" data-index="<?php echo esc_attr( $index ); ?>">
 			<div class="berp-receipt-fields">
 				<div class="berp-receipt-field">
-					<label><?php esc_html_e( 'Title', 'builderp' ); ?></label>
-					<input type="text" name="berp_receipts[<?php echo esc_attr( $index ); ?>][title]" value="<?php echo esc_attr( $title ); ?>" placeholder="<?php esc_attr_e( 'e.g., Invoice #12345', 'builderp' ); ?>" />
+					<label><?php esc_html_e( 'Title', 'BuildERP' ); ?></label>
+					<input type="text" name="berp_receipts[<?php echo esc_attr( $index ); ?>][title]" value="<?php echo esc_attr( $title ); ?>" placeholder="<?php esc_attr_e( 'e.g., Invoice #12345', 'BuildERP' ); ?>" />
 				</div>
 
 				<div class="berp-receipt-field">
-					<label><?php esc_html_e( 'File', 'builderp' ); ?></label>
+					<label><?php esc_html_e( 'File', 'BuildERP' ); ?></label>
 					<input type="hidden" class="berp-receipt-url" name="berp_receipts[<?php echo esc_attr( $index ); ?>][url]" value="<?php echo esc_url( $url ); ?>" />
 					<input type="hidden" class="berp-receipt-file-id" name="berp_receipts[<?php echo esc_attr( $index ); ?>][file_id]" value="<?php echo esc_attr( $file_id ); ?>" />
 					<button type="button" class="button berp-upload-receipt">
 						<span class="dashicons dashicons-upload"></span>
-						<?php esc_html_e( 'Upload', 'builderp' ); ?>
+						<?php esc_html_e( 'Upload', 'BuildERP' ); ?>
 					</button>
 					<div class="berp-receipt-preview" style="<?php echo empty( $url ) ? 'display:none;' : ''; ?>">
 						<?php if ( ! empty( $url ) ) : ?>
@@ -387,7 +387,7 @@ class BERP_Expense_Metaboxes {
 				</div>
 
 				<div class="berp-receipt-actions">
-					<button type="button" class="button berp-remove-receipt" title="<?php esc_attr_e( 'Remove', 'builderp' ); ?>">
+					<button type="button" class="button berp-remove-receipt" title="<?php esc_attr_e( 'Remove', 'BuildERP' ); ?>">
 						<span class="dashicons dashicons-no-alt"></span>
 					</button>
 				</div>

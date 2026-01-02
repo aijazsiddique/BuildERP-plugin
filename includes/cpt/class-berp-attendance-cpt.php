@@ -27,19 +27,19 @@ class BERP_Attendance_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Attendance', 'Post type general name', 'builderp' ),
-			'singular_name'      => _x( 'Attendance Record', 'Post type singular name', 'builderp' ),
-			'menu_name'          => _x( 'Attendance', 'Admin Menu text', 'builderp' ),
-			'name_admin_bar'     => _x( 'Attendance', 'Add New on Toolbar', 'builderp' ),
-			'add_new'            => __( 'Log Attendance', 'builderp' ),
-			'add_new_item'       => __( 'Log Attendance', 'builderp' ),
-			'new_item'           => __( 'New Attendance Record', 'builderp' ),
-			'edit_item'          => __( 'Edit Attendance Record', 'builderp' ),
-			'view_item'          => __( 'View Attendance Record', 'builderp' ),
-			'all_items'          => __( 'View Attendance', 'builderp' ),
-			'search_items'       => __( 'Search Attendance', 'builderp' ),
-			'not_found'          => __( 'No attendance records found.', 'builderp' ),
-			'not_found_in_trash' => __( 'No attendance records found in Trash.', 'builderp' ),
+			'name'               => _x( 'Attendance', 'Post type general name', 'BuildERP' ),
+			'singular_name'      => _x( 'Attendance Record', 'Post type singular name', 'BuildERP' ),
+			'menu_name'          => _x( 'Attendance', 'Admin Menu text', 'BuildERP' ),
+			'name_admin_bar'     => _x( 'Attendance', 'Add New on Toolbar', 'BuildERP' ),
+			'add_new'            => __( 'Log Attendance', 'BuildERP' ),
+			'add_new_item'       => __( 'Log Attendance', 'BuildERP' ),
+			'new_item'           => __( 'New Attendance Record', 'BuildERP' ),
+			'edit_item'          => __( 'Edit Attendance Record', 'BuildERP' ),
+			'view_item'          => __( 'View Attendance Record', 'BuildERP' ),
+			'all_items'          => __( 'View Attendance', 'BuildERP' ),
+			'search_items'       => __( 'Search Attendance', 'BuildERP' ),
+			'not_found'          => __( 'No attendance records found.', 'BuildERP' ),
+			'not_found_in_trash' => __( 'No attendance records found in Trash.', 'BuildERP' ),
 		);
 
 		$args = array(

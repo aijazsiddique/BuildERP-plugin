@@ -78,7 +78,7 @@ class BERP_Expense_API {
 		if ( empty( $data['category'] ) ) {
 			return new WP_Error(
 				'berp_missing_category',
-				__( 'Category is required', 'builderp' ),
+				__( 'Category is required', 'BuildERP' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -86,7 +86,7 @@ class BERP_Expense_API {
 		if ( empty( $data['amount'] ) || floatval( $data['amount'] ) <= 0 ) {
 			return new WP_Error(
 				'berp_invalid_amount',
-				__( 'Amount must be greater than zero', 'builderp' ),
+				__( 'Amount must be greater than zero', 'BuildERP' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -100,7 +100,7 @@ class BERP_Expense_API {
 		if ( ! in_array( strtolower( $data['category'] ), $valid_categories ) ) {
 			return new WP_Error(
 				'berp_invalid_category',
-				__( 'Invalid category', 'builderp' ),
+				__( 'Invalid category', 'BuildERP' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -109,7 +109,7 @@ class BERP_Expense_API {
 		$expense_id = wp_insert_post(
 			array(
 				'post_type'    => 'berp_expense',
-				'post_title'   => isset( $data['title'] ) ? sanitize_text_field( $data['title'] ) : __( 'Expense', 'builderp' ),
+				'post_title'   => isset( $data['title'] ) ? sanitize_text_field( $data['title'] ) : __( 'Expense', 'BuildERP' ),
 				'post_content' => isset( $data['description'] ) ? sanitize_textarea_field( $data['description'] ) : '',
 				'post_status'  => 'publish',
 				'post_author'  => get_current_user_id(),
@@ -139,7 +139,7 @@ class BERP_Expense_API {
 		return new WP_REST_Response(
 			array(
 				'success'    => true,
-				'message'    => __( 'Expense created successfully', 'builderp' ),
+				'message'    => __( 'Expense created successfully', 'BuildERP' ),
 				'expense_id' => $expense_id,
 			),
 			201

@@ -39,7 +39,7 @@ class BERP_Client_Metaboxes {
 	public function add_metaboxes() {
 		add_meta_box(
 			'berp_client_main',
-			__( 'Client Information', 'builderp' ),
+			__( 'Client Information', 'BuildERP' ),
 			array( $this, 'render_main_metabox' ),
 			'berp_client',
 			'normal',
@@ -84,11 +84,11 @@ class BERP_Client_Metaboxes {
 		?>
 		<div class="berp-metabox-content">
 			<div class="berp-metabox-layout">
-				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Client sections', 'builderp' ); ?>">
-					<button type="button" class="berp-metabox-tab is-active" data-tab-target="berp-client-details"><?php esc_html_e( 'Details', 'builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="berp-client-documents"><?php esc_html_e( 'Documents', 'builderp' ); ?></button>
+				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Client sections', 'BuildERP' ); ?>">
+					<button type="button" class="berp-metabox-tab is-active" data-tab-target="berp-client-details"><?php esc_html_e( 'Details', 'BuildERP' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="berp-client-documents"><?php esc_html_e( 'Documents', 'BuildERP' ); ?></button>
 					<?php if ( ! empty( $custom_fields ) ) : ?>
-						<button type="button" class="berp-metabox-tab" data-tab-target="berp-client-custom"><?php esc_html_e( 'Additional Info', 'builderp' ); ?></button>
+						<button type="button" class="berp-metabox-tab" data-tab-target="berp-client-custom"><?php esc_html_e( 'Additional Info', 'BuildERP' ); ?></button>
 					<?php endif; ?>
 				</nav>
 
@@ -97,81 +97,81 @@ class BERP_Client_Metaboxes {
 					<div class="berp-metabox-panel is-active" data-tab-panel="berp-client-details">
 						<div class="berp-metabox-grid">
 							<div class="berp-field-group">
-								<label for="berp_company_name"><?php esc_html_e( 'Company Name', 'builderp' ); ?> <span class="required">*</span></label>
+								<label for="berp_company_name"><?php esc_html_e( 'Company Name', 'BuildERP' ); ?> <span class="required">*</span></label>
 								<input type="text" id="berp_company_name" name="berp_company_name" value="<?php echo esc_attr( $company_name ); ?>" required />
-								<p class="description"><?php esc_html_e( 'Official company/business name', 'builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Official company/business name', 'BuildERP' ); ?></p>
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_contact_person"><?php esc_html_e( 'Contact Person', 'builderp' ); ?></label>
+								<label for="berp_contact_person"><?php esc_html_e( 'Contact Person', 'BuildERP' ); ?></label>
 								<input type="text" id="berp_contact_person" name="berp_contact_person" value="<?php echo esc_attr( $contact_person ); ?>" />
-								<p class="description"><?php esc_html_e( 'Primary contact person name', 'builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Primary contact person name', 'BuildERP' ); ?></p>
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_client_email"><?php esc_html_e( 'Email Address', 'builderp' ); ?> <span class="required">*</span></label>
+								<label for="berp_client_email"><?php esc_html_e( 'Email Address', 'BuildERP' ); ?> <span class="required">*</span></label>
 								<input type="email" id="berp_client_email" name="berp_client_email" value="<?php echo esc_attr( $email ); ?>" required />
-								<p class="description"><?php esc_html_e( 'Primary email address for communication', 'builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Primary email address for communication', 'BuildERP' ); ?></p>
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_client_phone"><?php esc_html_e( 'Phone Number', 'builderp' ); ?></label>
+								<label for="berp_client_phone"><?php esc_html_e( 'Phone Number', 'BuildERP' ); ?></label>
 								<input type="text" id="berp_client_phone" name="berp_client_phone" value="<?php echo esc_attr( $phone ); ?>" />
 							</div>
 
 							<div class="berp-field-group berp-field-full">
-								<label for="berp_client_address"><?php esc_html_e( 'Street Address', 'builderp' ); ?></label>
+								<label for="berp_client_address"><?php esc_html_e( 'Street Address', 'BuildERP' ); ?></label>
 								<textarea id="berp_client_address" name="berp_client_address" rows="3"><?php echo esc_textarea( $address ); ?></textarea>
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_client_city"><?php esc_html_e( 'City', 'builderp' ); ?></label>
+								<label for="berp_client_city"><?php esc_html_e( 'City', 'BuildERP' ); ?></label>
 								<input type="text" id="berp_client_city" name="berp_client_city" value="<?php echo esc_attr( $city ); ?>" />
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_client_state"><?php esc_html_e( 'State/Province', 'builderp' ); ?></label>
+								<label for="berp_client_state"><?php esc_html_e( 'State/Province', 'BuildERP' ); ?></label>
 								<input type="text" id="berp_client_state" name="berp_client_state" value="<?php echo esc_attr( $state ); ?>" />
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_client_zip"><?php esc_html_e( 'ZIP/Postal Code', 'builderp' ); ?></label>
+								<label for="berp_client_zip"><?php esc_html_e( 'ZIP/Postal Code', 'BuildERP' ); ?></label>
 								<input type="text" id="berp_client_zip" name="berp_client_zip" value="<?php echo esc_attr( $zip ); ?>" />
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_client_country"><?php esc_html_e( 'Country', 'builderp' ); ?></label>
+								<label for="berp_client_country"><?php esc_html_e( 'Country', 'BuildERP' ); ?></label>
 								<input type="text" id="berp_client_country" name="berp_client_country" value="<?php echo esc_attr( $country ); ?>" />
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_registration_number"><?php esc_html_e( 'Registration Number', 'builderp' ); ?></label>
+								<label for="berp_registration_number"><?php esc_html_e( 'Registration Number', 'BuildERP' ); ?></label>
 								<input type="text" id="berp_registration_number" name="berp_registration_number" value="<?php echo esc_attr( $registration_number ); ?>" />
-								<p class="description"><?php esc_html_e( 'Business registration number', 'builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Business registration number', 'BuildERP' ); ?></p>
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_tax_id"><?php esc_html_e( 'Tax ID / VAT Number', 'builderp' ); ?></label>
+								<label for="berp_tax_id"><?php esc_html_e( 'Tax ID / VAT Number', 'BuildERP' ); ?></label>
 								<input type="text" id="berp_tax_id" name="berp_tax_id" value="<?php echo esc_attr( $tax_id ); ?>" />
-								<p class="description"><?php esc_html_e( 'Tax identification number', 'builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Tax identification number', 'BuildERP' ); ?></p>
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_client_website"><?php esc_html_e( 'Website', 'builderp' ); ?></label>
+								<label for="berp_client_website"><?php esc_html_e( 'Website', 'BuildERP' ); ?></label>
 								<input type="url" id="berp_client_website" name="berp_client_website" value="<?php echo esc_attr( $website ); ?>" placeholder="https://" />
 							</div>
 
 							<div class="berp-field-group berp-field-full">
-								<label for="berp_client_notes"><?php esc_html_e( 'Notes', 'builderp' ); ?></label>
+								<label for="berp_client_notes"><?php esc_html_e( 'Notes', 'BuildERP' ); ?></label>
 								<textarea id="berp_client_notes" name="berp_client_notes" rows="4"><?php echo esc_textarea( $notes ); ?></textarea>
-								<p class="description"><?php esc_html_e( 'Internal notes about this client', 'builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Internal notes about this client', 'BuildERP' ); ?></p>
 							</div>
 						</div>
 					</div>
 
 					<!-- Documents Tab -->
 					<div class="berp-metabox-panel" data-tab-panel="berp-client-documents">
-						<p class="description" style="margin-bottom: 15px;"><?php esc_html_e( 'Add contracts, agreements, or other important documents for this client.', 'builderp' ); ?></p>
+						<p class="description" style="margin-bottom: 15px;"><?php esc_html_e( 'Add contracts, agreements, or other important documents for this client.', 'BuildERP' ); ?></p>
 
 						<div id="berp-client-documents-wrapper" class="berp-repeater-wrapper">
 							<?php
@@ -184,7 +184,7 @@ class BERP_Client_Metaboxes {
 						</div>
 
 						<button type="button" class="button" id="berp-add-client-document">
-							<?php esc_html_e( '+ Add Document', 'builderp' ); ?>
+							<?php esc_html_e( '+ Add Document', 'BuildERP' ); ?>
 						</button>
 
 						<!-- Template for new document row -->
@@ -238,7 +238,7 @@ class BERP_Client_Metaboxes {
 											case 'select':
 												$options = ! empty( $field['options'] ) ? explode( ',', $field['options'] ) : array();
 												echo '<select id="' . esc_attr( $field_key ) . '" name="' . esc_attr( $field_key ) . '">';
-												echo '<option value="">' . esc_html__( '-- Select --', 'builderp' ) . '</option>';
+												echo '<option value="">' . esc_html__( '-- Select --', 'BuildERP' ) . '</option>';
 												foreach ( $options as $option ) {
 													$option = trim( $option );
 													echo '<option value="' . esc_attr( $option ) . '" ' . selected( $field_value, $option, false ) . '>' . esc_html( $option ) . '</option>';
@@ -274,17 +274,17 @@ class BERP_Client_Metaboxes {
 		<div class="berp-repeater-item berp-document-row" data-index="<?php echo esc_attr( $index ); ?>">
 			<div class="berp-repeater-content">
 				<div class="berp-field-group">
-					<label><?php esc_html_e( 'Document Title', 'builderp' ); ?></label>
-					<input type="text" name="berp_client_documents[<?php echo esc_attr( $index ); ?>][title]" value="<?php echo esc_attr( $title ); ?>" placeholder="<?php esc_attr_e( 'e.g., Contract Agreement', 'builderp' ); ?>" />
+					<label><?php esc_html_e( 'Document Title', 'BuildERP' ); ?></label>
+					<input type="text" name="berp_client_documents[<?php echo esc_attr( $index ); ?>][title]" value="<?php echo esc_attr( $title ); ?>" placeholder="<?php esc_attr_e( 'e.g., Contract Agreement', 'BuildERP' ); ?>" />
 				</div>
 				<div class="berp-field-group">
-					<label><?php esc_html_e( 'Document URL / File Path', 'builderp' ); ?></label>
-					<input type="url" name="berp_client_documents[<?php echo esc_attr( $index ); ?>][url]" value="<?php echo esc_attr( $url ); ?>" placeholder="<?php esc_attr_e( 'https:// or file path', 'builderp' ); ?>" />
+					<label><?php esc_html_e( 'Document URL / File Path', 'BuildERP' ); ?></label>
+					<input type="url" name="berp_client_documents[<?php echo esc_attr( $index ); ?>][url]" value="<?php echo esc_attr( $url ); ?>" placeholder="<?php esc_attr_e( 'https:// or file path', 'BuildERP' ); ?>" />
 				</div>
 				<div class="berp-repeater-actions">
-					<button type="button" class="button button-small berp-remove-document"><?php esc_html_e( 'Remove', 'builderp' ); ?></button>
+					<button type="button" class="button button-small berp-remove-document"><?php esc_html_e( 'Remove', 'BuildERP' ); ?></button>
 					<?php if ( $url ) : ?>
-						<a href="<?php echo esc_url( $url ); ?>" target="_blank" class="button button-small"><?php esc_html_e( 'View', 'builderp' ); ?></a>
+						<a href="<?php echo esc_url( $url ); ?>" target="_blank" class="button button-small"><?php esc_html_e( 'View', 'BuildERP' ); ?></a>
 					<?php endif; ?>
 				</div>
 			</div>

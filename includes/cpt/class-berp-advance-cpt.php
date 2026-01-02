@@ -25,19 +25,19 @@ class BERP_Advance_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Salary Advances', 'Post type general name', 'builderp' ),
-			'singular_name'      => _x( 'Advance', 'Post type singular name', 'builderp' ),
-			'menu_name'          => _x( 'Advances', 'Admin Menu text', 'builderp' ),
-			'name_admin_bar'     => _x( 'Advance', 'Add New on Toolbar', 'builderp' ),
-			'add_new'            => __( 'Pay Advance', 'builderp' ),
-			'add_new_item'       => __( 'Pay Advance to Employee', 'builderp' ),
-			'new_item'           => __( 'New Advance Payment', 'builderp' ),
-			'edit_item'          => __( 'Edit Advance', 'builderp' ),
-			'view_item'          => __( 'View Advance', 'builderp' ),
-			'all_items'          => __( 'All Advances', 'builderp' ),
-			'search_items'       => __( 'Search Advances', 'builderp' ),
-			'not_found'          => __( 'No advances found.', 'builderp' ),
-			'not_found_in_trash' => __( 'No advances found in Trash.', 'builderp' ),
+			'name'               => _x( 'Salary Advances', 'Post type general name', 'BuildERP' ),
+			'singular_name'      => _x( 'Advance', 'Post type singular name', 'BuildERP' ),
+			'menu_name'          => _x( 'Advances', 'Admin Menu text', 'BuildERP' ),
+			'name_admin_bar'     => _x( 'Advance', 'Add New on Toolbar', 'BuildERP' ),
+			'add_new'            => __( 'Pay Advance', 'BuildERP' ),
+			'add_new_item'       => __( 'Pay Advance to Employee', 'BuildERP' ),
+			'new_item'           => __( 'New Advance Payment', 'BuildERP' ),
+			'edit_item'          => __( 'Edit Advance', 'BuildERP' ),
+			'view_item'          => __( 'View Advance', 'BuildERP' ),
+			'all_items'          => __( 'All Advances', 'BuildERP' ),
+			'search_items'       => __( 'Search Advances', 'BuildERP' ),
+			'not_found'          => __( 'No advances found.', 'BuildERP' ),
+			'not_found_in_trash' => __( 'No advances found in Trash.', 'BuildERP' ),
 		);
 
 		$args = array(

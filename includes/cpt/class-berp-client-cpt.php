@@ -26,19 +26,19 @@ class BERP_Client_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Clients', 'Post type general name', 'builderp' ),
-			'singular_name'      => _x( 'Client', 'Post type singular name', 'builderp' ),
-			'menu_name'          => _x( 'Clients', 'Admin Menu text', 'builderp' ),
-			'name_admin_bar'     => _x( 'Client', 'Add New on Toolbar', 'builderp' ),
-			'add_new'            => __( 'Add New', 'builderp' ),
-			'add_new_item'       => __( 'Add New Client', 'builderp' ),
-			'new_item'           => __( 'New Client', 'builderp' ),
-			'edit_item'          => __( 'Edit Client', 'builderp' ),
-			'view_item'          => __( 'View Client', 'builderp' ),
-			'all_items'          => __( 'All Clients', 'builderp' ),
-			'search_items'       => __( 'Search Clients', 'builderp' ),
-			'not_found'          => __( 'No clients found.', 'builderp' ),
-			'not_found_in_trash' => __( 'No clients found in Trash.', 'builderp' ),
+			'name'               => _x( 'Clients', 'Post type general name', 'BuildERP' ),
+			'singular_name'      => _x( 'Client', 'Post type singular name', 'BuildERP' ),
+			'menu_name'          => _x( 'Clients', 'Admin Menu text', 'BuildERP' ),
+			'name_admin_bar'     => _x( 'Client', 'Add New on Toolbar', 'BuildERP' ),
+			'add_new'            => __( 'Add New', 'BuildERP' ),
+			'add_new_item'       => __( 'Add New Client', 'BuildERP' ),
+			'new_item'           => __( 'New Client', 'BuildERP' ),
+			'edit_item'          => __( 'Edit Client', 'BuildERP' ),
+			'view_item'          => __( 'View Client', 'BuildERP' ),
+			'all_items'          => __( 'All Clients', 'BuildERP' ),
+			'search_items'       => __( 'Search Clients', 'BuildERP' ),
+			'not_found'          => __( 'No clients found.', 'BuildERP' ),
+			'not_found_in_trash' => __( 'No clients found in Trash.', 'BuildERP' ),
 		);
 
 		$args = array(

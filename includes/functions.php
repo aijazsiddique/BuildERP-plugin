@@ -291,91 +291,91 @@ function berp_get_default_salary_formula() {
 	$base_variables = array(
 		array(
 			'key'         => 'basic_salary',
-			'label'       => __( 'Basic Salary', 'builderp' ),
+			'label'       => __( 'Basic Salary', 'BuildERP' ),
 			'type'        => 'currency',
 			'default'     => '0',
 			'sample'      => '1200',
-			'description' => __( 'Base monthly salary.', 'builderp' ),
+			'description' => __( 'Base monthly salary.', 'BuildERP' ),
 		),
 		array(
 			'key'         => 'working_days',
-			'label'       => __( 'Working Days (month)', 'builderp' ),
+			'label'       => __( 'Working Days (month)', 'BuildERP' ),
 			'type'        => 'number',
 			'default'     => '26',
 			'sample'      => '26',
-			'description' => __( 'Standard working days for the period.', 'builderp' ),
+			'description' => __( 'Standard working days for the period.', 'BuildERP' ),
 		),
 		array(
 			'key'         => 'days_in_month',
-			'label'       => __( 'Days in Month', 'builderp' ),
+			'label'       => __( 'Days in Month', 'BuildERP' ),
 			'type'        => 'number',
 			'default'     => '30',
 			'sample'      => '30',
-			'description' => __( 'Total calendar days in the month.', 'builderp' ),
+			'description' => __( 'Total calendar days in the month.', 'BuildERP' ),
 		),
 		array(
 			'key'         => 'present_days',
-			'label'       => __( 'Present Days', 'builderp' ),
+			'label'       => __( 'Present Days', 'BuildERP' ),
 			'type'        => 'number',
 			'default'     => '26',
 			'sample'      => '25',
-			'description' => __( 'Days employee was present (attendance marked).', 'builderp' ),
+			'description' => __( 'Days employee was present (attendance marked).', 'BuildERP' ),
 		),
 		array(
 			'key'         => 'weekends',
-			'label'       => __( 'Weekend Days', 'builderp' ),
+			'label'       => __( 'Weekend Days', 'BuildERP' ),
 			'type'        => 'number',
 			'default'     => '0',
 			'sample'      => '4',
-			'description' => __( 'Weekend days in the period (may be paid based on attendance rules).', 'builderp' ),
+			'description' => __( 'Weekend days in the period (may be paid based on attendance rules).', 'BuildERP' ),
 		),
 		array(
 			'key'         => 'holidays',
-			'label'       => __( 'Holidays', 'builderp' ),
+			'label'       => __( 'Holidays', 'BuildERP' ),
 			'type'        => 'number',
 			'default'     => '0',
 			'sample'      => '1',
-			'description' => __( 'Paid holidays in the period.', 'builderp' ),
+			'description' => __( 'Paid holidays in the period.', 'BuildERP' ),
 		),
 		array(
 			'key'         => 'total_paid_days',
-			'label'       => __( 'Total Paid Days', 'builderp' ),
+			'label'       => __( 'Total Paid Days', 'BuildERP' ),
 			'type'        => 'number',
 			'default'     => '26',
 			'sample'      => '30',
-			'description' => __( 'Total payable days (present + paid weekends + holidays).', 'builderp' ),
+			'description' => __( 'Total payable days (present + paid weekends + holidays).', 'BuildERP' ),
 		),
 		array(
 			'key'         => 'overtime_hours',
-			'label'       => __( 'Overtime Hours', 'builderp' ),
+			'label'       => __( 'Overtime Hours', 'BuildERP' ),
 			'type'        => 'number',
 			'default'     => '0',
 			'sample'      => '8',
-			'description' => __( 'Total overtime hours in the period.', 'builderp' ),
+			'description' => __( 'Total overtime hours in the period.', 'BuildERP' ),
 		),
 		array(
 			'key'         => 'overtime_rate',
-			'label'       => __( 'Overtime Rate', 'builderp' ),
+			'label'       => __( 'Overtime Rate', 'BuildERP' ),
 			'type'        => 'currency',
 			'default'     => '0',
 			'sample'      => '8',
-			'description' => __( 'Hourly overtime amount.', 'builderp' ),
+			'description' => __( 'Hourly overtime amount.', 'BuildERP' ),
 		),
 		array(
 			'key'         => 'total_allowances',
-			'label'       => __( 'Total Allowances', 'builderp' ),
+			'label'       => __( 'Total Allowances', 'BuildERP' ),
 			'type'        => 'currency',
 			'default'     => '0',
 			'sample'      => '200',
-			'description' => __( 'Sum of allowances for the period.', 'builderp' ),
+			'description' => __( 'Sum of allowances for the period.', 'BuildERP' ),
 		),
 		array(
 			'key'         => 'total_deductions',
-			'label'       => __( 'Total Deductions', 'builderp' ),
+			'label'       => __( 'Total Deductions', 'BuildERP' ),
 			'type'        => 'currency',
 			'default'     => '0',
 			'sample'      => '50',
-			'description' => __( 'Sum of deductions for the period.', 'builderp' ),
+			'description' => __( 'Sum of deductions for the period.', 'BuildERP' ),
 		),
 	);
 
@@ -383,42 +383,42 @@ function berp_get_default_salary_formula() {
 
 	return array(
 		'active'    => array(
-			'label'       => __( 'Default Net Pay', 'builderp' ),
+			'label'       => __( 'Default Net Pay', 'BuildERP' ),
 			'formula'     => $default_formula,
 			'variables'   => $base_variables,
-			'notes'       => __( 'Prorates basic salary, adds overtime and allowances, subtracts deductions.', 'builderp' ),
+			'notes'       => __( 'Prorates basic salary, adds overtime and allowances, subtracts deductions.', 'BuildERP' ),
 			'version'     => 1,
 			'saved_at'    => time(),
 			'saved_by'    => get_current_user_id(),
 			'is_active'   => true,
 			'preview'     => array(),
-			'description' => __( 'Base formula used for initial payroll calculations.', 'builderp' ),
+			'description' => __( 'Base formula used for initial payroll calculations.', 'BuildERP' ),
 		),
 		'history'   => array(),
 		'templates' => array(
 			array(
 				'key'         => 'net_basic',
-				'label'       => __( 'Net = Basic + OT - Deductions', 'builderp' ),
+				'label'       => __( 'Net = Basic + OT - Deductions', 'BuildERP' ),
 				'formula'     => '(basic_salary / working_days) * total_paid_days + (overtime_hours * overtime_rate) + total_allowances - total_deductions',
-				'description' => __( 'Prorated basic salary using total paid days, plus overtime, minus deductions.', 'builderp' ),
+				'description' => __( 'Prorated basic salary using total paid days, plus overtime, minus deductions.', 'BuildERP' ),
 			),
 			array(
 				'key'         => 'with_present_days',
-				'label'       => __( 'Simple: Present Days Only', 'builderp' ),
+				'label'       => __( 'Simple: Present Days Only', 'BuildERP' ),
 				'formula'     => '(basic_salary / working_days) * present_days + (overtime_hours * overtime_rate) + total_allowances - total_deductions',
-				'description' => __( 'Uses only present days (no weekend/holiday calculation).', 'builderp' ),
+				'description' => __( 'Uses only present days (no weekend/holiday calculation).', 'BuildERP' ),
 			),
 			array(
 				'key'         => 'with_allowance_threshold',
-				'label'       => __( 'Allowance Threshold Example', 'builderp' ),
+				'label'       => __( 'Allowance Threshold Example', 'BuildERP' ),
 				'formula'     => 'if(total_allowances > 500, (basic_salary / working_days) * total_paid_days + total_allowances * 0.9, (basic_salary / working_days) * total_paid_days + total_allowances) - total_deductions',
-				'description' => __( 'Applies a 10% cap if allowances exceed 500 (example of IF function).', 'builderp' ),
+				'description' => __( 'Applies a 10% cap if allowances exceed 500 (example of IF function).', 'BuildERP' ),
 			),
 			array(
 				'key'         => 'weekend_bonus',
-				'label'       => __( 'Weekend Bonus Example', 'builderp' ),
+				'label'       => __( 'Weekend Bonus Example', 'BuildERP' ),
 				'formula'     => '(basic_salary / days_in_month) * (present_days + holidays) + (weekends * (basic_salary / days_in_month) * 1.5) + (overtime_hours * overtime_rate) + total_allowances - total_deductions',
-				'description' => __( 'Example: Pays 1.5x daily rate for weekend days (demonstrates weekend variable usage).', 'builderp' ),
+				'description' => __( 'Example: Pays 1.5x daily rate for weekend days (demonstrates weekend variable usage).', 'BuildERP' ),
 			),
 		),
 	);
@@ -855,7 +855,7 @@ function berp_get_attendance( $employee_id, $date ) {
  */
 function berp_explain_formula( $formula, $variables = array() ) {
 	if ( empty( $formula ) ) {
-		return __( 'No formula defined.', 'builderp' );
+		return __( 'No formula defined.', 'BuildERP' );
 	}
 
 	// Create variable labels map.
@@ -899,49 +899,49 @@ function berp_get_formula_documentation() {
 	ob_start();
 	?>
 	<div class="berp-formula-docs">
-		<h3><?php esc_html_e( 'Formula Documentation', 'builderp' ); ?></h3>
+		<h3><?php esc_html_e( 'Formula Documentation', 'BuildERP' ); ?></h3>
 
-		<h4><?php esc_html_e( 'Available Functions:', 'builderp' ); ?></h4>
+		<h4><?php esc_html_e( 'Available Functions:', 'BuildERP' ); ?></h4>
 		<ul>
-			<li><code>IF(condition, value_if_true, value_if_false)</code> - <?php esc_html_e( 'Conditional logic', 'builderp' ); ?></li>
-			<li><code>MIN(a, b)</code> - <?php esc_html_e( 'Return the smaller of two values', 'builderp' ); ?></li>
-			<li><code>MAX(a, b)</code> - <?php esc_html_e( 'Return the larger of two values', 'builderp' ); ?></li>
-			<li><code>ROUND(value, decimals)</code> - <?php esc_html_e( 'Round to specified decimal places', 'builderp' ); ?></li>
-			<li><code>ABS(value)</code> - <?php esc_html_e( 'Absolute value (remove negative sign)', 'builderp' ); ?></li>
+			<li><code>IF(condition, value_if_true, value_if_false)</code> - <?php esc_html_e( 'Conditional logic', 'BuildERP' ); ?></li>
+			<li><code>MIN(a, b)</code> - <?php esc_html_e( 'Return the smaller of two values', 'BuildERP' ); ?></li>
+			<li><code>MAX(a, b)</code> - <?php esc_html_e( 'Return the larger of two values', 'BuildERP' ); ?></li>
+			<li><code>ROUND(value, decimals)</code> - <?php esc_html_e( 'Round to specified decimal places', 'BuildERP' ); ?></li>
+			<li><code>ABS(value)</code> - <?php esc_html_e( 'Absolute value (remove negative sign)', 'BuildERP' ); ?></li>
 		</ul>
 
-		<h4><?php esc_html_e( 'Operators:', 'builderp' ); ?></h4>
+		<h4><?php esc_html_e( 'Operators:', 'BuildERP' ); ?></h4>
 		<ul>
-			<li><code>+</code> - <?php esc_html_e( 'Addition', 'builderp' ); ?></li>
-			<li><code>-</code> - <?php esc_html_e( 'Subtraction', 'builderp' ); ?></li>
-			<li><code>*</code> - <?php esc_html_e( 'Multiplication', 'builderp' ); ?></li>
-			<li><code>/</code> - <?php esc_html_e( 'Division', 'builderp' ); ?></li>
-			<li><code>%</code> - <?php esc_html_e( 'Modulo (remainder)', 'builderp' ); ?></li>
-			<li><code>^</code> - <?php esc_html_e( 'Exponentiation (power)', 'builderp' ); ?></li>
+			<li><code>+</code> - <?php esc_html_e( 'Addition', 'BuildERP' ); ?></li>
+			<li><code>-</code> - <?php esc_html_e( 'Subtraction', 'BuildERP' ); ?></li>
+			<li><code>*</code> - <?php esc_html_e( 'Multiplication', 'BuildERP' ); ?></li>
+			<li><code>/</code> - <?php esc_html_e( 'Division', 'BuildERP' ); ?></li>
+			<li><code>%</code> - <?php esc_html_e( 'Modulo (remainder)', 'BuildERP' ); ?></li>
+			<li><code>^</code> - <?php esc_html_e( 'Exponentiation (power)', 'BuildERP' ); ?></li>
 		</ul>
 
-		<h4><?php esc_html_e( 'Comparison Operators:', 'builderp' ); ?></h4>
+		<h4><?php esc_html_e( 'Comparison Operators:', 'BuildERP' ); ?></h4>
 		<ul>
-			<li><code>==</code> - <?php esc_html_e( 'Equal to', 'builderp' ); ?></li>
-			<li><code>!=</code> - <?php esc_html_e( 'Not equal to', 'builderp' ); ?></li>
-			<li><code>&gt;</code> - <?php esc_html_e( 'Greater than', 'builderp' ); ?></li>
-			<li><code>&lt;</code> - <?php esc_html_e( 'Less than', 'builderp' ); ?></li>
-			<li><code>&gt;=</code> - <?php esc_html_e( 'Greater than or equal to', 'builderp' ); ?></li>
-			<li><code>&lt;=</code> - <?php esc_html_e( 'Less than or equal to', 'builderp' ); ?></li>
+			<li><code>==</code> - <?php esc_html_e( 'Equal to', 'BuildERP' ); ?></li>
+			<li><code>!=</code> - <?php esc_html_e( 'Not equal to', 'BuildERP' ); ?></li>
+			<li><code>&gt;</code> - <?php esc_html_e( 'Greater than', 'BuildERP' ); ?></li>
+			<li><code>&lt;</code> - <?php esc_html_e( 'Less than', 'BuildERP' ); ?></li>
+			<li><code>&gt;=</code> - <?php esc_html_e( 'Greater than or equal to', 'BuildERP' ); ?></li>
+			<li><code>&lt;=</code> - <?php esc_html_e( 'Less than or equal to', 'BuildERP' ); ?></li>
 		</ul>
 
-		<h4><?php esc_html_e( 'Logical Operators:', 'builderp' ); ?></h4>
+		<h4><?php esc_html_e( 'Logical Operators:', 'BuildERP' ); ?></h4>
 		<ul>
-			<li><code>&&</code> - <?php esc_html_e( 'AND (both conditions must be true)', 'builderp' ); ?></li>
-			<li><code>||</code> - <?php esc_html_e( 'OR (at least one condition must be true)', 'builderp' ); ?></li>
+			<li><code>&&</code> - <?php esc_html_e( 'AND (both conditions must be true)', 'BuildERP' ); ?></li>
+			<li><code>||</code> - <?php esc_html_e( 'OR (at least one condition must be true)', 'BuildERP' ); ?></li>
 		</ul>
 
-		<h4><?php esc_html_e( 'Examples:', 'builderp' ); ?></h4>
+		<h4><?php esc_html_e( 'Examples:', 'BuildERP' ); ?></h4>
 		<ul>
-			<li><code>(basic_salary / working_days) * total_paid_days</code> - <?php esc_html_e( 'Daily rate times paid days', 'builderp' ); ?></li>
-			<li><code>IF(present_days &gt; 25, 100, 0)</code> - <?php esc_html_e( 'Bonus if present more than 25 days', 'builderp' ); ?></li>
-			<li><code>MIN(overtime_hours * overtime_rate, 500)</code> - <?php esc_html_e( 'Overtime payment capped at 500', 'builderp' ); ?></li>
-			<li><code>weekends * (basic_salary / days_in_month) * 1.5</code> - <?php esc_html_e( 'Weekend pay at 1.5x daily rate', 'builderp' ); ?></li>
+			<li><code>(basic_salary / working_days) * total_paid_days</code> - <?php esc_html_e( 'Daily rate times paid days', 'BuildERP' ); ?></li>
+			<li><code>IF(present_days &gt; 25, 100, 0)</code> - <?php esc_html_e( 'Bonus if present more than 25 days', 'BuildERP' ); ?></li>
+			<li><code>MIN(overtime_hours * overtime_rate, 500)</code> - <?php esc_html_e( 'Overtime payment capped at 500', 'BuildERP' ); ?></li>
+			<li><code>weekends * (basic_salary / days_in_month) * 1.5</code> - <?php esc_html_e( 'Weekend pay at 1.5x daily rate', 'BuildERP' ); ?></li>
 		</ul>
 	</div>
 	<?php
@@ -1067,11 +1067,11 @@ function berp_calculate_quotation_totals( $line_items, $tax_rate = 0, $discount_
  */
 function berp_get_quotation_status_label( $status ) {
 	$statuses = array(
-		'draft'    => __( 'Draft', 'builderp' ),
-		'sent'     => __( 'Sent', 'builderp' ),
-		'accepted' => __( 'Accepted', 'builderp' ),
-		'rejected' => __( 'Rejected', 'builderp' ),
-		'expired'  => __( 'Expired', 'builderp' ),
+		'draft'    => __( 'Draft', 'BuildERP' ),
+		'sent'     => __( 'Sent', 'BuildERP' ),
+		'accepted' => __( 'Accepted', 'BuildERP' ),
+		'rejected' => __( 'Rejected', 'BuildERP' ),
+		'expired'  => __( 'Expired', 'BuildERP' ),
 	);
 
 	return isset( $statuses[ $status ] ) ? $statuses[ $status ] : $status;
@@ -1205,13 +1205,13 @@ function berp_get_invoice( $invoice_id ) {
 function berp_get_invoice_status_label( $status ) {
 	$status   = strtolower( $status );
 	$statuses = array(
-		'draft'          => __( 'Draft', 'builderp' ),
-		'sent'           => __( 'Sent', 'builderp' ),
-		'viewed'         => __( 'Viewed', 'builderp' ),
-		'partial'        => __( 'Partially Paid', 'builderp' ),
-		'partially_paid' => __( 'Partially Paid', 'builderp' ),
-		'paid'           => __( 'Paid', 'builderp' ),
-		'overdue'        => __( 'Overdue', 'builderp' ),
+		'draft'          => __( 'Draft', 'BuildERP' ),
+		'sent'           => __( 'Sent', 'BuildERP' ),
+		'viewed'         => __( 'Viewed', 'BuildERP' ),
+		'partial'        => __( 'Partially Paid', 'BuildERP' ),
+		'partially_paid' => __( 'Partially Paid', 'BuildERP' ),
+		'paid'           => __( 'Paid', 'BuildERP' ),
+		'overdue'        => __( 'Overdue', 'BuildERP' ),
 	);
 
 	return isset( $statuses[ $status ] ) ? $statuses[ $status ] : ucfirst( str_replace( '_', ' ', $status ) );
@@ -1325,15 +1325,15 @@ function berp_get_invoice_aging_bucket( $invoice_id ) {
 	$days_overdue = berp_get_invoice_days_overdue( $invoice_id );
 
 	if ( $days_overdue <= 0 ) {
-		return __( 'Current', 'builderp' );
+		return __( 'Current', 'BuildERP' );
 	} elseif ( $days_overdue <= 30 ) {
-		return __( '1-30 Days', 'builderp' );
+		return __( '1-30 Days', 'BuildERP' );
 	} elseif ( $days_overdue <= 60 ) {
-		return __( '31-60 Days', 'builderp' );
+		return __( '31-60 Days', 'BuildERP' );
 	} elseif ( $days_overdue <= 90 ) {
-		return __( '61-90 Days', 'builderp' );
+		return __( '61-90 Days', 'BuildERP' );
 	} else {
-		return __( '90+ Days', 'builderp' );
+		return __( '90+ Days', 'BuildERP' );
 	}
 }
 
@@ -1348,7 +1348,7 @@ function berp_create_invoice_from_quotation( $quotation_id ) {
 	$quotation = berp_get_quotation( $quotation_id );
 
 	if ( ! $quotation ) {
-		return new WP_Error( 'invalid_quotation', __( 'Invalid quotation', 'builderp' ) );
+		return new WP_Error( 'invalid_quotation', __( 'Invalid quotation', 'BuildERP' ) );
 	}
 
 	// Create invoice post.
@@ -1358,7 +1358,7 @@ function berp_create_invoice_from_quotation( $quotation_id ) {
 			'post_status' => 'publish',
 			'post_title'  => sprintf(
 				/* translators: Quotation title */
-				__( 'Invoice for %s', 'builderp' ),
+				__( 'Invoice for %s', 'BuildERP' ),
 				$quotation->post_title
 			),
 		)
@@ -1452,11 +1452,11 @@ function berp_render_standalone_login() {
 		if ( $dashboard_page_id ) {
 			echo '<div class="berp-portal-login-container">';
 			echo '<div class="berp-portal-login-card">';
-			echo '<p>' . esc_html__( 'You are already logged in.', 'builderp' ) . '</p>';
-			echo '<p><a href="' . esc_url( get_permalink( $dashboard_page_id ) ) . '" class="berp-btn berp-btn-primary">' . esc_html__( 'Go to Dashboard', 'builderp' ) . '</a></p>';
+			echo '<p>' . esc_html__( 'You are already logged in.', 'BuildERP' ) . '</p>';
+			echo '<p><a href="' . esc_url( get_permalink( $dashboard_page_id ) ) . '" class="berp-btn berp-btn-primary">' . esc_html__( 'Go to Dashboard', 'BuildERP' ) . '</a></p>';
 			echo '</div></div>';
 		} else {
-			echo '<p>' . esc_html__( 'You are already logged in.', 'builderp' ) . '</p>';
+			echo '<p>' . esc_html__( 'You are already logged in.', 'BuildERP' ) . '</p>';
 		}
 		return;
 	}
@@ -1476,9 +1476,9 @@ function berp_render_standalone_dashboard() {
 
 		echo '<div class="berp-portal-login-container">';
 		echo '<div class="berp-portal-login-card">';
-		echo '<p>' . esc_html__( 'Please log in to view the dashboard.', 'builderp' ) . '</p>';
+		echo '<p>' . esc_html__( 'Please log in to view the dashboard.', 'BuildERP' ) . '</p>';
 		if ( $login_page_id ) {
-			echo '<p><a href="' . esc_url( get_permalink( $login_page_id ) ) . '" class="berp-btn berp-btn-primary">' . esc_html__( 'Go to Login', 'builderp' ) . '</a></p>';
+			echo '<p><a href="' . esc_url( get_permalink( $login_page_id ) ) . '" class="berp-btn berp-btn-primary">' . esc_html__( 'Go to Login', 'BuildERP' ) . '</a></p>';
 		}
 		echo '</div></div>';
 		return;
@@ -1499,7 +1499,7 @@ function berp_render_standalone_dashboard() {
 	if ( ! $has_access ) {
 		echo '<div class="berp-portal-login-container">';
 		echo '<div class="berp-portal-login-card">';
-		echo '<p>' . esc_html__( 'You do not have permission to access the employee portal.', 'builderp' ) . '</p>';
+		echo '<p>' . esc_html__( 'You do not have permission to access the employee portal.', 'BuildERP' ) . '</p>';
 		echo '</div></div>';
 		return;
 	}

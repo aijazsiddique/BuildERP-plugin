@@ -32,8 +32,8 @@ class BERP_Fix_Capabilities {
 	public function register_menu() {
 		add_submenu_page(
 			'tools.php',
-			__( 'Fix BuildERP Capabilities', 'builderp' ),
-			__( 'Fix BuildERP Caps', 'builderp' ),
+			__( 'Fix BuildERP Capabilities', 'BuildERP' ),
+			__( 'Fix BuildERP Caps', 'BuildERP' ),
 			'manage_options',
 			'berp-fix-capabilities',
 			array( $this, 'render_page' )
@@ -47,37 +47,37 @@ class BERP_Fix_Capabilities {
 	 */
 	public function render_page() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'BuildERP' ) );
 		}
 
 		// Handle fix action.
 		if ( isset( $_POST['berp_fix_caps'] ) && check_admin_referer( 'berp_fix_caps_action', 'berp_fix_caps_nonce' ) ) {
 			$this->fix_capabilities();
 			$this->clear_user_cache();
-			echo '<div class="notice notice-success"><p><strong>' . esc_html__( 'Capabilities fixed successfully! Cache cleared.', 'builderp' ) . '</strong></p></div>';
-			echo '<div class="notice notice-info"><p>' . esc_html__( 'Please refresh this page or click the "Open Formula Builder" button below.', 'builderp' ) . '</p></div>';
+			echo '<div class="notice notice-success"><p><strong>' . esc_html__( 'Capabilities fixed successfully! Cache cleared.', 'BuildERP' ) . '</strong></p></div>';
+			echo '<div class="notice notice-info"><p>' . esc_html__( 'Please refresh this page or click the "Open Formula Builder" button below.', 'BuildERP' ) . '</p></div>';
 		}
 
 		// Handle cache clear action.
 		if ( isset( $_POST['berp_clear_cache'] ) && check_admin_referer( 'berp_clear_cache_action', 'berp_clear_cache_nonce' ) ) {
 			$this->clear_user_cache();
-			echo '<div class="notice notice-success"><p><strong>' . esc_html__( 'User cache cleared successfully!', 'builderp' ) . '</strong></p></div>';
-			echo '<div class="notice notice-info"><p>' . esc_html__( 'Please try accessing the Formula Builder now.', 'builderp' ) . '</p></div>';
+			echo '<div class="notice notice-success"><p><strong>' . esc_html__( 'User cache cleared successfully!', 'BuildERP' ) . '</strong></p></div>';
+			echo '<div class="notice notice-info"><p>' . esc_html__( 'Please try accessing the Formula Builder now.', 'BuildERP' ) . '</p></div>';
 		}
 
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'Fix BuildERP Capabilities', 'builderp' ); ?></h1>
+			<h1><?php esc_html_e( 'Fix BuildERP Capabilities', 'BuildERP' ); ?></h1>
 
 			<div class="card">
-				<h2><?php esc_html_e( 'Current Status', 'builderp' ); ?></h2>
-				<p><?php esc_html_e( 'Current user:', 'builderp' ); ?> <strong><?php echo esc_html( wp_get_current_user()->user_login ); ?></strong></p>
+				<h2><?php esc_html_e( 'Current Status', 'BuildERP' ); ?></h2>
+				<p><?php esc_html_e( 'Current user:', 'BuildERP' ); ?> <strong><?php echo esc_html( wp_get_current_user()->user_login ); ?></strong></p>
 
 				<table class="widefat striped">
 					<thead>
 						<tr>
-							<th><?php esc_html_e( 'Capability', 'builderp' ); ?></th>
-							<th><?php esc_html_e( 'Status', 'builderp' ); ?></th>
+							<th><?php esc_html_e( 'Capability', 'BuildERP' ); ?></th>
+							<th><?php esc_html_e( 'Status', 'BuildERP' ); ?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -106,28 +106,28 @@ class BERP_Fix_Capabilities {
 			</div>
 
 			<div class="card" style="margin-top: 20px;">
-				<h2><?php esc_html_e( 'Fix Capabilities', 'builderp' ); ?></h2>
-				<p><?php esc_html_e( 'Click the button below to add all BuildERP capabilities to the Administrator role.', 'builderp' ); ?></p>
+				<h2><?php esc_html_e( 'Fix Capabilities', 'BuildERP' ); ?></h2>
+				<p><?php esc_html_e( 'Click the button below to add all BuildERP capabilities to the Administrator role.', 'BuildERP' ); ?></p>
 
 				<form method="post">
 					<?php wp_nonce_field( 'berp_fix_caps_action', 'berp_fix_caps_nonce' ); ?>
 					<p>
 						<button type="submit" name="berp_fix_caps" class="button button-primary button-large">
-							<?php esc_html_e( 'Fix All Capabilities Now', 'builderp' ); ?>
+							<?php esc_html_e( 'Fix All Capabilities Now', 'BuildERP' ); ?>
 						</button>
 					</p>
 				</form>
 
 				<hr style="margin: 20px 0;">
 
-				<h3><?php esc_html_e( 'Clear User Cache', 'builderp' ); ?></h3>
-				<p><?php esc_html_e( 'If you still cannot access the Formula Builder after fixing capabilities, click this button to clear your user cache:', 'builderp' ); ?></p>
+				<h3><?php esc_html_e( 'Clear User Cache', 'BuildERP' ); ?></h3>
+				<p><?php esc_html_e( 'If you still cannot access the Formula Builder after fixing capabilities, click this button to clear your user cache:', 'BuildERP' ); ?></p>
 
 				<form method="post">
 					<?php wp_nonce_field( 'berp_clear_cache_action', 'berp_clear_cache_nonce' ); ?>
 					<p>
 						<button type="submit" name="berp_clear_cache" class="button button-secondary">
-							<?php esc_html_e( 'Clear User Cache', 'builderp' ); ?>
+							<?php esc_html_e( 'Clear User Cache', 'BuildERP' ); ?>
 						</button>
 					</p>
 				</form>
@@ -135,11 +135,11 @@ class BERP_Fix_Capabilities {
 
 			<?php if ( current_user_can( 'berp_view_dashboard' ) ) : ?>
 			<div class="card" style="margin-top: 20px; border-left: 4px solid #00a32a;">
-				<h2 style="color: #00a32a;"><?php esc_html_e( 'Ready to Go!', 'builderp' ); ?></h2>
-				<p><?php esc_html_e( 'All capabilities are working correctly. You can now:', 'builderp' ); ?></p>
+				<h2 style="color: #00a32a;"><?php esc_html_e( 'Ready to Go!', 'BuildERP' ); ?></h2>
+				<p><?php esc_html_e( 'All capabilities are working correctly. You can now:', 'BuildERP' ); ?></p>
 				<ul>
-					<li><a href="<?php echo esc_url( admin_url( 'admin.php?page=builderp-formula' ) ); ?>" class="button button-secondary"><?php esc_html_e( 'Open Formula Builder', 'builderp' ); ?></a></li>
-					<li><a href="<?php echo esc_url( admin_url( 'admin.php?page=builderp' ) ); ?>" class="button button-secondary"><?php esc_html_e( 'Go to Dashboard', 'builderp' ); ?></a></li>
+					<li><a href="<?php echo esc_url( admin_url( 'admin.php?page=builderp-formula' ) ); ?>" class="button button-secondary"><?php esc_html_e( 'Open Formula Builder', 'BuildERP' ); ?></a></li>
+					<li><a href="<?php echo esc_url( admin_url( 'admin.php?page=builderp' ) ); ?>" class="button button-secondary"><?php esc_html_e( 'Go to Dashboard', 'BuildERP' ); ?></a></li>
 				</ul>
 			</div>
 			<?php endif; ?>

@@ -26,21 +26,21 @@ class BERP_Expense_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Expenses', 'Post type general name', 'builderp' ),
-			'singular_name'      => _x( 'Expense', 'Post type singular name', 'builderp' ),
-			'menu_name'          => _x( 'Expenses', 'Admin Menu text', 'builderp' ),
-			'name_admin_bar'     => _x( 'Expense', 'Add New on Toolbar', 'builderp' ),
-			'add_new'            => __( 'Add New', 'builderp' ),
-			'add_new_item'       => __( 'Add New Expense', 'builderp' ),
-			'new_item'           => __( 'New Expense', 'builderp' ),
-			'edit_item'          => __( 'Edit Expense', 'builderp' ),
-			'view_item'          => __( 'View Expense', 'builderp' ),
-			'all_items'          => __( 'All Expenses', 'builderp' ),
-			'search_items'       => __( 'Search Expenses', 'builderp' ),
-			'not_found'          => __( 'No expenses found.', 'builderp' ),
-			'not_found_in_trash' => __( 'No expenses found in Trash.', 'builderp' ),
-			'featured_image'     => _x( 'Receipt Image', 'Overrides the "Featured Image" phrase', 'builderp' ),
-			'set_featured_image' => _x( 'Set receipt image', 'Overrides the "Set featured image" phrase', 'builderp' ),
+			'name'               => _x( 'Expenses', 'Post type general name', 'BuildERP' ),
+			'singular_name'      => _x( 'Expense', 'Post type singular name', 'BuildERP' ),
+			'menu_name'          => _x( 'Expenses', 'Admin Menu text', 'BuildERP' ),
+			'name_admin_bar'     => _x( 'Expense', 'Add New on Toolbar', 'BuildERP' ),
+			'add_new'            => __( 'Add New', 'BuildERP' ),
+			'add_new_item'       => __( 'Add New Expense', 'BuildERP' ),
+			'new_item'           => __( 'New Expense', 'BuildERP' ),
+			'edit_item'          => __( 'Edit Expense', 'BuildERP' ),
+			'view_item'          => __( 'View Expense', 'BuildERP' ),
+			'all_items'          => __( 'All Expenses', 'BuildERP' ),
+			'search_items'       => __( 'Search Expenses', 'BuildERP' ),
+			'not_found'          => __( 'No expenses found.', 'BuildERP' ),
+			'not_found_in_trash' => __( 'No expenses found in Trash.', 'BuildERP' ),
+			'featured_image'     => _x( 'Receipt Image', 'Overrides the "Featured Image" phrase', 'BuildERP' ),
+			'set_featured_image' => _x( 'Set receipt image', 'Overrides the "Set featured image" phrase', 'BuildERP' ),
 		);
 
 		$args = array(

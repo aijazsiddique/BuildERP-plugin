@@ -171,7 +171,7 @@ class BERP_Payroll_Calculator {
 		if ( empty( $employee_id ) ) {
 			return new WP_Error(
 				'berp_payroll_invalid_employee',
-				__( 'Invalid employee ID', 'builderp' )
+				__( 'Invalid employee ID', 'BuildERP' )
 			);
 		}
 
@@ -180,7 +180,7 @@ class BERP_Payroll_Calculator {
 		if ( ! $employee || 'berp_employee' !== $employee->post_type ) {
 			return new WP_Error(
 				'berp_payroll_employee_not_found',
-				__( 'Employee not found', 'builderp' )
+				__( 'Employee not found', 'BuildERP' )
 			);
 		}
 
@@ -189,7 +189,7 @@ class BERP_Payroll_Calculator {
 		if ( 'inactive' === $status ) {
 			return new WP_Error(
 				'berp_payroll_employee_inactive',
-				__( 'Cannot process payroll for inactive employee', 'builderp' )
+				__( 'Cannot process payroll for inactive employee', 'BuildERP' )
 			);
 		}
 
@@ -197,7 +197,7 @@ class BERP_Payroll_Calculator {
 		if ( ! preg_match( '/^\d{4}-\d{2}$/', $month ) ) {
 			return new WP_Error(
 				'berp_payroll_invalid_month',
-				__( 'Invalid month format. Use YYYY-MM', 'builderp' )
+				__( 'Invalid month format. Use YYYY-MM', 'BuildERP' )
 			);
 		}
 
@@ -219,7 +219,7 @@ class BERP_Payroll_Calculator {
 		if ( empty( $basic_salary ) || $basic_salary <= 0 ) {
 			return new WP_Error(
 				'berp_payroll_no_salary',
-				__( 'Employee has no basic salary set', 'builderp' )
+				__( 'Employee has no basic salary set', 'BuildERP' )
 			);
 		}
 
@@ -444,7 +444,7 @@ class BERP_Payroll_Calculator {
 		} else {
 			return new WP_Error(
 				'berp_payroll_formula_unavailable',
-				__( 'Salary formula not available', 'builderp' )
+				__( 'Salary formula not available', 'BuildERP' )
 			);
 		}
 
@@ -453,7 +453,7 @@ class BERP_Payroll_Calculator {
 		if ( empty( $formula ) ) {
 			return new WP_Error(
 				'berp_payroll_no_formula',
-				__( 'No active salary formula found', 'builderp' )
+				__( 'No active salary formula found', 'BuildERP' )
 			);
 		}
 

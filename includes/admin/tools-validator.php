@@ -23,22 +23,22 @@ class BERP_Tools_Validator {
 		?>
 		<div class="berp-validator-tool">
 			<div class="berp-tool-header">
-				<h2><?php esc_html_e( 'Schema Validator', 'builderp' ); ?></h2>
+				<h2><?php esc_html_e( 'Schema Validator', 'BuildERP' ); ?></h2>
 				<p class="description">
-					<?php esc_html_e( 'Validate your BuildErp schema for compliance and consistency. Identify issues and apply quick fixes.', 'builderp' ); ?>
+					<?php esc_html_e( 'Validate your BuildErp schema for compliance and consistency. Identify issues and apply quick fixes.', 'BuildERP' ); ?>
 				</p>
 			</div>
 
 			<div class="berp-validator-actions">
 				<button type="button" id="berp-run-validator" class="button button-primary">
 					<span class="dashicons dashicons-update"></span>
-					<?php esc_html_e( 'Run Validation', 'builderp' ); ?>
+					<?php esc_html_e( 'Run Validation', 'BuildERP' ); ?>
 				</button>
 			</div>
 
 			<div id="berp-validator-results" class="berp-validator-results" style="display: none;">
 				<div class="berp-compliance-score">
-					<h3><?php esc_html_e( 'Compliance Score', 'builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'Compliance Score', 'BuildERP' ); ?></h3>
 					<div class="berp-score-meter">
 						<div class="berp-score-bar" data-score="0">
 							<span class="berp-score-text">0%</span>
@@ -48,14 +48,14 @@ class BERP_Tools_Validator {
 				</div>
 
 				<div class="berp-validation-issues">
-					<h3><?php esc_html_e( 'Validation Issues', 'builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'Validation Issues', 'BuildERP' ); ?></h3>
 					<div id="berp-issues-list"></div>
 				</div>
 			</div>
 
 			<div id="berp-validator-loading" class="berp-loading-spinner" style="display: none;">
 				<span class="spinner is-active"></span>
-				<p><?php esc_html_e( 'Running validation...', 'builderp' ); ?></p>
+				<p><?php esc_html_e( 'Running validation...', 'BuildERP' ); ?></p>
 			</div>
 		</div>
 
@@ -312,8 +312,8 @@ class BERP_Tools_Validator {
 					'type'        => 'meta_key_naming',
 					'severity'    => 'warning',
 					/* translators: %s: meta key */
-					'title'       => sprintf( __( 'Invalid meta key naming: %s', 'builderp' ), $meta_key ),
-					'description' => __( 'Meta keys should follow the pattern: _berp_lowercase_with_underscores', 'builderp' ),
+					'title'       => sprintf( __( 'Invalid meta key naming: %s', 'BuildERP' ), $meta_key ),
+					'description' => __( 'Meta keys should follow the pattern: _berp_lowercase_with_underscores', 'BuildERP' ),
 					'data'        => array( 'meta_key' => $meta_key ),
 					'fixable'     => false,
 				);
@@ -344,8 +344,8 @@ class BERP_Tools_Validator {
 						'type'        => 'function_naming',
 						'severity'    => 'warning',
 						/* translators: %s: function name */
-						'title'       => sprintf( __( 'Invalid function naming: %s', 'builderp' ), $function ),
-						'description' => __( 'Functions should follow the pattern: berp_lowercase_with_underscores', 'builderp' ),
+						'title'       => sprintf( __( 'Invalid function naming: %s', 'BuildERP' ), $function ),
+						'description' => __( 'Functions should follow the pattern: berp_lowercase_with_underscores', 'BuildERP' ),
 						'data'        => array( 'function' => $function ),
 						'fixable'     => false,
 					);
@@ -381,8 +381,8 @@ class BERP_Tools_Validator {
 					'type'        => 'missing_post_type',
 					'severity'    => 'error',
 					/* translators: %s: post type */
-					'title'       => sprintf( __( 'Missing post type: %s', 'builderp' ), $post_type ),
-					'description' => __( 'Required post type is not registered', 'builderp' ),
+					'title'       => sprintf( __( 'Missing post type: %s', 'BuildERP' ), $post_type ),
+					'description' => __( 'Required post type is not registered', 'BuildERP' ),
 					'data'        => array( 'post_type' => $post_type ),
 					'fixable'     => false,
 				);
@@ -417,8 +417,8 @@ class BERP_Tools_Validator {
 						'type'        => 'missing_capability',
 						'severity'    => 'error',
 						/* translators: %s: capability name */
-						'title'       => sprintf( __( 'Missing capability: %s', 'builderp' ), $cap ),
-						'description' => __( 'Required capability is not assigned to administrator role', 'builderp' ),
+						'title'       => sprintf( __( 'Missing capability: %s', 'BuildERP' ), $cap ),
+						'description' => __( 'Required capability is not assigned to administrator role', 'BuildERP' ),
 						'data'        => array( 'capability' => $cap ),
 						'fixable'     => true,
 					);
@@ -448,9 +448,9 @@ class BERP_Tools_Validator {
 					'type'        => 'missing_helper',
 					'severity'    => 'info',
 					/* translators: %s: function name */
-					'title'       => sprintf( __( 'Missing helper function: %s', 'builderp' ), $function_name ),
+					'title'       => sprintf( __( 'Missing helper function: %s', 'BuildERP' ), $function_name ),
 					/* translators: %s: meta key */
-					'description' => sprintf( __( 'Consider creating a helper function for meta key %s', 'builderp' ), $meta_key ),
+					'description' => sprintf( __( 'Consider creating a helper function for meta key %s', 'BuildERP' ), $meta_key ),
 					'data'        => array(
 						'meta_key' => $meta_key,
 						'function' => $function_name,
@@ -493,13 +493,13 @@ class BERP_Tools_Validator {
 	 */
 	private function get_score_summary( $score ) {
 		if ( $score >= 90 ) {
-			return __( 'Excellent! Your BuildErp schema is highly compliant.', 'builderp' );
+			return __( 'Excellent! Your BuildErp schema is highly compliant.', 'BuildERP' );
 		} elseif ( $score >= 70 ) {
-			return __( 'Good! Minor issues detected. Review warnings below.', 'builderp' );
+			return __( 'Good! Minor issues detected. Review warnings below.', 'BuildERP' );
 		} elseif ( $score >= 50 ) {
-			return __( 'Fair. Several issues need attention.', 'builderp' );
+			return __( 'Fair. Several issues need attention.', 'BuildERP' );
 		} else {
-			return __( 'Poor. Critical issues detected. Immediate action required.', 'builderp' );
+			return __( 'Poor. Critical issues detected. Immediate action required.', 'BuildERP' );
 		}
 	}
 

@@ -51,13 +51,13 @@ class BERP_Expense_List_Table {
 		$custom_columns = array(
 			'cb'                  => $columns['cb'],
 			'title'               => $columns['title'],
-			'berp_date'           => __( 'Date', 'builderp' ),
-			'berp_amount'         => __( 'Amount', 'builderp' ),
-			'berp_category'       => __( 'Category', 'builderp' ),
-			'berp_site'           => __( 'Site', 'builderp' ),
-			'berp_payment_method' => __( 'Payment Method', 'builderp' ),
-			'berp_recurring'      => __( 'Recurring', 'builderp' ),
-			'date'                => __( 'Created', 'builderp' ),
+			'berp_date'           => __( 'Date', 'BuildERP' ),
+			'berp_amount'         => __( 'Amount', 'BuildERP' ),
+			'berp_category'       => __( 'Category', 'BuildERP' ),
+			'berp_site'           => __( 'Site', 'BuildERP' ),
+			'berp_payment_method' => __( 'Payment Method', 'BuildERP' ),
+			'berp_recurring'      => __( 'Recurring', 'BuildERP' ),
+			'date'                => __( 'Created', 'BuildERP' ),
 		);
 
 		return $custom_columns;
@@ -112,7 +112,7 @@ class BERP_Expense_List_Table {
 						$edit_url = admin_url( 'post.php?post=' . $site_id . '&action=edit' );
 						echo '<a href="' . esc_url( $edit_url ) . '">' . esc_html( $site->post_title ) . '</a>';
 					} else {
-						echo '<span style="color: #999;">' . esc_html__( '(Site not found)', 'builderp' ) . '</span>';
+						echo '<span style="color: #999;">' . esc_html__( '(Site not found)', 'BuildERP' ) . '</span>';
 					}
 				} else {
 					echo '—';
@@ -137,10 +137,10 @@ class BERP_Expense_List_Table {
 					$label     = ucfirst( $interval );
 
 					/* translators: %s: interval label */
-					echo '<span class="dashicons dashicons-update" style="color: #2271b1;" title="' . esc_attr( sprintf( __( 'Recurring: %s', 'builderp' ), $label ) ) . '"></span>';
+					echo '<span class="dashicons dashicons-update" style="color: #2271b1;" title="' . esc_attr( sprintf( __( 'Recurring: %s', 'BuildERP' ), $label ) ) . '"></span>';
 
 					if ( $next_date ) {
-						echo '<br><small style="color: #666;">' . esc_html__( 'Next:', 'builderp' ) . ' ' . esc_html( date_i18n( 'M j', strtotime( $next_date ) ) ) . '</small>';
+						echo '<br><small style="color: #666;">' . esc_html__( 'Next:', 'BuildERP' ) . ' ' . esc_html( date_i18n( 'M j', strtotime( $next_date ) ) ) . '</small>';
 					}
 				} else {
 					echo '—';
@@ -257,7 +257,7 @@ class BERP_Expense_List_Table {
 		$selected = isset( $_GET['berp_category'] ) ? sanitize_text_field( $_GET['berp_category'] ) : '';
 
 		echo '<select name="berp_category">';
-		echo '<option value="">' . esc_html__( 'All Categories', 'builderp' ) . '</option>';
+		echo '<option value="">' . esc_html__( 'All Categories', 'BuildERP' ) . '</option>';
 		foreach ( $categories as $category ) {
 			$value = strtolower( $category );
 			echo '<option value="' . esc_attr( $value ) . '" ' . selected( $selected, $value, false ) . '>' . esc_html( $category ) . '</option>';
@@ -284,7 +284,7 @@ class BERP_Expense_List_Table {
 		$selected = isset( $_GET['berp_site'] ) ? absint( $_GET['berp_site'] ) : 0;
 
 		echo '<select name="berp_site">';
-		echo '<option value="">' . esc_html__( 'All Sites', 'builderp' ) . '</option>';
+		echo '<option value="">' . esc_html__( 'All Sites', 'BuildERP' ) . '</option>';
 		foreach ( $sites as $site ) {
 			echo '<option value="' . esc_attr( $site->ID ) . '" ' . selected( $selected, $site->ID, false ) . '>' . esc_html( $site->post_title ) . '</option>';
 		}
@@ -300,8 +300,8 @@ class BERP_Expense_List_Table {
 		$date_from = isset( $_GET['berp_date_from'] ) ? sanitize_text_field( $_GET['berp_date_from'] ) : '';
 		$date_to   = isset( $_GET['berp_date_to'] ) ? sanitize_text_field( $_GET['berp_date_to'] ) : '';
 
-		echo '<input type="date" name="berp_date_from" value="' . esc_attr( $date_from ) . '" placeholder="' . esc_attr__( 'From date', 'builderp' ) . '" style="line-height: 28px; height: auto; margin: 0;" />';
-		echo '<input type="date" name="berp_date_to" value="' . esc_attr( $date_to ) . '" placeholder="' . esc_attr__( 'To date', 'builderp' ) . '" style="line-height: 28px; height: auto; margin: 0;" />';
+		echo '<input type="date" name="berp_date_from" value="' . esc_attr( $date_from ) . '" placeholder="' . esc_attr__( 'From date', 'BuildERP' ) . '" style="line-height: 28px; height: auto; margin: 0;" />';
+		echo '<input type="date" name="berp_date_to" value="' . esc_attr( $date_to ) . '" placeholder="' . esc_attr__( 'To date', 'BuildERP' ) . '" style="line-height: 28px; height: auto; margin: 0;" />';
 	}
 
 	/**
@@ -317,7 +317,7 @@ class BERP_Expense_List_Table {
 		$selected = isset( $_GET['berp_payment_method'] ) ? sanitize_text_field( $_GET['berp_payment_method'] ) : '';
 
 		echo '<select name="berp_payment_method">';
-		echo '<option value="">' . esc_html__( 'All Payment Methods', 'builderp' ) . '</option>';
+		echo '<option value="">' . esc_html__( 'All Payment Methods', 'BuildERP' ) . '</option>';
 		foreach ( $methods as $method ) {
 			$value = strtolower( str_replace( ' ', '_', $method ) );
 			echo '<option value="' . esc_attr( $value ) . '" ' . selected( $selected, $value, false ) . '>' . esc_html( $method ) . '</option>';
@@ -356,8 +356,8 @@ class BERP_Expense_List_Table {
 		$csv_url = add_query_arg( array_merge( $query_args, array( 'berp_action' => 'export_expenses_csv' ) ), $base_url );
 		$pdf_url = add_query_arg( array_merge( $query_args, array( 'berp_action' => 'export_expenses_pdf' ) ), $base_url );
 
-		echo ' <a href="' . esc_url( $csv_url ) . '" class="button">' . esc_html__( 'Export CSV', 'builderp' ) . '</a>';
-		echo ' <a href="' . esc_url( $pdf_url ) . '" class="button">' . esc_html__( 'Export PDF', 'builderp' ) . '</a>';
+		echo ' <a href="' . esc_url( $csv_url ) . '" class="button">' . esc_html__( 'Export CSV', 'BuildERP' ) . '</a>';
+		echo ' <a href="' . esc_url( $pdf_url ) . '" class="button">' . esc_html__( 'Export PDF', 'BuildERP' ) . '</a>';
 	}
 
 	/**
@@ -457,9 +457,9 @@ class BERP_Expense_List_Table {
 		if ( ! empty( $receipts ) && is_array( $receipts ) ) {
 			$actions['view_receipts'] = sprintf(
 				'<span class="dashicons dashicons-media-document" style="color: #2271b1;" title="%s"></span> %d %s',
-				esc_attr__( 'Receipts attached', 'builderp' ),
+				esc_attr__( 'Receipts attached', 'BuildERP' ),
 				count( $receipts ),
-				esc_html( _n( 'Receipt', 'Receipts', count( $receipts ), 'builderp' ) )
+				esc_html( _n( 'Receipt', 'Receipts', count( $receipts ), 'BuildERP' ) )
 			);
 		}
 
@@ -469,7 +469,7 @@ class BERP_Expense_List_Table {
 			$actions['view_payroll'] = sprintf(
 				'<a href="%s">%s</a>',
 				esc_url( admin_url( 'post.php?post=' . $linked_payroll_id . '&action=edit' ) ),
-				esc_html__( 'View Payroll', 'builderp' )
+				esc_html__( 'View Payroll', 'BuildERP' )
 			);
 		}
 

@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $employee_id = BERP_Employee_Dashboard::get_current_employee_id();
 
 if ( ! $employee_id ) {
-	echo '<div class="berp-portal-alert berp-portal-alert-danger">' . esc_html__( 'Employee record not found.', 'builderp' ) . '</div>';
+	echo '<div class="berp-portal-alert berp-portal-alert-danger">' . esc_html__( 'Employee record not found.', 'BuildERP' ) . '</div>';
 	return;
 }
 
@@ -22,23 +22,23 @@ $latest_salary     = BERP_Employee_Dashboard::get_latest_salary_slip( $employee_
 ?>
 
 <div class="berp-portal-dashboard">
-	<h2><?php esc_html_e( 'Dashboard', 'builderp' ); ?></h2>
+	<h2><?php esc_html_e( 'Dashboard', 'BuildERP' ); ?></h2>
 
 	<div class="berp-portal-stats-grid">
 		<div class="berp-portal-stat-card">
-			<h3><?php esc_html_e( 'Present Days', 'builderp' ); ?></h3>
+			<h3><?php esc_html_e( 'Present Days', 'BuildERP' ); ?></h3>
 			<div class="berp-stat-value"><?php echo esc_html( $stats['present_days'] ); ?></div>
-			<div class="berp-stat-label"><?php esc_html_e( 'This Month', 'builderp' ); ?></div>
+			<div class="berp-stat-label"><?php esc_html_e( 'This Month', 'BuildERP' ); ?></div>
 		</div>
 		<div class="berp-portal-stat-card">
-			<h3><?php esc_html_e( 'Overtime Hours', 'builderp' ); ?></h3>
+			<h3><?php esc_html_e( 'Overtime Hours', 'BuildERP' ); ?></h3>
 			<div class="berp-stat-value"><?php echo esc_html( $stats['overtime_hours'] ); ?></div>
-			<div class="berp-stat-label"><?php esc_html_e( 'This Month', 'builderp' ); ?></div>
+			<div class="berp-stat-label"><?php esc_html_e( 'This Month', 'BuildERP' ); ?></div>
 		</div>
 		<div class="berp-portal-stat-card">
-			<h3><?php esc_html_e( 'Account Balance', 'builderp' ); ?></h3>
+			<h3><?php esc_html_e( 'Account Balance', 'BuildERP' ); ?></h3>
 			<div class="berp-stat-value"><?php echo esc_html( berp_format_currency( $stats['balance'] ) ); ?></div>
-			<div class="berp-stat-label"><?php esc_html_e( 'Current Balance', 'builderp' ); ?></div>
+			<div class="berp-stat-label"><?php esc_html_e( 'Current Balance', 'BuildERP' ); ?></div>
 		</div>
 	</div>
 
@@ -46,16 +46,16 @@ $latest_salary     = BERP_Employee_Dashboard::get_latest_salary_slip( $employee_
 		<div class="berp-portal-col">
 			<div class="berp-portal-card">
 				<div class="berp-card-header">
-					<h3><?php esc_html_e( 'Recent Attendance', 'builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'Recent Attendance', 'BuildERP' ); ?></h3>
 				</div>
 				<div class="berp-card-body">
 					<?php if ( $recent_attendance ) : ?>
 						<table class="berp-portal-table">
 							<thead>
 								<tr>
-									<th><?php esc_html_e( 'Date', 'builderp' ); ?></th>
-									<th><?php esc_html_e( 'Site', 'builderp' ); ?></th>
-									<th><?php esc_html_e( 'Overtime', 'builderp' ); ?></th>
+									<th><?php esc_html_e( 'Date', 'BuildERP' ); ?></th>
+									<th><?php esc_html_e( 'Site', 'BuildERP' ); ?></th>
+									<th><?php esc_html_e( 'Overtime', 'BuildERP' ); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -75,7 +75,7 @@ $latest_salary     = BERP_Employee_Dashboard::get_latest_salary_slip( $employee_
 							</tbody>
 						</table>
 					<?php else : ?>
-						<p><?php esc_html_e( 'No recent attendance found.', 'builderp' ); ?></p>
+						<p><?php esc_html_e( 'No recent attendance found.', 'BuildERP' ); ?></p>
 					<?php endif; ?>
 				</div>
 			</div>
@@ -84,7 +84,7 @@ $latest_salary     = BERP_Employee_Dashboard::get_latest_salary_slip( $employee_
 		<div class="berp-portal-col">
 			<div class="berp-portal-card">
 				<div class="berp-card-header">
-					<h3><?php esc_html_e( 'Latest Salary Slip', 'builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'Latest Salary Slip', 'BuildERP' ); ?></h3>
 				</div>
 				<div class="berp-card-body">
 					<?php
@@ -94,20 +94,20 @@ $latest_salary     = BERP_Employee_Dashboard::get_latest_salary_slip( $employee_
 						?>
 						<div class="berp-salary-summary">
 							<div class="berp-salary-month">
-								<strong><?php esc_html_e( 'Month:', 'builderp' ); ?></strong>
+								<strong><?php esc_html_e( 'Month:', 'BuildERP' ); ?></strong>
 								<?php echo esc_html( date_i18n( 'F Y', strtotime( $month . '-01' ) ) ); ?>
 							</div>
 							<div class="berp-salary-amount">
-								<strong><?php esc_html_e( 'Net Salary:', 'builderp' ); ?></strong>
+								<strong><?php esc_html_e( 'Net Salary:', 'BuildERP' ); ?></strong>
 								<?php echo esc_html( berp_format_currency( $net_salary ) ); ?>
 							</div>
 							<div class="berp-salary-action">
 								<!-- Link to download PDF would go here -->
-								<button class="berp-btn berp-btn-sm berp-btn-outline"><?php esc_html_e( 'Download PDF', 'builderp' ); ?></button>
+								<button class="berp-btn berp-btn-sm berp-btn-outline"><?php esc_html_e( 'Download PDF', 'BuildERP' ); ?></button>
 							</div>
 						</div>
 					<?php else : ?>
-						<p><?php esc_html_e( 'No salary slips found.', 'builderp' ); ?></p>
+						<p><?php esc_html_e( 'No salary slips found.', 'BuildERP' ); ?></p>
 					<?php endif; ?>
 				</div>
 			</div>

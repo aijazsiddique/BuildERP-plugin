@@ -265,7 +265,7 @@ class BERP_Portal {
 				wp_redirect( get_permalink( $dashboard_page_id ) );
 				exit;
 			}
-			return '<p>' . esc_html__( 'You are already logged in.', 'builderp' ) . '</p>';
+			return '<p>' . esc_html__( 'You are already logged in.', 'BuildERP' ) . '</p>';
 		}
 
 		ob_start();
@@ -285,14 +285,14 @@ class BERP_Portal {
 				wp_redirect( $login_page_url );
 				exit;
 			}
-			return '<p>' . esc_html__( 'Please log in to view the dashboard.', 'builderp' ) . '</p>';
+			return '<p>' . esc_html__( 'Please log in to view the dashboard.', 'BuildERP' ) . '</p>';
 		}
 
 		$user = wp_get_current_user();
 
 		// Check if user has portal access.
 		if ( ! $this->has_portal_access( $user ) ) {
-			return '<p>' . esc_html__( 'You do not have permission to access the employee portal.', 'builderp' ) . '</p>';
+			return '<p>' . esc_html__( 'You do not have permission to access the employee portal.', 'BuildERP' ) . '</p>';
 		}
 
 		ob_start();
@@ -585,12 +585,12 @@ class BERP_Portal {
 	public function ajax_bulk_attendance() {
 		// Verify nonce.
 		if ( ! check_ajax_referer( 'berp_portal_nonce', 'nonce', false ) ) {
-			wp_send_json_error( array( 'message' => __( 'Security check failed.', 'builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Security check failed.', 'BuildERP' ) ) );
 		}
 
 		// Check permission - allow admins and those with specific capability.
 		if ( ! current_user_can( 'berp_log_attendance' ) && ! current_user_can( 'manage_options' ) ) {
-			wp_send_json_error( array( 'message' => __( 'You do not have permission to log attendance.', 'builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'You do not have permission to log attendance.', 'BuildERP' ) ) );
 		}
 
 		// Get and validate parameters.
@@ -599,21 +599,21 @@ class BERP_Portal {
 		$employees = isset( $_POST['employees'] ) ? json_decode( stripslashes( $_POST['employees'] ), true ) : array();
 
 		if ( empty( $date ) ) {
-			wp_send_json_error( array( 'message' => __( 'Date is required.', 'builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Date is required.', 'BuildERP' ) ) );
 		}
 
 		if ( empty( $site_id ) ) {
-			wp_send_json_error( array( 'message' => __( 'Site is required.', 'builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Site is required.', 'BuildERP' ) ) );
 		}
 
 		if ( empty( $employees ) || ! is_array( $employees ) ) {
-			wp_send_json_error( array( 'message' => __( 'No employees selected.', 'builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'No employees selected.', 'BuildERP' ) ) );
 		}
 
 		// Validate date format.
 		$date_obj = DateTime::createFromFormat( 'Y-m-d', $date );
 		if ( ! $date_obj || $date_obj->format( 'Y-m-d' ) !== $date ) {
-			wp_send_json_error( array( 'message' => __( 'Invalid date format.', 'builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Invalid date format.', 'BuildERP' ) ) );
 		}
 
 		// Get attendance settings.
@@ -623,7 +623,7 @@ class BERP_Portal {
 
 		// Block future dates if setting enabled.
 		if ( $block_future && $date > current_time( 'Y-m-d' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Cannot log attendance for future dates.', 'builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Cannot log attendance for future dates.', 'BuildERP' ) ) );
 		}
 
 		$user_id = get_current_user_id();
@@ -671,7 +671,7 @@ class BERP_Portal {
 			array(
 				'message' => sprintf(
 					/* translators: 1: total processed, 2: created, 3: updated */
-					__( '%1$d attendance records processed (%2$d new, %3$d updated).', 'builderp' ),
+					__( '%1$d attendance records processed (%2$d new, %3$d updated).', 'BuildERP' ),
 					$total,
 					$created,
 					$updated
@@ -727,18 +727,18 @@ class BERP_Portal {
 	public function ajax_check_attendance_status() {
 		// Verify nonce.
 		if ( ! check_ajax_referer( 'berp_portal_nonce', 'nonce', false ) ) {
-			wp_send_json_error( array( 'message' => __( 'Security check failed.', 'builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Security check failed.', 'BuildERP' ) ) );
 		}
 
 		// Check permission.
 		if ( ! current_user_can( 'berp_log_attendance' ) && ! current_user_can( 'manage_options' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Permission denied.', 'BuildERP' ) ) );
 		}
 
 		$date = isset( $_POST['date'] ) ? sanitize_text_field( $_POST['date'] ) : '';
 
 		if ( empty( $date ) ) {
-			wp_send_json_error( array( 'message' => __( 'Date is required.', 'builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Date is required.', 'BuildERP' ) ) );
 		}
 
 		// Get all attendance records for this date.
@@ -817,7 +817,7 @@ class BERP_Portal {
 	private function create_attendance_post( $employee_id, $date, $site_id, $overtime, $notes, $user_id ) {
 		$title = sprintf(
 			/* translators: 1: employee id 2: date */
-			__( 'Attendance - %1$s - %2$s', 'builderp' ),
+			__( 'Attendance - %1$s - %2$s', 'BuildERP' ),
 			$employee_id,
 			$date
 		);
