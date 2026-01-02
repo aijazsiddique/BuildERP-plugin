@@ -81,9 +81,9 @@ class BERP_Admin {
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'nonce'   => wp_create_nonce( 'berp_admin_nonce' ),
 				'strings' => array(
-					'confirm_delete' => __( 'Are you sure you want to delete this item?', 'aic_builderp' ),
-					'error'          => __( 'An error occurred. Please try again.', 'aic_builderp' ),
-					'success'        => __( 'Operation completed successfully.', 'aic_builderp' ),
+					'confirm_delete' => __( 'Are you sure you want to delete this item?', 'builderp' ),
+					'error'          => __( 'An error occurred. Please try again.', 'builderp' ),
+					'success'        => __( 'Operation completed successfully.', 'builderp' ),
 				),
 			)
 		);
@@ -153,3 +153,4 @@ class BERP_Admin {
 		return false;
 	}
 }
+

@@ -26,19 +26,19 @@ class BERP_Payroll_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Payroll', 'Post type general name', 'aic_builderp' ),
-			'singular_name'      => _x( 'Payroll Record', 'Post type singular name', 'aic_builderp' ),
-			'menu_name'          => _x( 'Payroll', 'Admin Menu text', 'aic_builderp' ),
-			'name_admin_bar'     => _x( 'Payroll', 'Add New on Toolbar', 'aic_builderp' ),
-			'add_new'            => __( 'Process Payroll', 'aic_builderp' ),
-			'add_new_item'       => __( 'Process Payroll', 'aic_builderp' ),
-			'new_item'           => __( 'New Payroll Record', 'aic_builderp' ),
-			'edit_item'          => __( 'Edit Payroll Record', 'aic_builderp' ),
-			'view_item'          => __( 'View Payroll Record', 'aic_builderp' ),
-			'all_items'          => __( 'All Payroll', 'aic_builderp' ),
-			'search_items'       => __( 'Search Payroll', 'aic_builderp' ),
-			'not_found'          => __( 'No payroll records found.', 'aic_builderp' ),
-			'not_found_in_trash' => __( 'No payroll records found in Trash.', 'aic_builderp' ),
+			'name'               => _x( 'Payroll', 'Post type general name', 'builderp' ),
+			'singular_name'      => _x( 'Payroll Record', 'Post type singular name', 'builderp' ),
+			'menu_name'          => _x( 'Payroll', 'Admin Menu text', 'builderp' ),
+			'name_admin_bar'     => _x( 'Payroll', 'Add New on Toolbar', 'builderp' ),
+			'add_new'            => __( 'Process Payroll', 'builderp' ),
+			'add_new_item'       => __( 'Process Payroll', 'builderp' ),
+			'new_item'           => __( 'New Payroll Record', 'builderp' ),
+			'edit_item'          => __( 'Edit Payroll Record', 'builderp' ),
+			'view_item'          => __( 'View Payroll Record', 'builderp' ),
+			'all_items'          => __( 'All Payroll', 'builderp' ),
+			'search_items'       => __( 'Search Payroll', 'builderp' ),
+			'not_found'          => __( 'No payroll records found.', 'builderp' ),
+			'not_found_in_trash' => __( 'No payroll records found in Trash.', 'builderp' ),
 		);
 
 		$args = array(
@@ -71,3 +71,4 @@ class BERP_Payroll_CPT {
 		register_post_type( 'berp_payroll', $args );
 	}
 }
+

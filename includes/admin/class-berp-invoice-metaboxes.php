@@ -39,7 +39,7 @@ class BERP_Invoice_Metaboxes {
 	public function add_metaboxes() {
 		add_meta_box(
 			'berp_invoice_main',
-			__( 'Invoice Information', 'aic_builderp' ),
+			__( 'Invoice Information', 'builderp' ),
 			array( $this, 'render_main_metabox' ),
 			'berp_invoice',
 			'normal',
@@ -135,11 +135,11 @@ class BERP_Invoice_Metaboxes {
 		<div class="berp-metabox-content">
 			<div class="berp-metabox-layout">
 				<!-- Tab Navigation -->
-				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Invoice sections', 'aic_builderp' ); ?>">
-					<button type="button" class="berp-metabox-tab is-active" data-tab-target="details-tab"><?php esc_html_e( 'Details', 'aic_builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="items-tab"><?php esc_html_e( 'Line Items', 'aic_builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="calculations-tab"><?php esc_html_e( 'Calculations', 'aic_builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="payments-tab"><?php esc_html_e( 'Payment Tracking', 'aic_builderp' ); ?></button>
+				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Invoice sections', 'builderp' ); ?>">
+					<button type="button" class="berp-metabox-tab is-active" data-tab-target="details-tab"><?php esc_html_e( 'Details', 'builderp' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="items-tab"><?php esc_html_e( 'Line Items', 'builderp' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="calculations-tab"><?php esc_html_e( 'Calculations', 'builderp' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="payments-tab"><?php esc_html_e( 'Payment Tracking', 'builderp' ); ?></button>
 				</nav>
 
 				<!-- Tab Panels -->
@@ -190,22 +190,22 @@ class BERP_Invoice_Metaboxes {
 		?>
 		<table class="form-table berp-form-table">
 			<tr>
-				<th><label for="berp_invoice_number"><?php esc_html_e( 'Invoice Number', 'aic_builderp' ); ?></label></th>
+				<th><label for="berp_invoice_number"><?php esc_html_e( 'Invoice Number', 'builderp' ); ?></label></th>
 				<td>
 					<input type="text" name="berp_invoice_number" id="berp_invoice_number"
 						value="<?php echo esc_attr( $invoice_number ); ?>"
 						class="regular-text" readonly />
 					<p class="description">
-						<?php esc_html_e( 'Auto-generated. Will be assigned when you save this invoice.', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Auto-generated. Will be assigned when you save this invoice.', 'builderp' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_client_id"><?php esc_html_e( 'Client', 'aic_builderp' ); ?> <span class="required">*</span></label></th>
+				<th><label for="berp_client_id"><?php esc_html_e( 'Client', 'builderp' ); ?> <span class="required">*</span></label></th>
 				<td>
 					<select name="berp_client_id" id="berp_client_id" class="regular-text" required>
-						<option value=""><?php esc_html_e( '-- Select Client --', 'aic_builderp' ); ?></option>
+						<option value=""><?php esc_html_e( '-- Select Client --', 'builderp' ); ?></option>
 						<?php foreach ( $clients as $client ) : ?>
 							<option value="<?php echo esc_attr( $client->ID ); ?>" <?php selected( $client_id, $client->ID ); ?>>
 								<?php echo esc_html( $client->post_title ); ?>
@@ -216,10 +216,10 @@ class BERP_Invoice_Metaboxes {
 			</tr>
 
 			<tr>
-				<th><label for="berp_site_id"><?php esc_html_e( 'Site/Project', 'aic_builderp' ); ?></label></th>
+				<th><label for="berp_site_id"><?php esc_html_e( 'Site/Project', 'builderp' ); ?></label></th>
 				<td>
 					<select name="berp_site_id" id="berp_site_id" class="regular-text">
-						<option value=""><?php esc_html_e( '-- Select Site (Optional) --', 'aic_builderp' ); ?></option>
+						<option value=""><?php esc_html_e( '-- Select Site (Optional) --', 'builderp' ); ?></option>
 						<?php
 						foreach ( $sites as $site ) :
 							$site_client_id = get_post_meta( $site->ID, '_berp_client_id', true );
@@ -232,14 +232,14 @@ class BERP_Invoice_Metaboxes {
 						<?php endforeach; ?>
 					</select>
 					<p class="description">
-						<?php esc_html_e( 'Link invoice to a site for P&L tracking. Sites are filtered by selected client.', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Link invoice to a site for P&L tracking. Sites are filtered by selected client.', 'builderp' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<?php if ( $quotation_id ) : ?>
 				<tr>
-					<th><?php esc_html_e( 'Source Quotation', 'aic_builderp' ); ?></th>
+					<th><?php esc_html_e( 'Source Quotation', 'builderp' ); ?></th>
 					<td>
 						<?php
 						$quotation = get_post( $quotation_id );
@@ -256,7 +256,7 @@ class BERP_Invoice_Metaboxes {
 			<?php endif; ?>
 
 			<tr>
-				<th><label for="berp_invoice_date"><?php esc_html_e( 'Invoice Date', 'aic_builderp' ); ?></label></th>
+				<th><label for="berp_invoice_date"><?php esc_html_e( 'Invoice Date', 'builderp' ); ?></label></th>
 				<td>
 					<input type="date" name="berp_invoice_date" id="berp_invoice_date"
 						value="<?php echo esc_attr( $invoice_date ); ?>"
@@ -265,33 +265,33 @@ class BERP_Invoice_Metaboxes {
 			</tr>
 
 			<tr>
-				<th><label for="berp_due_date"><?php esc_html_e( 'Due Date', 'aic_builderp' ); ?></label></th>
+				<th><label for="berp_due_date"><?php esc_html_e( 'Due Date', 'builderp' ); ?></label></th>
 				<td>
 					<input type="date" name="berp_due_date" id="berp_due_date"
 						value="<?php echo esc_attr( $due_date ); ?>"
 						class="regular-text" />
 					<p class="description">
-						<?php esc_html_e( 'Payment due date for this invoice.', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Payment due date for this invoice.', 'builderp' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_status"><?php esc_html_e( 'Status', 'aic_builderp' ); ?></label></th>
+				<th><label for="berp_status"><?php esc_html_e( 'Status', 'builderp' ); ?></label></th>
 				<td>
 					<select name="berp_status" id="berp_status" class="regular-text">
-						<option value="draft" <?php selected( $status, 'draft' ); ?>><?php esc_html_e( 'Draft', 'aic_builderp' ); ?></option>
-						<option value="sent" <?php selected( $status, 'sent' ); ?>><?php esc_html_e( 'Sent', 'aic_builderp' ); ?></option>
-						<option value="partially_paid" <?php selected( $status, 'partially_paid' ); ?>><?php esc_html_e( 'Partially Paid', 'aic_builderp' ); ?></option>
-						<option value="paid" <?php selected( $status, 'paid' ); ?>><?php esc_html_e( 'Paid', 'aic_builderp' ); ?></option>
-						<option value="overdue" <?php selected( $status, 'overdue' ); ?>><?php esc_html_e( 'Overdue', 'aic_builderp' ); ?></option>
-						<option value="cancelled" <?php selected( $status, 'cancelled' ); ?>><?php esc_html_e( 'Cancelled', 'aic_builderp' ); ?></option>
+						<option value="draft" <?php selected( $status, 'draft' ); ?>><?php esc_html_e( 'Draft', 'builderp' ); ?></option>
+						<option value="sent" <?php selected( $status, 'sent' ); ?>><?php esc_html_e( 'Sent', 'builderp' ); ?></option>
+						<option value="partially_paid" <?php selected( $status, 'partially_paid' ); ?>><?php esc_html_e( 'Partially Paid', 'builderp' ); ?></option>
+						<option value="paid" <?php selected( $status, 'paid' ); ?>><?php esc_html_e( 'Paid', 'builderp' ); ?></option>
+						<option value="overdue" <?php selected( $status, 'overdue' ); ?>><?php esc_html_e( 'Overdue', 'builderp' ); ?></option>
+						<option value="cancelled" <?php selected( $status, 'cancelled' ); ?>><?php esc_html_e( 'Cancelled', 'builderp' ); ?></option>
 					</select>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_payment_terms"><?php esc_html_e( 'Payment Terms', 'aic_builderp' ); ?></label></th>
+				<th><label for="berp_payment_terms"><?php esc_html_e( 'Payment Terms', 'builderp' ); ?></label></th>
 				<td>
 					<textarea name="berp_payment_terms" id="berp_payment_terms"
 						rows="3"
@@ -300,7 +300,7 @@ class BERP_Invoice_Metaboxes {
 			</tr>
 
 			<tr>
-				<th><label for="berp_notes"><?php esc_html_e( 'Notes', 'aic_builderp' ); ?></label></th>
+				<th><label for="berp_notes"><?php esc_html_e( 'Notes', 'builderp' ); ?></label></th>
 				<td>
 					<textarea name="berp_notes" id="berp_notes"
 						rows="3"
@@ -338,7 +338,7 @@ class BERP_Invoice_Metaboxes {
 
 				<button type="button" class="button button-secondary" id="berp-add-item">
 					<span class="dashicons dashicons-plus-alt"></span>
-					<?php esc_html_e( 'Add Line Item', 'aic_builderp' ); ?>
+					<?php esc_html_e( 'Add Line Item', 'builderp' ); ?>
 				</button>
 			</div>
 		</div>
@@ -361,15 +361,15 @@ class BERP_Invoice_Metaboxes {
 		?>
 		<div class="berp-item-row" data-index="<?php echo esc_attr( $index ); ?>">
 			<div class="berp-item-field berp-item-description-field">
-				<label><?php esc_html_e( 'Description', 'aic_builderp' ); ?></label>
+				<label><?php esc_html_e( 'Description', 'builderp' ); ?></label>
 				<input type="text" name="berp_items[<?php echo esc_attr( $index ); ?>][description]"
 					class="berp-item-description"
 					value="<?php echo esc_attr( $description ); ?>"
-					placeholder="<?php esc_attr_e( 'Item description', 'aic_builderp' ); ?>" />
+					placeholder="<?php esc_attr_e( 'Item description', 'builderp' ); ?>" />
 			</div>
 
 			<div class="berp-item-field berp-item-quantity-field">
-				<label><?php esc_html_e( 'Quantity', 'aic_builderp' ); ?></label>
+				<label><?php esc_html_e( 'Quantity', 'builderp' ); ?></label>
 				<input type="number" name="berp_items[<?php echo esc_attr( $index ); ?>][quantity]"
 					class="berp-item-quantity"
 					value="<?php echo esc_attr( $quantity ); ?>"
@@ -379,7 +379,7 @@ class BERP_Invoice_Metaboxes {
 			</div>
 
 			<div class="berp-item-field berp-item-rate-field">
-				<label><?php esc_html_e( 'Rate', 'aic_builderp' ); ?></label>
+				<label><?php esc_html_e( 'Rate', 'builderp' ); ?></label>
 				<input type="number" name="berp_items[<?php echo esc_attr( $index ); ?>][rate]"
 					class="berp-item-rate"
 					value="<?php echo esc_attr( $rate ); ?>"
@@ -389,7 +389,7 @@ class BERP_Invoice_Metaboxes {
 			</div>
 
 			<div class="berp-item-field berp-item-amount-field">
-				<label><?php esc_html_e( 'Amount', 'aic_builderp' ); ?></label>
+				<label><?php esc_html_e( 'Amount', 'builderp' ); ?></label>
 				<input type="number" name="berp_items[<?php echo esc_attr( $index ); ?>][amount]"
 					class="berp-item-amount"
 					value="<?php echo esc_attr( $amount ); ?>"
@@ -426,7 +426,7 @@ class BERP_Invoice_Metaboxes {
 		?>
 		<table class="form-table berp-form-table">
 			<tr>
-				<th><label for="berp_subtotal"><?php esc_html_e( 'Subtotal', 'aic_builderp' ); ?></label></th>
+				<th><label for="berp_subtotal"><?php esc_html_e( 'Subtotal', 'builderp' ); ?></label></th>
 				<td>
 					<input type="number" name="berp_subtotal" id="berp_subtotal"
 						value="<?php echo esc_attr( $subtotal ); ?>"
@@ -434,13 +434,13 @@ class BERP_Invoice_Metaboxes {
 						step="0.01"
 						readonly />
 					<p class="description">
-						<?php esc_html_e( 'Calculated automatically from line items.', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Calculated automatically from line items.', 'builderp' ); ?>
 					</p>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_tax_rate"><?php esc_html_e( 'Tax Rate (%)', 'aic_builderp' ); ?></label></th>
+				<th><label for="berp_tax_rate"><?php esc_html_e( 'Tax Rate (%)', 'builderp' ); ?></label></th>
 				<td>
 					<input type="number" name="berp_tax_rate" id="berp_tax_rate"
 						value="<?php echo esc_attr( $tax_rate ); ?>"
@@ -452,7 +452,7 @@ class BERP_Invoice_Metaboxes {
 			</tr>
 
 			<tr>
-				<th><label for="berp_tax_amount"><?php esc_html_e( 'Tax Amount', 'aic_builderp' ); ?></label></th>
+				<th><label for="berp_tax_amount"><?php esc_html_e( 'Tax Amount', 'builderp' ); ?></label></th>
 				<td>
 					<input type="number" name="berp_tax_amount" id="berp_tax_amount"
 						value="<?php echo esc_attr( $tax_amount ); ?>"
@@ -463,24 +463,24 @@ class BERP_Invoice_Metaboxes {
 			</tr>
 
 			<tr>
-				<th><label><?php esc_html_e( 'Discount Type', 'aic_builderp' ); ?></label></th>
+				<th><label><?php esc_html_e( 'Discount Type', 'builderp' ); ?></label></th>
 				<td>
 					<label>
 						<input type="radio" name="berp_discount_type" value="fixed"
 							<?php checked( $discount_type, 'fixed' ); ?> />
-						<?php esc_html_e( 'Fixed Amount', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Fixed Amount', 'builderp' ); ?>
 					</label>
 					&nbsp;&nbsp;
 					<label>
 						<input type="radio" name="berp_discount_type" value="percentage"
 							<?php checked( $discount_type, 'percentage' ); ?> />
-						<?php esc_html_e( 'Percentage', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Percentage', 'builderp' ); ?>
 					</label>
 				</td>
 			</tr>
 
 			<tr>
-				<th><label for="berp_discount_value"><?php esc_html_e( 'Discount Value', 'aic_builderp' ); ?></label></th>
+				<th><label for="berp_discount_value"><?php esc_html_e( 'Discount Value', 'builderp' ); ?></label></th>
 				<td>
 					<input type="number" name="berp_discount_value" id="berp_discount_value"
 						value="<?php echo esc_attr( $discount_value ); ?>"
@@ -491,7 +491,7 @@ class BERP_Invoice_Metaboxes {
 			</tr>
 
 			<tr>
-				<th><label for="berp_discount_amount"><?php esc_html_e( 'Discount Amount', 'aic_builderp' ); ?></label></th>
+				<th><label for="berp_discount_amount"><?php esc_html_e( 'Discount Amount', 'builderp' ); ?></label></th>
 				<td>
 					<input type="number" name="berp_discount_amount" id="berp_discount_amount"
 						value="<?php echo esc_attr( $discount_amount ); ?>"
@@ -502,7 +502,7 @@ class BERP_Invoice_Metaboxes {
 			</tr>
 
 			<tr>
-				<th><label for="berp_grand_total"><?php esc_html_e( 'Grand Total', 'aic_builderp' ); ?></label></th>
+				<th><label for="berp_grand_total"><?php esc_html_e( 'Grand Total', 'builderp' ); ?></label></th>
 				<td>
 					<input type="number" name="berp_grand_total" id="berp_grand_total"
 						value="<?php echo esc_attr( $grand_total ); ?>"
@@ -532,19 +532,19 @@ class BERP_Invoice_Metaboxes {
 		<div class="berp-payment-summary">
 			<table class="form-table berp-form-table">
 				<tr>
-					<th><?php esc_html_e( 'Invoice Total', 'aic_builderp' ); ?></th>
+					<th><?php esc_html_e( 'Invoice Total', 'builderp' ); ?></th>
 					<td>
 						<strong style="font-size: 1.2em;"><?php echo esc_html( $currency . number_format( floatval( $grand_total ), 2 ) ); ?></strong>
 					</td>
 				</tr>
 				<tr>
-					<th><?php esc_html_e( 'Amount Paid', 'aic_builderp' ); ?></th>
+					<th><?php esc_html_e( 'Amount Paid', 'builderp' ); ?></th>
 					<td>
 						<span style="color: green; font-size: 1.2em;"><?php echo esc_html( $currency . number_format( floatval( $amount_paid ), 2 ) ); ?></span>
 					</td>
 				</tr>
 				<tr>
-					<th><?php esc_html_e( 'Amount Due', 'aic_builderp' ); ?></th>
+					<th><?php esc_html_e( 'Amount Due', 'builderp' ); ?></th>
 					<td>
 						<?php
 						$due   = floatval( $grand_total ) - floatval( $amount_paid );
@@ -558,7 +558,7 @@ class BERP_Invoice_Metaboxes {
 			</table>
 		</div>
 
-		<h3><?php esc_html_e( 'Payment History', 'aic_builderp' ); ?></h3>
+		<h3><?php esc_html_e( 'Payment History', 'builderp' ); ?></h3>
 
 		<div class="berp-payments-wrapper">
 			<div class="berp-repeater berp-payments-repeater" id="berp-payments-repeater">
@@ -578,7 +578,7 @@ class BERP_Invoice_Metaboxes {
 
 				<button type="button" class="button button-primary" id="berp-add-payment">
 					<span class="dashicons dashicons-plus-alt"></span>
-					<?php esc_html_e( 'Record Payment', 'aic_builderp' ); ?>
+					<?php esc_html_e( 'Record Payment', 'builderp' ); ?>
 				</button>
 			</div>
 		</div>
@@ -601,25 +601,25 @@ class BERP_Invoice_Metaboxes {
 		$notes     = isset( $payment['notes'] ) ? $payment['notes'] : '';
 
 		$payment_methods = array(
-			'cash'          => __( 'Cash', 'aic_builderp' ),
-			'bank_transfer' => __( 'Bank Transfer', 'aic_builderp' ),
-			'cheque'        => __( 'Cheque', 'aic_builderp' ),
-			'credit_card'   => __( 'Credit Card', 'aic_builderp' ),
-			'online'        => __( 'Online Payment', 'aic_builderp' ),
-			'other'         => __( 'Other', 'aic_builderp' ),
+			'cash'          => __( 'Cash', 'builderp' ),
+			'bank_transfer' => __( 'Bank Transfer', 'builderp' ),
+			'cheque'        => __( 'Cheque', 'builderp' ),
+			'credit_card'   => __( 'Credit Card', 'builderp' ),
+			'online'        => __( 'Online Payment', 'builderp' ),
+			'other'         => __( 'Other', 'builderp' ),
 		);
 		?>
 		<div class="berp-payment-row" data-index="<?php echo esc_attr( $index ); ?>" style="border: 1px solid #ddd; padding: 15px; margin-bottom: 10px; background: #f9f9f9;">
 			<div style="display: flex; gap: 15px; flex-wrap: wrap;">
 				<div class="berp-payment-field" style="flex: 0 0 150px;">
-					<label><?php esc_html_e( 'Date', 'aic_builderp' ); ?></label>
+					<label><?php esc_html_e( 'Date', 'builderp' ); ?></label>
 					<input type="date" name="berp_payments[<?php echo esc_attr( $index ); ?>][date]"
 						class="berp-payment-date"
 						value="<?php echo esc_attr( $date ); ?>" />
 				</div>
 
 				<div class="berp-payment-field" style="flex: 0 0 150px;">
-					<label><?php esc_html_e( 'Amount', 'aic_builderp' ); ?></label>
+					<label><?php esc_html_e( 'Amount', 'builderp' ); ?></label>
 					<input type="number" name="berp_payments[<?php echo esc_attr( $index ); ?>][amount]"
 						class="berp-payment-amount"
 						value="<?php echo esc_attr( $amount ); ?>"
@@ -629,7 +629,7 @@ class BERP_Invoice_Metaboxes {
 				</div>
 
 				<div class="berp-payment-field" style="flex: 0 0 150px;">
-					<label><?php esc_html_e( 'Method', 'aic_builderp' ); ?></label>
+					<label><?php esc_html_e( 'Method', 'builderp' ); ?></label>
 					<select name="berp_payments[<?php echo esc_attr( $index ); ?>][method]" class="berp-payment-method">
 						<?php foreach ( $payment_methods as $key => $label ) : ?>
 							<option value="<?php echo esc_attr( $key ); ?>" <?php selected( $method, $key ); ?>>
@@ -640,19 +640,19 @@ class BERP_Invoice_Metaboxes {
 				</div>
 
 				<div class="berp-payment-field" style="flex: 0 0 150px;">
-					<label><?php esc_html_e( 'Reference #', 'aic_builderp' ); ?></label>
+					<label><?php esc_html_e( 'Reference #', 'builderp' ); ?></label>
 					<input type="text" name="berp_payments[<?php echo esc_attr( $index ); ?>][reference]"
 						class="berp-payment-reference"
 						value="<?php echo esc_attr( $reference ); ?>"
-						placeholder="<?php esc_attr_e( 'Check/Trans #', 'aic_builderp' ); ?>" />
+						placeholder="<?php esc_attr_e( 'Check/Trans #', 'builderp' ); ?>" />
 				</div>
 
 				<div class="berp-payment-field" style="flex: 1 1 200px;">
-					<label><?php esc_html_e( 'Notes', 'aic_builderp' ); ?></label>
+					<label><?php esc_html_e( 'Notes', 'builderp' ); ?></label>
 					<input type="text" name="berp_payments[<?php echo esc_attr( $index ); ?>][notes]"
 						class="berp-payment-notes"
 						value="<?php echo esc_attr( $notes ); ?>"
-						placeholder="<?php esc_attr_e( 'Payment notes', 'aic_builderp' ); ?>" />
+						placeholder="<?php esc_attr_e( 'Payment notes', 'builderp' ); ?>" />
 				</div>
 
 				<div class="berp-payment-field" style="flex: 0 0 auto; align-self: flex-end;">
@@ -815,3 +815,4 @@ class BERP_Invoice_Metaboxes {
 		do_action( 'berp_after_invoice_saved', $post_id, $_POST );
 	}
 }
+

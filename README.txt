@@ -3,7 +3,7 @@ Contributors: builderp
 Donate link: https://builderp.io
 Tags: construction, erp, employee management, payroll, attendance, invoices, quotations
 Requires at least: 6.0
-Tested up to: 6.4
+Tested up to: 6.9
 Stable tag: 1.0.0
 Requires PHP: 8.0
 License: GPLv2 or later

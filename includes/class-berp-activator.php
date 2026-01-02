@@ -36,8 +36,8 @@ class BERP_Activator {
 		// Check WordPress version.
 		if ( version_compare( get_bloginfo( 'version' ), '6.0', '<' ) ) {
 			wp_die(
-				esc_html__( 'BuildErp requires WordPress 6.0 or higher. Please upgrade WordPress.', 'aic_builderp' ),
-				esc_html__( 'Plugin Activation Error', 'aic_builderp' ),
+				esc_html__( 'BuildErp requires WordPress 6.0 or higher. Please upgrade WordPress.', 'builderp' ),
+				esc_html__( 'Plugin Activation Error', 'builderp' ),
 				array( 'back_link' => true )
 			);
 		}
@@ -45,8 +45,8 @@ class BERP_Activator {
 		// Check PHP version.
 		if ( version_compare( PHP_VERSION, '8.0', '<' ) ) {
 			wp_die(
-				esc_html__( 'BuildErp requires PHP 8.0 or higher. Please upgrade PHP.', 'aic_builderp' ),
-				esc_html__( 'Plugin Activation Error', 'aic_builderp' ),
+				esc_html__( 'BuildErp requires PHP 8.0 or higher. Please upgrade PHP.', 'builderp' ),
+				esc_html__( 'Plugin Activation Error', 'builderp' ),
 				array( 'back_link' => true )
 			);
 		}
@@ -85,7 +85,7 @@ class BERP_Activator {
 		// BERP Employee Role.
 		add_role(
 			'berp_employee',
-			__( 'BERP Employee', 'aic_builderp' ),
+			__( 'BERP Employee', 'builderp' ),
 			array(
 				'read'                     => true,
 				'berp_view_own_attendance' => true,
@@ -97,7 +97,7 @@ class BERP_Activator {
 		// BERP Timekeeper Role.
 		add_role(
 			'berp_timekeeper',
-			__( 'BERP Timekeeper', 'aic_builderp' ),
+			__( 'BERP Timekeeper', 'builderp' ),
 			array(
 				'read'                 => true,
 				'berp_log_attendance'  => true,
@@ -362,3 +362,4 @@ class BERP_Activator {
 		update_option( 'berp_default_terms_created', true );
 	}
 }
+

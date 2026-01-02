@@ -81,7 +81,7 @@ class BERP_Payroll_Metaboxes {
 	public function register_meta_boxes() {
 		add_meta_box(
 			'berp-payroll-main',
-			__( 'Payroll Details', 'aic_builderp' ),
+			__( 'Payroll Details', 'builderp' ),
 			array( $this, 'render_main_metabox' ),
 			'berp_payroll',
 			'normal',
@@ -135,21 +135,21 @@ class BERP_Payroll_Metaboxes {
 		<div class="berp-metabox-content">
 			<div class="berp-metabox-layout">
 				<!-- Tab Navigation -->
-				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Payroll sections', 'aic_builderp' ); ?>">
+				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Payroll sections', 'builderp' ); ?>">
 					<button type="button" class="berp-metabox-tab is-active" data-tab-target="berp-payroll-employee">
-						<?php esc_html_e( 'Employee & Month', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Employee & Month', 'builderp' ); ?>
 					</button>
 					<button type="button" class="berp-metabox-tab" data-tab-target="berp-payroll-salary">
-						<?php esc_html_e( 'Salary Breakdown', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Salary Breakdown', 'builderp' ); ?>
 					</button>
 					<button type="button" class="berp-metabox-tab" data-tab-target="berp-payroll-attendance">
-						<?php esc_html_e( 'Attendance Summary', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Attendance Summary', 'builderp' ); ?>
 					</button>
 					<button type="button" class="berp-metabox-tab" data-tab-target="berp-payroll-payment">
-						<?php esc_html_e( 'Payment Status', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Payment Status', 'builderp' ); ?>
 					</button>
 					<button type="button" class="berp-metabox-tab" data-tab-target="berp-payroll-formula">
-						<?php esc_html_e( 'Formula & Notes', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Formula & Notes', 'builderp' ); ?>
 					</button>
 				</nav>
 
@@ -216,11 +216,11 @@ class BERP_Payroll_Metaboxes {
 			<tbody>
 				<tr>
 					<th scope="row">
-						<label for="berp_employee_id"><?php esc_html_e( 'Employee', 'aic_builderp' ); ?> <span class="required">*</span></label>
+						<label for="berp_employee_id"><?php esc_html_e( 'Employee', 'builderp' ); ?> <span class="required">*</span></label>
 					</th>
 					<td>
 						<select name="berp_payroll[employee_id]" id="berp_employee_id" class="regular-text" required>
-							<option value=""><?php esc_html_e( 'Select Employee', 'aic_builderp' ); ?></option>
+							<option value=""><?php esc_html_e( 'Select Employee', 'builderp' ); ?></option>
 							<?php foreach ( $employees as $employee ) : ?>
 								<option value="<?php echo esc_attr( $employee->ID ); ?>" <?php selected( $employee_id, $employee->ID ); ?>>
 									<?php echo esc_html( $employee->post_title ); ?>
@@ -233,45 +233,45 @@ class BERP_Payroll_Metaboxes {
 								</option>
 							<?php endforeach; ?>
 						</select>
-						<p class="description"><?php esc_html_e( 'Select the employee for this payroll entry', 'aic_builderp' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Select the employee for this payroll entry', 'builderp' ); ?></p>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
-						<label for="berp_payroll_month"><?php esc_html_e( 'Payroll Month', 'aic_builderp' ); ?> <span class="required">*</span></label>
+						<label for="berp_payroll_month"><?php esc_html_e( 'Payroll Month', 'builderp' ); ?> <span class="required">*</span></label>
 					</th>
 					<td>
 						<input type="month" name="berp_payroll[month]" id="berp_payroll_month" value="<?php echo esc_attr( $month ); ?>" class="regular-text" required>
-						<p class="description"><?php esc_html_e( 'Select the month for payroll calculation (YYYY-MM)', 'aic_builderp' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Select the month for payroll calculation (YYYY-MM)', 'builderp' ); ?></p>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Calculation Mode', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Calculation Mode', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<fieldset>
 							<label>
 								<input type="radio" name="berp_payroll[calculation_mode]" value="auto" <?php checked( $calculation_mode, 'auto' ); ?>>
-								<?php esc_html_e( 'Auto-Calculate (using formula builder)', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Auto-Calculate (using formula builder)', 'builderp' ); ?>
 							</label>
 							<br>
 							<label>
 								<input type="radio" name="berp_payroll[calculation_mode]" value="manual" <?php checked( $calculation_mode, 'manual' ); ?>>
-								<?php esc_html_e( 'Manual Entry', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Manual Entry', 'builderp' ); ?>
 							</label>
 						</fieldset>
-						<p class="description"><?php esc_html_e( 'Choose calculation mode. Auto mode uses formula builder and attendance data.', 'aic_builderp' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Choose calculation mode. Auto mode uses formula builder and attendance data.', 'builderp' ); ?></p>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row"></th>
 					<td>
 						<button type="button" class="button button-primary" id="berp-recalculate-payroll" data-payroll-id="<?php echo esc_attr( $post_id ); ?>">
-							<?php esc_html_e( 'Recalculate', 'aic_builderp' ); ?>
+							<?php esc_html_e( 'Recalculate', 'builderp' ); ?>
 						</button>
 						<span class="spinner" style="float: none; margin-top: 0;"></span>
-						<p class="description"><?php esc_html_e( 'Click to recalculate payroll using current employee and month', 'aic_builderp' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Click to recalculate payroll using current employee and month', 'builderp' ); ?></p>
 					</td>
 				</tr>
 			</tbody>
@@ -289,24 +289,24 @@ class BERP_Payroll_Metaboxes {
 			<tbody>
 				<tr>
 					<th scope="row">
-						<label for="berp_basic_salary"><?php esc_html_e( 'Basic Salary', 'aic_builderp' ); ?></label>
+						<label for="berp_basic_salary"><?php esc_html_e( 'Basic Salary', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<input type="number" name="berp_payroll[basic_salary]" id="berp_basic_salary" value="<?php echo esc_attr( $basic_salary ); ?>" step="0.01" class="regular-text" <?php echo esc_attr( $readonly ); ?>>
-						<p class="description"><?php esc_html_e( 'Monthly basic salary', 'aic_builderp' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Monthly basic salary', 'builderp' ); ?></p>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Allowances', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Allowances', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<?php if ( ! empty( $allowances ) ) : ?>
 							<table class="widefat striped">
 								<thead>
 									<tr>
-										<th><?php esc_html_e( 'Type', 'aic_builderp' ); ?></th>
-										<th><?php esc_html_e( 'Amount', 'aic_builderp' ); ?></th>
+										<th><?php esc_html_e( 'Type', 'builderp' ); ?></th>
+										<th><?php esc_html_e( 'Amount', 'builderp' ); ?></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -317,27 +317,27 @@ class BERP_Payroll_Metaboxes {
 										</tr>
 									<?php endforeach; ?>
 									<tr>
-										<td><strong><?php esc_html_e( 'Total', 'aic_builderp' ); ?></strong></td>
+										<td><strong><?php esc_html_e( 'Total', 'builderp' ); ?></strong></td>
 										<td><strong><?php echo esc_html( berp_format_currency( $total_allowances ) ); ?></strong></td>
 									</tr>
 								</tbody>
 							</table>
 						<?php else : ?>
-							<p><?php esc_html_e( 'No allowances', 'aic_builderp' ); ?></p>
+							<p><?php esc_html_e( 'No allowances', 'builderp' ); ?></p>
 						<?php endif; ?>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Deductions', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Deductions', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<?php if ( ! empty( $deductions ) ) : ?>
 							<table class="widefat striped">
 								<thead>
 									<tr>
-										<th><?php esc_html_e( 'Type', 'aic_builderp' ); ?></th>
-										<th><?php esc_html_e( 'Amount', 'aic_builderp' ); ?></th>
+										<th><?php esc_html_e( 'Type', 'builderp' ); ?></th>
+										<th><?php esc_html_e( 'Amount', 'builderp' ); ?></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -348,42 +348,42 @@ class BERP_Payroll_Metaboxes {
 										</tr>
 									<?php endforeach; ?>
 									<tr>
-										<td><strong><?php esc_html_e( 'Total', 'aic_builderp' ); ?></strong></td>
+										<td><strong><?php esc_html_e( 'Total', 'builderp' ); ?></strong></td>
 										<td><strong><?php echo esc_html( berp_format_currency( $total_deductions ) ); ?></strong></td>
 									</tr>
 								</tbody>
 							</table>
 						<?php else : ?>
-							<p><?php esc_html_e( 'No deductions', 'aic_builderp' ); ?></p>
+							<p><?php esc_html_e( 'No deductions', 'builderp' ); ?></p>
 						<?php endif; ?>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
-						<label for="berp_gross_salary"><?php esc_html_e( 'Gross Salary', 'aic_builderp' ); ?></label>
+						<label for="berp_gross_salary"><?php esc_html_e( 'Gross Salary', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<input type="number" name="berp_payroll[gross_salary]" id="berp_gross_salary" value="<?php echo esc_attr( $gross_salary ); ?>" step="0.01" min="0" class="regular-text berp-salary-field" <?php echo esc_attr( $readonly ); ?>>
 						<p class="description">
 							<?php if ( 'manual' === $calculation_mode ) : ?>
-								<?php esc_html_e( 'Enter gross salary manually', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Enter gross salary manually', 'builderp' ); ?>
 							<?php else : ?>
-								<?php esc_html_e( 'Calculated gross salary (before deductions)', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Calculated gross salary (before deductions)', 'builderp' ); ?>
 							<?php endif; ?>
 						</p>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
-						<label for="berp_net_salary"><?php esc_html_e( 'Net Salary', 'aic_builderp' ); ?></label>
+						<label for="berp_net_salary"><?php esc_html_e( 'Net Salary', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<input type="number" name="berp_payroll[net_salary]" id="berp_net_salary" value="<?php echo esc_attr( $net_salary ); ?>" step="0.01" min="0" class="regular-text berp-salary-field" <?php echo esc_attr( $readonly ); ?>>
 						<p class="description">
 							<?php if ( 'manual' === $calculation_mode ) : ?>
-								<?php esc_html_e( 'Enter net salary manually', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Enter net salary manually', 'builderp' ); ?>
 							<?php else : ?>
-								<?php esc_html_e( 'Calculated net salary (after deductions)', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Calculated net salary (after deductions)', 'builderp' ); ?>
 							<?php endif; ?>
 						</p>
 					</td>
@@ -402,73 +402,73 @@ class BERP_Payroll_Metaboxes {
 			<tbody>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Present Days', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Present Days', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<strong><?php echo esc_html( $present_days ); ?></strong>
-						<p class="description"><?php esc_html_e( 'Working days attended (excluding weekends and holidays)', 'aic_builderp' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Working days attended (excluding weekends and holidays)', 'builderp' ); ?></p>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Paid Weekend Days', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Paid Weekend Days', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<strong><?php echo esc_html( $paid_weekends ); ?></strong>
-						<p class="description"><?php esc_html_e( 'Weekend days counted as paid (based on neighboring attendance)', 'aic_builderp' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Weekend days counted as paid (based on neighboring attendance)', 'builderp' ); ?></p>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Holidays', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Holidays', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<strong><?php echo esc_html( $holidays ); ?></strong>
-						<p class="description"><?php esc_html_e( 'Public holidays during this month', 'aic_builderp' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Public holidays during this month', 'builderp' ); ?></p>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Total Paid Days', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Total Paid Days', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<strong><?php echo esc_html( $total_paid_days ); ?></strong>
-						<p class="description"><?php esc_html_e( 'Total days to be paid for (present + paid weekends + holidays)', 'aic_builderp' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Total days to be paid for (present + paid weekends + holidays)', 'builderp' ); ?></p>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Overtime Hours', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Overtime Hours', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<strong><?php echo esc_html( $overtime_hours ); ?></strong>
-						<p class="description"><?php esc_html_e( 'Total overtime hours logged', 'aic_builderp' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Total overtime hours logged', 'builderp' ); ?></p>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Overtime Amount', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Overtime Amount', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<strong><?php echo esc_html( berp_format_currency( $overtime_amount ) ); ?></strong>
-						<p class="description"><?php esc_html_e( 'Calculated overtime payment', 'aic_builderp' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Calculated overtime payment', 'builderp' ); ?></p>
 					</td>
 				</tr>
 				<?php if ( ! empty( $attendance_details ) ) : ?>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Attendance Details', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Attendance Details', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<details>
-							<summary><?php esc_html_e( 'View detailed attendance breakdown', 'aic_builderp' ); ?></summary>
+							<summary><?php esc_html_e( 'View detailed attendance breakdown', 'builderp' ); ?></summary>
 							<table class="widefat striped">
 								<thead>
 									<tr>
-										<th><?php esc_html_e( 'Date', 'aic_builderp' ); ?></th>
-										<th><?php esc_html_e( 'Site', 'aic_builderp' ); ?></th>
-										<th><?php esc_html_e( 'OT Hours', 'aic_builderp' ); ?></th>
-										<th><?php esc_html_e( 'Type', 'aic_builderp' ); ?></th>
+										<th><?php esc_html_e( 'Date', 'builderp' ); ?></th>
+										<th><?php esc_html_e( 'Site', 'builderp' ); ?></th>
+										<th><?php esc_html_e( 'OT Hours', 'builderp' ); ?></th>
+										<th><?php esc_html_e( 'Type', 'builderp' ); ?></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -488,14 +488,14 @@ class BERP_Payroll_Metaboxes {
 											<td>
 												<?php
 												if ( ! empty( $detail->is_holiday ) ) {
-													echo esc_html__( 'Holiday', 'aic_builderp' );
+													echo esc_html__( 'Holiday', 'builderp' );
 												} elseif ( ! empty( $detail->is_weekend ) ) {
-													echo esc_html__( 'Weekend', 'aic_builderp' );
+													echo esc_html__( 'Weekend', 'builderp' );
 													if ( ! empty( $detail->weekend_payable ) ) {
-														echo ' (' . esc_html__( 'Paid', 'aic_builderp' ) . ')';
+														echo ' (' . esc_html__( 'Paid', 'builderp' ) . ')';
 													}
 												} else {
-													echo esc_html__( 'Regular', 'aic_builderp' );
+													echo esc_html__( 'Regular', 'builderp' );
 												}
 												?>
 											</td>
@@ -521,29 +521,29 @@ class BERP_Payroll_Metaboxes {
 			<tbody>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Payment Status', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Payment Status', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<fieldset>
 							<label>
 								<input type="radio" name="berp_payroll[status]" value="pending" <?php checked( $status, 'pending' ); ?>>
-								<?php esc_html_e( 'Pending', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Pending', 'builderp' ); ?>
 							</label>
 							<br>
 							<label>
 								<input type="radio" name="berp_payroll[status]" value="paid" <?php checked( $status, 'paid' ); ?> <?php disabled( 'paid', $status ); ?>>
-								<?php esc_html_e( 'Paid', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Paid', 'builderp' ); ?>
 							</label>
 						</fieldset>
 						<?php if ( 'paid' === $status ) : ?>
-							<p class="description" style="color: green;"><?php esc_html_e( 'This payroll has been marked as paid', 'aic_builderp' ); ?></p>
+							<p class="description" style="color: green;"><?php esc_html_e( 'This payroll has been marked as paid', 'builderp' ); ?></p>
 						<?php endif; ?>
 					</td>
 				</tr>
 				<?php if ( 'paid' === $status && ! empty( $paid_date ) ) : ?>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Date Paid', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Date Paid', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<strong><?php echo esc_html( berp_format_date( $paid_date ) ); ?></strong>
@@ -553,11 +553,14 @@ class BERP_Payroll_Metaboxes {
 				<?php if ( ! empty( $expense_id ) ) : ?>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Linked Expense', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Linked Expense', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<a href="<?php echo esc_url( get_edit_post_link( $expense_id ) ); ?>" target="_blank">
-							<?php printf( esc_html__( 'View Expense #%d', 'aic_builderp' ), $expense_id ); ?>
+							<?php
+							/* translators: %d: expense ID */
+							echo esc_html( sprintf( __( 'View Expense #%d', 'builderp' ), (int) $expense_id ) );
+							?>
 						</a>
 					</td>
 				</tr>
@@ -567,10 +570,10 @@ class BERP_Payroll_Metaboxes {
 					<td>
 						<?php if ( 'pending' === $status && $post_id > 0 && 'auto-draft' !== get_post_status( $post_id ) ) : ?>
 							<button type="button" class="button button-primary" id="berp-mark-paid" data-payroll-id="<?php echo esc_attr( $post_id ); ?>">
-								<?php esc_html_e( 'Mark as Paid', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Mark as Paid', 'builderp' ); ?>
 							</button>
 							<span class="spinner" style="float: none; margin-top: 0;"></span>
-							<p class="description"><?php esc_html_e( 'Create expense record and update employee balance', 'aic_builderp' ); ?></p>
+							<p class="description"><?php esc_html_e( 'Create expense record and update employee balance', 'builderp' ); ?></p>
 						<?php endif; ?>
 					</td>
 				</tr>
@@ -579,18 +582,19 @@ class BERP_Payroll_Metaboxes {
 					<td>
 						<?php if ( $post_id > 0 && 'auto-draft' !== get_post_status( $post_id ) ) : ?>
 							<button type="button" class="button" id="berp-view-salary-slip" data-payroll-id="<?php echo esc_attr( $post_id ); ?>">
-								<?php esc_html_e( 'View Salary Slip (PDF)', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'View Salary Slip (PDF)', 'builderp' ); ?>
 							</button>
 							<button type="button" class="button" id="berp-email-salary-slip" data-payroll-id="<?php echo esc_attr( $post_id ); ?>">
-								<?php esc_html_e( 'Email Salary Slip', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Email Salary Slip', 'builderp' ); ?>
 							</button>
 							<span class="spinner" style="float: none; margin-top: 0;"></span>
 						<?php endif; ?>
 						<?php if ( ! empty( $email_sent ) ) : ?>
 							<p class="description" style="color: green;">
 								<?php
+								/* translators: 1: email sent date, 2: recipient email */
 								printf(
-									esc_html__( 'Last emailed on %1$s to %2$s', 'aic_builderp' ),
+									esc_html__( 'Last emailed on %1$s to %2$s', 'builderp' ),
 									esc_html( berp_format_date( $email_sent ) ),
 									esc_html( $email_sent_to )
 								);
@@ -614,28 +618,28 @@ class BERP_Payroll_Metaboxes {
 			<tbody>
 				<tr>
 					<th scope="row">
-						<label><?php esc_html_e( 'Formula Used', 'aic_builderp' ); ?></label>
+						<label><?php esc_html_e( 'Formula Used', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<?php if ( $formula_data ) : ?>
 							<textarea readonly class="large-text code" rows="3"><?php echo esc_textarea( $formula_data['formula'] ?? '' ); ?></textarea>
-							<p class="description"><?php esc_html_e( 'Salary formula used for this calculation', 'aic_builderp' ); ?></p>
+							<p class="description"><?php esc_html_e( 'Salary formula used for this calculation', 'builderp' ); ?></p>
 							<details>
-								<summary><?php esc_html_e( 'View formula variables', 'aic_builderp' ); ?></summary>
+								<summary><?php esc_html_e( 'View formula variables', 'builderp' ); ?></summary>
 								<pre><?php echo esc_html( wp_json_encode( $formula_data['variables'] ?? array(), JSON_PRETTY_PRINT ) ); ?></pre>
 							</details>
 						<?php else : ?>
-							<p><?php esc_html_e( 'No formula data available', 'aic_builderp' ); ?></p>
+							<p><?php esc_html_e( 'No formula data available', 'builderp' ); ?></p>
 						<?php endif; ?>
 					</td>
 				</tr>
 				<tr>
 					<th scope="row">
-						<label for="berp_payroll_notes"><?php esc_html_e( 'Admin Notes', 'aic_builderp' ); ?></label>
+						<label for="berp_payroll_notes"><?php esc_html_e( 'Admin Notes', 'builderp' ); ?></label>
 					</th>
 					<td>
 						<textarea name="berp_payroll[notes]" id="berp_payroll_notes" class="large-text" rows="4"><?php echo esc_textarea( $notes ); ?></textarea>
-						<p class="description"><?php esc_html_e( 'Internal notes about this payroll entry', 'aic_builderp' ); ?></p>
+						<p class="description"><?php esc_html_e( 'Internal notes about this payroll entry', 'builderp' ); ?></p>
 					</td>
 				</tr>
 			</tbody>
@@ -676,7 +680,7 @@ class BERP_Payroll_Metaboxes {
 
 		// Validate required fields
 		if ( empty( $employee_id ) || empty( $month ) ) {
-			$this->add_notice( 'error', __( 'Employee and month are required', 'aic_builderp' ) );
+			$this->add_notice( 'error', __( 'Employee and month are required', 'builderp' ) );
 			return;
 		}
 
@@ -703,7 +707,7 @@ class BERP_Payroll_Metaboxes {
 				}
 			}
 
-			$this->add_notice( 'success', __( 'Payroll calculated successfully', 'aic_builderp' ) );
+			$this->add_notice( 'success', __( 'Payroll calculated successfully', 'builderp' ) );
 
 			// Update post title - PREVENT RECURSION by unhooking save handler
 			$employee_name = get_the_title( $employee_id );
@@ -736,7 +740,7 @@ class BERP_Payroll_Metaboxes {
 			update_post_meta( $post_id, $this->meta_keys['gross_salary'], $gross_salary );
 			update_post_meta( $post_id, $this->meta_keys['net_salary'], $net_salary );
 
-			$this->add_notice( 'success', __( 'Payroll saved successfully', 'aic_builderp' ) );
+			$this->add_notice( 'success', __( 'Payroll saved successfully', 'builderp' ) );
 		}
 
 		// Status handling
@@ -816,12 +820,12 @@ class BERP_Payroll_Metaboxes {
 		foreach ( $columns as $key => $label ) {
 			if ( 'title' === $key ) {
 				$new_columns['cb']       = $columns['cb'] ?? '';
-				$new_columns['employee'] = __( 'Employee', 'aic_builderp' );
-				$new_columns['month']    = __( 'Month', 'aic_builderp' );
-				$new_columns['gross']    = __( 'Gross Salary', 'aic_builderp' );
-				$new_columns['net']      = __( 'Net Salary', 'aic_builderp' );
-				$new_columns['status']   = __( 'Status', 'aic_builderp' );
-				$new_columns['date']     = __( 'Date Created', 'aic_builderp' );
+				$new_columns['employee'] = __( 'Employee', 'builderp' );
+				$new_columns['month']    = __( 'Month', 'builderp' );
+				$new_columns['gross']    = __( 'Gross Salary', 'builderp' );
+				$new_columns['net']      = __( 'Net Salary', 'builderp' );
+				$new_columns['status']   = __( 'Status', 'builderp' );
+				$new_columns['date']     = __( 'Date Created', 'builderp' );
 			} elseif ( 'date' !== $key && 'title' !== $key ) {
 				$new_columns[ $key ] = $label;
 			}
@@ -873,9 +877,9 @@ class BERP_Payroll_Metaboxes {
 				$status = ! empty( $status ) ? $status : 'pending';
 
 				if ( 'paid' === $status ) {
-					echo '<span class="berp-badge berp-badge-success">' . esc_html__( 'Paid', 'aic_builderp' ) . '</span>';
+					echo '<span class="berp-badge berp-badge-success">' . esc_html__( 'Paid', 'builderp' ) . '</span>';
 				} else {
-					echo '<span class="berp-badge berp-badge-warning">' . esc_html__( 'Pending', 'aic_builderp' ) . '</span>';
+					echo '<span class="berp-badge berp-badge-warning">' . esc_html__( 'Pending', 'builderp' ) . '</span>';
 				}
 				break;
 		}
@@ -976,7 +980,7 @@ class BERP_Payroll_Metaboxes {
 		$selected = isset( $_GET['berp_month'] ) ? sanitize_text_field( wp_unslash( $_GET['berp_month'] ) ) : '';
 		?>
 		<select name="berp_month">
-			<option value=""><?php esc_html_e( 'All Months', 'aic_builderp' ); ?></option>
+			<option value=""><?php esc_html_e( 'All Months', 'builderp' ); ?></option>
 			<?php foreach ( $months as $month ) : ?>
 				<option value="<?php echo esc_attr( $month ); ?>" <?php selected( $selected, $month ); ?>>
 					<?php echo esc_html( gmdate( 'F Y', strtotime( $month . '-01' ) ) ); ?>
@@ -1007,7 +1011,7 @@ class BERP_Payroll_Metaboxes {
 		$selected = isset( $_GET['berp_employee'] ) ? absint( $_GET['berp_employee'] ) : 0;
 		?>
 		<select name="berp_employee">
-			<option value=""><?php esc_html_e( 'All Employees', 'aic_builderp' ); ?></option>
+			<option value=""><?php esc_html_e( 'All Employees', 'builderp' ); ?></option>
 			<?php foreach ( $employees as $employee ) : ?>
 				<option value="<?php echo esc_attr( $employee->ID ); ?>" <?php selected( $selected, $employee->ID ); ?>>
 					<?php echo esc_html( $employee->post_title ); ?>
@@ -1024,9 +1028,9 @@ class BERP_Payroll_Metaboxes {
 		$selected = isset( $_GET['berp_status'] ) ? sanitize_key( wp_unslash( $_GET['berp_status'] ) ) : '';
 		?>
 		<select name="berp_status">
-			<option value=""><?php esc_html_e( 'All Statuses', 'aic_builderp' ); ?></option>
-			<option value="pending" <?php selected( $selected, 'pending' ); ?>><?php esc_html_e( 'Pending', 'aic_builderp' ); ?></option>
-			<option value="paid" <?php selected( $selected, 'paid' ); ?>><?php esc_html_e( 'Paid', 'aic_builderp' ); ?></option>
+			<option value=""><?php esc_html_e( 'All Statuses', 'builderp' ); ?></option>
+			<option value="pending" <?php selected( $selected, 'pending' ); ?>><?php esc_html_e( 'Pending', 'builderp' ); ?></option>
+			<option value="paid" <?php selected( $selected, 'paid' ); ?>><?php esc_html_e( 'Paid', 'builderp' ); ?></option>
 		</select>
 		<?php
 	}
@@ -1081,3 +1085,4 @@ class BERP_Payroll_Metaboxes {
 		}
 	}
 }
+

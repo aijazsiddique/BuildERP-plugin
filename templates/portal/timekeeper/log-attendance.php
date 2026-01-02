@@ -49,37 +49,37 @@ $employees = get_posts(
 
 <div class="berp-portal-card">
 	<div class="berp-card-header">
-		<h3><?php esc_html_e( 'Log Daily Attendance', 'aic_builderp' ); ?></h3>
+		<h3><?php esc_html_e( 'Log Daily Attendance', 'builderp' ); ?></h3>
 	</div>
 	<div class="berp-card-body">
 		<form id="berp-portal-attendance-form" class="berp-portal-form">
 			<div class="berp-form-row">
 				<div class="berp-form-group berp-col-4">
-					<label for="attendance_date"><?php esc_html_e( 'Date', 'aic_builderp' ); ?></label>
-					<input type="date" id="attendance_date" name="date" class="berp-form-control" value="<?php echo esc_attr( date( 'Y-m-d' ) ); ?>" required>
+					<label for="attendance_date"><?php esc_html_e( 'Date', 'builderp' ); ?></label>
+					<input type="date" id="attendance_date" name="date" class="berp-form-control" value="<?php echo esc_attr( gmdate( 'Y-m-d' ) ); ?>" required>
 				</div>
 				<div class="berp-form-group berp-col-4">
-					<label for="site_id"><?php esc_html_e( 'Site / Project', 'aic_builderp' ); ?></label>
+					<label for="site_id"><?php esc_html_e( 'Site / Project', 'builderp' ); ?></label>
 					<select id="site_id" name="site_id" class="berp-form-control" required>
-						<option value=""><?php esc_html_e( 'Select Site', 'aic_builderp' ); ?></option>
+						<option value=""><?php esc_html_e( 'Select Site', 'builderp' ); ?></option>
 						<?php foreach ( $sites as $site ) : ?>
 							<option value="<?php echo esc_attr( $site->ID ); ?>"><?php echo esc_html( $site->post_title ); ?></option>
 						<?php endforeach; ?>
 					</select>
 				</div>
 				<div class="berp-form-group berp-col-4">
-					<label for="default_overtime"><?php esc_html_e( 'Default Overtime (Hrs)', 'aic_builderp' ); ?></label>
+					<label for="default_overtime"><?php esc_html_e( 'Default Overtime (Hrs)', 'builderp' ); ?></label>
 					<input type="number" id="default_overtime" name="default_overtime" class="berp-form-control" value="0" min="0" step="0.5">
 				</div>
 			</div>
 
 			<div class="berp-attendance-list-header">
 				<div class="berp-search-box">
-					<input type="text" id="employee_search" class="berp-form-control" placeholder="<?php esc_attr_e( 'Search employees...', 'aic_builderp' ); ?>">
+					<input type="text" id="employee_search" class="berp-form-control" placeholder="<?php esc_attr_e( 'Search employees...', 'builderp' ); ?>">
 				</div>
 				<div class="berp-actions">
-					<button type="button" id="select_all" class="berp-btn berp-btn-sm berp-btn-outline"><?php esc_html_e( 'Select All', 'aic_builderp' ); ?></button>
-					<button type="button" id="deselect_all" class="berp-btn berp-btn-sm berp-btn-outline"><?php esc_html_e( 'Deselect All', 'aic_builderp' ); ?></button>
+					<button type="button" id="select_all" class="berp-btn berp-btn-sm berp-btn-outline"><?php esc_html_e( 'Select All', 'builderp' ); ?></button>
+					<button type="button" id="deselect_all" class="berp-btn berp-btn-sm berp-btn-outline"><?php esc_html_e( 'Deselect All', 'builderp' ); ?></button>
 				</div>
 			</div>
 
@@ -88,9 +88,9 @@ $employees = get_posts(
 					<thead>
 						<tr>
 							<th width="50"><input type="checkbox" id="check_all_toggle"></th>
-							<th><?php esc_html_e( 'Employee', 'aic_builderp' ); ?></th>
-							<th width="150"><?php esc_html_e( 'Overtime', 'aic_builderp' ); ?></th>
-							<th width="100"><?php esc_html_e( 'Status', 'aic_builderp' ); ?></th>
+							<th><?php esc_html_e( 'Employee', 'builderp' ); ?></th>
+							<th width="150"><?php esc_html_e( 'Overtime', 'builderp' ); ?></th>
+							<th width="100"><?php esc_html_e( 'Status', 'builderp' ); ?></th>
 						</tr>
 					</thead>
 					<tbody id="employee_list_body">
@@ -117,12 +117,14 @@ $employees = get_posts(
 
 			<div class="berp-form-footer sticky-footer">
 				<div class="berp-counter">
-					<span id="selected_count"><?php echo count( $employees ); ?></span> <?php esc_html_e( 'employees selected', 'aic_builderp' ); ?>
+					<span id="selected_count"><?php echo count( $employees ); ?></span> <?php esc_html_e( 'employees selected', 'builderp' ); ?>
 				</div>
 				<button type="submit" class="berp-btn berp-btn-primary" id="submit_attendance">
-					<?php esc_html_e( 'Submit Attendance', 'aic_builderp' ); ?>
+					<?php esc_html_e( 'Submit Attendance', 'builderp' ); ?>
 				</button>
 			</div>
 		</form>
 	</div>
 </div>
+
+

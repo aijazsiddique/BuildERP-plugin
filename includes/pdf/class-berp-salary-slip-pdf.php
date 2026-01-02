@@ -47,7 +47,8 @@ class BERP_Salary_Slip_PDF {
 			$data['month']
 		);
 
-		$mpdf->SetTitle( sprintf( __( 'Salary Slip - %s', 'aic_builderp' ), $data['month_name'] ) );
+		/* translators: %s: payroll month */
+		$mpdf->SetTitle( sprintf( __( 'Salary Slip - %s', 'builderp' ), $data['month_name'] ) );
 		$mpdf->WriteHTML( $this->get_styles() );
 		$mpdf->WriteHTML( $this->build_html( $data ) );
 
@@ -83,7 +84,7 @@ class BERP_Salary_Slip_PDF {
 		if ( ! $payroll || 'berp_payroll' !== $payroll->post_type ) {
 			return new WP_Error(
 				'berp_invalid_payroll',
-				__( 'Invalid payroll record.', 'aic_builderp' )
+				__( 'Invalid payroll record.', 'builderp' )
 			);
 		}
 
@@ -91,7 +92,7 @@ class BERP_Salary_Slip_PDF {
 		if ( empty( $employee_id ) ) {
 			return new WP_Error(
 				'berp_payroll_missing_employee',
-				__( 'Employee not found for this payroll.', 'aic_builderp' )
+				__( 'Employee not found for this payroll.', 'builderp' )
 			);
 		}
 
@@ -174,7 +175,7 @@ class BERP_Salary_Slip_PDF {
 						</div>
 					</td>
 					<td class="slip-title">
-						<h2><?php esc_html_e( 'SALARY SLIP', 'aic_builderp' ); ?></h2>
+						<h2><?php esc_html_e( 'SALARY SLIP', 'builderp' ); ?></h2>
 						<div class="period"><?php echo esc_html( $data['month_name'] ); ?></div>
 					</td>
 				</tr>
@@ -184,35 +185,35 @@ class BERP_Salary_Slip_PDF {
 			<table class="info-table">
 				<tr>
 					<td width="50%" class="info-box">
-						<h3><?php esc_html_e( 'Employee Details', 'aic_builderp' ); ?></h3>
+						<h3><?php esc_html_e( 'Employee Details', 'builderp' ); ?></h3>
 						<table class="details-table">
 							<tr>
-								<th><?php esc_html_e( 'Name', 'aic_builderp' ); ?>:</th>
+								<th><?php esc_html_e( 'Name', 'builderp' ); ?>:</th>
 								<td><?php echo esc_html( $data['employee_name'] ); ?></td>
 							</tr>
 							<tr>
-								<th><?php esc_html_e( 'ID', 'aic_builderp' ); ?>:</th>
+								<th><?php esc_html_e( 'ID', 'builderp' ); ?>:</th>
 								<td><?php echo esc_html( $data['employee_code'] ? $data['employee_code'] : '-' ); ?></td>
 							</tr>
 							<tr>
-								<th><?php esc_html_e( 'Designation', 'aic_builderp' ); ?>:</th>
+								<th><?php esc_html_e( 'Designation', 'builderp' ); ?>:</th>
 								<td><?php echo esc_html( $data['designation'] ?? '-' ); ?></td>
 							</tr>
 						</table>
 					</td>
 					<td width="50%" class="info-box">
-						<h3><?php esc_html_e( 'Payment Details', 'aic_builderp' ); ?></h3>
+						<h3><?php esc_html_e( 'Payment Details', 'builderp' ); ?></h3>
 						<table class="details-table">
 							<tr>
-								<th><?php esc_html_e( 'Pay Period', 'aic_builderp' ); ?>:</th>
+								<th><?php esc_html_e( 'Pay Period', 'builderp' ); ?>:</th>
 								<td><?php echo esc_html( $data['month_name'] ); ?></td>
 							</tr>
 							<tr>
-								<th><?php esc_html_e( 'Paid Date', 'aic_builderp' ); ?>:</th>
-								<td><?php echo esc_html( ! empty( $data['paid_date'] ) ? berp_format_date( $data['paid_date'] ) : __( 'Pending', 'aic_builderp' ) ); ?></td>
+								<th><?php esc_html_e( 'Paid Date', 'builderp' ); ?>:</th>
+								<td><?php echo esc_html( ! empty( $data['paid_date'] ) ? berp_format_date( $data['paid_date'] ) : __( 'Pending', 'builderp' ) ); ?></td>
 							</tr>
 							<tr>
-								<th><?php esc_html_e( 'Total Paid Days', 'aic_builderp' ); ?>:</th>
+								<th><?php esc_html_e( 'Total Paid Days', 'builderp' ); ?>:</th>
 								<td><?php echo esc_html( $data['total_paid_days'] ); ?></td>
 							</tr>
 						</table>
@@ -221,15 +222,15 @@ class BERP_Salary_Slip_PDF {
 			</table>
 
 			<!-- Attendance Summary -->
-			<div class="section-title"><?php esc_html_e( 'Attendance Summary', 'aic_builderp' ); ?></div>
+			<div class="section-title"><?php esc_html_e( 'Attendance Summary', 'builderp' ); ?></div>
 			<table class="attendance-table">
 				<thead>
 					<tr>
-						<th><?php esc_html_e( 'Present', 'aic_builderp' ); ?></th>
-						<th><?php esc_html_e( 'Weekends', 'aic_builderp' ); ?></th>
-						<th><?php esc_html_e( 'Holidays', 'aic_builderp' ); ?></th>
-						<th><?php esc_html_e( 'Total Days', 'aic_builderp' ); ?></th>
-						<th><?php esc_html_e( 'Overtime (Hrs)', 'aic_builderp' ); ?></th>
+						<th><?php esc_html_e( 'Present', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Weekends', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Holidays', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Total Days', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Overtime (Hrs)', 'builderp' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -247,39 +248,39 @@ class BERP_Salary_Slip_PDF {
 			<table class="financials-table">
 				<tr>
 					<td class="earnings-col">
-						<div class="col-header"><?php esc_html_e( 'Earnings', 'aic_builderp' ); ?></div>
+						<div class="col-header"><?php esc_html_e( 'Earnings', 'builderp' ); ?></div>
 						<table class="line-items">
 							<tr>
-								<td><?php esc_html_e( 'Basic Salary', 'aic_builderp' ); ?></td>
+								<td><?php esc_html_e( 'Basic Salary', 'builderp' ); ?></td>
 								<td class="amount"><?php echo esc_html( berp_format_currency( $data['basic_salary'] ) ); ?></td>
 							</tr>
 							<?php foreach ( $data['allowances'] as $allowance ) : ?>
 								<tr>
-									<td><?php echo esc_html( $allowance['label'] ?? __( 'Allowance', 'aic_builderp' ) ); ?></td>
+									<td><?php echo esc_html( $allowance['label'] ?? __( 'Allowance', 'builderp' ) ); ?></td>
 									<td class="amount"><?php echo esc_html( berp_format_currency( $allowance['amount'] ?? 0 ) ); ?></td>
 								</tr>
 							<?php endforeach; ?>
 							<?php if ( $data['overtime_amount'] > 0 ) : ?>
 							<tr>
-								<td><?php esc_html_e( 'Overtime', 'aic_builderp' ); ?></td>
+								<td><?php esc_html_e( 'Overtime', 'builderp' ); ?></td>
 								<td class="amount"><?php echo esc_html( berp_format_currency( $data['overtime_amount'] ) ); ?></td>
 							</tr>
 							<?php endif; ?>
 						</table>
 					</td>
 					<td class="deductions-col">
-						<div class="col-header"><?php esc_html_e( 'Deductions', 'aic_builderp' ); ?></div>
+						<div class="col-header"><?php esc_html_e( 'Deductions', 'builderp' ); ?></div>
 						<table class="line-items">
 							<?php if ( ! empty( $data['deductions'] ) ) : ?>
 								<?php foreach ( $data['deductions'] as $deduction ) : ?>
 									<tr>
-										<td><?php echo esc_html( $deduction['label'] ?? __( 'Deduction', 'aic_builderp' ) ); ?></td>
+										<td><?php echo esc_html( $deduction['label'] ?? __( 'Deduction', 'builderp' ) ); ?></td>
 										<td class="amount"><?php echo esc_html( berp_format_currency( $deduction['amount'] ?? 0 ) ); ?></td>
 									</tr>
 								<?php endforeach; ?>
 							<?php else : ?>
 								<tr>
-									<td colspan="2" class="empty-message"><?php esc_html_e( 'No deductions', 'aic_builderp' ); ?></td>
+									<td colspan="2" class="empty-message"><?php esc_html_e( 'No deductions', 'builderp' ); ?></td>
 								</tr>
 							<?php endif; ?>
 						</table>
@@ -287,11 +288,11 @@ class BERP_Salary_Slip_PDF {
 				</tr>
 				<tr class="totals-row">
 					<td class="earnings-total">
-						<span><?php esc_html_e( 'Total Earnings', 'aic_builderp' ); ?></span>
+						<span><?php esc_html_e( 'Total Earnings', 'builderp' ); ?></span>
 						<span class="amount"><?php echo esc_html( berp_format_currency( $data['gross_salary'] ) ); ?></span>
 					</td>
 					<td class="deductions-total">
-						<span><?php esc_html_e( 'Total Deductions', 'aic_builderp' ); ?></span>
+						<span><?php esc_html_e( 'Total Deductions', 'builderp' ); ?></span>
 						<span class="amount"><?php echo esc_html( berp_format_currency( $data['total_deductions'] ) ); ?></span>
 					</td>
 				</tr>
@@ -299,7 +300,7 @@ class BERP_Salary_Slip_PDF {
 
 			<!-- Net Pay -->
 			<div class="net-pay-section">
-				<div class="net-pay-label"><?php esc_html_e( 'Net Salary Payable', 'aic_builderp' ); ?></div>
+				<div class="net-pay-label"><?php esc_html_e( 'Net Salary Payable', 'builderp' ); ?></div>
 				<div class="net-pay-amount"><?php echo esc_html( berp_format_currency( $data['net_salary'] ) ); ?></div>
 			</div>
 
@@ -308,17 +309,20 @@ class BERP_Salary_Slip_PDF {
 				<tr>
 					<td>
 						<div class="signature-line"></div>
-						<?php esc_html_e( 'Employee Signature', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Employee Signature', 'builderp' ); ?>
 					</td>
 					<td>
 						<div class="signature-line"></div>
-						<?php esc_html_e( 'Employer Signature', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Employer Signature', 'builderp' ); ?>
 					</td>
 				</tr>
 			</table>
 			
 			<div class="footer-note">
-				<?php printf( esc_html__( 'Generated on %s', 'aic_builderp' ), date_i18n( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ) ); ?>
+				<?php
+				/* translators: %s: generated date */
+				printf( esc_html__( 'Generated on %s', 'builderp' ), esc_html( date_i18n( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ) ) );
+				?>
 			</div>
 		</div>
 		<?php
@@ -424,7 +428,7 @@ class BERP_Salary_Slip_PDF {
 		if ( ! class_exists( '\Mpdf\Mpdf' ) ) {
 			return new WP_Error(
 				'berp_mpdf_missing',
-				__( 'PDF library is not available. Please install mpdf/mpdf via Composer.', 'aic_builderp' )
+				__( 'PDF library is not available. Please install mpdf/mpdf via Composer.', 'builderp' )
 			);
 		}
 
@@ -443,7 +447,7 @@ class BERP_Salary_Slip_PDF {
 				'berp_mpdf_error',
 				sprintf(
 					/* translators: %s: error message */
-					__( 'Unable to initialize PDF generator: %s', 'aic_builderp' ),
+					__( 'Unable to initialize PDF generator: %s', 'builderp' ),
 					$e->getMessage()
 				)
 			);
@@ -478,7 +482,7 @@ class BERP_Salary_Slip_PDF {
 				'berp_upload_error',
 				sprintf(
 					/* translators: %s: upload error message */
-					__( 'Upload directory error: %s', 'aic_builderp' ),
+					__( 'Upload directory error: %s', 'builderp' ),
 					$uploads['error']
 				)
 			);
@@ -489,11 +493,12 @@ class BERP_Salary_Slip_PDF {
 		if ( ! wp_mkdir_p( $path ) ) {
 			return new WP_Error(
 				'berp_upload_permission',
-				__( 'Unable to create salary slip directory.', 'aic_builderp' )
+				__( 'Unable to create salary slip directory.', 'builderp' )
 			);
 		}
 
 		return $path;
 	}
 }
+
 

@@ -79,7 +79,7 @@ class BERP_Quotation_PDF {
 				return $this->mpdf->Output( $filename, \Mpdf\Output\Destination::STRING_RETURN );
 
 			default:
-				return new WP_Error( 'invalid_output_mode', __( 'Invalid PDF output mode', 'aic_builderp' ) );
+				return new WP_Error( 'invalid_output_mode', __( 'Invalid PDF output mode', 'builderp' ) );
 		}
 	}
 
@@ -94,7 +94,7 @@ class BERP_Quotation_PDF {
 		$post = berp_get_quotation( $quotation_id );
 
 		if ( ! $post ) {
-			return new WP_Error( 'invalid_quotation', __( 'Invalid quotation ID', 'aic_builderp' ) );
+			return new WP_Error( 'invalid_quotation', __( 'Invalid quotation ID', 'builderp' ) );
 		}
 
 		// Get all meta data.
@@ -168,26 +168,26 @@ class BERP_Quotation_PDF {
 						<div class="company-details">
 							<?php echo nl2br( esc_html( $data['company_address'] ) ); ?><br>
 							<?php if ( ! empty( $data['company_phone'] ) ) : ?>
-								<?php echo esc_html__( 'Phone:', 'aic_builderp' ); ?> <?php echo esc_html( $data['company_phone'] ); ?><br>
+								<?php echo esc_html__( 'Phone:', 'builderp' ); ?> <?php echo esc_html( $data['company_phone'] ); ?><br>
 							<?php endif; ?>
 							<?php if ( ! empty( $data['company_email'] ) ) : ?>
-								<?php echo esc_html__( 'Email:', 'aic_builderp' ); ?> <?php echo esc_html( $data['company_email'] ); ?>
+								<?php echo esc_html__( 'Email:', 'builderp' ); ?> <?php echo esc_html( $data['company_email'] ); ?>
 							<?php endif; ?>
 						</div>
 					</td>
 					<td class="quotation-meta">
-						<h1 class="doc-title"><?php echo esc_html__( 'QUOTATION', 'aic_builderp' ); ?></h1>
+						<h1 class="doc-title"><?php echo esc_html__( 'QUOTATION', 'builderp' ); ?></h1>
 						<table class="meta-table">
 							<tr>
-								<th><?php echo esc_html__( 'Quotation #:', 'aic_builderp' ); ?></th>
+								<th><?php echo esc_html__( 'Quotation #:', 'builderp' ); ?></th>
 								<td><?php echo esc_html( $data['quotation_number'] ); ?></td>
 							</tr>
 							<tr>
-								<th><?php echo esc_html__( 'Date:', 'aic_builderp' ); ?></th>
+								<th><?php echo esc_html__( 'Date:', 'builderp' ); ?></th>
 								<td><?php echo esc_html( gmdate( 'd M Y', strtotime( $data['quotation_date'] ) ) ); ?></td>
 							</tr>
 							<tr>
-								<th><?php echo esc_html__( 'Valid Until:', 'aic_builderp' ); ?></th>
+								<th><?php echo esc_html__( 'Valid Until:', 'builderp' ); ?></th>
 								<td><?php echo esc_html( gmdate( 'd M Y', strtotime( $data['validity_date'] ) ) ); ?></td>
 							</tr>
 						</table>
@@ -197,11 +197,11 @@ class BERP_Quotation_PDF {
 
 			<!-- Client Info -->
 			<div class="client-section">
-				<div class="section-label"><?php echo esc_html__( 'Quotation For:', 'aic_builderp' ); ?></div>
+				<div class="section-label"><?php echo esc_html__( 'Quotation For:', 'builderp' ); ?></div>
 				<div class="client-details">
 					<strong><?php echo esc_html( $data['client_company'] ); ?></strong><br>
 					<?php if ( ! empty( $data['client_name'] ) ) : ?>
-						<?php echo esc_html__( 'Attn:', 'aic_builderp' ); ?> <?php echo esc_html( $data['client_name'] ); ?><br>
+						<?php echo esc_html__( 'Attn:', 'builderp' ); ?> <?php echo esc_html( $data['client_name'] ); ?><br>
 					<?php endif; ?>
 					<?php echo nl2br( esc_html( $data['client_address'] ) ); ?><br>
 					<?php if ( ! empty( $data['client_phone'] ) ) : ?>
@@ -217,10 +217,10 @@ class BERP_Quotation_PDF {
 			<table class="items-table">
 				<thead>
 					<tr>
-						<th class="col-desc"><?php echo esc_html__( 'Description', 'aic_builderp' ); ?></th>
-						<th class="col-qty"><?php echo esc_html__( 'Qty', 'aic_builderp' ); ?></th>
-						<th class="col-rate"><?php echo esc_html__( 'Rate', 'aic_builderp' ); ?></th>
-						<th class="col-amount"><?php echo esc_html__( 'Amount', 'aic_builderp' ); ?></th>
+						<th class="col-desc"><?php echo esc_html__( 'Description', 'builderp' ); ?></th>
+						<th class="col-qty"><?php echo esc_html__( 'Qty', 'builderp' ); ?></th>
+						<th class="col-rate"><?php echo esc_html__( 'Rate', 'builderp' ); ?></th>
+						<th class="col-amount"><?php echo esc_html__( 'Amount', 'builderp' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -244,21 +244,21 @@ class BERP_Quotation_PDF {
 			<!-- Totals -->
 			<table class="totals-table">
 				<tr>
-					<td class="label"><?php echo esc_html__( 'Subtotal', 'aic_builderp' ); ?></td>
+					<td class="label"><?php echo esc_html__( 'Subtotal', 'builderp' ); ?></td>
 					<td class="value"><?php echo esc_html( berp_get_currency_symbol() . number_format( $data['subtotal'], 2 ) ); ?></td>
 				</tr>
 				<?php if ( $data['discount_amount'] > 0 ) : ?>
 				<tr>
-					<td class="label"><?php echo esc_html__( 'Discount', 'aic_builderp' ); ?></td>
+					<td class="label"><?php echo esc_html__( 'Discount', 'builderp' ); ?></td>
 					<td class="value text-danger">-<?php echo esc_html( berp_get_currency_symbol() . number_format( $data['discount_amount'], 2 ) ); ?></td>
 				</tr>
 				<?php endif; ?>
 				<tr>
-					<td class="label"><?php echo esc_html__( 'Tax', 'aic_builderp' ); ?> (<?php echo esc_html( $data['tax_rate'] ); ?>%)</td>
+					<td class="label"><?php echo esc_html__( 'Tax', 'builderp' ); ?> (<?php echo esc_html( $data['tax_rate'] ); ?>%)</td>
 					<td class="value"><?php echo esc_html( berp_get_currency_symbol() . number_format( $data['tax_amount'], 2 ) ); ?></td>
 				</tr>
 				<tr class="grand-total">
-					<td class="label"><?php echo esc_html__( 'Total', 'aic_builderp' ); ?></td>
+					<td class="label"><?php echo esc_html__( 'Total', 'builderp' ); ?></td>
 					<td class="value"><?php echo esc_html( berp_get_currency_symbol() . number_format( $data['grand_total'], 2 ) ); ?></td>
 				</tr>
 			</table>
@@ -269,21 +269,21 @@ class BERP_Quotation_PDF {
 			<div class="footer-content">
 				<?php if ( ! empty( $data['notes'] ) ) : ?>
 				<div class="notes-section">
-					<h3><?php echo esc_html__( 'Notes', 'aic_builderp' ); ?></h3>
+					<h3><?php echo esc_html__( 'Notes', 'builderp' ); ?></h3>
 					<div class="content"><?php echo nl2br( esc_html( $data['notes'] ) ); ?></div>
 				</div>
 				<?php endif; ?>
 
 				<?php if ( ! empty( $data['payment_terms'] ) ) : ?>
 				<div class="terms-section">
-					<h3><?php echo esc_html__( 'Payment Terms', 'aic_builderp' ); ?></h3>
+					<h3><?php echo esc_html__( 'Payment Terms', 'builderp' ); ?></h3>
 					<div class="content"><?php echo nl2br( esc_html( $data['payment_terms'] ) ); ?></div>
 				</div>
 				<?php endif; ?>
 
 				<?php if ( ! empty( $data['terms_conditions'] ) ) : ?>
 				<div class="terms-section">
-					<h3><?php echo esc_html__( 'Terms & Conditions', 'aic_builderp' ); ?></h3>
+					<h3><?php echo esc_html__( 'Terms & Conditions', 'builderp' ); ?></h3>
 					<div class="content"><?php echo nl2br( esc_html( $data['terms_conditions'] ) ); ?></div>
 				</div>
 				<?php endif; ?>
@@ -294,13 +294,13 @@ class BERP_Quotation_PDF {
 				<tr>
 					<td class="signature-box">
 						<div class="line"></div>
-						<div class="label"><?php echo esc_html__( 'Authorized Signature', 'aic_builderp' ); ?></div>
+						<div class="label"><?php echo esc_html__( 'Authorized Signature', 'builderp' ); ?></div>
 					</td>
 				</tr>
 			</table>
 
 			<div class="page-footer">
-				<?php echo esc_html__( 'Thank you for your business!', 'aic_builderp' ); ?>
+				<?php echo esc_html__( 'Thank you for your business!', 'builderp' ); ?>
 			</div>
 		</div>
 		<?php
@@ -403,3 +403,4 @@ class BERP_Quotation_PDF {
 		);
 	}
 }
+

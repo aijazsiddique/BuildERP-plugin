@@ -43,17 +43,17 @@ $query = new WP_Query( $args );
 
 <div class="berp-portal-card">
 	<div class="berp-card-header">
-		<h3><?php esc_html_e( 'Active Employees', 'aic_builderp' ); ?></h3>
+		<h3><?php esc_html_e( 'Active Employees', 'builderp' ); ?></h3>
 	</div>
 	<div class="berp-card-body">
 		<form method="get" class="berp-filter-form">
 			<input type="hidden" name="view" value="employees">
 			<div class="berp-form-row">
 				<div class="berp-form-group berp-col-8">
-					<input type="text" name="search" class="berp-form-control" value="<?php echo esc_attr( $search ); ?>" placeholder="<?php esc_attr_e( 'Search by name...', 'aic_builderp' ); ?>">
+					<input type="text" name="search" class="berp-form-control" value="<?php echo esc_attr( $search ); ?>" placeholder="<?php esc_attr_e( 'Search by name...', 'builderp' ); ?>">
 				</div>
 				<div class="berp-form-group berp-col-4">
-					<button type="submit" class="berp-btn berp-btn-primary"><?php esc_html_e( 'Search', 'aic_builderp' ); ?></button>
+					<button type="submit" class="berp-btn berp-btn-primary"><?php esc_html_e( 'Search', 'builderp' ); ?></button>
 				</div>
 			</div>
 		</form>
@@ -62,10 +62,10 @@ $query = new WP_Query( $args );
 			<table class="berp-portal-table">
 				<thead>
 					<tr>
-						<th><?php esc_html_e( 'Employee ID', 'aic_builderp' ); ?></th>
-						<th><?php esc_html_e( 'Name', 'aic_builderp' ); ?></th>
-						<th><?php esc_html_e( 'Phone', 'aic_builderp' ); ?></th>
-						<th><?php esc_html_e( 'Status', 'aic_builderp' ); ?></th>
+						<th><?php esc_html_e( 'Employee ID', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Name', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Phone', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Status', 'builderp' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -79,7 +79,7 @@ $query = new WP_Query( $args );
 							<td><?php echo esc_html( $emp_id ); ?></td>
 							<td><?php the_title(); ?></td>
 							<td><?php echo esc_html( $phone ); ?></td>
-							<td><span class="berp-badge berp-badge-success"><?php esc_html_e( 'Active', 'aic_builderp' ); ?></span></td>
+							<td><span class="berp-badge berp-badge-success"><?php esc_html_e( 'Active', 'builderp' ); ?></span></td>
 						</tr>
 					<?php endwhile; ?>
 				</tbody>
@@ -87,18 +87,21 @@ $query = new WP_Query( $args );
 
 			<div class="berp-pagination">
 				<?php
-				echo paginate_links(
+				echo wp_kses_post(
+					paginate_links(
 					array(
 						'total'   => $query->max_num_pages,
 						'current' => $paged,
 						'format'  => '?paged=%#%',
 					)
+					)
 				);
 				?>
 			</div>
 		<?php else : ?>
-			<p><?php esc_html_e( 'No employees found.', 'aic_builderp' ); ?></p>
+			<p><?php esc_html_e( 'No employees found.', 'builderp' ); ?></p>
 		<?php endif; ?>
 		<?php wp_reset_postdata(); ?>
 	</div>
 </div>
+

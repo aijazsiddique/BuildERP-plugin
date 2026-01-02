@@ -24,16 +24,16 @@ class BERP_Tools_Schema_Browser {
 		?>
 		<div class="berp-schema-browser-tool">
 			<div class="berp-tool-header">
-				<h2><?php esc_html_e( 'Schema Browser', 'aic_builderp' ); ?></h2>
+				<h2><?php esc_html_e( 'Schema Browser', 'builderp' ); ?></h2>
 				<p class="description">
-					<?php esc_html_e( 'Browse all meta keys, view usage statistics, and find where each key is used in your codebase.', 'aic_builderp' ); ?>
+					<?php esc_html_e( 'Browse all meta keys, view usage statistics, and find where each key is used in your codebase.', 'builderp' ); ?>
 				</p>
 			</div>
 
 			<div class="berp-browser-search">
-				<input type="text" id="berp-meta-search" class="regular-text" placeholder="<?php esc_attr_e( 'Search meta keys...', 'aic_builderp' ); ?>">
+				<input type="text" id="berp-meta-search" class="regular-text" placeholder="<?php esc_attr_e( 'Search meta keys...', 'builderp' ); ?>">
 				<button type="button" id="berp-clear-search" class="button">
-					<?php esc_html_e( 'Clear', 'aic_builderp' ); ?>
+					<?php esc_html_e( 'Clear', 'builderp' ); ?>
 				</button>
 			</div>
 
@@ -47,13 +47,13 @@ class BERP_Tools_Schema_Browser {
 
 						<div class="berp-meta-details">
 							<div class="berp-detail-row">
-								<span class="berp-detail-label"><?php esc_html_e( 'Usage Count:', 'aic_builderp' ); ?></span>
+								<span class="berp-detail-label"><?php esc_html_e( 'Usage Count:', 'builderp' ); ?></span>
 								<span class="berp-detail-value"><?php echo esc_html( number_format( $stats['count'] ) ); ?></span>
 							</div>
 
 							<?php if ( ! empty( $stats['post_types'] ) ) : ?>
 								<div class="berp-detail-row">
-									<span class="berp-detail-label"><?php esc_html_e( 'Post Types:', 'aic_builderp' ); ?></span>
+									<span class="berp-detail-label"><?php esc_html_e( 'Post Types:', 'builderp' ); ?></span>
 									<span class="berp-detail-value">
 										<?php foreach ( $stats['post_types'] as $post_type => $count ) : ?>
 											<span class="berp-post-type-tag">
@@ -66,7 +66,7 @@ class BERP_Tools_Schema_Browser {
 
 							<?php if ( ! empty( $stats['data_type'] ) ) : ?>
 								<div class="berp-detail-row">
-									<span class="berp-detail-label"><?php esc_html_e( 'Data Type:', 'aic_builderp' ); ?></span>
+									<span class="berp-detail-label"><?php esc_html_e( 'Data Type:', 'builderp' ); ?></span>
 									<span class="berp-detail-value">
 										<span class="berp-data-type"><?php echo esc_html( $stats['data_type'] ); ?></span>
 									</span>
@@ -75,7 +75,7 @@ class BERP_Tools_Schema_Browser {
 
 							<?php if ( ! empty( $stats['description'] ) ) : ?>
 								<div class="berp-detail-row">
-									<span class="berp-detail-label"><?php esc_html_e( 'Description:', 'aic_builderp' ); ?></span>
+									<span class="berp-detail-label"><?php esc_html_e( 'Description:', 'builderp' ); ?></span>
 									<span class="berp-detail-value"><?php echo esc_html( $stats['description'] ); ?></span>
 								</div>
 							<?php endif; ?>
@@ -84,18 +84,18 @@ class BERP_Tools_Schema_Browser {
 						<div class="berp-meta-actions">
 							<button type="button" class="button button-small berp-find-usage" data-meta-key="<?php echo esc_attr( $meta_key ); ?>">
 								<span class="dashicons dashicons-search"></span>
-								<?php esc_html_e( 'Find Usage', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Find Usage', 'builderp' ); ?>
 							</button>
 							<button type="button" class="button button-small berp-view-samples" data-meta-key="<?php echo esc_attr( $meta_key ); ?>">
 								<span class="dashicons dashicons-visibility"></span>
-								<?php esc_html_e( 'View Samples', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'View Samples', 'builderp' ); ?>
 							</button>
 						</div>
 
 						<div class="berp-usage-details" id="usage-<?php echo esc_attr( md5( $meta_key ) ); ?>" style="display: none;">
 							<div class="berp-loading">
 								<span class="spinner is-active"></span>
-								<?php esc_html_e( 'Loading...', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Loading...', 'builderp' ); ?>
 							</div>
 						</div>
 					</div>
@@ -105,7 +105,7 @@ class BERP_Tools_Schema_Browser {
 			<?php if ( empty( $meta_keys ) ) : ?>
 				<div class="berp-no-results">
 					<span class="dashicons dashicons-info"></span>
-					<p><?php esc_html_e( 'No meta keys found. Start adding data to your BuildErp plugin.', 'aic_builderp' ); ?></p>
+					<p><?php esc_html_e( 'No meta keys found. Start adding data to your BuildErp plugin.', 'builderp' ); ?></p>
 				</div>
 			<?php endif; ?>
 
@@ -384,20 +384,20 @@ class BERP_Tools_Schema_Browser {
 	 */
 	private function get_meta_description( $meta_key ) {
 		$descriptions = array(
-			'_berp_employee_id'           => __( 'Employee post ID reference', 'aic_builderp' ),
-			'_berp_email'                 => __( 'Email address', 'aic_builderp' ),
-			'_berp_phone'                 => __( 'Phone number', 'aic_builderp' ),
-			'_berp_basic_salary'          => __( 'Base salary amount', 'aic_builderp' ),
-			'_berp_allowances'            => __( 'Serialized array of allowances', 'aic_builderp' ),
-			'_berp_deductions'            => __( 'Serialized array of deductions', 'aic_builderp' ),
-			'_berp_status'                => __( 'Current status', 'aic_builderp' ),
-			'_berp_date'                  => __( 'Date (YYYY-MM-DD)', 'aic_builderp' ),
-			'_berp_site_id'               => __( 'Site post ID reference', 'aic_builderp' ),
-			'_berp_overtime_hours'        => __( 'Overtime hours worked', 'aic_builderp' ),
-			'_berp_client_id'             => __( 'Client post ID reference', 'aic_builderp' ),
-			'_berp_budget'                => __( 'Budget amount', 'aic_builderp' ),
-			'_berp_linked_user_id'        => __( 'WordPress user ID (for portal access)', 'aic_builderp' ),
-			'_berp_portal_access_enabled' => __( 'Portal access enabled flag', 'aic_builderp' ),
+			'_berp_employee_id'           => __( 'Employee post ID reference', 'builderp' ),
+			'_berp_email'                 => __( 'Email address', 'builderp' ),
+			'_berp_phone'                 => __( 'Phone number', 'builderp' ),
+			'_berp_basic_salary'          => __( 'Base salary amount', 'builderp' ),
+			'_berp_allowances'            => __( 'Serialized array of allowances', 'builderp' ),
+			'_berp_deductions'            => __( 'Serialized array of deductions', 'builderp' ),
+			'_berp_status'                => __( 'Current status', 'builderp' ),
+			'_berp_date'                  => __( 'Date (YYYY-MM-DD)', 'builderp' ),
+			'_berp_site_id'               => __( 'Site post ID reference', 'builderp' ),
+			'_berp_overtime_hours'        => __( 'Overtime hours worked', 'builderp' ),
+			'_berp_client_id'             => __( 'Client post ID reference', 'builderp' ),
+			'_berp_budget'                => __( 'Budget amount', 'builderp' ),
+			'_berp_linked_user_id'        => __( 'WordPress user ID (for portal access)', 'builderp' ),
+			'_berp_portal_access_enabled' => __( 'Portal access enabled flag', 'builderp' ),
 		);
 
 		return isset( $descriptions[ $meta_key ] ) ? $descriptions[ $meta_key ] : '';
@@ -488,3 +488,4 @@ class BERP_Tools_Schema_Browser {
 		return $files;
 	}
 }
+

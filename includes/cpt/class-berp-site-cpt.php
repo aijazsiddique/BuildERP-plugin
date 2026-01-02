@@ -26,21 +26,21 @@ class BERP_Site_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Sites', 'Post type general name', 'aic_builderp' ),
-			'singular_name'      => _x( 'Site', 'Post type singular name', 'aic_builderp' ),
-			'menu_name'          => _x( 'Sites/Projects', 'Admin Menu text', 'aic_builderp' ),
-			'name_admin_bar'     => _x( 'Site', 'Add New on Toolbar', 'aic_builderp' ),
-			'add_new'            => __( 'Add New', 'aic_builderp' ),
-			'add_new_item'       => __( 'Add New Site', 'aic_builderp' ),
-			'new_item'           => __( 'New Site', 'aic_builderp' ),
-			'edit_item'          => __( 'Edit Site', 'aic_builderp' ),
-			'view_item'          => __( 'View Site', 'aic_builderp' ),
-			'all_items'          => __( 'All Sites', 'aic_builderp' ),
-			'search_items'       => __( 'Search Sites', 'aic_builderp' ),
-			'not_found'          => __( 'No sites found.', 'aic_builderp' ),
-			'not_found_in_trash' => __( 'No sites found in Trash.', 'aic_builderp' ),
-			'featured_image'     => _x( 'Site Image', 'Overrides the "Featured Image" phrase', 'aic_builderp' ),
-			'set_featured_image' => _x( 'Set site image', 'Overrides the "Set featured image" phrase', 'aic_builderp' ),
+			'name'               => _x( 'Sites', 'Post type general name', 'builderp' ),
+			'singular_name'      => _x( 'Site', 'Post type singular name', 'builderp' ),
+			'menu_name'          => _x( 'Sites/Projects', 'Admin Menu text', 'builderp' ),
+			'name_admin_bar'     => _x( 'Site', 'Add New on Toolbar', 'builderp' ),
+			'add_new'            => __( 'Add New', 'builderp' ),
+			'add_new_item'       => __( 'Add New Site', 'builderp' ),
+			'new_item'           => __( 'New Site', 'builderp' ),
+			'edit_item'          => __( 'Edit Site', 'builderp' ),
+			'view_item'          => __( 'View Site', 'builderp' ),
+			'all_items'          => __( 'All Sites', 'builderp' ),
+			'search_items'       => __( 'Search Sites', 'builderp' ),
+			'not_found'          => __( 'No sites found.', 'builderp' ),
+			'not_found_in_trash' => __( 'No sites found in Trash.', 'builderp' ),
+			'featured_image'     => _x( 'Site Image', 'Overrides the "Featured Image" phrase', 'builderp' ),
+			'set_featured_image' => _x( 'Set site image', 'Overrides the "Set featured image" phrase', 'builderp' ),
 		);
 
 		$args = array(
@@ -73,3 +73,4 @@ class BERP_Site_CPT {
 		register_post_type( 'berp_site', $args );
 	}
 }
+

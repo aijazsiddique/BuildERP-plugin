@@ -99,7 +99,7 @@ class BERP_Invoice_CSV_Exporter {
 		header( 'Pragma: no-cache' );
 		header( 'Expires: 0' );
 
-		$output = fopen( 'php://output', 'w' );
+		$output = fopen( 'php://output', 'w' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
 
 		// Add UTF-8 BOM for Excel compatibility.
 		fprintf( $output, chr( 0xEF ) . chr( 0xBB ) . chr( 0xBF ) );
@@ -108,23 +108,23 @@ class BERP_Invoice_CSV_Exporter {
 		fputcsv(
 			$output,
 			array(
-				__( 'Invoice Number', 'aic_builderp' ),
-				__( 'Invoice Date', 'aic_builderp' ),
-				__( 'Due Date', 'aic_builderp' ),
-				__( 'Client', 'aic_builderp' ),
-				__( 'Site/Project', 'aic_builderp' ),
-				__( 'Status', 'aic_builderp' ),
-				__( 'Reference', 'aic_builderp' ),
-				__( 'PO Number', 'aic_builderp' ),
-				__( 'Subtotal', 'aic_builderp' ),
-				__( 'Tax', 'aic_builderp' ),
-				__( 'Discount', 'aic_builderp' ),
-				__( 'Grand Total', 'aic_builderp' ),
-				__( 'Amount Paid', 'aic_builderp' ),
-				__( 'Amount Due', 'aic_builderp' ),
-				__( 'Days Overdue', 'aic_builderp' ),
-				__( 'Payments Count', 'aic_builderp' ),
-				__( 'Created Date', 'aic_builderp' ),
+				__( 'Invoice Number', 'builderp' ),
+				__( 'Invoice Date', 'builderp' ),
+				__( 'Due Date', 'builderp' ),
+				__( 'Client', 'builderp' ),
+				__( 'Site/Project', 'builderp' ),
+				__( 'Status', 'builderp' ),
+				__( 'Reference', 'builderp' ),
+				__( 'PO Number', 'builderp' ),
+				__( 'Subtotal', 'builderp' ),
+				__( 'Tax', 'builderp' ),
+				__( 'Discount', 'builderp' ),
+				__( 'Grand Total', 'builderp' ),
+				__( 'Amount Paid', 'builderp' ),
+				__( 'Amount Due', 'builderp' ),
+				__( 'Days Overdue', 'builderp' ),
+				__( 'Payments Count', 'builderp' ),
+				__( 'Created Date', 'builderp' ),
 			)
 		);
 
@@ -163,7 +163,7 @@ class BERP_Invoice_CSV_Exporter {
 			);
 		}
 
-		fclose( $output );
+		fclose( $output ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
 		exit;
 	}
 
@@ -196,7 +196,7 @@ class BERP_Invoice_CSV_Exporter {
 		header( 'Pragma: no-cache' );
 		header( 'Expires: 0' );
 
-		$output = fopen( 'php://output', 'w' );
+		$output = fopen( 'php://output', 'w' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
 
 		// Add UTF-8 BOM for Excel compatibility.
 		fprintf( $output, chr( 0xEF ) . chr( 0xBB ) . chr( 0xBF ) );
@@ -205,22 +205,22 @@ class BERP_Invoice_CSV_Exporter {
 		fputcsv(
 			$output,
 			array(
-				__( 'Invoice Number', 'aic_builderp' ),
-				__( 'Client', 'aic_builderp' ),
-				__( 'Payment Date', 'aic_builderp' ),
-				__( 'Amount', 'aic_builderp' ),
-				__( 'Method', 'aic_builderp' ),
-				__( 'Reference', 'aic_builderp' ),
-				__( 'Notes', 'aic_builderp' ),
+				__( 'Invoice Number', 'builderp' ),
+				__( 'Client', 'builderp' ),
+				__( 'Payment Date', 'builderp' ),
+				__( 'Amount', 'builderp' ),
+				__( 'Method', 'builderp' ),
+				__( 'Reference', 'builderp' ),
+				__( 'Notes', 'builderp' ),
 			)
 		);
 
 		$payment_methods = array(
-			'cash'          => __( 'Cash', 'aic_builderp' ),
-			'check'         => __( 'Check', 'aic_builderp' ),
-			'bank_transfer' => __( 'Bank Transfer', 'aic_builderp' ),
-			'credit_card'   => __( 'Credit Card', 'aic_builderp' ),
-			'other'         => __( 'Other', 'aic_builderp' ),
+			'cash'          => __( 'Cash', 'builderp' ),
+			'check'         => __( 'Check', 'builderp' ),
+			'bank_transfer' => __( 'Bank Transfer', 'builderp' ),
+			'credit_card'   => __( 'Credit Card', 'builderp' ),
+			'other'         => __( 'Other', 'builderp' ),
 		);
 
 		// Write data rows.
@@ -254,7 +254,7 @@ class BERP_Invoice_CSV_Exporter {
 			}
 		}
 
-		fclose( $output );
+		fclose( $output ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
 		exit;
 	}
 
@@ -287,7 +287,7 @@ class BERP_Invoice_CSV_Exporter {
 		header( 'Pragma: no-cache' );
 		header( 'Expires: 0' );
 
-		$output = fopen( 'php://output', 'w' );
+		$output = fopen( 'php://output', 'w' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
 
 		// Add UTF-8 BOM for Excel compatibility.
 		fprintf( $output, chr( 0xEF ) . chr( 0xBB ) . chr( 0xBF ) );
@@ -296,15 +296,15 @@ class BERP_Invoice_CSV_Exporter {
 		fputcsv(
 			$output,
 			array(
-				__( 'Invoice Number', 'aic_builderp' ),
-				__( 'Client', 'aic_builderp' ),
-				__( 'Invoice Date', 'aic_builderp' ),
-				__( 'Due Date', 'aic_builderp' ),
-				__( 'Days Overdue', 'aic_builderp' ),
-				__( 'Aging Bucket', 'aic_builderp' ),
-				__( 'Grand Total', 'aic_builderp' ),
-				__( 'Amount Paid', 'aic_builderp' ),
-				__( 'Amount Due', 'aic_builderp' ),
+				__( 'Invoice Number', 'builderp' ),
+				__( 'Client', 'builderp' ),
+				__( 'Invoice Date', 'builderp' ),
+				__( 'Due Date', 'builderp' ),
+				__( 'Days Overdue', 'builderp' ),
+				__( 'Aging Bucket', 'builderp' ),
+				__( 'Grand Total', 'builderp' ),
+				__( 'Amount Paid', 'builderp' ),
+				__( 'Amount Due', 'builderp' ),
 			)
 		);
 
@@ -327,15 +327,15 @@ class BERP_Invoice_CSV_Exporter {
 
 			// Determine aging bucket.
 			if ( $days_overdue <= 0 ) {
-				$bucket = __( 'Current', 'aic_builderp' );
+				$bucket = __( 'Current', 'builderp' );
 			} elseif ( $days_overdue <= 30 ) {
-				$bucket = __( '1-30 Days', 'aic_builderp' );
+				$bucket = __( '1-30 Days', 'builderp' );
 			} elseif ( $days_overdue <= 60 ) {
-				$bucket = __( '31-60 Days', 'aic_builderp' );
+				$bucket = __( '31-60 Days', 'builderp' );
 			} elseif ( $days_overdue <= 90 ) {
-				$bucket = __( '61-90 Days', 'aic_builderp' );
+				$bucket = __( '61-90 Days', 'builderp' );
 			} else {
-				$bucket = __( '90+ Days', 'aic_builderp' );
+				$bucket = __( '90+ Days', 'builderp' );
 			}
 
 			fputcsv(
@@ -354,7 +354,9 @@ class BERP_Invoice_CSV_Exporter {
 			);
 		}
 
-		fclose( $output );
+		fclose( $output ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
 		exit;
 	}
 }
+
+

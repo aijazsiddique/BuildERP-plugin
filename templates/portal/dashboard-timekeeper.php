@@ -15,29 +15,29 @@ $dashboard_url     = get_permalink();
 ?>
 
 <div class="berp-portal-dashboard">
-	<h2><?php esc_html_e( 'Timekeeper Dashboard', 'aic_builderp' ); ?></h2>
+	<h2><?php esc_html_e( 'Timekeeper Dashboard', 'builderp' ); ?></h2>
 
 	<div class="berp-portal-stats-grid">
 		<div class="berp-portal-stat-card">
-			<h3><?php esc_html_e( 'Active Employees', 'aic_builderp' ); ?></h3>
+			<h3><?php esc_html_e( 'Active Employees', 'builderp' ); ?></h3>
 			<div class="berp-stat-value"><?php echo esc_html( $stats['total_employees'] ); ?></div>
 		</div>
 		<div class="berp-portal-stat-card">
-			<h3><?php esc_html_e( 'Attendance Logged Today', 'aic_builderp' ); ?></h3>
+			<h3><?php esc_html_e( 'Attendance Logged Today', 'builderp' ); ?></h3>
 			<div class="berp-stat-value"><?php echo esc_html( $stats['today_attendance'] ); ?></div>
 			<div class="berp-stat-label"><?php echo esc_html( date_i18n( get_option( 'date_format' ) ) ); ?></div>
 		</div>
 		<div class="berp-portal-stat-card">
-			<h3><?php esc_html_e( 'Quick Actions', 'aic_builderp' ); ?></h3>
+			<h3><?php esc_html_e( 'Quick Actions', 'builderp' ); ?></h3>
 			<div class="berp-quick-actions">
-				<a href="<?php echo esc_url( add_query_arg( 'view', 'log-attendance', $dashboard_url ) ); ?>" class="berp-btn berp-btn-primary berp-btn-sm"><?php esc_html_e( 'Log Attendance', 'aic_builderp' ); ?></a>
+				<a href="<?php echo esc_url( add_query_arg( 'view', 'log-attendance', $dashboard_url ) ); ?>" class="berp-btn berp-btn-primary berp-btn-sm"><?php esc_html_e( 'Log Attendance', 'builderp' ); ?></a>
 			</div>
 		</div>
 	</div>
 
 	<div class="berp-portal-card">
 		<div class="berp-card-header">
-			<h3><?php esc_html_e( 'Recent Attendance Entries', 'aic_builderp' ); ?></h3>
+			<h3><?php esc_html_e( 'Recent Attendance Entries', 'builderp' ); ?></h3>
 		</div>
 		<div class="berp-card-body">
 			<?php if ( $recent_attendance ) : ?>
@@ -45,10 +45,10 @@ $dashboard_url     = get_permalink();
 					<table class="berp-portal-table">
 						<thead>
 							<tr>
-								<th><?php esc_html_e( 'Date', 'aic_builderp' ); ?></th>
-								<th><?php esc_html_e( 'Employee', 'aic_builderp' ); ?></th>
-								<th><?php esc_html_e( 'Site', 'aic_builderp' ); ?></th>
-								<th><?php esc_html_e( 'Overtime', 'aic_builderp' ); ?></th>
+								<th><?php esc_html_e( 'Date', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'Employee', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'Site', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'Overtime', 'builderp' ); ?></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -73,8 +73,9 @@ $dashboard_url     = get_permalink();
 					</table>
 				</div>
 			<?php else : ?>
-				<p><?php esc_html_e( 'No recent attendance found.', 'aic_builderp' ); ?></p>
+				<p><?php esc_html_e( 'No recent attendance found.', 'builderp' ); ?></p>
 			<?php endif; ?>
 		</div>
 	</div>
 </div>
+

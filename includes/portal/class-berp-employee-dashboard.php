@@ -32,8 +32,8 @@ class BERP_Employee_Dashboard {
 	 * @return array Stats.
 	 */
 	public static function get_stats( $employee_id ) {
-		$month_start = date( 'Y-m-01' );
-		$month_end   = date( 'Y-m-t' );
+		$month_start = gmdate( 'Y-m-01' );
+		$month_end   = gmdate( 'Y-m-t' );
 
 		// Present days.
 		$attendance_args  = array(
@@ -125,3 +125,4 @@ class BERP_Employee_Dashboard {
 		return $query->have_posts() ? $query->posts[0] : null;
 	}
 }
+

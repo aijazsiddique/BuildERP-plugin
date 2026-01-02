@@ -630,15 +630,15 @@ function berp_generate_demo_data( $silent = false ) {
 	}
 
 	if ( ! $silent ) {
-		echo "Demo Data Generation Complete!\n";
-		echo "==============================\n";
-		echo "Clients created:    {$summary['clients']}\n";
-		echo "Sites created:      {$summary['sites']}\n";
-		echo "Employees created:  {$summary['employees']}\n";
-		echo "Attendance records: {$summary['attendance']}\n";
-		echo "Expenses created:   {$summary['expenses']}\n";
-		echo "Quotations created: {$summary['quotations']}\n";
-		echo "Invoices created:   {$summary['invoices']}\n";
+		echo esc_html( "Demo Data Generation Complete!\n" );
+		echo esc_html( "==============================\n" );
+		echo esc_html( sprintf( "Clients created:    %d\n", (int) $summary['clients'] ) );
+		echo esc_html( sprintf( "Sites created:      %d\n", (int) $summary['sites'] ) );
+		echo esc_html( sprintf( "Employees created:  %d\n", (int) $summary['employees'] ) );
+		echo esc_html( sprintf( "Attendance records: %d\n", (int) $summary['attendance'] ) );
+		echo esc_html( sprintf( "Expenses created:   %d\n", (int) $summary['expenses'] ) );
+		echo esc_html( sprintf( "Quotations created: %d\n", (int) $summary['quotations'] ) );
+		echo esc_html( sprintf( "Invoices created:   %d\n", (int) $summary['invoices'] ) );
 	}
 
 	return $summary;
@@ -684,11 +684,11 @@ function berp_clear_demo_data( $silent = false ) {
 	}
 
 	if ( ! $silent ) {
-		echo "Demo Data Cleared!\n";
-		echo "==================\n";
+		echo esc_html( "Demo Data Cleared!\n" );
+		echo esc_html( "==================\n" );
 		foreach ( $summary as $type => $count ) {
 			$label = str_replace( 'berp_', '', $type );
-			echo "{$label}: {$count} deleted\n";
+			echo esc_html( sprintf( "%s: %d deleted\n", $label, (int) $count ) );
 		}
 	}
 

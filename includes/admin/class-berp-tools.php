@@ -65,7 +65,7 @@ class BERP_Tools {
 			add_action(
 				'admin_notices',
 				function () {
-					echo '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Security verification failed.', 'aic_builderp' ) . '</p></div>';
+					echo '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Security verification failed.', 'builderp' ) . '</p></div>';
 				}
 			);
 			return;
@@ -76,7 +76,7 @@ class BERP_Tools {
 			add_action(
 				'admin_notices',
 				function () {
-					echo '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'You do not have permission to perform this action.', 'aic_builderp' ) . '</p></div>';
+					echo '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'You do not have permission to perform this action.', 'builderp' ) . '</p></div>';
 				}
 			);
 			return;
@@ -95,7 +95,7 @@ class BERP_Tools {
 			if ( function_exists( 'berp_log_activity' ) ) {
 				berp_log_activity(
 					'demo_data_generated',
-					__( 'Demo data generated via admin tools.', 'aic_builderp' ),
+					__( 'Demo data generated via admin tools.', 'builderp' ),
 					$summary
 				);
 			}
@@ -107,7 +107,7 @@ class BERP_Tools {
 					'type'    => 'success',
 					'message' => sprintf(
 						/* translators: %1$d: clients count, %2$d: sites count, %3$d: employees count, %4$d: attendance count, %5$d: expenses count, %6$d: quotations count, %7$d: invoices count */
-						__( 'Demo data generated successfully! Created: %1$d clients, %2$d sites, %3$d employees, %4$d attendance records, %5$d expenses, %6$d quotations, %7$d invoices.', 'aic_builderp' ),
+						__( 'Demo data generated successfully! Created: %1$d clients, %2$d sites, %3$d employees, %4$d attendance records, %5$d expenses, %6$d quotations, %7$d invoices.', 'builderp' ),
 						$summary['clients'],
 						$summary['sites'],
 						$summary['employees'],
@@ -124,7 +124,7 @@ class BERP_Tools {
 				'berp_tools_notice',
 				array(
 					'type'    => 'error',
-					'message' => __( 'Failed to generate demo data. Function not found.', 'aic_builderp' ),
+					'message' => __( 'Failed to generate demo data. Function not found.', 'builderp' ),
 				),
 				30
 			);
@@ -146,7 +146,7 @@ class BERP_Tools {
 			add_action(
 				'admin_notices',
 				function () {
-					echo '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Security verification failed.', 'aic_builderp' ) . '</p></div>';
+					echo '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'Security verification failed.', 'builderp' ) . '</p></div>';
 				}
 			);
 			return;
@@ -157,7 +157,7 @@ class BERP_Tools {
 			add_action(
 				'admin_notices',
 				function () {
-					echo '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'You do not have permission to perform this action.', 'aic_builderp' ) . '</p></div>';
+					echo '<div class="notice notice-error is-dismissible"><p>' . esc_html__( 'You do not have permission to perform this action.', 'builderp' ) . '</p></div>';
 				}
 			);
 			return;
@@ -176,7 +176,7 @@ class BERP_Tools {
 			if ( function_exists( 'berp_log_activity' ) ) {
 				berp_log_activity(
 					'demo_data_cleared',
-					__( 'All BuildERP data cleared via admin tools.', 'aic_builderp' ),
+					__( 'All BuildERP data cleared via admin tools.', 'builderp' ),
 					$summary
 				);
 			}
@@ -190,7 +190,7 @@ class BERP_Tools {
 					'type'    => 'success',
 					'message' => sprintf(
 						/* translators: %d: total items deleted */
-						__( 'All BuildERP data cleared successfully! %d items deleted.', 'aic_builderp' ),
+						__( 'All BuildERP data cleared successfully! %d items deleted.', 'builderp' ),
 						$total
 					),
 				),
@@ -201,7 +201,7 @@ class BERP_Tools {
 				'berp_tools_notice',
 				array(
 					'type'    => 'error',
-					'message' => __( 'Failed to clear data. Function not found.', 'aic_builderp' ),
+					'message' => __( 'Failed to clear data. Function not found.', 'builderp' ),
 				),
 				30
 			);
@@ -244,13 +244,13 @@ class BERP_Tools {
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'nonce'   => wp_create_nonce( 'berp_tools_action' ),
 				'strings' => array(
-					'validating' => __( 'Validating schema...', 'aic_builderp' ),
-					'fixing'     => __( 'Applying fixes...', 'aic_builderp' ),
-					'exporting'  => __( 'Generating export...', 'aic_builderp' ),
-					'searching'  => __( 'Searching...', 'aic_builderp' ),
-					'generating' => __( 'Generating helper...', 'aic_builderp' ),
-					'error'      => __( 'An error occurred. Please try again.', 'aic_builderp' ),
-					'success'    => __( 'Operation completed successfully.', 'aic_builderp' ),
+					'validating' => __( 'Validating schema...', 'builderp' ),
+					'fixing'     => __( 'Applying fixes...', 'builderp' ),
+					'exporting'  => __( 'Generating export...', 'builderp' ),
+					'searching'  => __( 'Searching...', 'builderp' ),
+					'generating' => __( 'Generating helper...', 'builderp' ),
+					'error'      => __( 'An error occurred. Please try again.', 'builderp' ),
+					'success'    => __( 'Operation completed successfully.', 'builderp' ),
 				),
 			)
 		);
@@ -264,7 +264,7 @@ class BERP_Tools {
 	public function render_page() {
 		// Verify capability.
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'builderp' ) );
 		}
 
 		// Display notices from transient.
@@ -289,17 +289,17 @@ class BERP_Tools {
 				<a href="?page=builderp-tools&tab=demo-data"
 					class="nav-tab <?php echo 'demo-data' === $active_tab ? 'nav-tab-active' : ''; ?>">
 					<span class="dashicons dashicons-database-add"></span>
-					<?php esc_html_e( 'Demo Data', 'aic_builderp' ); ?>
+					<?php esc_html_e( 'Demo Data', 'builderp' ); ?>
 				</a>
 				<a href="?page=builderp-tools&tab=system-info"
 					class="nav-tab <?php echo 'system-info' === $active_tab ? 'nav-tab-active' : ''; ?>">
 					<span class="dashicons dashicons-info"></span>
-					<?php esc_html_e( 'System Info', 'aic_builderp' ); ?>
+					<?php esc_html_e( 'System Info', 'builderp' ); ?>
 				</a>
 				<a href="?page=builderp-tools&tab=schema-browser"
 					class="nav-tab <?php echo 'schema-browser' === $active_tab ? 'nav-tab-active' : ''; ?>">
 					<span class="dashicons dashicons-search"></span>
-					<?php esc_html_e( 'Schema Browser', 'aic_builderp' ); ?>
+					<?php esc_html_e( 'Schema Browser', 'builderp' ); ?>
 				</a>
 			</h2>
 
@@ -332,14 +332,14 @@ class BERP_Tools {
 	private function render_demo_data_tab() {
 		// Get current data counts.
 		$post_types = array(
-			'berp_client'     => __( 'Clients', 'aic_builderp' ),
-			'berp_site'       => __( 'Sites', 'aic_builderp' ),
-			'berp_employee'   => __( 'Employees', 'aic_builderp' ),
-			'berp_attendance' => __( 'Attendance Records', 'aic_builderp' ),
-			'berp_expense'    => __( 'Expenses', 'aic_builderp' ),
-			'berp_quotation'  => __( 'Quotations', 'aic_builderp' ),
-			'berp_invoice'    => __( 'Invoices', 'aic_builderp' ),
-			'berp_payroll'    => __( 'Payroll Records', 'aic_builderp' ),
+			'berp_client'     => __( 'Clients', 'builderp' ),
+			'berp_site'       => __( 'Sites', 'builderp' ),
+			'berp_employee'   => __( 'Employees', 'builderp' ),
+			'berp_attendance' => __( 'Attendance Records', 'builderp' ),
+			'berp_expense'    => __( 'Expenses', 'builderp' ),
+			'berp_quotation'  => __( 'Quotations', 'builderp' ),
+			'berp_invoice'    => __( 'Invoices', 'builderp' ),
+			'berp_payroll'    => __( 'Payroll Records', 'builderp' ),
 		);
 
 		$total_records = 0;
@@ -364,7 +364,7 @@ class BERP_Tools {
 					</div>
 					<div class="berp-stat-content">
 						<h3><?php echo esc_html( number_format( $total_records ) ); ?></h3>
-						<p><?php esc_html_e( 'Total Records', 'aic_builderp' ); ?></p>
+						<p><?php esc_html_e( 'Total Records', 'builderp' ); ?></p>
 					</div>
 				</div>
 
@@ -374,7 +374,7 @@ class BERP_Tools {
 					</div>
 					<div class="berp-stat-content">
 						<h3><?php echo esc_html( number_format( $data_counts['berp_employee'] ) ); ?></h3>
-						<p><?php esc_html_e( 'Employees', 'aic_builderp' ); ?></p>
+						<p><?php esc_html_e( 'Employees', 'builderp' ); ?></p>
 					</div>
 				</div>
 
@@ -384,7 +384,7 @@ class BERP_Tools {
 					</div>
 					<div class="berp-stat-content">
 						<h3><?php echo esc_html( number_format( $data_counts['berp_attendance'] ) ); ?></h3>
-						<p><?php esc_html_e( 'Attendance Records', 'aic_builderp' ); ?></p>
+						<p><?php esc_html_e( 'Attendance Records', 'builderp' ); ?></p>
 					</div>
 				</div>
 
@@ -394,7 +394,7 @@ class BERP_Tools {
 					</div>
 					<div class="berp-stat-content">
 						<h3><?php echo esc_html( number_format( $data_counts['berp_site'] ) ); ?></h3>
-						<p><?php esc_html_e( 'Active Sites', 'aic_builderp' ); ?></p>
+						<p><?php esc_html_e( 'Active Sites', 'builderp' ); ?></p>
 					</div>
 				</div>
 			</div>
@@ -405,13 +405,13 @@ class BERP_Tools {
 				<!-- Demo Data Generator -->
 				<div class="berp-demo-card berp-generator-card">
 					<div class="berp-card-header">
-						<h2><?php esc_html_e( 'Generate Demo Data', 'aic_builderp' ); ?></h2>
-						<p><?php esc_html_e( 'Populate your BuildErp plugin with realistic sample data for testing and demonstration', 'aic_builderp' ); ?></p>
+						<h2><?php esc_html_e( 'Generate Demo Data', 'builderp' ); ?></h2>
+						<p><?php esc_html_e( 'Populate your BuildErp plugin with realistic sample data for testing and demonstration', 'builderp' ); ?></p>
 					</div>
 
 					<div class="berp-card-body">
 						<div class="berp-data-preview">
-							<h4><?php esc_html_e( 'What will be created:', 'aic_builderp' ); ?></h4>
+							<h4><?php esc_html_e( 'What will be created:', 'builderp' ); ?></h4>
 							<div class="berp-preview-grid">
 								<div class="berp-preview-item">
 									<span class="berp-preview-icon">
@@ -419,7 +419,7 @@ class BERP_Tools {
 									</span>
 									<div class="berp-preview-text">
 										<strong>5</strong>
-										<span><?php esc_html_e( 'Clients', 'aic_builderp' ); ?></span>
+										<span><?php esc_html_e( 'Clients', 'builderp' ); ?></span>
 									</div>
 								</div>
 								<div class="berp-preview-item">
@@ -428,7 +428,7 @@ class BERP_Tools {
 									</span>
 									<div class="berp-preview-text">
 										<strong>5</strong>
-										<span><?php esc_html_e( 'Sites/Projects', 'aic_builderp' ); ?></span>
+										<span><?php esc_html_e( 'Sites/Projects', 'builderp' ); ?></span>
 									</div>
 								</div>
 								<div class="berp-preview-item">
@@ -437,7 +437,7 @@ class BERP_Tools {
 									</span>
 									<div class="berp-preview-text">
 										<strong>10</strong>
-										<span><?php esc_html_e( 'Employees', 'aic_builderp' ); ?></span>
+										<span><?php esc_html_e( 'Employees', 'builderp' ); ?></span>
 									</div>
 								</div>
 								<div class="berp-preview-item">
@@ -446,7 +446,7 @@ class BERP_Tools {
 									</span>
 									<div class="berp-preview-text">
 										<strong>~150</strong>
-										<span><?php esc_html_e( 'Attendance Records', 'aic_builderp' ); ?></span>
+										<span><?php esc_html_e( 'Attendance Records', 'builderp' ); ?></span>
 									</div>
 								</div>
 								<div class="berp-preview-item">
@@ -455,7 +455,7 @@ class BERP_Tools {
 									</span>
 									<div class="berp-preview-text">
 										<strong>10</strong>
-										<span><?php esc_html_e( 'Expenses', 'aic_builderp' ); ?></span>
+										<span><?php esc_html_e( 'Expenses', 'builderp' ); ?></span>
 									</div>
 								</div>
 								<div class="berp-preview-item">
@@ -464,7 +464,7 @@ class BERP_Tools {
 									</span>
 									<div class="berp-preview-text">
 										<strong>3</strong>
-										<span><?php esc_html_e( 'Quotations', 'aic_builderp' ); ?></span>
+										<span><?php esc_html_e( 'Quotations', 'builderp' ); ?></span>
 									</div>
 								</div>
 								<div class="berp-preview-item">
@@ -473,7 +473,7 @@ class BERP_Tools {
 									</span>
 									<div class="berp-preview-text">
 										<strong>3</strong>
-										<span><?php esc_html_e( 'Invoices', 'aic_builderp' ); ?></span>
+										<span><?php esc_html_e( 'Invoices', 'builderp' ); ?></span>
 									</div>
 								</div>
 							</div>
@@ -483,11 +483,11 @@ class BERP_Tools {
 							<?php wp_nonce_field( 'berp_tools_action', 'berp_tools_nonce' ); ?>
 							<button type="submit" name="berp_generate_demo_data" class="button button-primary button-large">
 								<span class="dashicons dashicons-database-add" style="vertical-align: middle; margin-right: 5px;"></span>
-								<?php esc_html_e( 'Generate Demo Data', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Generate Demo Data', 'builderp' ); ?>
 							</button>
 							<p class="berp-form-note">
 								<span class="dashicons dashicons-info"></span>
-								<?php esc_html_e( 'This process may take a few moments. Please do not close this page.', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'This process may take a few moments. Please do not close this page.', 'builderp' ); ?>
 							</p>
 						</form>
 					</div>
@@ -496,8 +496,8 @@ class BERP_Tools {
 				<!-- Data Overview -->
 				<div class="berp-demo-card berp-overview-card">
 					<div class="berp-card-header">
-						<h2><?php esc_html_e( 'Current Data Overview', 'aic_builderp' ); ?></h2>
-						<p><?php esc_html_e( 'Your current BuildErp database statistics', 'aic_builderp' ); ?></p>
+						<h2><?php esc_html_e( 'Current Data Overview', 'builderp' ); ?></h2>
+						<p><?php esc_html_e( 'Your current BuildErp database statistics', 'builderp' ); ?></p>
 					</div>
 
 					<div class="berp-card-body">
@@ -518,8 +518,8 @@ class BERP_Tools {
 						<?php else : ?>
 							<div class="berp-empty-state">
 								<span class="dashicons dashicons-database"></span>
-								<h3><?php esc_html_e( 'No Data Found', 'aic_builderp' ); ?></h3>
-								<p><?php esc_html_e( 'Your BuildErp database is empty. Generate demo data to get started!', 'aic_builderp' ); ?></p>
+								<h3><?php esc_html_e( 'No Data Found', 'builderp' ); ?></h3>
+								<p><?php esc_html_e( 'Your BuildErp database is empty. Generate demo data to get started!', 'builderp' ); ?></p>
 							</div>
 						<?php endif; ?>
 					</div>
@@ -531,30 +531,33 @@ class BERP_Tools {
 			<?php if ( $has_data ) : ?>
 				<div class="berp-demo-card berp-danger-card">
 					<div class="berp-card-header">
-						<h2><?php esc_html_e( 'Danger Zone', 'aic_builderp' ); ?></h2>
-						<p><?php esc_html_e( 'Permanently delete all BuildErp data from your database', 'aic_builderp' ); ?></p>
+						<h2><?php esc_html_e( 'Danger Zone', 'builderp' ); ?></h2>
+						<p><?php esc_html_e( 'Permanently delete all BuildErp data from your database', 'builderp' ); ?></p>
 					</div>
 
 					<div class="berp-card-body">
 						<div class="berp-danger-warning">
-							<h4><?php esc_html_e( 'Warning: This action is irreversible!', 'aic_builderp' ); ?></h4>
+							<h4><?php esc_html_e( 'Warning: This action is irreversible!', 'builderp' ); ?></h4>
 							<ul>
-								<li><?php esc_html_e( 'All clients, sites, and employees will be deleted', 'aic_builderp' ); ?></li>
-								<li><?php esc_html_e( 'All attendance, payroll, and expense records will be removed', 'aic_builderp' ); ?></li>
-								<li><?php esc_html_e( 'All quotations and invoices will be permanently erased', 'aic_builderp' ); ?></li>
-								<li><?php esc_html_e( 'This action cannot be undone - please backup your data first', 'aic_builderp' ); ?></li>
+								<li><?php esc_html_e( 'All clients, sites, and employees will be deleted', 'builderp' ); ?></li>
+								<li><?php esc_html_e( 'All attendance, payroll, and expense records will be removed', 'builderp' ); ?></li>
+								<li><?php esc_html_e( 'All quotations and invoices will be permanently erased', 'builderp' ); ?></li>
+								<li><?php esc_html_e( 'This action cannot be undone - please backup your data first', 'builderp' ); ?></li>
 							</ul>
 						</div>
 
-						<form method="post" action="" class="berp-demo-form" onsubmit="return confirm('<?php echo esc_js( __( 'Are you ABSOLUTELY SURE you want to delete ALL BuildERP data?\n\nThis will permanently delete:\n• All employees and attendance records\n• All clients and sites\n• All invoices and quotations\n• All expenses and payroll records\n\nThis action CANNOT be undone!', 'aic_builderp' ) ); ?>');">
+						<form method="post" action="" class="berp-demo-form" onsubmit="return confirm('<?php echo esc_js( __( 'Are you ABSOLUTELY SURE you want to delete ALL BuildERP data?\n\nThis will permanently delete:\n• All employees and attendance records\n• All clients and sites\n• All invoices and quotations\n• All expenses and payroll records\n\nThis action CANNOT be undone!', 'builderp' ) ); ?>');">
 							<?php wp_nonce_field( 'berp_tools_action', 'berp_tools_nonce' ); ?>
 							<button type="submit" name="berp_clear_demo_data" class="button button-secondary">
 								<span class="dashicons dashicons-trash" style="vertical-align: middle; margin-right: 5px;"></span>
-								<?php esc_html_e( 'Clear All Data', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Clear All Data', 'builderp' ); ?>
 							</button>
 							<p class="berp-form-note berp-danger-note">
 								<span class="dashicons dashicons-warning"></span>
-								<?php echo esc_html( sprintf( __( 'This will delete %s records permanently', 'aic_builderp' ), number_format( $total_records ) ) ); ?>
+								<?php
+								/* translators: %s: record count */
+								echo esc_html( sprintf( __( 'This will delete %s records permanently', 'builderp' ), number_format( $total_records ) ) );
+								?>
 							</p>
 						</form>
 					</div>
@@ -917,7 +920,7 @@ class BERP_Tools {
 		check_ajax_referer( 'berp_tools_action', 'nonce' );
 
 		if ( ! current_user_can( 'berp_manage_settings' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permission denied', 'aic_builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Permission denied', 'builderp' ) ) );
 		}
 
 		require_once plugin_dir_path( BERP_PLUGIN_FILE ) . 'includes/admin/tools-validator.php';
@@ -936,7 +939,7 @@ class BERP_Tools {
 		check_ajax_referer( 'berp_tools_action', 'nonce' );
 
 		if ( ! current_user_can( 'berp_manage_settings' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permission denied', 'aic_builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Permission denied', 'builderp' ) ) );
 		}
 
 		$issue_type = isset( $_POST['issue_type'] ) ? sanitize_text_field( wp_unslash( $_POST['issue_type'] ) ) : '';
@@ -947,9 +950,9 @@ class BERP_Tools {
 		$result    = $validator->apply_quick_fix( $issue_type, $issue_data );
 
 		if ( $result ) {
-			wp_send_json_success( array( 'message' => __( 'Fix applied successfully', 'aic_builderp' ) ) );
+			wp_send_json_success( array( 'message' => __( 'Fix applied successfully', 'builderp' ) ) );
 		} else {
-			wp_send_json_error( array( 'message' => __( 'Failed to apply fix', 'aic_builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Failed to apply fix', 'builderp' ) ) );
 		}
 	}
 
@@ -962,7 +965,7 @@ class BERP_Tools {
 		check_ajax_referer( 'berp_tools_action', 'nonce' );
 
 		if ( ! current_user_can( 'berp_manage_settings' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permission denied', 'aic_builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Permission denied', 'builderp' ) ) );
 		}
 
 		require_once plugin_dir_path( BERP_PLUGIN_FILE ) . 'includes/admin/tools-system-info.php';
@@ -981,7 +984,7 @@ class BERP_Tools {
 		check_ajax_referer( 'berp_tools_action', 'nonce' );
 
 		if ( ! current_user_can( 'berp_manage_settings' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permission denied', 'aic_builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Permission denied', 'builderp' ) ) );
 		}
 
 		$meta_key = isset( $_POST['meta_key'] ) ? sanitize_text_field( wp_unslash( $_POST['meta_key'] ) ) : '';
@@ -1002,7 +1005,7 @@ class BERP_Tools {
 		check_ajax_referer( 'berp_tools_action', 'nonce' );
 
 		if ( ! current_user_can( 'berp_manage_settings' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Permission denied', 'aic_builderp' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Permission denied', 'builderp' ) ) );
 		}
 
 		$meta_key  = isset( $_POST['meta_key'] ) ? sanitize_text_field( wp_unslash( $_POST['meta_key'] ) ) : '';
@@ -1016,3 +1019,4 @@ class BERP_Tools {
 		wp_send_json_success( array( 'code' => $code ) );
 	}
 }
+

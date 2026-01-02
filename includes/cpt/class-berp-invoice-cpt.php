@@ -26,19 +26,19 @@ class BERP_Invoice_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Invoices', 'Post type general name', 'aic_builderp' ),
-			'singular_name'      => _x( 'Invoice', 'Post type singular name', 'aic_builderp' ),
-			'menu_name'          => _x( 'Invoices', 'Admin Menu text', 'aic_builderp' ),
-			'name_admin_bar'     => _x( 'Invoice', 'Add New on Toolbar', 'aic_builderp' ),
-			'add_new'            => __( 'Add New', 'aic_builderp' ),
-			'add_new_item'       => __( 'Add New Invoice', 'aic_builderp' ),
-			'new_item'           => __( 'New Invoice', 'aic_builderp' ),
-			'edit_item'          => __( 'Edit Invoice', 'aic_builderp' ),
-			'view_item'          => __( 'View Invoice', 'aic_builderp' ),
-			'all_items'          => __( 'All Invoices', 'aic_builderp' ),
-			'search_items'       => __( 'Search Invoices', 'aic_builderp' ),
-			'not_found'          => __( 'No invoices found.', 'aic_builderp' ),
-			'not_found_in_trash' => __( 'No invoices found in Trash.', 'aic_builderp' ),
+			'name'               => _x( 'Invoices', 'Post type general name', 'builderp' ),
+			'singular_name'      => _x( 'Invoice', 'Post type singular name', 'builderp' ),
+			'menu_name'          => _x( 'Invoices', 'Admin Menu text', 'builderp' ),
+			'name_admin_bar'     => _x( 'Invoice', 'Add New on Toolbar', 'builderp' ),
+			'add_new'            => __( 'Add New', 'builderp' ),
+			'add_new_item'       => __( 'Add New Invoice', 'builderp' ),
+			'new_item'           => __( 'New Invoice', 'builderp' ),
+			'edit_item'          => __( 'Edit Invoice', 'builderp' ),
+			'view_item'          => __( 'View Invoice', 'builderp' ),
+			'all_items'          => __( 'All Invoices', 'builderp' ),
+			'search_items'       => __( 'Search Invoices', 'builderp' ),
+			'not_found'          => __( 'No invoices found.', 'builderp' ),
+			'not_found_in_trash' => __( 'No invoices found in Trash.', 'builderp' ),
 		);
 
 		$args = array(
@@ -71,3 +71,4 @@ class BERP_Invoice_CPT {
 		register_post_type( 'berp_invoice', $args );
 	}
 }
+

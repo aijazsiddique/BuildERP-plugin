@@ -171,7 +171,7 @@ class BERP_Payroll_Calculator {
 		if ( empty( $employee_id ) ) {
 			return new WP_Error(
 				'berp_payroll_invalid_employee',
-				__( 'Invalid employee ID', 'aic_builderp' )
+				__( 'Invalid employee ID', 'builderp' )
 			);
 		}
 
@@ -180,7 +180,7 @@ class BERP_Payroll_Calculator {
 		if ( ! $employee || 'berp_employee' !== $employee->post_type ) {
 			return new WP_Error(
 				'berp_payroll_employee_not_found',
-				__( 'Employee not found', 'aic_builderp' )
+				__( 'Employee not found', 'builderp' )
 			);
 		}
 
@@ -189,7 +189,7 @@ class BERP_Payroll_Calculator {
 		if ( 'inactive' === $status ) {
 			return new WP_Error(
 				'berp_payroll_employee_inactive',
-				__( 'Cannot process payroll for inactive employee', 'aic_builderp' )
+				__( 'Cannot process payroll for inactive employee', 'builderp' )
 			);
 		}
 
@@ -197,7 +197,7 @@ class BERP_Payroll_Calculator {
 		if ( ! preg_match( '/^\d{4}-\d{2}$/', $month ) ) {
 			return new WP_Error(
 				'berp_payroll_invalid_month',
-				__( 'Invalid month format. Use YYYY-MM', 'aic_builderp' )
+				__( 'Invalid month format. Use YYYY-MM', 'builderp' )
 			);
 		}
 
@@ -219,7 +219,7 @@ class BERP_Payroll_Calculator {
 		if ( empty( $basic_salary ) || $basic_salary <= 0 ) {
 			return new WP_Error(
 				'berp_payroll_no_salary',
-				__( 'Employee has no basic salary set', 'aic_builderp' )
+				__( 'Employee has no basic salary set', 'builderp' )
 			);
 		}
 
@@ -444,7 +444,7 @@ class BERP_Payroll_Calculator {
 		} else {
 			return new WP_Error(
 				'berp_payroll_formula_unavailable',
-				__( 'Salary formula not available', 'aic_builderp' )
+				__( 'Salary formula not available', 'builderp' )
 			);
 		}
 
@@ -453,7 +453,7 @@ class BERP_Payroll_Calculator {
 		if ( empty( $formula ) ) {
 			return new WP_Error(
 				'berp_payroll_no_formula',
-				__( 'No active salary formula found', 'aic_builderp' )
+				__( 'No active salary formula found', 'builderp' )
 			);
 		}
 
@@ -639,3 +639,4 @@ class BERP_Payroll_Calculator {
 		return $value;
 	}
 }
+

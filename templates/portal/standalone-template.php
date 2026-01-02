@@ -152,7 +152,7 @@ $is_dashboard_page = ( $dashboard_page_id && $current_page_id === $dashboard_pag
 
 	<?php if ( $is_login_page ) : ?>
 		<footer class="berp-standalone-footer">
-			<p>&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php echo esc_html( $company_name ); ?>. <?php esc_html_e( 'All rights reserved.', 'aic_builderp' ); ?></p>
+			<p>&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <?php echo esc_html( $company_name ); ?>. <?php esc_html_e( 'All rights reserved.', 'builderp' ); ?></p>
 		</footer>
 	<?php endif; ?>
 	
@@ -161,3 +161,5 @@ $is_dashboard_page = ( $dashboard_page_id && $current_page_id === $dashboard_pag
 <?php wp_footer(); ?>
 </body>
 </html>
+
+

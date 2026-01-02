@@ -32,7 +32,7 @@ class BERP_Quotation_CSV_Exporter {
 		header( 'Content-Type: text/csv; charset=utf-8' );
 		header( 'Content-Disposition: attachment; filename=quotations-' . gmdate( 'Y-m-d' ) . '.csv' );
 
-		$output = fopen( 'php://output', 'w' );
+		$output = fopen( 'php://output', 'w' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
 
 		// UTF-8 BOM for Excel compatibility.
 		fprintf( $output, chr( 0xEF ) . chr( 0xBB ) . chr( 0xBF ) );
@@ -41,15 +41,15 @@ class BERP_Quotation_CSV_Exporter {
 		fputcsv(
 			$output,
 			array(
-				__( 'Quotation #', 'aic_builderp' ),
-				__( 'Client', 'aic_builderp' ),
-				__( 'Date', 'aic_builderp' ),
-				__( 'Valid Until', 'aic_builderp' ),
-				__( 'Status', 'aic_builderp' ),
-				__( 'Subtotal', 'aic_builderp' ),
-				__( 'Tax', 'aic_builderp' ),
-				__( 'Discount', 'aic_builderp' ),
-				__( 'Total', 'aic_builderp' ),
+				__( 'Quotation #', 'builderp' ),
+				__( 'Client', 'builderp' ),
+				__( 'Date', 'builderp' ),
+				__( 'Valid Until', 'builderp' ),
+				__( 'Status', 'builderp' ),
+				__( 'Subtotal', 'builderp' ),
+				__( 'Tax', 'builderp' ),
+				__( 'Discount', 'builderp' ),
+				__( 'Total', 'builderp' ),
 			)
 		);
 
@@ -74,7 +74,9 @@ class BERP_Quotation_CSV_Exporter {
 			);
 		}
 
-		fclose( $output );
+		fclose( $output ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
 		exit;
 	}
 }
+
+

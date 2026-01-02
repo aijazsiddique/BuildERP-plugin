@@ -117,19 +117,20 @@ class BERP_Expense_PDF_Exporter {
 		</head>
 		<body>
 			<h1><?php echo esc_html( $company_name ); ?></h1>
-			<h2><?php esc_html_e( 'Expense Report', 'aic_builderp' ); ?></h2>
+			<h2><?php esc_html_e( 'Expense Report', 'builderp' ); ?></h2>
 
 			<div class="meta-info">
 				<?php
+				/* translators: %s: generated date */
 				printf(
-					esc_html__( 'Generated on %s', 'aic_builderp' ),
-					date_i18n( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) )
+					esc_html__( 'Generated on %s', 'builderp' ),
+					esc_html( date_i18n( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ) ) )
 				);
 				?>
 				<br>
 				<?php
 				if ( ! empty( $args['meta_query'] ) || ! empty( $args['date_query'] ) ) {
-					esc_html_e( 'Filtered Results', 'aic_builderp' );
+					esc_html_e( 'Filtered Results', 'builderp' );
 				}
 				?>
 			</div>
@@ -137,11 +138,11 @@ class BERP_Expense_PDF_Exporter {
 			<table>
 				<thead>
 					<tr>
-						<th><?php esc_html_e( 'Date', 'aic_builderp' ); ?></th>
-						<th><?php esc_html_e( 'Title', 'aic_builderp' ); ?></th>
-						<th><?php esc_html_e( 'Category', 'aic_builderp' ); ?></th>
-						<th><?php esc_html_e( 'Site', 'aic_builderp' ); ?></th>
-						<th class="text-right"><?php esc_html_e( 'Amount', 'aic_builderp' ); ?></th>
+						<th><?php esc_html_e( 'Date', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Title', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Category', 'builderp' ); ?></th>
+						<th><?php esc_html_e( 'Site', 'builderp' ); ?></th>
+						<th class="text-right"><?php esc_html_e( 'Amount', 'builderp' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -156,7 +157,7 @@ class BERP_Expense_PDF_Exporter {
 						$site_name = '—';
 						if ( $site_id ) {
 							$site      = get_post( $site_id );
-							$site_name = $site ? esc_html( $site->post_title ) : '—';
+							$site_name = $site ? $site->post_title : '-';
 						}
 
 						$category_label = ucfirst( str_replace( '_', ' ', $category ) );
@@ -172,14 +173,14 @@ class BERP_Expense_PDF_Exporter {
 									<?php echo esc_html( $category_label ); ?>
 								</span>
 							</td>
-							<td><?php echo $site_name; ?></td>
+							<td><?php echo esc_html( $site_name ); ?></td>
 							<td class="text-right"><?php echo esc_html( $currency_symbol . number_format( $amount, 2 ) ); ?></td>
 						</tr>
 						<?php
 					}
 					?>
 					<tr class="total-row">
-						<td colspan="4" class="text-right"><strong><?php esc_html_e( 'TOTAL:', 'aic_builderp' ); ?></strong></td>
+						<td colspan="4" class="text-right"><strong><?php esc_html_e( 'TOTAL:', 'builderp' ); ?></strong></td>
 						<td class="text-right"><strong><?php echo esc_html( $currency_symbol . number_format( $total_amount, 2 ) ); ?></strong></td>
 					</tr>
 				</tbody>
@@ -187,8 +188,9 @@ class BERP_Expense_PDF_Exporter {
 
 			<div class="meta-info">
 				<?php
+				/* translators: %d: total expenses count */
 				printf(
-					esc_html__( 'Total Expenses: %d', 'aic_builderp' ),
+					esc_html__( 'Total Expenses: %d', 'builderp' ),
 					count( $expenses )
 				);
 				?>
@@ -212,13 +214,13 @@ class BERP_Expense_PDF_Exporter {
 			);
 
 			$mpdf->WriteHTML( $html );
-			$mpdf->Output( 'expenses-' . date( 'Y-m-d-His' ) . '.pdf', 'D' );
+			$mpdf->Output( 'expenses-' . gmdate( 'Y-m-d-His' ) . '.pdf', 'D' );
 			exit;
 		} catch ( Exception $e ) {
 			wp_die(
 				sprintf(
 					/* translators: %s: Error message */
-					esc_html__( 'PDF generation failed: %s', 'aic_builderp' ),
+					esc_html__( 'PDF generation failed: %s', 'builderp' ),
 					esc_html( $e->getMessage() )
 				)
 			);
@@ -244,3 +246,5 @@ class BERP_Expense_PDF_Exporter {
 		return isset( $colors[ strtolower( $category ) ] ) ? $colors[ strtolower( $category ) ] : '#72aee6';
 	}
 }
+
+

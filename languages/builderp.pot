@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "X-Generator: BuildERP POT Generator\n"
-"X-Domain: aic_builderp\n"
+"X-Domain: builderp\n"
 
 #. Plugin Name of the plugin
 msgid "BuildERP - Construction ERP"
@@ -1247,3 +1247,4 @@ msgstr ""
 #: Month names
 msgid "December"
 msgstr ""
+

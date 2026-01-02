@@ -48,11 +48,11 @@ class BERP_Expense_Admin {
 
 		// Security checks
 		if ( ! current_user_can( 'berp_manage_expenses' ) ) {
-			wp_die( __( 'Permission denied', 'aic_builderp' ) );
+			wp_die( esc_html__( 'Permission denied', 'builderp' ) );
 		}
 
 		if ( ! isset( $_GET['berp_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['berp_nonce'] ) ), 'berp_export_expenses' ) ) {
-			wp_die( __( 'Security check failed', 'aic_builderp' ) );
+			wp_die( esc_html__( 'Security check failed', 'builderp' ) );
 		}
 
 		// Build query args from filters
@@ -136,3 +136,4 @@ class BERP_Expense_Admin {
 		}
 	}
 }
+

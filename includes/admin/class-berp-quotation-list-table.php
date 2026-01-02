@@ -46,12 +46,12 @@ class BERP_Quotation_List_Table {
 	public function add_columns( $columns ) {
 		$new_columns = array(
 			'cb'             => $columns['cb'],
-			'title'          => __( 'Quotation #', 'aic_builderp' ),
-			'client'         => __( 'Client', 'aic_builderp' ),
-			'quotation_date' => __( 'Date', 'aic_builderp' ),
-			'validity_date'  => __( 'Valid Until', 'aic_builderp' ),
-			'status'         => __( 'Status', 'aic_builderp' ),
-			'grand_total'    => __( 'Total', 'aic_builderp' ),
+			'title'          => __( 'Quotation #', 'builderp' ),
+			'client'         => __( 'Client', 'builderp' ),
+			'quotation_date' => __( 'Date', 'builderp' ),
+			'validity_date'  => __( 'Valid Until', 'builderp' ),
+			'status'         => __( 'Status', 'builderp' ),
+			'grand_total'    => __( 'Total', 'builderp' ),
 		);
 		return $new_columns;
 	}
@@ -189,7 +189,7 @@ class BERP_Quotation_List_Table {
 		$selected_client = isset( $_GET['berp_client_filter'] ) ? absint( $_GET['berp_client_filter'] ) : 0;
 		?>
 		<select name="berp_client_filter">
-			<option value=""><?php esc_html_e( 'All Clients', 'aic_builderp' ); ?></option>
+			<option value=""><?php esc_html_e( 'All Clients', 'builderp' ); ?></option>
 			<?php foreach ( $clients as $client ) : ?>
 				<option value="<?php echo esc_attr( $client->ID ); ?>" <?php selected( $selected_client, $client->ID ); ?>>
 					<?php echo esc_html( $client->post_title ); ?>
@@ -203,7 +203,7 @@ class BERP_Quotation_List_Table {
 		$selected_status = isset( $_GET['berp_status_filter'] ) ? sanitize_text_field( $_GET['berp_status_filter'] ) : '';
 		?>
 		<select name="berp_status_filter">
-			<option value=""><?php esc_html_e( 'All Statuses', 'aic_builderp' ); ?></option>
+			<option value=""><?php esc_html_e( 'All Statuses', 'builderp' ); ?></option>
 			<?php foreach ( $statuses as $status ) : ?>
 				<option value="<?php echo esc_attr( $status ); ?>" <?php selected( $selected_status, $status ); ?>>
 					<?php echo esc_html( berp_get_quotation_status_label( $status ) ); ?>
@@ -280,7 +280,7 @@ class BERP_Quotation_List_Table {
 					admin_url( 'admin-ajax.php' )
 				)
 			),
-			__( 'View PDF', 'aic_builderp' )
+			__( 'View PDF', 'builderp' )
 		);
 
 		// Add "Send to Client" action (if not sent or status is draft).
@@ -298,7 +298,7 @@ class BERP_Quotation_List_Table {
 						'berp_send_quotation_' . $post->ID
 					)
 				),
-				__( 'Send to Client', 'aic_builderp' )
+				__( 'Send to Client', 'builderp' )
 			);
 		}
 
@@ -319,7 +319,7 @@ class BERP_Quotation_List_Table {
 							'berp_convert_site_' . $post->ID
 						)
 					),
-					__( 'Convert to Site', 'aic_builderp' )
+					__( 'Convert to Site', 'builderp' )
 				);
 			}
 		}
@@ -327,3 +327,4 @@ class BERP_Quotation_List_Table {
 		return $actions;
 	}
 }
+

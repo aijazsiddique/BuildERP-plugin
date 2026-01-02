@@ -26,19 +26,19 @@ class BERP_Client_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Clients', 'Post type general name', 'aic_builderp' ),
-			'singular_name'      => _x( 'Client', 'Post type singular name', 'aic_builderp' ),
-			'menu_name'          => _x( 'Clients', 'Admin Menu text', 'aic_builderp' ),
-			'name_admin_bar'     => _x( 'Client', 'Add New on Toolbar', 'aic_builderp' ),
-			'add_new'            => __( 'Add New', 'aic_builderp' ),
-			'add_new_item'       => __( 'Add New Client', 'aic_builderp' ),
-			'new_item'           => __( 'New Client', 'aic_builderp' ),
-			'edit_item'          => __( 'Edit Client', 'aic_builderp' ),
-			'view_item'          => __( 'View Client', 'aic_builderp' ),
-			'all_items'          => __( 'All Clients', 'aic_builderp' ),
-			'search_items'       => __( 'Search Clients', 'aic_builderp' ),
-			'not_found'          => __( 'No clients found.', 'aic_builderp' ),
-			'not_found_in_trash' => __( 'No clients found in Trash.', 'aic_builderp' ),
+			'name'               => _x( 'Clients', 'Post type general name', 'builderp' ),
+			'singular_name'      => _x( 'Client', 'Post type singular name', 'builderp' ),
+			'menu_name'          => _x( 'Clients', 'Admin Menu text', 'builderp' ),
+			'name_admin_bar'     => _x( 'Client', 'Add New on Toolbar', 'builderp' ),
+			'add_new'            => __( 'Add New', 'builderp' ),
+			'add_new_item'       => __( 'Add New Client', 'builderp' ),
+			'new_item'           => __( 'New Client', 'builderp' ),
+			'edit_item'          => __( 'Edit Client', 'builderp' ),
+			'view_item'          => __( 'View Client', 'builderp' ),
+			'all_items'          => __( 'All Clients', 'builderp' ),
+			'search_items'       => __( 'Search Clients', 'builderp' ),
+			'not_found'          => __( 'No clients found.', 'builderp' ),
+			'not_found_in_trash' => __( 'No clients found in Trash.', 'builderp' ),
 		);
 
 		$args = array(
@@ -71,3 +71,4 @@ class BERP_Client_CPT {
 		register_post_type( 'berp_client', $args );
 	}
 }
+

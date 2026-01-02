@@ -52,13 +52,13 @@ class BERP_Client_List_Table {
 		$custom_columns = array(
 			'cb'            => $columns['cb'],
 			'title'         => $columns['title'],
-			'berp_company'  => __( 'Company Name', 'aic_builderp' ),
-			'berp_contact'  => __( 'Contact Person', 'aic_builderp' ),
-			'berp_email'    => __( 'Email', 'aic_builderp' ),
-			'berp_phone'    => __( 'Phone', 'aic_builderp' ),
-			'berp_city'     => __( 'City', 'aic_builderp' ),
-			'berp_projects' => __( 'Active Projects', 'aic_builderp' ),
-			'date'          => __( 'Created', 'aic_builderp' ),
+			'berp_company'  => __( 'Company Name', 'builderp' ),
+			'berp_contact'  => __( 'Contact Person', 'builderp' ),
+			'berp_email'    => __( 'Email', 'builderp' ),
+			'berp_phone'    => __( 'Phone', 'builderp' ),
+			'berp_city'     => __( 'City', 'builderp' ),
+			'berp_projects' => __( 'Active Projects', 'builderp' ),
+			'date'          => __( 'Created', 'builderp' ),
 		);
 
 		return $custom_columns;
@@ -136,11 +136,11 @@ class BERP_Client_List_Table {
 				$count = count( $projects );
 				if ( $count > 0 ) {
 					$url = admin_url( 'edit.php?post_type=berp_site&berp_client=' . $post_id );
-					echo '<a href="' . esc_url( $url ) . '">' . sprintf(
+					echo '<a href="' . esc_url( $url ) . '">' . esc_html( sprintf(
 						/* translators: %d: number of projects */
-						_n( '%d Project', '%d Projects', $count, 'aic_builderp' ),
+						_n( '%d Project', '%d Projects', $count, 'builderp' ),
 						$count
-					) . '</a>';
+					) ) . '</a>';
 				} else {
 					echo '—';
 				}
@@ -216,7 +216,7 @@ class BERP_Client_List_Table {
 			$selected = isset( $_GET['berp_city'] ) ? sanitize_text_field( $_GET['berp_city'] ) : '';
 
 			echo '<select name="berp_city" id="berp_city_filter">';
-			echo '<option value="">' . esc_html__( 'All Cities', 'aic_builderp' ) . '</option>';
+			echo '<option value="">' . esc_html__( 'All Cities', 'builderp' ) . '</option>';
 
 			foreach ( $cities as $city ) {
 				if ( empty( $city ) ) {
@@ -240,7 +240,7 @@ class BERP_Client_List_Table {
 			$selected = isset( $_GET['berp_country'] ) ? sanitize_text_field( $_GET['berp_country'] ) : '';
 
 			echo '<select name="berp_country" id="berp_country_filter">';
-			echo '<option value="">' . esc_html__( 'All Countries', 'aic_builderp' ) . '</option>';
+			echo '<option value="">' . esc_html__( 'All Countries', 'builderp' ) . '</option>';
 
 			foreach ( $countries as $country ) {
 				if ( empty( $country ) ) {
@@ -374,7 +374,7 @@ class BERP_Client_List_Table {
 
 		if ( ! empty( $projects_count ) ) {
 			$url                      = admin_url( 'edit.php?post_type=berp_site&berp_client=' . $post->ID );
-			$actions['view_projects'] = '<a href="' . esc_url( $url ) . '">' . __( 'View Projects', 'aic_builderp' ) . '</a>';
+			$actions['view_projects'] = '<a href="' . esc_url( $url ) . '">' . __( 'View Projects', 'builderp' ) . '</a>';
 		}
 
 		return $actions;
@@ -395,15 +395,15 @@ class BERP_Client_List_Table {
 
 		switch ( $error ) {
 			case 'company_name_required':
-				$message = __( 'Error: Company name is required.', 'aic_builderp' );
+				$message = __( 'Error: Company name is required.', 'builderp' );
 				break;
 
 			case 'email_required':
-				$message = __( 'Error: Email address is required.', 'aic_builderp' );
+				$message = __( 'Error: Email address is required.', 'builderp' );
 				break;
 
 			case 'duplicate_email':
-				$message = __( 'Error: A client with this email address already exists.', 'aic_builderp' );
+				$message = __( 'Error: A client with this email address already exists.', 'builderp' );
 				break;
 		}
 
@@ -415,3 +415,4 @@ class BERP_Client_List_Table {
 
 // Initialize
 new BERP_Client_List_Table();
+

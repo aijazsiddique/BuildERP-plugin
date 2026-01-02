@@ -48,7 +48,7 @@ class BERP_Timekeeper_Dashboard {
 		$total_employees = count( $employees );
 
 		// Today's Attendance.
-		$today            = date( 'Y-m-d' );
+		$today            = gmdate( 'Y-m-d' );
 		$attendance_args  = array(
 			'post_type'      => 'berp_attendance',
 			'posts_per_page' => -1,
@@ -82,3 +82,4 @@ class BERP_Timekeeper_Dashboard {
 		return $query->posts;
 	}
 }
+

@@ -27,19 +27,19 @@ class BERP_Attendance_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Attendance', 'Post type general name', 'aic_builderp' ),
-			'singular_name'      => _x( 'Attendance Record', 'Post type singular name', 'aic_builderp' ),
-			'menu_name'          => _x( 'Attendance', 'Admin Menu text', 'aic_builderp' ),
-			'name_admin_bar'     => _x( 'Attendance', 'Add New on Toolbar', 'aic_builderp' ),
-			'add_new'            => __( 'Log Attendance', 'aic_builderp' ),
-			'add_new_item'       => __( 'Log Attendance', 'aic_builderp' ),
-			'new_item'           => __( 'New Attendance Record', 'aic_builderp' ),
-			'edit_item'          => __( 'Edit Attendance Record', 'aic_builderp' ),
-			'view_item'          => __( 'View Attendance Record', 'aic_builderp' ),
-			'all_items'          => __( 'View Attendance', 'aic_builderp' ),
-			'search_items'       => __( 'Search Attendance', 'aic_builderp' ),
-			'not_found'          => __( 'No attendance records found.', 'aic_builderp' ),
-			'not_found_in_trash' => __( 'No attendance records found in Trash.', 'aic_builderp' ),
+			'name'               => _x( 'Attendance', 'Post type general name', 'builderp' ),
+			'singular_name'      => _x( 'Attendance Record', 'Post type singular name', 'builderp' ),
+			'menu_name'          => _x( 'Attendance', 'Admin Menu text', 'builderp' ),
+			'name_admin_bar'     => _x( 'Attendance', 'Add New on Toolbar', 'builderp' ),
+			'add_new'            => __( 'Log Attendance', 'builderp' ),
+			'add_new_item'       => __( 'Log Attendance', 'builderp' ),
+			'new_item'           => __( 'New Attendance Record', 'builderp' ),
+			'edit_item'          => __( 'Edit Attendance Record', 'builderp' ),
+			'view_item'          => __( 'View Attendance Record', 'builderp' ),
+			'all_items'          => __( 'View Attendance', 'builderp' ),
+			'search_items'       => __( 'Search Attendance', 'builderp' ),
+			'not_found'          => __( 'No attendance records found.', 'builderp' ),
+			'not_found_in_trash' => __( 'No attendance records found in Trash.', 'builderp' ),
 		);
 
 		$args = array(
@@ -72,3 +72,4 @@ class BERP_Attendance_CPT {
 		register_post_type( 'berp_attendance', $args );
 	}
 }
+

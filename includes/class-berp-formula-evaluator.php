@@ -105,7 +105,7 @@ class BERP_Formula_Evaluator {
 	protected function tokenize( $formula ) {
 		$formula = trim( $formula );
 		if ( '' === $formula ) {
-			return new WP_Error( 'berp_formula_empty', __( 'Formula is empty.', 'aic_builderp' ) );
+			return new WP_Error( 'berp_formula_empty', __( 'Formula is empty.', 'builderp' ) );
 		}
 
 		$pattern = '/(\\d*\\.\\d+|\\d+)|([A-Za-z_][A-Za-z0-9_]*)|(>=|<=|==|!=|&&|\\|\\||[+\\-*\\/^%(),<>])/';
@@ -120,7 +120,7 @@ class BERP_Formula_Evaluator {
 
 		// If parsed length does not match, invalid characters exist.
 		if ( strlen( preg_replace( '/\\s+/', '', $formula ) ) !== $length ) {
-			return new WP_Error( 'berp_formula_invalid', __( 'Formula contains invalid characters.', 'aic_builderp' ) );
+			return new WP_Error( 'berp_formula_invalid', __( 'Formula contains invalid characters.', 'builderp' ) );
 		}
 
 		return $tokens;
@@ -162,7 +162,7 @@ class BERP_Formula_Evaluator {
 					$output[] = array_pop( $stack );
 				}
 				if ( empty( $arg_counts ) ) {
-					return new WP_Error( 'berp_formula_comma', __( 'Unexpected comma or argument separator.', 'aic_builderp' ) );
+					return new WP_Error( 'berp_formula_comma', __( 'Unexpected comma or argument separator.', 'builderp' ) );
 				}
 				$last_index = count( $arg_counts ) - 1;
 				++$arg_counts[ $last_index ];
@@ -181,7 +181,7 @@ class BERP_Formula_Evaluator {
 					$output[] = array_pop( $stack );
 				}
 				if ( empty( $stack ) ) {
-					return new WP_Error( 'berp_formula_parentheses', __( 'Mismatched parentheses detected.', 'aic_builderp' ) );
+					return new WP_Error( 'berp_formula_parentheses', __( 'Mismatched parentheses detected.', 'builderp' ) );
 				}
 				array_pop( $stack );
 
@@ -208,7 +208,7 @@ class BERP_Formula_Evaluator {
 			}
 
 			if ( ! isset( $this->precedence[ $op ] ) && 'u-' !== $op ) {
-				return new WP_Error( 'berp_formula_operator', __( 'Unsupported operator found in formula.', 'aic_builderp' ) );
+				return new WP_Error( 'berp_formula_operator', __( 'Unsupported operator found in formula.', 'builderp' ) );
 			}
 
 			while ( ! empty( $stack ) && $this->is_operator( end( $stack ) ) ) {
@@ -229,7 +229,7 @@ class BERP_Formula_Evaluator {
 		while ( ! empty( $stack ) ) {
 			$top = array_pop( $stack );
 			if ( '(' === $top || ')' === $top ) {
-				return new WP_Error( 'berp_formula_parentheses_end', __( 'Mismatched parentheses detected.', 'aic_builderp' ) );
+				return new WP_Error( 'berp_formula_parentheses_end', __( 'Mismatched parentheses detected.', 'builderp' ) );
 			}
 			$output[] = $top;
 		}
@@ -255,7 +255,7 @@ class BERP_Formula_Evaluator {
 				$args = array();
 
 				if ( count( $stack ) < $argc ) {
-					return new WP_Error( 'berp_formula_args', __( 'Not enough arguments for function.', 'aic_builderp' ) );
+					return new WP_Error( 'berp_formula_args', __( 'Not enough arguments for function.', 'builderp' ) );
 				}
 
 				for ( $i = 0; $i < $argc; $i++ ) {
@@ -274,7 +274,7 @@ class BERP_Formula_Evaluator {
 			if ( $this->is_operator( $token ) ) {
 				if ( 'u-' === $token ) {
 					if ( empty( $stack ) ) {
-						return new WP_Error( 'berp_formula_unary', __( 'Invalid unary operator usage.', 'aic_builderp' ) );
+						return new WP_Error( 'berp_formula_unary', __( 'Invalid unary operator usage.', 'builderp' ) );
 					}
 					$value   = array_pop( $stack );
 					$stack[] = -1 * $value;
@@ -282,7 +282,7 @@ class BERP_Formula_Evaluator {
 				}
 
 				if ( count( $stack ) < 2 ) {
-					return new WP_Error( 'berp_formula_stack', __( 'Formula stack is invalid.', 'aic_builderp' ) );
+					return new WP_Error( 'berp_formula_stack', __( 'Formula stack is invalid.', 'builderp' ) );
 				}
 
 				$b = array_pop( $stack );
@@ -306,7 +306,7 @@ class BERP_Formula_Evaluator {
 					'berp_formula_missing_variable',
 					sprintf(
 						/* translators: %s variable name */
-						__( 'Variable "%s" is not provided.', 'aic_builderp' ),
+						__( 'Variable "%s" is not provided.', 'builderp' ),
 						$var_key
 					)
 				);
@@ -316,7 +316,7 @@ class BERP_Formula_Evaluator {
 		}
 
 		if ( 1 !== count( $stack ) ) {
-			return new WP_Error( 'berp_formula_result', __( 'Formula could not be resolved.', 'aic_builderp' ) );
+			return new WP_Error( 'berp_formula_result', __( 'Formula could not be resolved.', 'builderp' ) );
 		}
 
 		$final_result = (float) array_pop( $stack );
@@ -325,7 +325,7 @@ class BERP_Formula_Evaluator {
 		if ( ! is_finite( $final_result ) ) {
 			return new WP_Error(
 				'berp_formula_invalid_result',
-				__( 'Formula resulted in invalid value (Infinity or NaN). This usually indicates division by zero.', 'aic_builderp' )
+				__( 'Formula resulted in invalid value (Infinity or NaN). This usually indicates division by zero.', 'builderp' )
 			);
 		}
 
@@ -350,25 +350,25 @@ class BERP_Formula_Evaluator {
 				return $a * $b;
 			case '/':
 				if ( 0.0 === (float) $b ) {
-					return new WP_Error( 'berp_formula_division', __( 'Division by zero detected.', 'aic_builderp' ) );
+					return new WP_Error( 'berp_formula_division', __( 'Division by zero detected.', 'builderp' ) );
 				}
 				$result = $a / $b;
 
 				// Additional safety: Check for Infinity or NaN.
 				if ( ! is_finite( $result ) ) {
-					return new WP_Error( 'berp_formula_division', __( 'Division by zero detected.', 'aic_builderp' ) );
+					return new WP_Error( 'berp_formula_division', __( 'Division by zero detected.', 'builderp' ) );
 				}
 
 				return $result;
 			case '%':
 				if ( 0.0 === (float) $b ) {
-					return new WP_Error( 'berp_formula_modulo', __( 'Modulo by zero detected.', 'aic_builderp' ) );
+					return new WP_Error( 'berp_formula_modulo', __( 'Modulo by zero detected.', 'builderp' ) );
 				}
 				$result = fmod( $a, $b );
 
 				// Additional safety: Check for Infinity or NaN.
 				if ( ! is_finite( $result ) ) {
-					return new WP_Error( 'berp_formula_modulo', __( 'Modulo by zero detected.', 'aic_builderp' ) );
+					return new WP_Error( 'berp_formula_modulo', __( 'Modulo by zero detected.', 'builderp' ) );
 				}
 
 				return $result;
@@ -392,7 +392,7 @@ class BERP_Formula_Evaluator {
 				return (float) ( $a || $b );
 		}
 
-		return new WP_Error( 'berp_formula_operator_unknown', __( 'Unknown operator encountered.', 'aic_builderp' ) );
+		return new WP_Error( 'berp_formula_operator_unknown', __( 'Unknown operator encountered.', 'builderp' ) );
 	}
 
 	/**
@@ -406,11 +406,11 @@ class BERP_Formula_Evaluator {
 		$func = strtolower( $func );
 
 		if ( ! isset( $this->functions[ $func ] ) ) {
-			return new WP_Error( 'berp_formula_func', __( 'Unsupported function in formula.', 'aic_builderp' ) );
+			return new WP_Error( 'berp_formula_func', __( 'Unsupported function in formula.', 'builderp' ) );
 		}
 
 		if ( count( $args ) !== (int) $this->functions[ $func ] ) {
-			return new WP_Error( 'berp_formula_func_args', __( 'Incorrect number of arguments for function.', 'aic_builderp' ) );
+			return new WP_Error( 'berp_formula_func_args', __( 'Incorrect number of arguments for function.', 'builderp' ) );
 		}
 
 		switch ( $func ) {
@@ -426,7 +426,7 @@ class BERP_Formula_Evaluator {
 				return abs( (float) $args[0] );
 		}
 
-		return new WP_Error( 'berp_formula_func_unknown', __( 'Unknown function encountered.', 'aic_builderp' ) );
+		return new WP_Error( 'berp_formula_func_unknown', __( 'Unknown function encountered.', 'builderp' ) );
 	}
 
 	/**
@@ -459,3 +459,4 @@ class BERP_Formula_Evaluator {
 		return in_array( $op, $this->left_associative, true );
 	}
 }
+

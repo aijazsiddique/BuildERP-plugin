@@ -141,7 +141,7 @@ class BERP_Recurring_Expense_Cron {
 		$template = get_post( $template_id );
 
 		if ( ! $template || $template->post_type !== 'berp_expense' ) {
-			return new WP_Error( 'berp_invalid_template', __( 'Invalid expense template', 'aic_builderp' ) );
+			return new WP_Error( 'berp_invalid_template', __( 'Invalid expense template', 'builderp' ) );
 		}
 
 		// Create new expense post
@@ -207,7 +207,7 @@ class BERP_Recurring_Expense_Cron {
 			return $date->format( 'Y-m-d' );
 		} catch ( Exception $e ) {
 			// If date parsing fails, return current date + 1 month as fallback
-			return date( 'Y-m-d', strtotime( '+1 month', strtotime( $current_date ) ) );
+			return gmdate( 'Y-m-d', strtotime( '+1 month', strtotime( $current_date ) ) );
 		}
 	}
 
@@ -242,3 +242,5 @@ class BERP_Recurring_Expense_Cron {
 		update_post_meta( $site_id, '_berp_budget_spent', floatval( $total ) );
 	}
 }
+
+

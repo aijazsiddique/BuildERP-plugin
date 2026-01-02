@@ -23,22 +23,22 @@ class BERP_Tools_Validator {
 		?>
 		<div class="berp-validator-tool">
 			<div class="berp-tool-header">
-				<h2><?php esc_html_e( 'Schema Validator', 'aic_builderp' ); ?></h2>
+				<h2><?php esc_html_e( 'Schema Validator', 'builderp' ); ?></h2>
 				<p class="description">
-					<?php esc_html_e( 'Validate your BuildErp schema for compliance and consistency. Identify issues and apply quick fixes.', 'aic_builderp' ); ?>
+					<?php esc_html_e( 'Validate your BuildErp schema for compliance and consistency. Identify issues and apply quick fixes.', 'builderp' ); ?>
 				</p>
 			</div>
 
 			<div class="berp-validator-actions">
 				<button type="button" id="berp-run-validator" class="button button-primary">
 					<span class="dashicons dashicons-update"></span>
-					<?php esc_html_e( 'Run Validation', 'aic_builderp' ); ?>
+					<?php esc_html_e( 'Run Validation', 'builderp' ); ?>
 				</button>
 			</div>
 
 			<div id="berp-validator-results" class="berp-validator-results" style="display: none;">
 				<div class="berp-compliance-score">
-					<h3><?php esc_html_e( 'Compliance Score', 'aic_builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'Compliance Score', 'builderp' ); ?></h3>
 					<div class="berp-score-meter">
 						<div class="berp-score-bar" data-score="0">
 							<span class="berp-score-text">0%</span>
@@ -48,14 +48,14 @@ class BERP_Tools_Validator {
 				</div>
 
 				<div class="berp-validation-issues">
-					<h3><?php esc_html_e( 'Validation Issues', 'aic_builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'Validation Issues', 'builderp' ); ?></h3>
 					<div id="berp-issues-list"></div>
 				</div>
 			</div>
 
 			<div id="berp-validator-loading" class="berp-loading-spinner" style="display: none;">
 				<span class="spinner is-active"></span>
-				<p><?php esc_html_e( 'Running validation...', 'aic_builderp' ); ?></p>
+				<p><?php esc_html_e( 'Running validation...', 'builderp' ); ?></p>
 			</div>
 		</div>
 
@@ -311,8 +311,9 @@ class BERP_Tools_Validator {
 				$issues[] = array(
 					'type'        => 'meta_key_naming',
 					'severity'    => 'warning',
-					'title'       => sprintf( __( 'Invalid meta key naming: %s', 'aic_builderp' ), $meta_key ),
-					'description' => __( 'Meta keys should follow the pattern: _berp_lowercase_with_underscores', 'aic_builderp' ),
+					/* translators: %s: meta key */
+					'title'       => sprintf( __( 'Invalid meta key naming: %s', 'builderp' ), $meta_key ),
+					'description' => __( 'Meta keys should follow the pattern: _berp_lowercase_with_underscores', 'builderp' ),
 					'data'        => array( 'meta_key' => $meta_key ),
 					'fixable'     => false,
 				);
@@ -342,8 +343,9 @@ class BERP_Tools_Validator {
 					$issues[] = array(
 						'type'        => 'function_naming',
 						'severity'    => 'warning',
-						'title'       => sprintf( __( 'Invalid function naming: %s', 'aic_builderp' ), $function ),
-						'description' => __( 'Functions should follow the pattern: berp_lowercase_with_underscores', 'aic_builderp' ),
+						/* translators: %s: function name */
+						'title'       => sprintf( __( 'Invalid function naming: %s', 'builderp' ), $function ),
+						'description' => __( 'Functions should follow the pattern: berp_lowercase_with_underscores', 'builderp' ),
 						'data'        => array( 'function' => $function ),
 						'fixable'     => false,
 					);
@@ -378,8 +380,9 @@ class BERP_Tools_Validator {
 				$issues[] = array(
 					'type'        => 'missing_post_type',
 					'severity'    => 'error',
-					'title'       => sprintf( __( 'Missing post type: %s', 'aic_builderp' ), $post_type ),
-					'description' => __( 'Required post type is not registered', 'aic_builderp' ),
+					/* translators: %s: post type */
+					'title'       => sprintf( __( 'Missing post type: %s', 'builderp' ), $post_type ),
+					'description' => __( 'Required post type is not registered', 'builderp' ),
 					'data'        => array( 'post_type' => $post_type ),
 					'fixable'     => false,
 				);
@@ -413,8 +416,9 @@ class BERP_Tools_Validator {
 					$issues[] = array(
 						'type'        => 'missing_capability',
 						'severity'    => 'error',
-						'title'       => sprintf( __( 'Missing capability: %s', 'aic_builderp' ), $cap ),
-						'description' => __( 'Required capability is not assigned to administrator role', 'aic_builderp' ),
+						/* translators: %s: capability name */
+						'title'       => sprintf( __( 'Missing capability: %s', 'builderp' ), $cap ),
+						'description' => __( 'Required capability is not assigned to administrator role', 'builderp' ),
 						'data'        => array( 'capability' => $cap ),
 						'fixable'     => true,
 					);
@@ -443,8 +447,10 @@ class BERP_Tools_Validator {
 				$issues[] = array(
 					'type'        => 'missing_helper',
 					'severity'    => 'info',
-					'title'       => sprintf( __( 'Missing helper function: %s', 'aic_builderp' ), $function_name ),
-					'description' => sprintf( __( 'Consider creating a helper function for meta key %s', 'aic_builderp' ), $meta_key ),
+					/* translators: %s: function name */
+					'title'       => sprintf( __( 'Missing helper function: %s', 'builderp' ), $function_name ),
+					/* translators: %s: meta key */
+					'description' => sprintf( __( 'Consider creating a helper function for meta key %s', 'builderp' ), $meta_key ),
 					'data'        => array(
 						'meta_key' => $meta_key,
 						'function' => $function_name,
@@ -487,13 +493,13 @@ class BERP_Tools_Validator {
 	 */
 	private function get_score_summary( $score ) {
 		if ( $score >= 90 ) {
-			return __( 'Excellent! Your BuildErp schema is highly compliant.', 'aic_builderp' );
+			return __( 'Excellent! Your BuildErp schema is highly compliant.', 'builderp' );
 		} elseif ( $score >= 70 ) {
-			return __( 'Good! Minor issues detected. Review warnings below.', 'aic_builderp' );
+			return __( 'Good! Minor issues detected. Review warnings below.', 'builderp' );
 		} elseif ( $score >= 50 ) {
-			return __( 'Fair. Several issues need attention.', 'aic_builderp' );
+			return __( 'Fair. Several issues need attention.', 'builderp' );
 		} else {
-			return __( 'Poor. Critical issues detected. Immediate action required.', 'aic_builderp' );
+			return __( 'Poor. Critical issues detected. Immediate action required.', 'builderp' );
 		}
 	}
 
@@ -533,3 +539,4 @@ class BERP_Tools_Validator {
 		return false;
 	}
 }
+

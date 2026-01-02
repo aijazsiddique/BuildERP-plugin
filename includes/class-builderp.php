@@ -58,7 +58,6 @@ final class BuildErp {
 	 */
 	private function __construct() {
 		$this->load_dependencies();
-		$this->set_locale();
 		$this->register_hooks();
 	}
 
@@ -156,24 +155,6 @@ final class BuildErp {
 		include_once BERP_PLUGIN_DIR . 'includes/api/class-berp-attendance-api.php';
 
 		$this->loader = new BERP_Loader();
-	}
-
-	/**
-	 * Set up localization.
-	 */
-	private function set_locale() {
-		$this->loader->add_action( 'plugins_loaded', $this, 'load_textdomain' );
-	}
-
-	/**
-	 * Load plugin text domain for translations.
-	 */
-	public function load_textdomain() {
-		load_plugin_textdomain(
-			'aic_builderp',
-			false,
-			dirname( BERP_PLUGIN_BASENAME ) . '/languages/'
-		);
 	}
 
 	/**
@@ -316,3 +297,4 @@ final class BuildErp {
 		$this->loader->run();
 	}
 }
+

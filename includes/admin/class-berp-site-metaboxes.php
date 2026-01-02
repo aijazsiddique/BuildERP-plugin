@@ -40,7 +40,7 @@ class BERP_Site_Metaboxes {
 	public function add_metaboxes() {
 		add_meta_box(
 			'berp_site_main',
-			__( 'Site / Project Details', 'aic_builderp' ),
+			__( 'Site / Project Details', 'builderp' ),
 			array( $this, 'render_main_metabox' ),
 			'berp_site',
 			'normal',
@@ -122,12 +122,12 @@ class BERP_Site_Metaboxes {
 		?>
 		<div class="berp-metabox-content">
 			<div class="berp-metabox-layout">
-				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Site sections', 'aic_builderp' ); ?>">
-					<button type="button" class="berp-metabox-tab is-active" data-tab-target="berp-site-info"><?php esc_html_e( 'Information', 'aic_builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="berp-site-project"><?php esc_html_e( 'Project Details', 'aic_builderp' ); ?></button>
-					<button type="button" class="berp-metabox-tab" data-tab-target="berp-site-budget"><?php esc_html_e( 'Budget Tracking', 'aic_builderp' ); ?></button>
+				<nav class="berp-metabox-tabs" aria-label="<?php esc_attr_e( 'Site sections', 'builderp' ); ?>">
+					<button type="button" class="berp-metabox-tab is-active" data-tab-target="berp-site-info"><?php esc_html_e( 'Information', 'builderp' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="berp-site-project"><?php esc_html_e( 'Project Details', 'builderp' ); ?></button>
+					<button type="button" class="berp-metabox-tab" data-tab-target="berp-site-budget"><?php esc_html_e( 'Budget Tracking', 'builderp' ); ?></button>
 					<?php if ( ! empty( $custom_fields ) ) : ?>
-						<button type="button" class="berp-metabox-tab" data-tab-target="berp-site-custom"><?php esc_html_e( 'Additional Info', 'aic_builderp' ); ?></button>
+						<button type="button" class="berp-metabox-tab" data-tab-target="berp-site-custom"><?php esc_html_e( 'Additional Info', 'builderp' ); ?></button>
 					<?php endif; ?>
 				</nav>
 
@@ -136,9 +136,9 @@ class BERP_Site_Metaboxes {
 					<div class="berp-metabox-panel is-active" data-tab-panel="berp-site-info">
 						<div class="berp-metabox-grid">
 							<div class="berp-field-group berp-field-full">
-								<label for="berp_client_id"><?php esc_html_e( 'Client', 'aic_builderp' ); ?> <span class="required">*</span></label>
+								<label for="berp_client_id"><?php esc_html_e( 'Client', 'builderp' ); ?> <span class="required">*</span></label>
 								<select id="berp_client_id" name="berp_client_id" required>
-									<option value=""><?php esc_html_e( '-- Select Client --', 'aic_builderp' ); ?></option>
+									<option value=""><?php esc_html_e( '-- Select Client --', 'builderp' ); ?></option>
 									<?php foreach ( $clients as $client ) : ?>
 										<option value="<?php echo esc_attr( $client->ID ); ?>" <?php selected( $client_id, $client->ID ); ?>>
 											<?php echo esc_html( $client->post_title ); ?>
@@ -150,8 +150,8 @@ class BERP_Site_Metaboxes {
 										<?php
 										printf(
 											/* translators: %s: URL to add new client */
-											esc_html__( 'No clients found. %s', 'aic_builderp' ),
-											'<a href="' . esc_url( admin_url( 'post-new.php?post_type=berp_client' ) ) . '">' . esc_html__( 'Add a client first', 'aic_builderp' ) . '</a>'
+											esc_html__( 'No clients found. %s', 'builderp' ),
+											'<a href="' . esc_url( admin_url( 'post-new.php?post_type=berp_client' ) ) . '">' . esc_html__( 'Add a client first', 'builderp' ) . '</a>'
 										);
 										?>
 									</p>
@@ -159,41 +159,41 @@ class BERP_Site_Metaboxes {
 							</div>
 
 							<div class="berp-field-group berp-field-full">
-								<label for="berp_site_address"><?php esc_html_e( 'Site Address', 'aic_builderp' ); ?></label>
+								<label for="berp_site_address"><?php esc_html_e( 'Site Address', 'builderp' ); ?></label>
 								<textarea id="berp_site_address" name="berp_site_address" rows="3"><?php echo esc_textarea( $site_address ); ?></textarea>
-								<p class="description"><?php esc_html_e( 'Physical location of the construction site', 'aic_builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Physical location of the construction site', 'builderp' ); ?></p>
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_site_city"><?php esc_html_e( 'City', 'aic_builderp' ); ?></label>
+								<label for="berp_site_city"><?php esc_html_e( 'City', 'builderp' ); ?></label>
 								<input type="text" id="berp_site_city" name="berp_site_city" value="<?php echo esc_attr( $city ); ?>" />
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_site_state"><?php esc_html_e( 'State/Province', 'aic_builderp' ); ?></label>
+								<label for="berp_site_state"><?php esc_html_e( 'State/Province', 'builderp' ); ?></label>
 								<input type="text" id="berp_site_state" name="berp_site_state" value="<?php echo esc_attr( $state ); ?>" />
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_site_zip"><?php esc_html_e( 'ZIP/Postal Code', 'aic_builderp' ); ?></label>
+								<label for="berp_site_zip"><?php esc_html_e( 'ZIP/Postal Code', 'builderp' ); ?></label>
 								<input type="text" id="berp_site_zip" name="berp_site_zip" value="<?php echo esc_attr( $zip ); ?>" />
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_start_date"><?php esc_html_e( 'Start Date', 'aic_builderp' ); ?></label>
+								<label for="berp_start_date"><?php esc_html_e( 'Start Date', 'builderp' ); ?></label>
 								<input type="date" id="berp_start_date" name="berp_start_date" value="<?php echo esc_attr( $start_date ); ?>" />
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_end_date"><?php esc_html_e( 'End Date', 'aic_builderp' ); ?></label>
+								<label for="berp_end_date"><?php esc_html_e( 'End Date', 'builderp' ); ?></label>
 								<input type="date" id="berp_end_date" name="berp_end_date" value="<?php echo esc_attr( $end_date ); ?>" />
-								<p class="description"><?php esc_html_e( 'Expected or actual completion date', 'aic_builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Expected or actual completion date', 'builderp' ); ?></p>
 							</div>
 
 							<div class="berp-field-group berp-field-full">
-								<label for="berp_site_description"><?php esc_html_e( 'Project Description', 'aic_builderp' ); ?></label>
+								<label for="berp_site_description"><?php esc_html_e( 'Project Description', 'builderp' ); ?></label>
 								<textarea id="berp_site_description" name="berp_site_description" rows="5"><?php echo esc_textarea( $description ); ?></textarea>
-								<p class="description"><?php esc_html_e( 'Brief description of the project scope and objectives', 'aic_builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Brief description of the project scope and objectives', 'builderp' ); ?></p>
 							</div>
 						</div>
 					</div>
@@ -202,25 +202,25 @@ class BERP_Site_Metaboxes {
 					<div class="berp-metabox-panel" data-tab-panel="berp-site-project">
 						<div class="berp-metabox-grid">
 							<div class="berp-field-group">
-								<label for="berp_site_status"><?php esc_html_e( 'Project Status', 'aic_builderp' ); ?></label>
+								<label for="berp_site_status"><?php esc_html_e( 'Project Status', 'builderp' ); ?></label>
 								<select id="berp_site_status" name="berp_site_status">
-									<option value="planning" <?php selected( $status, 'planning' ); ?>><?php esc_html_e( 'Planning', 'aic_builderp' ); ?></option>
-									<option value="in_progress" <?php selected( $status, 'in_progress' ); ?>><?php esc_html_e( 'In Progress', 'aic_builderp' ); ?></option>
-									<option value="on_hold" <?php selected( $status, 'on_hold' ); ?>><?php esc_html_e( 'On Hold', 'aic_builderp' ); ?></option>
-									<option value="completed" <?php selected( $status, 'completed' ); ?>><?php esc_html_e( 'Completed', 'aic_builderp' ); ?></option>
+									<option value="planning" <?php selected( $status, 'planning' ); ?>><?php esc_html_e( 'Planning', 'builderp' ); ?></option>
+									<option value="in_progress" <?php selected( $status, 'in_progress' ); ?>><?php esc_html_e( 'In Progress', 'builderp' ); ?></option>
+									<option value="on_hold" <?php selected( $status, 'on_hold' ); ?>><?php esc_html_e( 'On Hold', 'builderp' ); ?></option>
+									<option value="completed" <?php selected( $status, 'completed' ); ?>><?php esc_html_e( 'Completed', 'builderp' ); ?></option>
 								</select>
 							</div>
 
 							<div class="berp-field-group">
-								<label for="berp_project_manager"><?php esc_html_e( 'Project Manager', 'aic_builderp' ); ?></label>
+								<label for="berp_project_manager"><?php esc_html_e( 'Project Manager', 'builderp' ); ?></label>
 								<input type="text" id="berp_project_manager" name="berp_project_manager" value="<?php echo esc_attr( $manager ); ?>" />
-								<p class="description"><?php esc_html_e( 'Person responsible for managing this project', 'aic_builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Person responsible for managing this project', 'builderp' ); ?></p>
 							</div>
 
 							<div class="berp-field-group berp-field-full">
-								<label for="berp_project_notes"><?php esc_html_e( 'Project Notes', 'aic_builderp' ); ?></label>
+								<label for="berp_project_notes"><?php esc_html_e( 'Project Notes', 'builderp' ); ?></label>
 								<textarea id="berp_project_notes" name="berp_project_notes" rows="8"><?php echo esc_textarea( $notes ); ?></textarea>
-								<p class="description"><?php esc_html_e( 'Internal notes, milestones, or important information', 'aic_builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Internal notes, milestones, or important information', 'builderp' ); ?></p>
 							</div>
 						</div>
 					</div>
@@ -229,26 +229,26 @@ class BERP_Site_Metaboxes {
 					<div class="berp-metabox-panel" data-tab-panel="berp-site-budget">
 						<div class="berp-metabox-grid">
 							<div class="berp-field-group">
-								<label for="berp_budget"><strong><?php esc_html_e( 'Total Budget', 'aic_builderp' ); ?></strong></label>
+								<label for="berp_budget"><strong><?php esc_html_e( 'Total Budget', 'builderp' ); ?></strong></label>
 								<input type="number" id="berp_budget" name="berp_budget" value="<?php echo esc_attr( $budget ); ?>" step="0.01" min="0" placeholder="0.00" />
-								<p class="description"><?php esc_html_e( 'Total allocated budget for this project', 'aic_builderp' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Total allocated budget for this project', 'builderp' ); ?></p>
 							</div>
 
 							<div class="berp-field-group berp-field-full">
 								<div class="berp-budget-summary <?php echo esc_attr( $status_class ); ?>">
 									<div class="berp-budget-stats">
 										<div class="berp-budget-stat">
-											<strong><?php esc_html_e( 'Budget Spent:', 'aic_builderp' ); ?></strong>
+											<strong><?php esc_html_e( 'Budget Spent:', 'builderp' ); ?></strong>
 											<span class="berp-budget-value"><?php echo esc_html( $currency_symbol . number_format( $budget_spent, 2 ) ); ?></span>
 										</div>
 
 										<div class="berp-budget-stat">
-											<strong><?php esc_html_e( 'Remaining:', 'aic_builderp' ); ?></strong>
+											<strong><?php esc_html_e( 'Remaining:', 'builderp' ); ?></strong>
 											<span class="berp-budget-value"><?php echo esc_html( $currency_symbol . number_format( $budget - $budget_spent, 2 ) ); ?></span>
 										</div>
 
 										<div class="berp-budget-stat">
-											<strong><?php esc_html_e( 'Usage:', 'aic_builderp' ); ?></strong>
+											<strong><?php esc_html_e( 'Usage:', 'builderp' ); ?></strong>
 											<span class="berp-budget-percentage"><?php echo esc_html( number_format( $budget_percentage, 1 ) ); ?>%</span>
 										</div>
 									</div>
@@ -260,7 +260,7 @@ class BERP_Site_Metaboxes {
 									<?php if ( $budget_percentage >= 100 ) : ?>
 										<p class="berp-budget-alert berp-alert-danger">
 											<span class="dashicons dashicons-warning"></span>
-											<?php esc_html_e( 'Budget exceeded!', 'aic_builderp' ); ?>
+											<?php esc_html_e( 'Budget exceeded!', 'builderp' ); ?>
 										</p>
 									<?php elseif ( $budget_percentage >= $alert_threshold ) : ?>
 										<p class="berp-budget-alert berp-alert-warning">
@@ -268,7 +268,7 @@ class BERP_Site_Metaboxes {
 											<?php
 											printf(
 												/* translators: %s: threshold percentage */
-												esc_html__( 'Warning: Budget usage above %s%%', 'aic_builderp' ),
+												esc_html__( 'Warning: Budget usage above %s%%', 'builderp' ),
 												esc_html( $alert_threshold )
 											);
 											?>
@@ -276,7 +276,7 @@ class BERP_Site_Metaboxes {
 									<?php endif; ?>
 
 									<p class="description" style="margin-top: 15px;">
-										<?php esc_html_e( 'Budget spent is automatically calculated from linked expenses.', 'aic_builderp' ); ?>
+										<?php esc_html_e( 'Budget spent is automatically calculated from linked expenses.', 'builderp' ); ?>
 									</p>
 								</div>
 							</div>
@@ -407,7 +407,7 @@ class BERP_Site_Metaboxes {
 											case 'select':
 												$options = ! empty( $field['options'] ) ? explode( ',', $field['options'] ) : array();
 												echo '<select id="' . esc_attr( $field_key ) . '" name="' . esc_attr( $field_key ) . '">';
-												echo '<option value="">' . esc_html__( '-- Select --', 'aic_builderp' ) . '</option>';
+												echo '<option value="">' . esc_html__( '-- Select --', 'builderp' ) . '</option>';
 												foreach ( $options as $option ) {
 													$option = trim( $option );
 													echo '<option value="' . esc_attr( $option ) . '" ' . selected( $field_value, $option, false ) . '>' . esc_html( $option ) . '</option>';
@@ -500,7 +500,7 @@ class BERP_Site_Metaboxes {
 		}
 
 		echo '<div class="notice notice-warning is-dismissible">';
-		echo '<p><strong>' . esc_html__( 'Budget Alerts:', 'aic_builderp' ) . '</strong></p>';
+		echo '<p><strong>' . esc_html__( 'Budget Alerts:', 'builderp' ) . '</strong></p>';
 		echo '<ul>';
 		foreach ( $sites as $site ) {
 			// Ensure float types for calculation
@@ -510,7 +510,7 @@ class BERP_Site_Metaboxes {
 			$edit_url   = admin_url( 'post.php?post=' . $site->ID . '&action=edit' );
 
 			printf(
-				'<li><a href="%s">%s</a>: %s%% ' . esc_html__( 'of budget used', 'aic_builderp' ) . '</li>',
+				'<li><a href="%s">%s</a>: %s%% ' . esc_html__( 'of budget used', 'builderp' ) . '</li>',
 				esc_url( $edit_url ),
 				esc_html( $site->post_title ),
 				esc_html( number_format( $percentage, 1 ) )
@@ -637,3 +637,4 @@ class BERP_Site_Metaboxes {
 
 // Initialize
 new BERP_Site_Metaboxes();
+

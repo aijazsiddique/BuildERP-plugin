@@ -26,19 +26,19 @@ class BERP_Quotation_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Quotations', 'Post type general name', 'aic_builderp' ),
-			'singular_name'      => _x( 'Quotation', 'Post type singular name', 'aic_builderp' ),
-			'menu_name'          => _x( 'Quotations', 'Admin Menu text', 'aic_builderp' ),
-			'name_admin_bar'     => _x( 'Quotation', 'Add New on Toolbar', 'aic_builderp' ),
-			'add_new'            => __( 'Add New', 'aic_builderp' ),
-			'add_new_item'       => __( 'Add New Quotation', 'aic_builderp' ),
-			'new_item'           => __( 'New Quotation', 'aic_builderp' ),
-			'edit_item'          => __( 'Edit Quotation', 'aic_builderp' ),
-			'view_item'          => __( 'View Quotation', 'aic_builderp' ),
-			'all_items'          => __( 'All Quotations', 'aic_builderp' ),
-			'search_items'       => __( 'Search Quotations', 'aic_builderp' ),
-			'not_found'          => __( 'No quotations found.', 'aic_builderp' ),
-			'not_found_in_trash' => __( 'No quotations found in Trash.', 'aic_builderp' ),
+			'name'               => _x( 'Quotations', 'Post type general name', 'builderp' ),
+			'singular_name'      => _x( 'Quotation', 'Post type singular name', 'builderp' ),
+			'menu_name'          => _x( 'Quotations', 'Admin Menu text', 'builderp' ),
+			'name_admin_bar'     => _x( 'Quotation', 'Add New on Toolbar', 'builderp' ),
+			'add_new'            => __( 'Add New', 'builderp' ),
+			'add_new_item'       => __( 'Add New Quotation', 'builderp' ),
+			'new_item'           => __( 'New Quotation', 'builderp' ),
+			'edit_item'          => __( 'Edit Quotation', 'builderp' ),
+			'view_item'          => __( 'View Quotation', 'builderp' ),
+			'all_items'          => __( 'All Quotations', 'builderp' ),
+			'search_items'       => __( 'Search Quotations', 'builderp' ),
+			'not_found'          => __( 'No quotations found.', 'builderp' ),
+			'not_found_in_trash' => __( 'No quotations found in Trash.', 'builderp' ),
 		);
 
 		$args = array(
@@ -71,3 +71,4 @@ class BERP_Quotation_CPT {
 		register_post_type( 'berp_quotation', $args );
 	}
 }
+

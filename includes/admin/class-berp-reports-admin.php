@@ -37,9 +37,13 @@ class BERP_Reports_Admin {
 			return;
 		}
 
-		// Enqueue Chart.js from CDN or local if available.
-		// For now using CDN for simplicity, but in production should be local.
-		wp_enqueue_script( 'chart-js', 'https://cdn.jsdelivr.net/npm/chart.js', array(), '4.4.0', true );
+		wp_enqueue_script(
+			'chart-js',
+			plugins_url( 'assets/vendor/chart.js/chart.umd.min.js', BERP_PLUGIN_FILE ),
+			array(),
+			'4.4.0',
+			true
+		);
 
 		wp_enqueue_style(
 			'berp-reports-css',
@@ -63,8 +67,8 @@ class BERP_Reports_Admin {
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
 				'nonce'   => wp_create_nonce( 'berp_reports_nonce' ),
 				'strings' => array(
-					'loading' => __( 'Loading report data...', 'aic_builderp' ),
-					'error'   => __( 'Error loading report.', 'aic_builderp' ),
+					'loading' => __( 'Loading report data...', 'builderp' ),
+					'error'   => __( 'Error loading report.', 'builderp' ),
 				),
 			)
 		);
@@ -75,7 +79,7 @@ class BERP_Reports_Admin {
 	 */
 	public function render_page() {
 		if ( ! current_user_can( 'berp_view_reports' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'builderp' ) );
 		}
 
 		$current_report = isset( $_GET['report'] ) ? sanitize_key( $_GET['report'] ) : 'attendance_summary';
@@ -83,7 +87,7 @@ class BERP_Reports_Admin {
 
 		?>
 		<div class="wrap berp-reports-wrap">
-			<h1 class="wp-heading-inline"><?php esc_html_e( 'Reports & Analytics', 'aic_builderp' ); ?></h1>
+			<h1 class="wp-heading-inline"><?php esc_html_e( 'Reports & Analytics', 'builderp' ); ?></h1>
 			<hr class="wp-header-end">
 
 			<div class="berp-reports-container">
@@ -105,13 +109,13 @@ class BERP_Reports_Admin {
 						<h2><?php echo esc_html( $reports[ $current_report ]['title'] ); ?></h2>
 						<div class="berp-report-actions">
 							<button type="button" class="button button-secondary" id="berp-print-report">
-								<span class="dashicons dashicons-printer"></span> <?php esc_html_e( 'Print', 'aic_builderp' ); ?>
+								<span class="dashicons dashicons-printer"></span> <?php esc_html_e( 'Print', 'builderp' ); ?>
 							</button>
 							<button type="button" class="button button-secondary" id="berp-export-excel">
-								<span class="dashicons dashicons-media-spreadsheet"></span> <?php esc_html_e( 'Excel', 'aic_builderp' ); ?>
+								<span class="dashicons dashicons-media-spreadsheet"></span> <?php esc_html_e( 'Excel', 'builderp' ); ?>
 							</button>
 							<button type="button" class="button button-secondary" id="berp-export-pdf">
-								<span class="dashicons dashicons-pdf"></span> <?php esc_html_e( 'PDF', 'aic_builderp' ); ?>
+								<span class="dashicons dashicons-pdf"></span> <?php esc_html_e( 'PDF', 'builderp' ); ?>
 							</button>
 						</div>
 					</div>
@@ -123,7 +127,7 @@ class BERP_Reports_Admin {
 							
 							<?php $this->render_filters( $current_report ); ?>
 							
-							<button type="submit" class="button button-primary"><?php esc_html_e( 'Generate Report', 'aic_builderp' ); ?></button>
+							<button type="submit" class="button button-primary"><?php esc_html_e( 'Generate Report', 'builderp' ); ?></button>
 						</form>
 					</div>
 
@@ -144,43 +148,43 @@ class BERP_Reports_Admin {
 	private function get_available_reports() {
 		return array(
 			'attendance_summary' => array(
-				'title' => __( 'Employee Attendance Summary', 'aic_builderp' ),
+				'title' => __( 'Employee Attendance Summary', 'builderp' ),
 				'icon'  => 'dashicons-calendar-alt',
 			),
 			'payroll_register'   => array(
-				'title' => __( 'Payroll Register', 'aic_builderp' ),
+				'title' => __( 'Payroll Register', 'builderp' ),
 				'icon'  => 'dashicons-money-alt',
 			),
 			'site_profitability' => array(
-				'title' => __( 'Site Profitability', 'aic_builderp' ),
+				'title' => __( 'Site Profitability', 'builderp' ),
 				'icon'  => 'dashicons-chart-bar',
 			),
 			'expense_breakdown'  => array(
-				'title' => __( 'Expense Breakdown', 'aic_builderp' ),
+				'title' => __( 'Expense Breakdown', 'builderp' ),
 				'icon'  => 'dashicons-chart-pie',
 			),
 			'invoice_aging'      => array(
-				'title' => __( 'Invoice Aging', 'aic_builderp' ),
+				'title' => __( 'Invoice Aging', 'builderp' ),
 				'icon'  => 'dashicons-clock',
 			),
 			'client_payments'    => array(
-				'title' => __( 'Client Payment History', 'aic_builderp' ),
+				'title' => __( 'Client Payment History', 'builderp' ),
 				'icon'  => 'dashicons-businessman',
 			),
 			'employee_balances'  => array(
-				'title' => __( 'Employee Account Balances', 'aic_builderp' ),
+				'title' => __( 'Employee Account Balances', 'builderp' ),
 				'icon'  => 'dashicons-id-alt',
 			),
 			'budget_vs_actual'   => array(
-				'title' => __( 'Budget vs Actual', 'aic_builderp' ),
+				'title' => __( 'Budget vs Actual', 'builderp' ),
 				'icon'  => 'dashicons-performance',
 			),
 			'overtime_analysis'  => array(
-				'title' => __( 'Overtime Analysis', 'aic_builderp' ),
+				'title' => __( 'Overtime Analysis', 'builderp' ),
 				'icon'  => 'dashicons-clock',
 			),
 			'revenue_trends'     => array(
-				'title' => __( 'Revenue Trends', 'aic_builderp' ),
+				'title' => __( 'Revenue Trends', 'builderp' ),
 				'icon'  => 'dashicons-graph-bar',
 			),
 		);
@@ -193,13 +197,13 @@ class BERP_Reports_Admin {
 	 */
 	private function render_filters( $report_type ) {
 		// Common Date Range Filter
-		$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : date( 'Y-m-01' );
-		$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : date( 'Y-m-t' );
+		$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : gmdate( 'Y-m-01' );
+		$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : gmdate( 'Y-m-t' );
 
 		echo '<div class="berp-filter-group">';
-		echo '<label>' . esc_html__( 'Date Range:', 'aic_builderp' ) . '</label>';
+		echo '<label>' . esc_html__( 'Date Range:', 'builderp' ) . '</label>';
 		echo '<input type="date" name="start_date" value="' . esc_attr( $start_date ) . '" class="regular-text" style="width: 150px;">';
-		echo ' <span>' . esc_html__( 'to', 'aic_builderp' ) . '</span> ';
+		echo ' <span>' . esc_html__( 'to', 'builderp' ) . '</span> ';
 		echo '<input type="date" name="end_date" value="' . esc_attr( $end_date ) . '" class="regular-text" style="width: 150px;">';
 		echo '</div>';
 
@@ -242,9 +246,9 @@ class BERP_Reports_Admin {
 		$selected = isset( $_GET['site_id'] ) ? absint( $_GET['site_id'] ) : 0;
 
 		echo '<div class="berp-filter-group">';
-		echo '<label>' . esc_html__( 'Site:', 'aic_builderp' ) . '</label>';
+		echo '<label>' . esc_html__( 'Site:', 'builderp' ) . '</label>';
 		echo '<select name="site_id">';
-		echo '<option value="0">' . esc_html__( 'All Sites', 'aic_builderp' ) . '</option>';
+		echo '<option value="0">' . esc_html__( 'All Sites', 'builderp' ) . '</option>';
 		foreach ( $sites as $site ) {
 			echo '<option value="' . esc_attr( $site->ID ) . '" ' . selected( $selected, $site->ID, false ) . '>' . esc_html( $site->post_title ) . '</option>';
 		}
@@ -260,9 +264,9 @@ class BERP_Reports_Admin {
 		$selected  = isset( $_GET['employee_id'] ) ? absint( $_GET['employee_id'] ) : 0;
 
 		echo '<div class="berp-filter-group">';
-		echo '<label>' . esc_html__( 'Employee:', 'aic_builderp' ) . '</label>';
+		echo '<label>' . esc_html__( 'Employee:', 'builderp' ) . '</label>';
 		echo '<select name="employee_id">';
-		echo '<option value="0">' . esc_html__( 'All Employees', 'aic_builderp' ) . '</option>';
+		echo '<option value="0">' . esc_html__( 'All Employees', 'builderp' ) . '</option>';
 		foreach ( $employees as $employee ) {
 			echo '<option value="' . esc_attr( $employee->ID ) . '" ' . selected( $selected, $employee->ID, false ) . '>' . esc_html( $employee->post_title ) . '</option>';
 		}
@@ -278,9 +282,9 @@ class BERP_Reports_Admin {
 		$selected = isset( $_GET['client_id'] ) ? absint( $_GET['client_id'] ) : 0;
 
 		echo '<div class="berp-filter-group">';
-		echo '<label>' . esc_html__( 'Client:', 'aic_builderp' ) . '</label>';
+		echo '<label>' . esc_html__( 'Client:', 'builderp' ) . '</label>';
 		echo '<select name="client_id">';
-		echo '<option value="0">' . esc_html__( 'All Clients', 'aic_builderp' ) . '</option>';
+		echo '<option value="0">' . esc_html__( 'All Clients', 'builderp' ) . '</option>';
 		foreach ( $clients as $client ) {
 			echo '<option value="' . esc_attr( $client->ID ) . '" ' . selected( $selected, $client->ID, false ) . '>' . esc_html( $client->post_title ) . '</option>';
 		}
@@ -298,7 +302,7 @@ class BERP_Reports_Admin {
 		if ( method_exists( $this, $method ) ) {
 			$this->$method();
 		} else {
-			echo '<p>' . esc_html__( 'Report not implemented yet.', 'aic_builderp' ) . '</p>';
+			echo '<p>' . esc_html__( 'Report not implemented yet.', 'builderp' ) . '</p>';
 		}
 	}
 
@@ -308,8 +312,8 @@ class BERP_Reports_Admin {
 	 * Render Attendance Summary Report.
 	 */
 	private function render_report_attendance_summary() {
-		$start_date  = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : date( 'Y-m-01' );
-		$end_date    = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : date( 'Y-m-t' );
+		$start_date  = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : gmdate( 'Y-m-01' );
+		$end_date    = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : gmdate( 'Y-m-t' );
 		$site_id     = isset( $_GET['site_id'] ) ? absint( $_GET['site_id'] ) : 0;
 		$employee_id = isset( $_GET['employee_id'] ) ? absint( $_GET['employee_id'] ) : 0;
 
@@ -318,15 +322,15 @@ class BERP_Reports_Admin {
 		// Summary Cards
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Present Days', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Present Days', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( $data['totals']['present_days'] ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Overtime Hours', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Overtime Hours', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( number_format( $data['totals']['overtime_hours'], 2 ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Avg. Attendance Rate', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Avg. Attendance Rate', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( number_format( $data['totals']['attendance_rate'], 1 ) ) . '%</div>';
 		echo '</div>';
 		echo '</div>';
@@ -340,17 +344,17 @@ class BERP_Reports_Admin {
 		echo '<table class="berp-report-table">';
 		echo '<thead>';
 		echo '<tr>';
-		echo '<th>' . esc_html__( 'Employee Name', 'aic_builderp' ) . '</th>';
-		echo '<th>' . esc_html__( 'Employee ID', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Present Days', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Overtime Hours', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Attendance Rate', 'aic_builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Employee Name', 'builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Employee ID', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Present Days', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Overtime Hours', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Attendance Rate', 'builderp' ) . '</th>';
 		echo '</tr>';
 		echo '</thead>';
 		echo '<tbody>';
 
 		if ( empty( $data['rows'] ) ) {
-			echo '<tr><td colspan="5">' . esc_html__( 'No attendance records found for the selected period.', 'aic_builderp' ) . '</td></tr>';
+			echo '<tr><td colspan="5">' . esc_html__( 'No attendance records found for the selected period.', 'builderp' ) . '</td></tr>';
 		} else {
 			foreach ( $data['rows'] as $row ) {
 				echo '<tr>';
@@ -366,7 +370,7 @@ class BERP_Reports_Admin {
 		echo '</tbody>';
 		echo '<tfoot>';
 		echo '<tr>';
-		echo '<td colspan="2">' . esc_html__( 'Totals', 'aic_builderp' ) . '</td>';
+		echo '<td colspan="2">' . esc_html__( 'Totals', 'builderp' ) . '</td>';
 		echo '<td class="num">' . esc_html( $data['totals']['present_days'] ) . '</td>';
 		echo '<td class="num">' . esc_html( number_format( $data['totals']['overtime_hours'], 2 ) ) . '</td>';
 		echo '<td class="num">' . esc_html( number_format( $data['totals']['attendance_rate'], 1 ) ) . '%</td>';
@@ -383,12 +387,12 @@ class BERP_Reports_Admin {
 				'labels'   => wp_list_pluck( $data['rows'], 'name' ),
 				'datasets' => array(
 					array(
-						'label'           => __( 'Present Days', 'aic_builderp' ),
+						'label'           => __( 'Present Days', 'builderp' ),
 						'data'            => wp_list_pluck( $data['rows'], 'present_days' ),
 						'backgroundColor' => '#2271b1',
 					),
 					array(
-						'label'           => __( 'Overtime Hours', 'aic_builderp' ),
+						'label'           => __( 'Overtime Hours', 'builderp' ),
 						'data'            => wp_list_pluck( $data['rows'], 'overtime_hours' ),
 						'backgroundColor' => '#f0ad4e',
 					),
@@ -520,7 +524,7 @@ class BERP_Reports_Admin {
 	 * Render Payroll Register Report.
 	 */
 	private function render_report_payroll_register() {
-		$month       = isset( $_GET['month'] ) ? sanitize_text_field( $_GET['month'] ) : date( 'Y-m' );
+		$month       = isset( $_GET['month'] ) ? sanitize_text_field( $_GET['month'] ) : gmdate( 'Y-m' );
 		$employee_id = isset( $_GET['employee_id'] ) ? absint( $_GET['employee_id'] ) : 0;
 
 		$data = $this->get_payroll_register_data( $month, $employee_id );
@@ -528,15 +532,15 @@ class BERP_Reports_Admin {
 		// Summary Cards
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Payroll Cost', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Payroll Cost', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['totals']['gross_salary'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Net Payable', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Net Payable', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['totals']['net_salary'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Deductions', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Deductions', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['totals']['total_deduction'] ) ) . '</div>';
 		echo '</div>';
 		echo '</div>';
@@ -550,20 +554,20 @@ class BERP_Reports_Admin {
 		echo '<table class="berp-report-table">';
 		echo '<thead>';
 		echo '<tr>';
-		echo '<th>' . esc_html__( 'Employee', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Basic Salary', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Allowances', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Overtime', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Gross Salary', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Deductions', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Net Salary', 'aic_builderp' ) . '</th>';
-		echo '<th>' . esc_html__( 'Status', 'aic_builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Employee', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Basic Salary', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Allowances', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Overtime', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Gross Salary', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Deductions', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Net Salary', 'builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Status', 'builderp' ) . '</th>';
 		echo '</tr>';
 		echo '</thead>';
 		echo '<tbody>';
 
 		if ( empty( $data['rows'] ) ) {
-			echo '<tr><td colspan="8">' . esc_html__( 'No payroll records found for the selected period.', 'aic_builderp' ) . '</td></tr>';
+			echo '<tr><td colspan="8">' . esc_html__( 'No payroll records found for the selected period.', 'builderp' ) . '</td></tr>';
 		} else {
 			foreach ( $data['rows'] as $row ) {
 				echo '<tr>';
@@ -582,7 +586,7 @@ class BERP_Reports_Admin {
 		echo '</tbody>';
 		echo '<tfoot>';
 		echo '<tr>';
-		echo '<td>' . esc_html__( 'Totals', 'aic_builderp' ) . '</td>';
+		echo '<td>' . esc_html__( 'Totals', 'builderp' ) . '</td>';
 		echo '<td class="num">' . esc_html( berp_format_currency( $data['totals']['basic_salary'] ) ) . '</td>';
 		echo '<td class="num">' . esc_html( berp_format_currency( $data['totals']['total_allowance'] ) ) . '</td>';
 		echo '<td class="num">' . esc_html( berp_format_currency( $data['totals']['overtime_amount'] ) ) . '</td>';
@@ -603,12 +607,12 @@ class BERP_Reports_Admin {
 				'labels'   => wp_list_pluck( $data['rows'], 'name' ),
 				'datasets' => array(
 					array(
-						'label'           => __( 'Net Salary', 'aic_builderp' ),
+						'label'           => __( 'Net Salary', 'builderp' ),
 						'data'            => wp_list_pluck( $data['rows'], 'net_salary' ),
 						'backgroundColor' => '#2271b1',
 					),
 					array(
-						'label'           => __( 'Deductions', 'aic_builderp' ),
+						'label'           => __( 'Deductions', 'builderp' ),
 						'data'            => wp_list_pluck( $data['rows'], 'total_deduction' ),
 						'backgroundColor' => '#d63638',
 					),
@@ -714,8 +718,8 @@ class BERP_Reports_Admin {
 	 * Render Site Profitability Report.
 	 */
 	private function render_report_site_profitability() {
-		$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : date( 'Y-01-01' );
-		$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : date( 'Y-12-31' );
+		$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : gmdate( 'Y-01-01' );
+		$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : gmdate( 'Y-12-31' );
 		$site_id    = isset( $_GET['site_id'] ) ? absint( $_GET['site_id'] ) : 0;
 
 		$data = $this->get_site_profitability_data( $start_date, $end_date, $site_id );
@@ -723,15 +727,15 @@ class BERP_Reports_Admin {
 		// Summary Cards - Row 1
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Income', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Income', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['totals']['income'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Expenses', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Expenses', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['totals']['expense'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Net Profit', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Net Profit', 'builderp' ) . '</h3>';
 		$profit_class = $data['totals']['profit'] >= 0 ? 'positive' : 'negative';
 		echo '<div class="value ' . esc_attr( $profit_class ) . '">' . esc_html( berp_format_currency( $data['totals']['profit'] ) ) . '</div>';
 		echo '</div>';
@@ -740,19 +744,19 @@ class BERP_Reports_Admin {
 		// Summary Cards - Row 2: Manpower Statistics
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Manpower Days', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Manpower Days', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( number_format( $data['totals']['manpower_days'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Overtime Hours', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Overtime Hours', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( number_format( $data['totals']['overtime_hours'], 1 ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Est. Labor Cost', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Est. Labor Cost', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['totals']['labor_cost'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Profit Margin', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Profit Margin', 'builderp' ) . '</h3>';
 		$margin_class = $data['totals']['margin'] >= 0 ? 'positive' : 'negative';
 		echo '<div class="value ' . esc_attr( $margin_class ) . '">' . esc_html( number_format( $data['totals']['margin'], 1 ) ) . '%</div>';
 		echo '</div>';
@@ -767,20 +771,20 @@ class BERP_Reports_Admin {
 		echo '<table class="berp-report-table">';
 		echo '<thead>';
 		echo '<tr>';
-		echo '<th>' . esc_html__( 'Site Name', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Income', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Expenses', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Manpower Days', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'OT Hours', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Labor Cost', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Profit/Loss', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Margin', 'aic_builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Site Name', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Income', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Expenses', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Manpower Days', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'OT Hours', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Labor Cost', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Profit/Loss', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Margin', 'builderp' ) . '</th>';
 		echo '</tr>';
 		echo '</thead>';
 		echo '<tbody>';
 
 		if ( empty( $data['rows'] ) ) {
-			echo '<tr><td colspan="8">' . esc_html__( 'No data found for the selected period.', 'aic_builderp' ) . '</td></tr>';
+			echo '<tr><td colspan="8">' . esc_html__( 'No data found for the selected period.', 'builderp' ) . '</td></tr>';
 		} else {
 			foreach ( $data['rows'] as $row ) {
 				$row_profit_class = $row['profit'] >= 0 ? 'positive' : 'negative';
@@ -800,7 +804,7 @@ class BERP_Reports_Admin {
 		echo '</tbody>';
 		echo '<tfoot>';
 		echo '<tr>';
-		echo '<td>' . esc_html__( 'Totals', 'aic_builderp' ) . '</td>';
+		echo '<td>' . esc_html__( 'Totals', 'builderp' ) . '</td>';
 		echo '<td class="num">' . esc_html( berp_format_currency( $data['totals']['income'] ) ) . '</td>';
 		echo '<td class="num">' . esc_html( berp_format_currency( $data['totals']['expense'] ) ) . '</td>';
 		echo '<td class="num">' . esc_html( number_format( $data['totals']['manpower_days'] ) ) . '</td>';
@@ -821,17 +825,17 @@ class BERP_Reports_Admin {
 				'labels'   => wp_list_pluck( $data['rows'], 'name' ),
 				'datasets' => array(
 					array(
-						'label'           => __( 'Income', 'aic_builderp' ),
+						'label'           => __( 'Income', 'builderp' ),
 						'data'            => wp_list_pluck( $data['rows'], 'income' ),
 						'backgroundColor' => '#2271b1',
 					),
 					array(
-						'label'           => __( 'Expenses', 'aic_builderp' ),
+						'label'           => __( 'Expenses', 'builderp' ),
 						'data'            => wp_list_pluck( $data['rows'], 'expense' ),
 						'backgroundColor' => '#d63638',
 					),
 					array(
-						'label'           => __( 'Labor Cost', 'aic_builderp' ),
+						'label'           => __( 'Labor Cost', 'builderp' ),
 						'data'            => wp_list_pluck( $data['rows'], 'labor_cost' ),
 						'backgroundColor' => '#f0ad4e',
 					),
@@ -1192,8 +1196,8 @@ class BERP_Reports_Admin {
 	 * Render Expense Breakdown Report.
 	 */
 	private function render_report_expense_breakdown() {
-		$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : date( 'Y-01-01' );
-		$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : date( 'Y-12-31' );
+		$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : gmdate( 'Y-01-01' );
+		$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : gmdate( 'Y-12-31' );
 		$site_id    = isset( $_GET['site_id'] ) ? absint( $_GET['site_id'] ) : 0;
 
 		$data = $this->get_expense_breakdown_data( $start_date, $end_date, $site_id );
@@ -1204,18 +1208,18 @@ class BERP_Reports_Admin {
 		// Summary Cards - Row 1
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Expenses', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Expenses', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['total'] ) ) . '</div>';
 		echo '</div>';
 
 		$top_category = ! empty( $data['rows'] ) ? $data['rows'][0]['category'] : '-';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Top Expense Category', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Top Expense Category', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( $top_category ) . '</div>';
 		echo '</div>';
 
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Expense Count', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Expense Count', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( $data['count'] ) . '</div>';
 		echo '</div>';
 		echo '</div>';
@@ -1223,19 +1227,19 @@ class BERP_Reports_Admin {
 		// Summary Cards - Row 2: Manpower Statistics
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Manpower Days', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Manpower Days', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( number_format( $manpower_totals['manpower_days'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Overtime Hours', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Overtime Hours', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( number_format( $manpower_totals['overtime_hours'], 1 ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Est. Labor Cost', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Est. Labor Cost', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $manpower_totals['labor_cost'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Cost (Exp + Labor)', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Cost (Exp + Labor)', 'builderp' ) . '</h3>';
 		$total_cost = $data['total'] + $manpower_totals['labor_cost'];
 		echo '<div class="value">' . esc_html( berp_format_currency( $total_cost ) ) . '</div>';
 		echo '</div>';
@@ -1250,16 +1254,16 @@ class BERP_Reports_Admin {
 		echo '<table class="berp-report-table">';
 		echo '<thead>';
 		echo '<tr>';
-		echo '<th>' . esc_html__( 'Category', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Amount', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( '% of Total', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Transaction Count', 'aic_builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Category', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Amount', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( '% of Total', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Transaction Count', 'builderp' ) . '</th>';
 		echo '</tr>';
 		echo '</thead>';
 		echo '<tbody>';
 
 		if ( empty( $data['rows'] ) ) {
-			echo '<tr><td colspan="4">' . esc_html__( 'No expenses found for the selected period.', 'aic_builderp' ) . '</td></tr>';
+			echo '<tr><td colspan="4">' . esc_html__( 'No expenses found for the selected period.', 'builderp' ) . '</td></tr>';
 		} else {
 			foreach ( $data['rows'] as $row ) {
 				echo '<tr>';
@@ -1275,17 +1279,17 @@ class BERP_Reports_Admin {
 		if ( $manpower_totals['labor_cost'] > 0 ) {
 			$labor_percent = $total_cost > 0 ? ( $manpower_totals['labor_cost'] / $total_cost ) * 100 : 0;
 			echo '<tr class="berp-labor-row">';
-			echo '<td><strong>' . esc_html__( 'Labor Cost (Calculated)', 'aic_builderp' ) . '</strong></td>';
+			echo '<td><strong>' . esc_html__( 'Labor Cost (Calculated)', 'builderp' ) . '</strong></td>';
 			echo '<td class="num"><strong>' . esc_html( berp_format_currency( $manpower_totals['labor_cost'] ) ) . '</strong></td>';
 			echo '<td class="num"><strong>' . esc_html( number_format( $labor_percent, 1 ) ) . '%</strong></td>';
-			echo '<td class="num"><strong>' . esc_html( $manpower_totals['manpower_days'] ) . ' ' . esc_html__( 'days', 'aic_builderp' ) . '</strong></td>';
+			echo '<td class="num"><strong>' . esc_html( $manpower_totals['manpower_days'] ) . ' ' . esc_html__( 'days', 'builderp' ) . '</strong></td>';
 			echo '</tr>';
 		}
 
 		echo '</tbody>';
 		echo '<tfoot>';
 		echo '<tr>';
-		echo '<td>' . esc_html__( 'Totals (Expenses Only)', 'aic_builderp' ) . '</td>';
+		echo '<td>' . esc_html__( 'Totals (Expenses Only)', 'builderp' ) . '</td>';
 		echo '<td class="num">' . esc_html( berp_format_currency( $data['total'] ) ) . '</td>';
 		echo '<td class="num">-</td>';
 		echo '<td class="num">' . esc_html( $data['count'] ) . '</td>';
@@ -1302,7 +1306,7 @@ class BERP_Reports_Admin {
 				'labels'   => wp_list_pluck( $data['rows'], 'category' ),
 				'datasets' => array(
 					array(
-						'label'           => __( 'Amount', 'aic_builderp' ),
+						'label'           => __( 'Amount', 'builderp' ),
 						'data'            => wp_list_pluck( $data['rows'], 'amount' ),
 						'backgroundColor' => array( '#2271b1', '#d63638', '#f0ad4e', '#46b450', '#9b59b6', '#34495e' ),
 					),
@@ -1354,7 +1358,7 @@ class BERP_Reports_Admin {
 		foreach ( $expenses as $expense ) {
 			// Get category term
 			$terms         = get_the_terms( $expense->ID, 'berp_expense_category' );
-			$category_name = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : __( 'Uncategorized', 'aic_builderp' );
+			$category_name = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : __( 'Uncategorized', 'builderp' );
 
 			$amount = floatval( get_post_meta( $expense->ID, '_berp_expense_amount', true ) );
 
@@ -1408,15 +1412,15 @@ class BERP_Reports_Admin {
 		// Summary Cards
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Outstanding', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Outstanding', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['total_outstanding'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Overdue (90+ Days)', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Overdue (90+ Days)', 'builderp' ) . '</h3>';
 		echo '<div class="value negative">' . esc_html( berp_format_currency( $data['buckets']['90+']['amount'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Invoice Count', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Invoice Count', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( $data['count'] ) . '</div>';
 		echo '</div>';
 		echo '</div>';
@@ -1430,10 +1434,10 @@ class BERP_Reports_Admin {
 		echo '<table class="berp-report-table">';
 		echo '<thead>';
 		echo '<tr>';
-		echo '<th>' . esc_html__( 'Aging Bucket', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Invoice Count', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Total Amount', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( '% of Total', 'aic_builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Aging Bucket', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Invoice Count', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Total Amount', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( '% of Total', 'builderp' ) . '</th>';
 		echo '</tr>';
 		echo '</thead>';
 		echo '<tbody>';
@@ -1444,7 +1448,7 @@ class BERP_Reports_Admin {
 			$percentage = $data['total_outstanding'] > 0 ? ( $info['amount'] / $data['total_outstanding'] ) * 100 : 0;
 
 			echo '<tr>';
-			echo '<td>' . esc_html( $bucket . ' ' . __( 'Days', 'aic_builderp' ) ) . '</td>';
+			echo '<td>' . esc_html( $bucket . ' ' . __( 'Days', 'builderp' ) ) . '</td>';
 			echo '<td class="num">' . esc_html( $info['count'] ) . '</td>';
 			echo '<td class="num">' . esc_html( berp_format_currency( $info['amount'] ) ) . '</td>';
 			echo '<td class="num">' . esc_html( number_format( $percentage, 1 ) ) . '%</td>';
@@ -1454,7 +1458,7 @@ class BERP_Reports_Admin {
 		echo '</tbody>';
 		echo '<tfoot>';
 		echo '<tr>';
-		echo '<td>' . esc_html__( 'Totals', 'aic_builderp' ) . '</td>';
+		echo '<td>' . esc_html__( 'Totals', 'builderp' ) . '</td>';
 		echo '<td class="num">' . esc_html( $data['count'] ) . '</td>';
 		echo '<td class="num">' . esc_html( berp_format_currency( $data['total_outstanding'] ) ) . '</td>';
 		echo '<td class="num">100%</td>';
@@ -1463,21 +1467,21 @@ class BERP_Reports_Admin {
 		echo '</table>';
 
 		// Detailed List
-		echo '<h3>' . esc_html__( 'Outstanding Invoices', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Outstanding Invoices', 'builderp' ) . '</h3>';
 		echo '<table class="berp-report-table">';
 		echo '<thead>';
 		echo '<tr>';
-		echo '<th>' . esc_html__( 'Invoice #', 'aic_builderp' ) . '</th>';
-		echo '<th>' . esc_html__( 'Client', 'aic_builderp' ) . '</th>';
-		echo '<th>' . esc_html__( 'Due Date', 'aic_builderp' ) . '</th>';
-		echo '<th>' . esc_html__( 'Age (Days)', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Amount Due', 'aic_builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Invoice #', 'builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Client', 'builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Due Date', 'builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Age (Days)', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Amount Due', 'builderp' ) . '</th>';
 		echo '</tr>';
 		echo '</thead>';
 		echo '<tbody>';
 
 		if ( empty( $data['invoices'] ) ) {
-			echo '<tr><td colspan="5">' . esc_html__( 'No outstanding invoices found.', 'aic_builderp' ) . '</td></tr>';
+			echo '<tr><td colspan="5">' . esc_html__( 'No outstanding invoices found.', 'builderp' ) . '</td></tr>';
 		} else {
 			foreach ( $data['invoices'] as $inv ) {
 				echo '<tr>';
@@ -1501,7 +1505,7 @@ class BERP_Reports_Admin {
 				'labels'   => array( '0-30 Days', '31-60 Days', '61-90 Days', '90+ Days' ),
 				'datasets' => array(
 					array(
-						'label'           => __( 'Amount Outstanding', 'aic_builderp' ),
+						'label'           => __( 'Amount Outstanding', 'builderp' ),
 						'data'            => array(
 							$data['buckets']['0-30']['amount'],
 							$data['buckets']['31-60']['amount'],
@@ -1645,8 +1649,8 @@ class BERP_Reports_Admin {
 	 * Render Client Payment History Report.
 	 */
 	private function render_report_client_payments() {
-		$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : date( 'Y-01-01' );
-		$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : date( 'Y-12-31' );
+		$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : gmdate( 'Y-01-01' );
+		$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : gmdate( 'Y-12-31' );
 		$client_id  = isset( $_GET['client_id'] ) ? absint( $_GET['client_id'] ) : 0;
 
 		$data = $this->get_client_payments_data( $start_date, $end_date, $client_id );
@@ -1654,11 +1658,11 @@ class BERP_Reports_Admin {
 		// Summary Cards
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Received', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Received', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['total_received'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Payment Count', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Payment Count', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( $data['count'] ) . '</div>';
 		echo '</div>';
 		echo '</div>';
@@ -1672,17 +1676,17 @@ class BERP_Reports_Admin {
 		echo '<table class="berp-report-table">';
 		echo '<thead>';
 		echo '<tr>';
-		echo '<th>' . esc_html__( 'Date', 'aic_builderp' ) . '</th>';
-		echo '<th>' . esc_html__( 'Client', 'aic_builderp' ) . '</th>';
-		echo '<th>' . esc_html__( 'Invoice #', 'aic_builderp' ) . '</th>';
-		echo '<th>' . esc_html__( 'Method', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Amount', 'aic_builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Date', 'builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Client', 'builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Invoice #', 'builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Method', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Amount', 'builderp' ) . '</th>';
 		echo '</tr>';
 		echo '</thead>';
 		echo '<tbody>';
 
 		if ( empty( $data['rows'] ) ) {
-			echo '<tr><td colspan="5">' . esc_html__( 'No payments found for the selected period.', 'aic_builderp' ) . '</td></tr>';
+			echo '<tr><td colspan="5">' . esc_html__( 'No payments found for the selected period.', 'builderp' ) . '</td></tr>';
 		} else {
 			foreach ( $data['rows'] as $row ) {
 				echo '<tr>';
@@ -1698,7 +1702,7 @@ class BERP_Reports_Admin {
 		echo '</tbody>';
 		echo '<tfoot>';
 		echo '<tr>';
-		echo '<td colspan="4">' . esc_html__( 'Total', 'aic_builderp' ) . '</td>';
+		echo '<td colspan="4">' . esc_html__( 'Total', 'builderp' ) . '</td>';
 		echo '<td class="num">' . esc_html( berp_format_currency( $data['total_received'] ) ) . '</td>';
 		echo '</tr>';
 		echo '</tfoot>';
@@ -1724,7 +1728,7 @@ class BERP_Reports_Admin {
 				'labels'   => array_keys( $chart_data ),
 				'datasets' => array(
 					array(
-						'label'           => __( 'Payments Received', 'aic_builderp' ),
+						'label'           => __( 'Payments Received', 'builderp' ),
 						'data'            => array_values( $chart_data ),
 						'borderColor'     => '#2271b1',
 						'backgroundColor' => 'rgba(34, 113, 177, 0.1)',
@@ -1815,15 +1819,15 @@ class BERP_Reports_Admin {
 		// Summary Cards
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Balance (Company Receivables)', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Balance (Company Receivables)', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['total_receivable'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Balance (Company Payables)', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Balance (Company Payables)', 'builderp' ) . '</h3>';
 		echo '<div class="value negative">' . esc_html( berp_format_currency( abs( $data['total_payable'] ) ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Net Position', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Net Position', 'builderp' ) . '</h3>';
 		$net   = $data['total_receivable'] + $data['total_payable']; // payable is negative
 		$class = $net >= 0 ? 'positive' : 'negative';
 		echo '<div class="value ' . esc_attr( $class ) . '">' . esc_html( berp_format_currency( $net ) ) . '</div>';
@@ -1839,20 +1843,20 @@ class BERP_Reports_Admin {
 		echo '<table class="berp-report-table">';
 		echo '<thead>';
 		echo '<tr>';
-		echo '<th>' . esc_html__( 'Employee Name', 'aic_builderp' ) . '</th>';
-		echo '<th>' . esc_html__( 'Employee ID', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Balance', 'aic_builderp' ) . '</th>';
-		echo '<th>' . esc_html__( 'Status', 'aic_builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Employee Name', 'builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Employee ID', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Balance', 'builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Status', 'builderp' ) . '</th>';
 		echo '</tr>';
 		echo '</thead>';
 		echo '<tbody>';
 
 		if ( empty( $data['rows'] ) ) {
-			echo '<tr><td colspan="4">' . esc_html__( 'No employee balances found.', 'aic_builderp' ) . '</td></tr>';
+			echo '<tr><td colspan="4">' . esc_html__( 'No employee balances found.', 'builderp' ) . '</td></tr>';
 		} else {
 			foreach ( $data['rows'] as $row ) {
 				$class  = $row['balance'] > 0 ? 'positive' : ( $row['balance'] < 0 ? 'negative' : '' );
-				$status = $row['balance'] > 0 ? __( 'Owes Company', 'aic_builderp' ) : ( $row['balance'] < 0 ? __( 'Company Owes', 'aic_builderp' ) : '-' );
+				$status = $row['balance'] > 0 ? __( 'Owes Company', 'builderp' ) : ( $row['balance'] < 0 ? __( 'Company Owes', 'builderp' ) : '-' );
 
 				echo '<tr>';
 				echo '<td>' . esc_html( $row['name'] ) . '</td>';
@@ -1866,7 +1870,7 @@ class BERP_Reports_Admin {
 		echo '</tbody>';
 		echo '<tfoot>';
 		echo '<tr>';
-		echo '<td colspan="2">' . esc_html__( 'Net Total', 'aic_builderp' ) . '</td>';
+		echo '<td colspan="2">' . esc_html__( 'Net Total', 'builderp' ) . '</td>';
 		echo '<td class="num">' . esc_html( berp_format_currency( $net ) ) . '</td>';
 		echo '<td></td>';
 		echo '</tr>';
@@ -1883,7 +1887,7 @@ class BERP_Reports_Admin {
 				'labels'   => wp_list_pluck( $chart_rows, 'name' ),
 				'datasets' => array(
 					array(
-						'label'           => __( 'Balance', 'aic_builderp' ),
+						'label'           => __( 'Balance', 'builderp' ),
 						'data'            => wp_list_pluck( $chart_rows, 'balance' ),
 						'backgroundColor' => array_map(
 							function ( $row ) {
@@ -1959,23 +1963,23 @@ class BERP_Reports_Admin {
 	 */
 	private function render_report_budget_vs_actual() {
 		$site_id    = isset( $_GET['site_id'] ) ? absint( $_GET['site_id'] ) : 0;
-		$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : date( 'Y-01-01' );
-		$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : date( 'Y-12-31' );
+		$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : gmdate( 'Y-01-01' );
+		$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : gmdate( 'Y-12-31' );
 
 		$data = $this->get_budget_vs_actual_data( $site_id, $start_date, $end_date );
 
 		// Summary Cards - Row 1
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Budget', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Budget', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['totals']['budget'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Spent', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Spent', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['totals']['spent'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Remaining Budget', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Remaining Budget', 'builderp' ) . '</h3>';
 		$remaining = $data['totals']['budget'] - $data['totals']['spent'];
 		$class     = $remaining >= 0 ? 'positive' : 'negative';
 		echo '<div class="value ' . esc_attr( $class ) . '">' . esc_html( berp_format_currency( $remaining ) ) . '</div>';
@@ -1985,19 +1989,19 @@ class BERP_Reports_Admin {
 		// Summary Cards - Row 2: Manpower Statistics
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Manpower Days', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Manpower Days', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( number_format( $data['totals']['manpower_days'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Overtime Hours', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Overtime Hours', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( number_format( $data['totals']['overtime_hours'], 1 ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Est. Labor Cost', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Est. Labor Cost', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['totals']['labor_cost'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( '% Used', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( '% Used', 'builderp' ) . '</h3>';
 		$percent_class = $data['totals']['percent'] > 100 ? 'negative' : ( $data['totals']['percent'] > 90 ? 'warning' : 'positive' );
 		echo '<div class="value ' . esc_attr( $percent_class ) . '">' . esc_html( number_format( $data['totals']['percent'], 1 ) ) . '%</div>';
 		echo '</div>';
@@ -2012,20 +2016,20 @@ class BERP_Reports_Admin {
 		echo '<table class="berp-report-table">';
 		echo '<thead>';
 		echo '<tr>';
-		echo '<th>' . esc_html__( 'Site Name', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Budget', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Spent', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Manpower Days', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'OT Hours', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Labor Cost', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Remaining', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( '% Used', 'aic_builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Site Name', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Budget', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Spent', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Manpower Days', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'OT Hours', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Labor Cost', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Remaining', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( '% Used', 'builderp' ) . '</th>';
 		echo '</tr>';
 		echo '</thead>';
 		echo '<tbody>';
 
 		if ( empty( $data['rows'] ) ) {
-			echo '<tr><td colspan="8">' . esc_html__( 'No sites found with budget data.', 'aic_builderp' ) . '</td></tr>';
+			echo '<tr><td colspan="8">' . esc_html__( 'No sites found with budget data.', 'builderp' ) . '</td></tr>';
 		} else {
 			foreach ( $data['rows'] as $row ) {
 				$remaining     = $row['budget'] - $row['spent'];
@@ -2048,7 +2052,7 @@ class BERP_Reports_Admin {
 		echo '</tbody>';
 		echo '<tfoot>';
 		echo '<tr>';
-		echo '<td>' . esc_html__( 'Totals', 'aic_builderp' ) . '</td>';
+		echo '<td>' . esc_html__( 'Totals', 'builderp' ) . '</td>';
 		echo '<td class="num">' . esc_html( berp_format_currency( $data['totals']['budget'] ) ) . '</td>';
 		echo '<td class="num">' . esc_html( berp_format_currency( $data['totals']['spent'] ) ) . '</td>';
 		echo '<td class="num">' . esc_html( number_format( $data['totals']['manpower_days'] ) ) . '</td>';
@@ -2069,12 +2073,12 @@ class BERP_Reports_Admin {
 				'labels'   => wp_list_pluck( $data['rows'], 'name' ),
 				'datasets' => array(
 					array(
-						'label'           => __( 'Budget', 'aic_builderp' ),
+						'label'           => __( 'Budget', 'builderp' ),
 						'data'            => wp_list_pluck( $data['rows'], 'budget' ),
 						'backgroundColor' => '#2271b1',
 					),
 					array(
-						'label'           => __( 'Spent', 'aic_builderp' ),
+						'label'           => __( 'Spent', 'builderp' ),
 						'data'            => wp_list_pluck( $data['rows'], 'spent' ),
 						'backgroundColor' => '#d63638',
 					),
@@ -2094,10 +2098,10 @@ class BERP_Reports_Admin {
 	private function get_budget_vs_actual_data( $site_id = 0, $start_date = '', $end_date = '' ) {
 		// Default date range if not provided
 		if ( empty( $start_date ) ) {
-			$start_date = date( 'Y-01-01' );
+			$start_date = gmdate( 'Y-01-01' );
 		}
 		if ( empty( $end_date ) ) {
-			$end_date = date( 'Y-12-31' );
+			$end_date = gmdate( 'Y-12-31' );
 		}
 
 		$args = array(
@@ -2168,8 +2172,8 @@ class BERP_Reports_Admin {
 	 * Render Overtime Analysis Report.
 	 */
 	private function render_report_overtime_analysis() {
-		$start_date  = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : date( 'Y-m-01' );
-		$end_date    = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : date( 'Y-m-t' );
+		$start_date  = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : gmdate( 'Y-m-01' );
+		$end_date    = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : gmdate( 'Y-m-t' );
 		$site_id     = isset( $_GET['site_id'] ) ? absint( $_GET['site_id'] ) : 0;
 		$employee_id = isset( $_GET['employee_id'] ) ? absint( $_GET['employee_id'] ) : 0;
 
@@ -2181,15 +2185,15 @@ class BERP_Reports_Admin {
 		// Summary Cards - Row 1
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Overtime Hours', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Overtime Hours', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( number_format( $data['totals']['hours'], 2 ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Estimated OT Cost', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Estimated OT Cost', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['totals']['cost'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Employees with OT', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Employees with OT', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( count( $data['rows'] ) ) . '</div>';
 		echo '</div>';
 		echo '</div>';
@@ -2197,20 +2201,20 @@ class BERP_Reports_Admin {
 		// Summary Cards - Row 2: Manpower Context
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Manpower Days', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Manpower Days', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( number_format( $manpower_totals['manpower_days'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Regular Labor Cost', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Regular Labor Cost', 'builderp' ) . '</h3>';
 		$regular_labor = $manpower_totals['labor_cost'] - $data['totals']['cost'];
 		echo '<div class="value">' . esc_html( berp_format_currency( max( 0, $regular_labor ) ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Labor Cost', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Labor Cost', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $manpower_totals['labor_cost'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'OT % of Labor', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'OT % of Labor', 'builderp' ) . '</h3>';
 		$ot_percent = $manpower_totals['labor_cost'] > 0 ? ( $data['totals']['cost'] / $manpower_totals['labor_cost'] ) * 100 : 0;
 		$ot_class   = $ot_percent > 20 ? 'warning' : '';
 		echo '<div class="value ' . esc_attr( $ot_class ) . '">' . esc_html( number_format( $ot_percent, 1 ) ) . '%</div>';
@@ -2226,17 +2230,17 @@ class BERP_Reports_Admin {
 		echo '<table class="berp-report-table">';
 		echo '<thead>';
 		echo '<tr>';
-		echo '<th>' . esc_html__( 'Employee Name', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Days Worked', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'OT Hours', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Avg. OT/Day', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Est. OT Cost', 'aic_builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Employee Name', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Days Worked', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'OT Hours', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Avg. OT/Day', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Est. OT Cost', 'builderp' ) . '</th>';
 		echo '</tr>';
 		echo '</thead>';
 		echo '<tbody>';
 
 		if ( empty( $data['rows'] ) ) {
-			echo '<tr><td colspan="5">' . esc_html__( 'No overtime records found for the selected period.', 'aic_builderp' ) . '</td></tr>';
+			echo '<tr><td colspan="5">' . esc_html__( 'No overtime records found for the selected period.', 'builderp' ) . '</td></tr>';
 		} else {
 			foreach ( $data['rows'] as $row ) {
 				echo '<tr>';
@@ -2252,7 +2256,7 @@ class BERP_Reports_Admin {
 		echo '</tbody>';
 		echo '<tfoot>';
 		echo '<tr>';
-		echo '<td>' . esc_html__( 'Totals', 'aic_builderp' ) . '</td>';
+		echo '<td>' . esc_html__( 'Totals', 'builderp' ) . '</td>';
 		echo '<td class="num">' . esc_html( $data['totals']['days'] ) . '</td>';
 		echo '<td class="num">' . esc_html( number_format( $data['totals']['hours'], 2 ) ) . '</td>';
 		echo '<td class="num">-</td>';
@@ -2271,7 +2275,7 @@ class BERP_Reports_Admin {
 				'labels'   => wp_list_pluck( $chart_rows, 'name' ),
 				'datasets' => array(
 					array(
-						'label'           => __( 'Overtime Hours', 'aic_builderp' ),
+						'label'           => __( 'Overtime Hours', 'builderp' ),
 						'data'            => wp_list_pluck( $chart_rows, 'hours' ),
 						'backgroundColor' => '#f0ad4e',
 					),
@@ -2405,8 +2409,8 @@ class BERP_Reports_Admin {
 	 * Render Revenue Trends Report.
 	 */
 	private function render_report_revenue_trends() {
-		$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : date( 'Y-01-01' );
-		$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : date( 'Y-12-31' );
+		$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : gmdate( 'Y-01-01' );
+		$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : gmdate( 'Y-12-31' );
 		$client_id  = isset( $_GET['client_id'] ) ? absint( $_GET['client_id'] ) : 0;
 
 		$data = $this->get_revenue_trends_data( $start_date, $end_date, $client_id );
@@ -2414,16 +2418,16 @@ class BERP_Reports_Admin {
 		// Summary Cards
 		echo '<div class="berp-summary-cards">';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Total Revenue', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Total Revenue', 'builderp' ) . '</h3>';
 		echo '<div class="value">' . esc_html( berp_format_currency( $data['total_revenue'] ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Avg. Monthly Revenue', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Avg. Monthly Revenue', 'builderp' ) . '</h3>';
 		$avg = count( $data['rows'] ) > 0 ? $data['total_revenue'] / count( $data['rows'] ) : 0;
 		echo '<div class="value">' . esc_html( berp_format_currency( $avg ) ) . '</div>';
 		echo '</div>';
 		echo '<div class="berp-summary-card">';
-		echo '<h3>' . esc_html__( 'Best Month', 'aic_builderp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Best Month', 'builderp' ) . '</h3>';
 		$best_month = '-';
 		$max_rev    = 0;
 		foreach ( $data['rows'] as $row ) {
@@ -2445,16 +2449,16 @@ class BERP_Reports_Admin {
 		echo '<table class="berp-report-table">';
 		echo '<thead>';
 		echo '<tr>';
-		echo '<th>' . esc_html__( 'Month', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Revenue', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Invoice Count', 'aic_builderp' ) . '</th>';
-		echo '<th class="num">' . esc_html__( 'Growth', 'aic_builderp' ) . '</th>';
+		echo '<th>' . esc_html__( 'Month', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Revenue', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Invoice Count', 'builderp' ) . '</th>';
+		echo '<th class="num">' . esc_html__( 'Growth', 'builderp' ) . '</th>';
 		echo '</tr>';
 		echo '</thead>';
 		echo '<tbody>';
 
 		if ( empty( $data['rows'] ) ) {
-			echo '<tr><td colspan="4">' . esc_html__( 'No revenue data found for the selected period.', 'aic_builderp' ) . '</td></tr>';
+			echo '<tr><td colspan="4">' . esc_html__( 'No revenue data found for the selected period.', 'builderp' ) . '</td></tr>';
 		} else {
 			$prev_revenue = 0;
 			foreach ( $data['rows'] as $row ) {
@@ -2479,7 +2483,7 @@ class BERP_Reports_Admin {
 		echo '</tbody>';
 		echo '<tfoot>';
 		echo '<tr>';
-		echo '<td>' . esc_html__( 'Total', 'aic_builderp' ) . '</td>';
+		echo '<td>' . esc_html__( 'Total', 'builderp' ) . '</td>';
 		echo '<td class="num">' . esc_html( berp_format_currency( $data['total_revenue'] ) ) . '</td>';
 		echo '<td class="num">' . esc_html( $data['total_count'] ) . '</td>';
 		echo '<td></td>';
@@ -2496,7 +2500,7 @@ class BERP_Reports_Admin {
 				'labels'   => wp_list_pluck( $data['rows'], 'month' ),
 				'datasets' => array(
 					array(
-						'label'           => __( 'Revenue', 'aic_builderp' ),
+						'label'           => __( 'Revenue', 'builderp' ),
 						'data'            => wp_list_pluck( $data['rows'], 'revenue' ),
 						'borderColor'     => '#46b450',
 						'backgroundColor' => 'rgba(70, 180, 80, 0.1)',
@@ -2611,7 +2615,7 @@ class BERP_Reports_Admin {
 		} elseif ( 'pdf' === $format ) {
 			// PDF export to be implemented using mPDF or similar library.
 			// For now, we can redirect or show a message.
-			wp_die( esc_html__( 'PDF Export is coming soon.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'PDF Export is coming soon.', 'builderp' ) );
 		}
 	}
 
@@ -2621,12 +2625,12 @@ class BERP_Reports_Admin {
 	 * @param string $report Report type.
 	 */
 	private function export_to_csv( $report ) {
-		$filename = 'report-' . $report . '-' . date( 'Y-m-d' ) . '.csv';
+		$filename = 'report-' . $report . '-' . gmdate( 'Y-m-d' ) . '.csv';
 
 		header( 'Content-Type: text/csv; charset=utf-8' );
 		header( 'Content-Disposition: attachment; filename=' . $filename );
 
-		$output = fopen( 'php://output', 'w' );
+		$output = fopen( 'php://output', 'w' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
 
 		// Get data based on report type
 		switch ( $report ) {
@@ -2634,8 +2638,8 @@ class BERP_Reports_Admin {
 				$headers = array( 'Employee Name', 'Employee ID', 'Present Days', 'Overtime Hours', 'Attendance Rate (%)' );
 				fputcsv( $output, $headers );
 
-				$start_date  = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : date( 'Y-m-01' );
-				$end_date    = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : date( 'Y-m-t' );
+				$start_date  = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : gmdate( 'Y-m-01' );
+				$end_date    = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : gmdate( 'Y-m-t' );
 				$site_id     = isset( $_GET['site_id'] ) ? absint( $_GET['site_id'] ) : 0;
 				$employee_id = isset( $_GET['employee_id'] ) ? absint( $_GET['employee_id'] ) : 0;
 
@@ -2659,7 +2663,7 @@ class BERP_Reports_Admin {
 				$headers = array( 'Employee', 'Basic Salary', 'Allowances', 'Overtime', 'Gross Salary', 'Deductions', 'Net Salary', 'Status' );
 				fputcsv( $output, $headers );
 
-				$month       = isset( $_GET['month'] ) ? sanitize_text_field( $_GET['month'] ) : date( 'Y-m' );
+				$month       = isset( $_GET['month'] ) ? sanitize_text_field( $_GET['month'] ) : gmdate( 'Y-m' );
 				$employee_id = isset( $_GET['employee_id'] ) ? absint( $_GET['employee_id'] ) : 0;
 
 				$data = $this->get_payroll_register_data( $month, $employee_id );
@@ -2685,8 +2689,8 @@ class BERP_Reports_Admin {
 				$headers = array( 'Site Name', 'Total Revenue', 'Total Expenses', 'Payroll Cost', 'Net Profit', 'Margin (%)' );
 				fputcsv( $output, $headers );
 
-				$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : date( 'Y-01-01' );
-				$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : date( 'Y-12-31' );
+				$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : gmdate( 'Y-01-01' );
+				$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : gmdate( 'Y-12-31' );
 				$site_id    = isset( $_GET['site_id'] ) ? absint( $_GET['site_id'] ) : 0;
 
 				$data = $this->get_site_profitability_data( $start_date, $end_date, $site_id );
@@ -2710,8 +2714,8 @@ class BERP_Reports_Admin {
 				$headers = array( 'Category', 'Amount', 'Percentage (%)' );
 				fputcsv( $output, $headers );
 
-				$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : date( 'Y-m-01' );
-				$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : date( 'Y-m-t' );
+				$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : gmdate( 'Y-m-01' );
+				$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : gmdate( 'Y-m-t' );
 				$site_id    = isset( $_GET['site_id'] ) ? absint( $_GET['site_id'] ) : 0;
 
 				$data = $this->get_expense_breakdown_data( $start_date, $end_date, $site_id );
@@ -2756,8 +2760,8 @@ class BERP_Reports_Admin {
 				$headers = array( 'Client', 'Total Invoiced', 'Total Paid', 'Outstanding', 'Payment Rate (%)' );
 				fputcsv( $output, $headers );
 
-				$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : date( 'Y-01-01' );
-				$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : date( 'Y-12-31' );
+				$start_date = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : gmdate( 'Y-01-01' );
+				$end_date   = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : gmdate( 'Y-12-31' );
 				$client_id  = isset( $_GET['client_id'] ) ? absint( $_GET['client_id'] ) : 0;
 
 				$data = $this->get_client_payments_data( $start_date, $end_date, $client_id );
@@ -2823,8 +2827,8 @@ class BERP_Reports_Admin {
 				$headers = array( 'Employee', 'Regular Hours', 'Overtime Hours', 'Overtime Cost', 'OT % of Total' );
 				fputcsv( $output, $headers );
 
-				$start_date  = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : date( 'Y-m-01' );
-				$end_date    = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : date( 'Y-m-t' );
+				$start_date  = isset( $_GET['start_date'] ) ? sanitize_text_field( $_GET['start_date'] ) : gmdate( 'Y-m-01' );
+				$end_date    = isset( $_GET['end_date'] ) ? sanitize_text_field( $_GET['end_date'] ) : gmdate( 'Y-m-t' );
 				$site_id     = isset( $_GET['site_id'] ) ? absint( $_GET['site_id'] ) : 0;
 				$employee_id = isset( $_GET['employee_id'] ) ? absint( $_GET['employee_id'] ) : 0;
 
@@ -2848,7 +2852,7 @@ class BERP_Reports_Admin {
 				$headers = array( 'Month', 'Revenue', 'Growth (%)' );
 				fputcsv( $output, $headers );
 
-				$year      = isset( $_GET['year'] ) ? absint( $_GET['year'] ) : date( 'Y' );
+				$year      = isset( $_GET['year'] ) ? absint( $_GET['year'] ) : gmdate( 'Y' );
 				$client_id = isset( $_GET['client_id'] ) ? absint( $_GET['client_id'] ) : 0;
 
 				$data = $this->get_revenue_trends_data( $year, $client_id );
@@ -2866,8 +2870,11 @@ class BERP_Reports_Admin {
 				break;
 		}
 
-		fclose( $output );
+		fclose( $output ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
 		exit;
 	}
 }
+
+
+
 

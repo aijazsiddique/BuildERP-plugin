@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $employee_id = BERP_Employee_Dashboard::get_current_employee_id();
 
 if ( ! $employee_id ) {
-	echo '<div class="berp-portal-alert berp-portal-alert-danger">' . esc_html__( 'Employee record not found.', 'aic_builderp' ) . '</div>';
+	echo '<div class="berp-portal-alert berp-portal-alert-danger">' . esc_html__( 'Employee record not found.', 'builderp' ) . '</div>';
 	return;
 }
 
@@ -62,38 +62,38 @@ $advance_history = get_posts(
 ?>
 
 <div class="berp-portal-advances">
-	<h2><?php esc_html_e( 'Request Salary Advance', 'aic_builderp' ); ?></h2>
+	<h2><?php esc_html_e( 'Request Salary Advance', 'builderp' ); ?></h2>
 
 	<div class="berp-portal-row">
 		<!-- Request Form Column -->
 		<div class="berp-portal-col berp-portal-col-6">
 			<div class="berp-portal-card">
 				<div class="berp-card-header">
-					<h3><?php esc_html_e( 'New Advance Request', 'aic_builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'New Advance Request', 'builderp' ); ?></h3>
 				</div>
 				<div class="berp-card-body">
 					<?php if ( $has_pending ) : ?>
 						<div class="berp-portal-alert berp-portal-alert-warning">
-							<strong><?php esc_html_e( 'Pending Request', 'aic_builderp' ); ?></strong><br>
-							<?php esc_html_e( 'You have a pending advance request. Please wait for it to be processed before submitting a new one.', 'aic_builderp' ); ?>
+							<strong><?php esc_html_e( 'Pending Request', 'builderp' ); ?></strong><br>
+							<?php esc_html_e( 'You have a pending advance request. Please wait for it to be processed before submitting a new one.', 'builderp' ); ?>
 						</div>
 					<?php elseif ( ! $basic_salary ) : ?>
 						<div class="berp-portal-alert berp-portal-alert-danger">
-							<?php esc_html_e( 'Your salary information is not set. Please contact HR.', 'aic_builderp' ); ?>
+							<?php esc_html_e( 'Your salary information is not set. Please contact HR.', 'builderp' ); ?>
 						</div>
 					<?php else : ?>
 						<div class="berp-portal-info-box">
 							<p>
-								<strong><?php esc_html_e( 'Maximum Advance:', 'aic_builderp' ); ?></strong>
+								<strong><?php esc_html_e( 'Maximum Advance:', 'builderp' ); ?></strong>
 								<?php echo esc_html( berp_format_currency( $max_advance ) ); ?>
-								<small>(<?php echo esc_html( $max_percent ); ?>% <?php esc_html_e( 'of basic salary', 'aic_builderp' ); ?>)</small>
+								<small>(<?php echo esc_html( $max_percent ); ?>% <?php esc_html_e( 'of basic salary', 'builderp' ); ?>)</small>
 							</p>
 							<p>
-								<strong><?php esc_html_e( 'Current Balance:', 'aic_builderp' ); ?></strong>
+								<strong><?php esc_html_e( 'Current Balance:', 'builderp' ); ?></strong>
 								<?php
 								if ( $account_balance < 0 ) {
 									echo '<span class="berp-text-danger">' . esc_html( berp_format_currency( $account_balance ) ) . '</span>';
-									echo ' <small>(' . esc_html__( 'You owe', 'aic_builderp' ) . ')</small>';
+									echo ' <small>(' . esc_html__( 'You owe', 'builderp' ) . ')</small>';
 								} else {
 									echo esc_html( berp_format_currency( $account_balance ) );
 								}
@@ -105,7 +105,7 @@ $advance_history = get_posts(
 							<?php wp_nonce_field( 'wp_rest', 'berp_advance_nonce' ); ?>
 
 							<div class="berp-form-group">
-								<label for="advance_amount"><?php esc_html_e( 'Amount Requested', 'aic_builderp' ); ?> <span class="required">*</span></label>
+								<label for="advance_amount"><?php esc_html_e( 'Amount Requested', 'builderp' ); ?> <span class="required">*</span></label>
 								<input type="number" 
 									id="advance_amount" 
 									name="amount" 
@@ -120,7 +120,7 @@ $advance_history = get_posts(
 									echo esc_html(
 										sprintf(
 											/* translators: %s: maximum amount */
-											__( 'Enter amount up to %s', 'aic_builderp' ),
+											__( 'Enter amount up to %s', 'builderp' ),
 											berp_format_currency( $max_advance )
 										)
 									);
@@ -130,35 +130,35 @@ $advance_history = get_posts(
 
 							<?php if ( $allow_installments ) : ?>
 								<div class="berp-form-group">
-									<label for="repayment_type"><?php esc_html_e( 'Repayment Type', 'aic_builderp' ); ?></label>
+									<label for="repayment_type"><?php esc_html_e( 'Repayment Type', 'builderp' ); ?></label>
 									<select id="repayment_type" name="repayment_type" class="berp-form-control">
-										<option value="full"><?php esc_html_e( 'Full Deduction (Next Payroll)', 'aic_builderp' ); ?></option>
-										<option value="installments"><?php esc_html_e( 'Installments', 'aic_builderp' ); ?></option>
+										<option value="full"><?php esc_html_e( 'Full Deduction (Next Payroll)', 'builderp' ); ?></option>
+										<option value="installments"><?php esc_html_e( 'Installments', 'builderp' ); ?></option>
 									</select>
 								</div>
 
 								<div class="berp-form-group berp-installments-field" style="display: none;">
-									<label for="installments"><?php esc_html_e( 'Number of Installments', 'aic_builderp' ); ?></label>
+									<label for="installments"><?php esc_html_e( 'Number of Installments', 'builderp' ); ?></label>
 									<select id="installments" name="installments" class="berp-form-control">
 										<?php for ( $i = 2; $i <= 12; $i++ ) : ?>
 											<option value="<?php echo esc_attr( $i ); ?>"><?php echo esc_html( $i ); ?></option>
 										<?php endfor; ?>
 									</select>
-									<small class="berp-form-help"><?php esc_html_e( 'Amount will be deducted equally over selected number of payroll periods.', 'aic_builderp' ); ?></small>
+									<small class="berp-form-help"><?php esc_html_e( 'Amount will be deducted equally over selected number of payroll periods.', 'builderp' ); ?></small>
 								</div>
 							<?php endif; ?>
 
 							<div class="berp-form-group">
-								<label for="advance_reason"><?php esc_html_e( 'Reason for Request', 'aic_builderp' ); ?></label>
-								<textarea id="advance_reason" name="reason" class="berp-form-control" rows="3" placeholder="<?php esc_attr_e( 'Please explain why you need this advance...', 'aic_builderp' ); ?>"></textarea>
+								<label for="advance_reason"><?php esc_html_e( 'Reason for Request', 'builderp' ); ?></label>
+								<textarea id="advance_reason" name="reason" class="berp-form-control" rows="3" placeholder="<?php esc_attr_e( 'Please explain why you need this advance...', 'builderp' ); ?>"></textarea>
 							</div>
 
 							<div class="berp-form-group">
 								<button type="submit" class="berp-btn berp-btn-primary berp-btn-block">
-									<span class="berp-btn-text"><?php esc_html_e( 'Submit Request', 'aic_builderp' ); ?></span>
+									<span class="berp-btn-text"><?php esc_html_e( 'Submit Request', 'builderp' ); ?></span>
 									<span class="berp-btn-loading" style="display: none;">
 										<span class="berp-spinner"></span>
-										<?php esc_html_e( 'Submitting...', 'aic_builderp' ); ?>
+										<?php esc_html_e( 'Submitting...', 'builderp' ); ?>
 									</span>
 								</button>
 							</div>
@@ -174,16 +174,16 @@ $advance_history = get_posts(
 		<div class="berp-portal-col berp-portal-col-6">
 			<div class="berp-portal-card">
 				<div class="berp-card-header">
-					<h3><?php esc_html_e( 'Request History', 'aic_builderp' ); ?></h3>
+					<h3><?php esc_html_e( 'Request History', 'builderp' ); ?></h3>
 				</div>
 				<div class="berp-card-body">
 					<?php if ( ! empty( $advance_history ) ) : ?>
 						<table class="berp-portal-table">
 							<thead>
 								<tr>
-									<th><?php esc_html_e( 'Date', 'aic_builderp' ); ?></th>
-									<th><?php esc_html_e( 'Amount', 'aic_builderp' ); ?></th>
-									<th><?php esc_html_e( 'Status', 'aic_builderp' ); ?></th>
+									<th><?php esc_html_e( 'Date', 'builderp' ); ?></th>
+									<th><?php esc_html_e( 'Amount', 'builderp' ); ?></th>
+									<th><?php esc_html_e( 'Status', 'builderp' ); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -195,19 +195,19 @@ $advance_history = get_posts(
 
 									$status_labels = array(
 										'pending'  => array(
-											'label' => __( 'Pending', 'aic_builderp' ),
+											'label' => __( 'Pending', 'builderp' ),
 											'class' => 'berp-badge-warning',
 										),
 										'approved' => array(
-											'label' => __( 'Approved', 'aic_builderp' ),
+											'label' => __( 'Approved', 'builderp' ),
 											'class' => 'berp-badge-success',
 										),
 										'rejected' => array(
-											'label' => __( 'Rejected', 'aic_builderp' ),
+											'label' => __( 'Rejected', 'builderp' ),
 											'class' => 'berp-badge-danger',
 										),
 										'paid'     => array(
-											'label' => __( 'Paid', 'aic_builderp' ),
+											'label' => __( 'Paid', 'builderp' ),
 											'class' => 'berp-badge-info',
 										),
 									);
@@ -238,7 +238,7 @@ endif;
 							</tbody>
 						</table>
 					<?php else : ?>
-						<p class="berp-text-muted"><?php esc_html_e( 'No advance requests found.', 'aic_builderp' ); ?></p>
+						<p class="berp-text-muted"><?php esc_html_e( 'No advance requests found.', 'builderp' ); ?></p>
 					<?php endif; ?>
 				</div>
 			</div>
@@ -304,7 +304,7 @@ jQuery(document).ready(function($) {
 			error: function(xhr) {
 				var error = xhr.responseJSON && xhr.responseJSON.message 
 					? xhr.responseJSON.message 
-					: '<?php echo esc_js( __( 'An error occurred. Please try again.', 'aic_builderp' ) ); ?>';
+					: '<?php echo esc_js( __( 'An error occurred. Please try again.', 'builderp' ) ); ?>';
 				
 				$message
 					.removeClass('berp-portal-alert-success')
@@ -387,3 +387,4 @@ jQuery(document).ready(function($) {
 	}
 }
 </style>
+

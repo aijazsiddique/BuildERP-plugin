@@ -7,14 +7,14 @@
 
 /**
  * Plugin Name: BuildErp - Construction ERP
- * Plugin URI: https://example.com/builderp
+ * Plugin URI: https://aijaz.cloud/BuildERP
  * Description: A comprehensive WordPress-native construction ERP system for managing employees, attendance, payroll, expenses, quotations, invoices, and site profitability.
  * Version: 1.0.0
  * Author: Your Company Name
- * Author URI: https://example.com
+ * Author URI: https://aijaz.cloud
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: aic_builderp
+ * Text Domain: builderp
  * Domain Path: /languages
  * Requires at least: 6.0
  * Requires PHP: 8.0

@@ -26,30 +26,30 @@ class BERP_Employee_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'                  => _x( 'Employees', 'Post type general name', 'aic_builderp' ),
-			'singular_name'         => _x( 'Employee', 'Post type singular name', 'aic_builderp' ),
-			'menu_name'             => _x( 'Employees', 'Admin Menu text', 'aic_builderp' ),
-			'name_admin_bar'        => _x( 'Employee', 'Add New on Toolbar', 'aic_builderp' ),
-			'add_new'               => __( 'Add New', 'aic_builderp' ),
-			'add_new_item'          => __( 'Add New Employee', 'aic_builderp' ),
-			'new_item'              => __( 'New Employee', 'aic_builderp' ),
-			'edit_item'             => __( 'Edit Employee', 'aic_builderp' ),
-			'view_item'             => __( 'View Employee', 'aic_builderp' ),
-			'all_items'             => __( 'All Employees', 'aic_builderp' ),
-			'search_items'          => __( 'Search Employees', 'aic_builderp' ),
-			'parent_item_colon'     => __( 'Parent Employees:', 'aic_builderp' ),
-			'not_found'             => __( 'No employees found.', 'aic_builderp' ),
-			'not_found_in_trash'    => __( 'No employees found in Trash.', 'aic_builderp' ),
-			'featured_image'        => _x( 'Employee Photo', 'Overrides the "Featured Image" phrase', 'aic_builderp' ),
-			'set_featured_image'    => _x( 'Set employee photo', 'Overrides the "Set featured image" phrase', 'aic_builderp' ),
-			'remove_featured_image' => _x( 'Remove employee photo', 'Overrides the "Remove featured image" phrase', 'aic_builderp' ),
-			'use_featured_image'    => _x( 'Use as employee photo', 'Overrides the "Use as featured image" phrase', 'aic_builderp' ),
-			'archives'              => _x( 'Employee archives', 'The post type archive label', 'aic_builderp' ),
-			'insert_into_item'      => _x( 'Insert into employee', 'Overrides the "Insert into post" phrase', 'aic_builderp' ),
-			'uploaded_to_this_item' => _x( 'Uploaded to this employee', 'Overrides the "Uploaded to this post" phrase', 'aic_builderp' ),
-			'filter_items_list'     => _x( 'Filter employees list', 'Screen reader text', 'aic_builderp' ),
-			'items_list_navigation' => _x( 'Employees list navigation', 'Screen reader text', 'aic_builderp' ),
-			'items_list'            => _x( 'Employees list', 'Screen reader text', 'aic_builderp' ),
+			'name'                  => _x( 'Employees', 'Post type general name', 'builderp' ),
+			'singular_name'         => _x( 'Employee', 'Post type singular name', 'builderp' ),
+			'menu_name'             => _x( 'Employees', 'Admin Menu text', 'builderp' ),
+			'name_admin_bar'        => _x( 'Employee', 'Add New on Toolbar', 'builderp' ),
+			'add_new'               => __( 'Add New', 'builderp' ),
+			'add_new_item'          => __( 'Add New Employee', 'builderp' ),
+			'new_item'              => __( 'New Employee', 'builderp' ),
+			'edit_item'             => __( 'Edit Employee', 'builderp' ),
+			'view_item'             => __( 'View Employee', 'builderp' ),
+			'all_items'             => __( 'All Employees', 'builderp' ),
+			'search_items'          => __( 'Search Employees', 'builderp' ),
+			'parent_item_colon'     => __( 'Parent Employees:', 'builderp' ),
+			'not_found'             => __( 'No employees found.', 'builderp' ),
+			'not_found_in_trash'    => __( 'No employees found in Trash.', 'builderp' ),
+			'featured_image'        => _x( 'Employee Photo', 'Overrides the "Featured Image" phrase', 'builderp' ),
+			'set_featured_image'    => _x( 'Set employee photo', 'Overrides the "Set featured image" phrase', 'builderp' ),
+			'remove_featured_image' => _x( 'Remove employee photo', 'Overrides the "Remove featured image" phrase', 'builderp' ),
+			'use_featured_image'    => _x( 'Use as employee photo', 'Overrides the "Use as featured image" phrase', 'builderp' ),
+			'archives'              => _x( 'Employee archives', 'The post type archive label', 'builderp' ),
+			'insert_into_item'      => _x( 'Insert into employee', 'Overrides the "Insert into post" phrase', 'builderp' ),
+			'uploaded_to_this_item' => _x( 'Uploaded to this employee', 'Overrides the "Uploaded to this post" phrase', 'builderp' ),
+			'filter_items_list'     => _x( 'Filter employees list', 'Screen reader text', 'builderp' ),
+			'items_list_navigation' => _x( 'Employees list navigation', 'Screen reader text', 'builderp' ),
+			'items_list'            => _x( 'Employees list', 'Screen reader text', 'builderp' ),
 		);
 
 		$args = array(
@@ -82,3 +82,4 @@ class BERP_Employee_CPT {
 		register_post_type( 'berp_employee', $args );
 	}
 }
+

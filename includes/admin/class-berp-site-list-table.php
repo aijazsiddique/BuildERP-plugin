@@ -53,13 +53,13 @@ class BERP_Site_List_Table {
 		$custom_columns = array(
 			'cb'               => $columns['cb'],
 			'title'            => $columns['title'],
-			'berp_client'      => __( 'Client', 'aic_builderp' ),
-			'berp_status'      => __( 'Status', 'aic_builderp' ),
-			'berp_city'        => __( 'Location', 'aic_builderp' ),
-			'berp_budget'      => __( 'Budget', 'aic_builderp' ),
-			'berp_budget_used' => __( 'Budget Used', 'aic_builderp' ),
-			'berp_dates'       => __( 'Timeline', 'aic_builderp' ),
-			'date'             => __( 'Created', 'aic_builderp' ),
+			'berp_client'      => __( 'Client', 'builderp' ),
+			'berp_status'      => __( 'Status', 'builderp' ),
+			'berp_city'        => __( 'Location', 'builderp' ),
+			'berp_budget'      => __( 'Budget', 'builderp' ),
+			'berp_budget_used' => __( 'Budget Used', 'builderp' ),
+			'berp_dates'       => __( 'Timeline', 'builderp' ),
+			'date'             => __( 'Created', 'builderp' ),
 		);
 
 		return $custom_columns;
@@ -85,7 +85,7 @@ class BERP_Site_List_Table {
 						$edit_url = admin_url( 'post.php?post=' . $client_id . '&action=edit' );
 						echo '<a href="' . esc_url( $edit_url ) . '">' . esc_html( $client->post_title ) . '</a>';
 					} else {
-						echo '<span style="color: #999;">' . esc_html__( '(Client not found)', 'aic_builderp' ) . '</span>';
+						echo '<span style="color: #999;">' . esc_html__( '(Client not found)', 'builderp' ) . '</span>';
 					}
 				} else {
 					echo '—';
@@ -99,10 +99,10 @@ class BERP_Site_List_Table {
 				}
 
 				$status_labels = array(
-					'planning'    => __( 'Planning', 'aic_builderp' ),
-					'in_progress' => __( 'In Progress', 'aic_builderp' ),
-					'on_hold'     => __( 'On Hold', 'aic_builderp' ),
-					'completed'   => __( 'Completed', 'aic_builderp' ),
+					'planning'    => __( 'Planning', 'builderp' ),
+					'in_progress' => __( 'In Progress', 'builderp' ),
+					'on_hold'     => __( 'On Hold', 'builderp' ),
+					'completed'   => __( 'Completed', 'builderp' ),
 				);
 
 				$status_colors = array(
@@ -174,12 +174,12 @@ class BERP_Site_List_Table {
 				$end_date   = get_post_meta( $post_id, '_berp_end_date', true );
 
 				if ( $start_date && $end_date ) {
-					echo '<strong>' . esc_html__( 'Start:', 'aic_builderp' ) . '</strong> ' . esc_html( date_i18n( get_option( 'date_format' ), strtotime( $start_date ) ) ) . '<br>';
-					echo '<strong>' . esc_html__( 'End:', 'aic_builderp' ) . '</strong> ' . esc_html( date_i18n( get_option( 'date_format' ), strtotime( $end_date ) ) );
+					echo '<strong>' . esc_html__( 'Start:', 'builderp' ) . '</strong> ' . esc_html( date_i18n( get_option( 'date_format' ), strtotime( $start_date ) ) ) . '<br>';
+					echo '<strong>' . esc_html__( 'End:', 'builderp' ) . '</strong> ' . esc_html( date_i18n( get_option( 'date_format' ), strtotime( $end_date ) ) );
 				} elseif ( $start_date ) {
-					echo '<strong>' . esc_html__( 'Start:', 'aic_builderp' ) . '</strong> ' . esc_html( date_i18n( get_option( 'date_format' ), strtotime( $start_date ) ) );
+					echo '<strong>' . esc_html__( 'Start:', 'builderp' ) . '</strong> ' . esc_html( date_i18n( get_option( 'date_format' ), strtotime( $start_date ) ) );
 				} elseif ( $end_date ) {
-					echo '<strong>' . esc_html__( 'End:', 'aic_builderp' ) . '</strong> ' . esc_html( date_i18n( get_option( 'date_format' ), strtotime( $end_date ) ) );
+					echo '<strong>' . esc_html__( 'End:', 'builderp' ) . '</strong> ' . esc_html( date_i18n( get_option( 'date_format' ), strtotime( $end_date ) ) );
 				} else {
 					echo '—';
 				}
@@ -263,12 +263,12 @@ class BERP_Site_List_Table {
 			$selected = isset( $_GET['berp_client'] ) ? absint( $_GET['berp_client'] ) : 0;
 
 			echo '<select name="berp_client" id="berp_client_filter">';
-			echo '<option value="">' . esc_html__( 'All Clients', 'aic_builderp' ) . '</option>';
+			echo '<option value="">' . esc_html__( 'All Clients', 'builderp' ) . '</option>';
 
 			foreach ( $clients as $client ) {
 				printf(
 					'<option value="%d"%s>%s</option>',
-					$client->ID,
+					absint( $client->ID ),
 					selected( $selected, $client->ID, false ),
 					esc_html( $client->post_title )
 				);
@@ -281,14 +281,14 @@ class BERP_Site_List_Table {
 		$selected_status = isset( $_GET['berp_status'] ) ? sanitize_text_field( $_GET['berp_status'] ) : '';
 
 		$statuses = array(
-			'planning'    => __( 'Planning', 'aic_builderp' ),
-			'in_progress' => __( 'In Progress', 'aic_builderp' ),
-			'on_hold'     => __( 'On Hold', 'aic_builderp' ),
-			'completed'   => __( 'Completed', 'aic_builderp' ),
+			'planning'    => __( 'Planning', 'builderp' ),
+			'in_progress' => __( 'In Progress', 'builderp' ),
+			'on_hold'     => __( 'On Hold', 'builderp' ),
+			'completed'   => __( 'Completed', 'builderp' ),
 		);
 
 		echo '<select name="berp_status" id="berp_status_filter">';
-		echo '<option value="">' . esc_html__( 'All Statuses', 'aic_builderp' ) . '</option>';
+		echo '<option value="">' . esc_html__( 'All Statuses', 'builderp' ) . '</option>';
 
 		foreach ( $statuses as $value => $label ) {
 			printf(
@@ -305,10 +305,10 @@ class BERP_Site_List_Table {
 		$selected_alert = isset( $_GET['berp_budget_alert'] ) ? sanitize_text_field( $_GET['berp_budget_alert'] ) : '';
 
 		echo '<select name="berp_budget_alert" id="berp_budget_alert_filter">';
-		echo '<option value="">' . esc_html__( 'All Budgets', 'aic_builderp' ) . '</option>';
-		echo '<option value="exceeded"' . selected( $selected_alert, 'exceeded', false ) . '>' . esc_html__( 'Budget Exceeded', 'aic_builderp' ) . '</option>';
-		echo '<option value="warning"' . selected( $selected_alert, 'warning', false ) . '>' . esc_html__( 'Budget Warning', 'aic_builderp' ) . '</option>';
-		echo '<option value="ok"' . selected( $selected_alert, 'ok', false ) . '>' . esc_html__( 'Budget OK', 'aic_builderp' ) . '</option>';
+		echo '<option value="">' . esc_html__( 'All Budgets', 'builderp' ) . '</option>';
+		echo '<option value="exceeded"' . selected( $selected_alert, 'exceeded', false ) . '>' . esc_html__( 'Budget Exceeded', 'builderp' ) . '</option>';
+		echo '<option value="warning"' . selected( $selected_alert, 'warning', false ) . '>' . esc_html__( 'Budget Warning', 'builderp' ) . '</option>';
+		echo '<option value="ok"' . selected( $selected_alert, 'ok', false ) . '>' . esc_html__( 'Budget OK', 'builderp' ) . '</option>';
 		echo '</select>';
 	}
 
@@ -440,11 +440,11 @@ class BERP_Site_List_Table {
 
 		// Add "View Expenses" action
 		$expenses_url             = admin_url( 'edit.php?post_type=berp_expense&berp_site=' . $post->ID );
-		$actions['view_expenses'] = '<a href="' . esc_url( $expenses_url ) . '">' . __( 'View Expenses', 'aic_builderp' ) . '</a>';
+		$actions['view_expenses'] = '<a href="' . esc_url( $expenses_url ) . '">' . __( 'View Expenses', 'builderp' ) . '</a>';
 
 		// Add "View Attendance" action
 		$attendance_url             = admin_url( 'edit.php?post_type=berp_attendance&berp_site=' . $post->ID );
-		$actions['view_attendance'] = '<a href="' . esc_url( $attendance_url ) . '">' . __( 'View Attendance', 'aic_builderp' ) . '</a>';
+		$actions['view_attendance'] = '<a href="' . esc_url( $attendance_url ) . '">' . __( 'View Attendance', 'builderp' ) . '</a>';
 
 		return $actions;
 	}
@@ -464,7 +464,7 @@ class BERP_Site_List_Table {
 
 		switch ( $error ) {
 			case 'client_required':
-				$message = __( 'Error: Client is required.', 'aic_builderp' );
+				$message = __( 'Error: Client is required.', 'builderp' );
 				break;
 		}
 
@@ -485,19 +485,21 @@ class BERP_Site_List_Table {
 
 		$messages['berp_site'] = array(
 			0  => '', // Unused. Messages start at index 1.
-			1  => __( 'Site updated.', 'aic_builderp' ),
-			2  => __( 'Custom field updated.', 'aic_builderp' ),
-			3  => __( 'Custom field deleted.', 'aic_builderp' ),
-			4  => __( 'Site updated.', 'aic_builderp' ),
-			5  => isset( $_GET['revision'] ) ? sprintf( __( 'Site restored to revision from %s', 'aic_builderp' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-			6  => __( 'Site created.', 'aic_builderp' ),
-			7  => __( 'Site saved.', 'aic_builderp' ),
-			8  => __( 'Site submitted.', 'aic_builderp' ),
+			1  => __( 'Site updated.', 'builderp' ),
+			2  => __( 'Custom field updated.', 'builderp' ),
+			3  => __( 'Custom field deleted.', 'builderp' ),
+			4  => __( 'Site updated.', 'builderp' ),
+			/* translators: %s: revision title */
+			5  => isset( $_GET['revision'] ) ? sprintf( __( 'Site restored to revision from %s', 'builderp' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+			6  => __( 'Site created.', 'builderp' ),
+			7  => __( 'Site saved.', 'builderp' ),
+			8  => __( 'Site submitted.', 'builderp' ),
+			/* translators: %s: scheduled date */
 			9  => sprintf(
-				__( 'Site scheduled for: <strong>%1$s</strong>.', 'aic_builderp' ),
-				date_i18n( __( 'M j, Y @ G:i', 'aic_builderp' ), strtotime( $post->post_date ) )
+				__( 'Site scheduled for: <strong>%1$s</strong>.', 'builderp' ),
+				date_i18n( __( 'M j, Y @ G:i', 'builderp' ), strtotime( $post->post_date ) )
 			),
-			10 => __( 'Site draft updated.', 'aic_builderp' ),
+			10 => __( 'Site draft updated.', 'builderp' ),
 		);
 
 		return $messages;
@@ -506,3 +508,4 @@ class BERP_Site_List_Table {
 
 // Initialize
 new BERP_Site_List_Table();
+

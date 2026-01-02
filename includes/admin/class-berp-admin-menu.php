@@ -60,8 +60,8 @@ class BERP_Admin_Menu {
 	public function register_menus() {
 		// Main menu - BuildErp.
 		add_menu_page(
-			__( 'BuildErp', 'aic_builderp' ),                    // Page title.
-			__( 'BuildErp', 'aic_builderp' ),                    // Menu title.
+			__( 'BuildErp', 'builderp' ),                    // Page title.
+			__( 'BuildErp', 'builderp' ),                    // Menu title.
 			'berp_view_dashboard',                              // Capability.
 			'builderp',                                         // Menu slug.
 			array( $this, 'dashboard_page' ),                     // Callback.
@@ -72,8 +72,8 @@ class BERP_Admin_Menu {
 		// Dashboard submenu.
 		add_submenu_page(
 			'builderp',
-			__( 'Dashboard', 'aic_builderp' ),
-			__( 'Dashboard', 'aic_builderp' ),
+			__( 'Dashboard', 'builderp' ),
+			__( 'Dashboard', 'builderp' ),
 			'berp_view_dashboard',
 			'builderp',
 			array( $this, 'dashboard_page' )
@@ -82,8 +82,8 @@ class BERP_Admin_Menu {
 		// Clients submenu.
 		add_submenu_page(
 			'builderp',
-			__( 'Clients', 'aic_builderp' ),
-			__( 'Clients', 'aic_builderp' ),
+			__( 'Clients', 'builderp' ),
+			__( 'Clients', 'builderp' ),
 			'berp_view_clients',
 			'edit.php?post_type=berp_client'
 		);
@@ -91,8 +91,8 @@ class BERP_Admin_Menu {
 		// Sites submenu.
 		add_submenu_page(
 			'builderp',
-			__( 'Sites/Projects', 'aic_builderp' ),
-			__( 'Sites/Projects', 'aic_builderp' ),
+			__( 'Sites/Projects', 'builderp' ),
+			__( 'Sites/Projects', 'builderp' ),
 			'berp_view_sites',
 			'edit.php?post_type=berp_site'
 		);
@@ -100,8 +100,8 @@ class BERP_Admin_Menu {
 		// Employees submenu.
 		add_submenu_page(
 			'builderp',
-			__( 'Employees', 'aic_builderp' ),
-			__( 'Employees', 'aic_builderp' ),
+			__( 'Employees', 'builderp' ),
+			__( 'Employees', 'builderp' ),
 			'berp_view_employees',
 			'edit.php?post_type=berp_employee'
 		);
@@ -109,8 +109,8 @@ class BERP_Admin_Menu {
 		// Attendance submenu.
 		add_submenu_page(
 			'builderp',
-			__( 'Attendance', 'aic_builderp' ),
-			__( 'Attendance', 'aic_builderp' ),
+			__( 'Attendance', 'builderp' ),
+			__( 'Attendance', 'builderp' ),
 			'berp_view_attendance',
 			'builderp-attendance',
 			array( $this, 'attendance_page' )
@@ -119,8 +119,8 @@ class BERP_Admin_Menu {
 		// Payroll submenu.
 		add_submenu_page(
 			'builderp',
-			__( 'Payroll', 'aic_builderp' ),
-			__( 'Payroll', 'aic_builderp' ),
+			__( 'Payroll', 'builderp' ),
+			__( 'Payroll', 'builderp' ),
 			'berp_view_payroll',
 			'edit.php?post_type=berp_payroll'
 		);
@@ -128,8 +128,8 @@ class BERP_Admin_Menu {
 		// Advances submenu.
 		add_submenu_page(
 			'builderp',
-			__( 'Advances', 'aic_builderp' ),
-			__( 'Advances', 'aic_builderp' ),
+			__( 'Advances', 'builderp' ),
+			__( 'Advances', 'builderp' ),
 			'berp_view_advances',
 			'edit.php?post_type=berp_advance'
 		);
@@ -137,8 +137,8 @@ class BERP_Admin_Menu {
 		// Expenses submenu.
 		add_submenu_page(
 			'builderp',
-			__( 'Expenses', 'aic_builderp' ),
-			__( 'Expenses', 'aic_builderp' ),
+			__( 'Expenses', 'builderp' ),
+			__( 'Expenses', 'builderp' ),
 			'berp_view_expenses',
 			'edit.php?post_type=berp_expense'
 		);
@@ -146,8 +146,8 @@ class BERP_Admin_Menu {
 		// Quotations submenu.
 		add_submenu_page(
 			'builderp',
-			__( 'Quotations', 'aic_builderp' ),
-			__( 'Quotations', 'aic_builderp' ),
+			__( 'Quotations', 'builderp' ),
+			__( 'Quotations', 'builderp' ),
 			'berp_view_quotations',
 			'edit.php?post_type=berp_quotation'
 		);
@@ -155,8 +155,8 @@ class BERP_Admin_Menu {
 		// Invoices submenu.
 		add_submenu_page(
 			'builderp',
-			__( 'Invoices', 'aic_builderp' ),
-			__( 'Invoices', 'aic_builderp' ),
+			__( 'Invoices', 'builderp' ),
+			__( 'Invoices', 'builderp' ),
 			'berp_view_invoices',
 			'edit.php?post_type=berp_invoice'
 		);
@@ -164,8 +164,8 @@ class BERP_Admin_Menu {
 		// Reports submenu.
 		add_submenu_page(
 			'builderp',
-			__( 'Reports', 'aic_builderp' ),
-			__( 'Reports', 'aic_builderp' ),
+			__( 'Reports', 'builderp' ),
+			__( 'Reports', 'builderp' ),
 			'berp_view_reports',
 			'builderp-reports',
 			array( $this, 'reports_page' )
@@ -174,8 +174,8 @@ class BERP_Admin_Menu {
 		// Formula Builder submenu (before Settings).
 		add_submenu_page(
 			'builderp',
-			__( 'Salary Formula Builder', 'aic_builderp' ),
-			__( 'Formula Builder', 'aic_builderp' ),
+			__( 'Salary Formula Builder', 'builderp' ),
+			__( 'Formula Builder', 'builderp' ),
 			'manage_options',
 			'builderp-formula',
 			array( $this, 'formula_builder_page' )
@@ -184,8 +184,8 @@ class BERP_Admin_Menu {
 		// Settings submenu.
 		add_submenu_page(
 			'builderp',
-			__( 'Settings', 'aic_builderp' ),
-			__( 'Settings', 'aic_builderp' ),
+			__( 'Settings', 'builderp' ),
+			__( 'Settings', 'builderp' ),
 			'berp_manage_settings',
 			'builderp-settings',
 			array( $this, 'settings_page' )
@@ -194,8 +194,8 @@ class BERP_Admin_Menu {
 		// Tools submenu.
 		add_submenu_page(
 			'builderp',
-			__( 'Tools', 'aic_builderp' ),
-			__( 'Tools', 'aic_builderp' ),
+			__( 'Tools', 'builderp' ),
+			__( 'Tools', 'builderp' ),
 			'manage_options',
 			'builderp-tools',
 			array( $this, 'tools_page' )
@@ -210,7 +210,7 @@ class BERP_Admin_Menu {
 	public function dashboard_page() {
 		// Verify capability.
 		if ( ! current_user_can( 'berp_view_dashboard' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'builderp' ) );
 		}
 
 		$dashboard = new BERP_Dashboard();
@@ -225,7 +225,7 @@ class BERP_Admin_Menu {
 	public function attendance_page() {
 		// Verify capability.
 		if ( ! current_user_can( 'berp_view_attendance' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'builderp' ) );
 		}
 
 		$attendance_admin = new BERP_Attendance_Admin();
@@ -240,7 +240,7 @@ class BERP_Admin_Menu {
 	public function reports_page() {
 		// Verify capability.
 		if ( ! current_user_can( 'berp_view_reports' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'builderp' ) );
 		}
 
 		$reports_admin = new BERP_Reports_Admin();
@@ -255,7 +255,7 @@ class BERP_Admin_Menu {
 	public function settings_page() {
 		// Verify capability.
 		if ( ! current_user_can( 'berp_manage_settings' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'builderp' ) );
 		}
 
 		if ( $this->settings instanceof BERP_Settings ) {
@@ -274,7 +274,7 @@ class BERP_Admin_Menu {
 	public function formula_builder_page() {
 		// Verify capability - allow manage_options for administrators.
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'builderp' ) );
 		}
 
 		if ( $this->formula_builder instanceof BERP_Formula_Builder ) {
@@ -295,7 +295,7 @@ class BERP_Admin_Menu {
 	public function tools_page() {
 		// Verify capability.
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page.', 'builderp' ) );
 		}
 
 		if ( $this->tools instanceof BERP_Tools ) {
@@ -308,3 +308,4 @@ class BERP_Admin_Menu {
 		$tools->render_page();
 	}
 }
+

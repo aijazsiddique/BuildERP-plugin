@@ -103,7 +103,7 @@ class BERP_Quotation_API {
 
 		// Validate required fields.
 		if ( empty( $params['client_id'] ) ) {
-			return new WP_Error( 'missing_client', __( 'Client ID is required', 'aic_builderp' ), array( 'status' => 400 ) );
+			return new WP_Error( 'missing_client', __( 'Client ID is required', 'builderp' ), array( 'status' => 400 ) );
 		}
 
 		// Create quotation post.
@@ -221,18 +221,18 @@ class BERP_Quotation_API {
 
 		$quotation = berp_get_quotation( $quotation_id );
 		if ( ! $quotation ) {
-			return new WP_Error( 'invalid_quotation', __( 'Invalid quotation', 'aic_builderp' ), array( 'status' => 404 ) );
+			return new WP_Error( 'invalid_quotation', __( 'Invalid quotation', 'builderp' ), array( 'status' => 404 ) );
 		}
 
 		// Check if already converted.
 		$existing_invoices = get_post_meta( $quotation_id, '_berp_converted_to_invoices', true );
 		if ( ! empty( $existing_invoices ) ) {
-			return new WP_Error( 'already_converted', __( 'Quotation already converted to invoice(s)', 'aic_builderp' ), array( 'status' => 400 ) );
+			return new WP_Error( 'already_converted', __( 'Quotation already converted to invoice(s)', 'builderp' ), array( 'status' => 400 ) );
 		}
 
 		// Check if berp_invoice CPT exists (Phase 11).
 		if ( ! post_type_exists( 'berp_invoice' ) ) {
-			return new WP_Error( 'invoice_not_available', __( 'Invoice functionality not yet implemented (Phase 11 required)', 'aic_builderp' ), array( 'status' => 501 ) );
+			return new WP_Error( 'invoice_not_available', __( 'Invoice functionality not yet implemented (Phase 11 required)', 'builderp' ), array( 'status' => 501 ) );
 		}
 
 		// Get quotation data.
@@ -246,7 +246,7 @@ class BERP_Quotation_API {
 
 		// Generate invoice number (function should exist in Phase 11).
 		if ( ! function_exists( 'berp_generate_invoice_number' ) ) {
-			return new WP_Error( 'function_not_available', __( 'Invoice number generator not available (Phase 11 required)', 'aic_builderp' ), array( 'status' => 501 ) );
+			return new WP_Error( 'function_not_available', __( 'Invoice number generator not available (Phase 11 required)', 'builderp' ), array( 'status' => 501 ) );
 		}
 		$invoice_number = berp_generate_invoice_number();
 
@@ -316,12 +316,12 @@ class BERP_Quotation_API {
 
 		$quotation = berp_get_quotation( $quotation_id );
 		if ( ! $quotation ) {
-			return new WP_Error( 'invalid_quotation', __( 'Invalid quotation', 'aic_builderp' ), array( 'status' => 404 ) );
+			return new WP_Error( 'invalid_quotation', __( 'Invalid quotation', 'builderp' ), array( 'status' => 404 ) );
 		}
 
 		// Validate milestones.
 		if ( empty( $params['milestones'] ) || ! is_array( $params['milestones'] ) ) {
-			return new WP_Error( 'missing_milestones', __( 'Milestones array is required', 'aic_builderp' ), array( 'status' => 400 ) );
+			return new WP_Error( 'missing_milestones', __( 'Milestones array is required', 'builderp' ), array( 'status' => 400 ) );
 		}
 
 		// Validate milestone percentages sum to 100.
@@ -331,12 +331,12 @@ class BERP_Quotation_API {
 		}
 
 		if ( abs( $total_percentage - 100 ) > 0.01 ) {
-			return new WP_Error( 'invalid_percentages', __( 'Milestone percentages must sum to 100%', 'aic_builderp' ), array( 'status' => 400 ) );
+			return new WP_Error( 'invalid_percentages', __( 'Milestone percentages must sum to 100%', 'builderp' ), array( 'status' => 400 ) );
 		}
 
 		// Check if berp_invoice CPT exists (Phase 11).
 		if ( ! post_type_exists( 'berp_invoice' ) ) {
-			return new WP_Error( 'invoice_not_available', __( 'Invoice functionality not yet implemented (Phase 11 required)', 'aic_builderp' ), array( 'status' => 501 ) );
+			return new WP_Error( 'invoice_not_available', __( 'Invoice functionality not yet implemented (Phase 11 required)', 'builderp' ), array( 'status' => 501 ) );
 		}
 
 		// Get quotation data.
@@ -423,3 +423,4 @@ class BERP_Quotation_API {
 		);
 	}
 }
+

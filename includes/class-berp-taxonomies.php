@@ -38,17 +38,17 @@ class BERP_Taxonomies {
 	 */
 	private function register_expense_category() {
 		$labels = array(
-			'name'              => _x( 'Expense Categories', 'taxonomy general name', 'aic_builderp' ),
-			'singular_name'     => _x( 'Expense Category', 'taxonomy singular name', 'aic_builderp' ),
-			'search_items'      => __( 'Search Categories', 'aic_builderp' ),
-			'all_items'         => __( 'All Categories', 'aic_builderp' ),
-			'parent_item'       => __( 'Parent Category', 'aic_builderp' ),
-			'parent_item_colon' => __( 'Parent Category:', 'aic_builderp' ),
-			'edit_item'         => __( 'Edit Category', 'aic_builderp' ),
-			'update_item'       => __( 'Update Category', 'aic_builderp' ),
-			'add_new_item'      => __( 'Add New Category', 'aic_builderp' ),
-			'new_item_name'     => __( 'New Category Name', 'aic_builderp' ),
-			'menu_name'         => __( 'Expense Categories', 'aic_builderp' ),
+			'name'              => _x( 'Expense Categories', 'taxonomy general name', 'builderp' ),
+			'singular_name'     => _x( 'Expense Category', 'taxonomy singular name', 'builderp' ),
+			'search_items'      => __( 'Search Categories', 'builderp' ),
+			'all_items'         => __( 'All Categories', 'builderp' ),
+			'parent_item'       => __( 'Parent Category', 'builderp' ),
+			'parent_item_colon' => __( 'Parent Category:', 'builderp' ),
+			'edit_item'         => __( 'Edit Category', 'builderp' ),
+			'update_item'       => __( 'Update Category', 'builderp' ),
+			'add_new_item'      => __( 'Add New Category', 'builderp' ),
+			'new_item_name'     => __( 'New Category Name', 'builderp' ),
+			'menu_name'         => __( 'Expense Categories', 'builderp' ),
 		);
 
 		$args = array(
@@ -77,17 +77,17 @@ class BERP_Taxonomies {
 	 */
 	private function register_department() {
 		$labels = array(
-			'name'              => _x( 'Departments', 'taxonomy general name', 'aic_builderp' ),
-			'singular_name'     => _x( 'Department', 'taxonomy singular name', 'aic_builderp' ),
-			'search_items'      => __( 'Search Departments', 'aic_builderp' ),
-			'all_items'         => __( 'All Departments', 'aic_builderp' ),
-			'parent_item'       => __( 'Parent Department', 'aic_builderp' ),
-			'parent_item_colon' => __( 'Parent Department:', 'aic_builderp' ),
-			'edit_item'         => __( 'Edit Department', 'aic_builderp' ),
-			'update_item'       => __( 'Update Department', 'aic_builderp' ),
-			'add_new_item'      => __( 'Add New Department', 'aic_builderp' ),
-			'new_item_name'     => __( 'New Department Name', 'aic_builderp' ),
-			'menu_name'         => __( 'Departments', 'aic_builderp' ),
+			'name'              => _x( 'Departments', 'taxonomy general name', 'builderp' ),
+			'singular_name'     => _x( 'Department', 'taxonomy singular name', 'builderp' ),
+			'search_items'      => __( 'Search Departments', 'builderp' ),
+			'all_items'         => __( 'All Departments', 'builderp' ),
+			'parent_item'       => __( 'Parent Department', 'builderp' ),
+			'parent_item_colon' => __( 'Parent Department:', 'builderp' ),
+			'edit_item'         => __( 'Edit Department', 'builderp' ),
+			'update_item'       => __( 'Update Department', 'builderp' ),
+			'add_new_item'      => __( 'Add New Department', 'builderp' ),
+			'new_item_name'     => __( 'New Department Name', 'builderp' ),
+			'menu_name'         => __( 'Departments', 'builderp' ),
 		);
 
 		$args = array(
@@ -116,15 +116,15 @@ class BERP_Taxonomies {
 	 */
 	private function register_project_status() {
 		$labels = array(
-			'name'          => _x( 'Project Statuses', 'taxonomy general name', 'aic_builderp' ),
-			'singular_name' => _x( 'Project Status', 'taxonomy singular name', 'aic_builderp' ),
-			'search_items'  => __( 'Search Statuses', 'aic_builderp' ),
-			'all_items'     => __( 'All Statuses', 'aic_builderp' ),
-			'edit_item'     => __( 'Edit Status', 'aic_builderp' ),
-			'update_item'   => __( 'Update Status', 'aic_builderp' ),
-			'add_new_item'  => __( 'Add New Status', 'aic_builderp' ),
-			'new_item_name' => __( 'New Status Name', 'aic_builderp' ),
-			'menu_name'     => __( 'Project Status', 'aic_builderp' ),
+			'name'          => _x( 'Project Statuses', 'taxonomy general name', 'builderp' ),
+			'singular_name' => _x( 'Project Status', 'taxonomy singular name', 'builderp' ),
+			'search_items'  => __( 'Search Statuses', 'builderp' ),
+			'all_items'     => __( 'All Statuses', 'builderp' ),
+			'edit_item'     => __( 'Edit Status', 'builderp' ),
+			'update_item'   => __( 'Update Status', 'builderp' ),
+			'add_new_item'  => __( 'Add New Status', 'builderp' ),
+			'new_item_name' => __( 'New Status Name', 'builderp' ),
+			'menu_name'     => __( 'Project Status', 'builderp' ),
 		);
 
 		$args = array(
@@ -254,3 +254,4 @@ class BERP_Taxonomies {
 		return true;
 	}
 }
+

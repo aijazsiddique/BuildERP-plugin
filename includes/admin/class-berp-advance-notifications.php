@@ -117,27 +117,20 @@ class BERP_Advance_Notifications {
 		}
 
 		$employee      = get_post( $employee_id );
-		$employee_name = $employee ? $employee->post_title : __( 'Unknown Employee', 'aic_builderp' );
+		$employee_name = $employee ? $employee->post_title : __( 'Unknown Employee', 'builderp' );
 		$amount        = isset( $data['amount'] ) ? berp_format_currency( $data['amount'] ) : '—';
-		$reason        = isset( $data['reason'] ) ? $data['reason'] : __( 'No reason provided', 'aic_builderp' );
+		$reason        = isset( $data['reason'] ) ? $data['reason'] : __( 'No reason provided', 'builderp' );
 		$edit_link     = admin_url( 'post.php?post=' . $advance_id . '&action=edit' );
 
 		$subject = sprintf(
 			/* translators: 1: employee name */
-			__( '[BuildERP] New Advance Request from %s', 'aic_builderp' ),
+			__( '[BuildERP] New Advance Request from %s', 'builderp' ),
 			$employee_name
 		);
 
 		$message = sprintf(
 			/* translators: 1: employee name, 2: amount, 3: reason, 4: edit link */
-			__(
-				"A new salary advance request has been submitted.\n\n" .
-				"Employee: %1\$s\n" .
-				"Amount: %2\$s\n" .
-				"Reason: %3\$s\n\n" .
-				"Review and approve/reject this request:\n%4\$s",
-				'aic_builderp'
-			),
+			__( "A new salary advance request has been submitted.\n\nEmployee: %1\$s\nAmount: %2\$s\nReason: %3\$s\n\nReview and approve/reject this request:\n%4\$s", 'builderp' ),
 			$employee_name,
 			$amount,
 			$reason,
@@ -169,28 +162,20 @@ class BERP_Advance_Notifications {
 		$repayment     = get_post_meta( $advance_id, '_berp_repayment_type', true );
 		$installments  = get_post_meta( $advance_id, '_berp_installments', true );
 
-		$repayment_info = __( 'Full deduction in next payroll', 'aic_builderp' );
+		$repayment_info = __( 'Full deduction in next payroll', 'builderp' );
 		if ( 'installments' === $repayment && $installments > 1 ) {
 			$repayment_info = sprintf(
 				/* translators: %d: number of installments */
-				__( '%d equal installments from your upcoming payrolls', 'aic_builderp' ),
+				__( '%d equal installments from your upcoming payrolls', 'builderp' ),
 				$installments
 			);
 		}
 
-		$subject = __( '[BuildERP] Your Advance Request Has Been Approved', 'aic_builderp' );
+		$subject = __( '[BuildERP] Your Advance Request Has Been Approved', 'builderp' );
 
 		$message = sprintf(
 			/* translators: 1: employee name, 2: amount, 3: repayment info */
-			__(
-				"Dear %1\$s,\n\n" .
-				"Your salary advance request has been approved!\n\n" .
-				"Amount: %2\$s\n" .
-				"Repayment: %3\$s\n\n" .
-				"The amount has been added to your account. It will be deducted from your upcoming payroll(s).\n\n" .
-				"Best regards,\nBuildERP",
-				'aic_builderp'
-			),
+			__( "Dear %1\$s,\n\nYour salary advance request has been approved!\n\nAmount: %2\$s\nRepayment: %3\$s\n\nThe amount has been added to your account. It will be deducted from your upcoming payroll(s).\n\nBest regards,\nBuildERP", 'builderp' ),
 			$employee_name,
 			berp_format_currency( $amount ),
 			$repayment_info
@@ -224,23 +209,15 @@ class BERP_Advance_Notifications {
 		$employee_name = $employee ? $employee->post_title : '';
 		$amount        = get_post_meta( $advance_id, '_berp_advance_amount', true );
 
-		$subject = __( '[BuildERP] Your Advance Request Has Been Declined', 'aic_builderp' );
+		$subject = __( '[BuildERP] Your Advance Request Has Been Declined', 'builderp' );
 
 		$rejection_text = ! empty( $rejection_note )
 			? $rejection_note
-			: __( 'No specific reason provided.', 'aic_builderp' );
+			: __( 'No specific reason provided.', 'builderp' );
 
 		$message = sprintf(
 			/* translators: 1: employee name, 2: amount, 3: rejection reason */
-			__(
-				"Dear %1\$s,\n\n" .
-				"Unfortunately, your salary advance request has been declined.\n\n" .
-				"Requested Amount: %2\$s\n" .
-				"Reason: %3\$s\n\n" .
-				"If you have questions, please contact HR or your manager.\n\n" .
-				"Best regards,\nBuildERP",
-				'aic_builderp'
-			),
+			__( "Dear %1\$s,\n\nUnfortunately, your salary advance request has been declined.\n\nRequested Amount: %2\$s\nReason: %3\$s\n\nIf you have questions, please contact HR or your manager.\n\nBest regards,\nBuildERP", 'builderp' ),
 			$employee_name,
 			berp_format_currency( $amount ),
 			$rejection_text
@@ -249,3 +226,4 @@ class BERP_Advance_Notifications {
 		wp_mail( $email, $subject, $message );
 	}
 }
+

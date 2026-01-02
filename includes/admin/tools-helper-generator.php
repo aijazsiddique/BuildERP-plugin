@@ -23,9 +23,9 @@ class BERP_Tools_Helper_Generator {
 		?>
 		<div class="berp-helper-generator-tool">
 			<div class="berp-tool-header">
-				<h2><?php esc_html_e( 'Helper Function Generator', 'aic_builderp' ); ?></h2>
+				<h2><?php esc_html_e( 'Helper Function Generator', 'builderp' ); ?></h2>
 				<p class="description">
-					<?php esc_html_e( 'Auto-generate helper functions for meta keys. Follow BuildErp naming conventions and best practices.', 'aic_builderp' ); ?>
+					<?php esc_html_e( 'Auto-generate helper functions for meta keys. Follow BuildErp naming conventions and best practices.', 'builderp' ); ?>
 				</p>
 			</div>
 
@@ -33,76 +33,76 @@ class BERP_Tools_Helper_Generator {
 				<table class="form-table">
 					<tr>
 						<th scope="row">
-							<label for="berp-meta-key"><?php esc_html_e( 'Meta Key', 'aic_builderp' ); ?></label>
+							<label for="berp-meta-key"><?php esc_html_e( 'Meta Key', 'builderp' ); ?></label>
 						</th>
 						<td>
 							<input type="text" id="berp-meta-key" class="regular-text" placeholder="_berp_example_field">
-							<p class="description"><?php esc_html_e( 'Enter the meta key (e.g., _berp_employee_id)', 'aic_builderp' ); ?></p>
+							<p class="description"><?php esc_html_e( 'Enter the meta key (e.g., _berp_employee_id)', 'builderp' ); ?></p>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="berp-data-type"><?php esc_html_e( 'Data Type', 'aic_builderp' ); ?></label>
+							<label for="berp-data-type"><?php esc_html_e( 'Data Type', 'builderp' ); ?></label>
 						</th>
 						<td>
 							<select id="berp-data-type" class="regular-text">
-								<option value="string"><?php esc_html_e( 'String', 'aic_builderp' ); ?></option>
-								<option value="integer"><?php esc_html_e( 'Integer', 'aic_builderp' ); ?></option>
-								<option value="float"><?php esc_html_e( 'Float/Decimal', 'aic_builderp' ); ?></option>
-								<option value="boolean"><?php esc_html_e( 'Boolean', 'aic_builderp' ); ?></option>
-								<option value="array"><?php esc_html_e( 'Array (serialized)', 'aic_builderp' ); ?></option>
-								<option value="date"><?php esc_html_e( 'Date', 'aic_builderp' ); ?></option>
-								<option value="email"><?php esc_html_e( 'Email', 'aic_builderp' ); ?></option>
+								<option value="string"><?php esc_html_e( 'String', 'builderp' ); ?></option>
+								<option value="integer"><?php esc_html_e( 'Integer', 'builderp' ); ?></option>
+								<option value="float"><?php esc_html_e( 'Float/Decimal', 'builderp' ); ?></option>
+								<option value="boolean"><?php esc_html_e( 'Boolean', 'builderp' ); ?></option>
+								<option value="array"><?php esc_html_e( 'Array (serialized)', 'builderp' ); ?></option>
+								<option value="date"><?php esc_html_e( 'Date', 'builderp' ); ?></option>
+								<option value="email"><?php esc_html_e( 'Email', 'builderp' ); ?></option>
 							</select>
-							<p class="description"><?php esc_html_e( 'Select the data type for proper sanitization', 'aic_builderp' ); ?></p>
+							<p class="description"><?php esc_html_e( 'Select the data type for proper sanitization', 'builderp' ); ?></p>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="berp-post-type"><?php esc_html_e( 'Post Type', 'aic_builderp' ); ?></label>
+							<label for="berp-post-type"><?php esc_html_e( 'Post Type', 'builderp' ); ?></label>
 						</th>
 						<td>
 							<select id="berp-post-type" class="regular-text">
-								<option value=""><?php esc_html_e( 'Any', 'aic_builderp' ); ?></option>
-								<option value="berp_employee"><?php esc_html_e( 'Employee', 'aic_builderp' ); ?></option>
-								<option value="berp_attendance"><?php esc_html_e( 'Attendance', 'aic_builderp' ); ?></option>
-								<option value="berp_payroll"><?php esc_html_e( 'Payroll', 'aic_builderp' ); ?></option>
-								<option value="berp_expense"><?php esc_html_e( 'Expense', 'aic_builderp' ); ?></option>
-								<option value="berp_client"><?php esc_html_e( 'Client', 'aic_builderp' ); ?></option>
-								<option value="berp_site"><?php esc_html_e( 'Site', 'aic_builderp' ); ?></option>
-								<option value="berp_quotation"><?php esc_html_e( 'Quotation', 'aic_builderp' ); ?></option>
-								<option value="berp_invoice"><?php esc_html_e( 'Invoice', 'aic_builderp' ); ?></option>
+								<option value=""><?php esc_html_e( 'Any', 'builderp' ); ?></option>
+								<option value="berp_employee"><?php esc_html_e( 'Employee', 'builderp' ); ?></option>
+								<option value="berp_attendance"><?php esc_html_e( 'Attendance', 'builderp' ); ?></option>
+								<option value="berp_payroll"><?php esc_html_e( 'Payroll', 'builderp' ); ?></option>
+								<option value="berp_expense"><?php esc_html_e( 'Expense', 'builderp' ); ?></option>
+								<option value="berp_client"><?php esc_html_e( 'Client', 'builderp' ); ?></option>
+								<option value="berp_site"><?php esc_html_e( 'Site', 'builderp' ); ?></option>
+								<option value="berp_quotation"><?php esc_html_e( 'Quotation', 'builderp' ); ?></option>
+								<option value="berp_invoice"><?php esc_html_e( 'Invoice', 'builderp' ); ?></option>
 							</select>
-							<p class="description"><?php esc_html_e( 'Specify post type for better documentation (optional)', 'aic_builderp' ); ?></p>
+							<p class="description"><?php esc_html_e( 'Specify post type for better documentation (optional)', 'builderp' ); ?></p>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">
-							<label for="berp-description"><?php esc_html_e( 'Description', 'aic_builderp' ); ?></label>
+							<label for="berp-description"><?php esc_html_e( 'Description', 'builderp' ); ?></label>
 						</th>
 						<td>
-							<textarea id="berp-description" class="large-text" rows="3" placeholder="<?php esc_attr_e( 'Brief description of what this meta field stores', 'aic_builderp' ); ?>"></textarea>
-							<p class="description"><?php esc_html_e( 'Add description for better documentation', 'aic_builderp' ); ?></p>
+							<textarea id="berp-description" class="large-text" rows="3" placeholder="<?php esc_attr_e( 'Brief description of what this meta field stores', 'builderp' ); ?>"></textarea>
+							<p class="description"><?php esc_html_e( 'Add description for better documentation', 'builderp' ); ?></p>
 						</td>
 					</tr>
 					<tr>
 						<th scope="row">
-							<label><?php esc_html_e( 'Generate Functions', 'aic_builderp' ); ?></label>
+							<label><?php esc_html_e( 'Generate Functions', 'builderp' ); ?></label>
 						</th>
 						<td>
 							<label>
 								<input type="checkbox" id="berp-gen-getter" checked>
-								<?php esc_html_e( 'Getter Function', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Getter Function', 'builderp' ); ?>
 							</label>
 							<br>
 							<label>
 								<input type="checkbox" id="berp-gen-setter" checked>
-								<?php esc_html_e( 'Setter Function', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Setter Function', 'builderp' ); ?>
 							</label>
 							<br>
 							<label>
 								<input type="checkbox" id="berp-gen-delete">
-								<?php esc_html_e( 'Delete Function', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Delete Function', 'builderp' ); ?>
 							</label>
 						</td>
 					</tr>
@@ -111,32 +111,32 @@ class BERP_Tools_Helper_Generator {
 				<p class="submit">
 					<button type="button" id="berp-generate-helper" class="button button-primary">
 						<span class="dashicons dashicons-editor-code"></span>
-						<?php esc_html_e( 'Generate Helper Functions', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Generate Helper Functions', 'builderp' ); ?>
 					</button>
 				</p>
 			</div>
 
 			<div id="berp-generated-code" class="berp-generated-code" style="display: none;">
-				<h3><?php esc_html_e( 'Generated Code', 'aic_builderp' ); ?></h3>
+				<h3><?php esc_html_e( 'Generated Code', 'builderp' ); ?></h3>
 				<div class="berp-code-actions">
 					<button type="button" id="berp-copy-code" class="button button-secondary">
 						<span class="dashicons dashicons-clipboard"></span>
-						<?php esc_html_e( 'Copy to Clipboard', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Copy to Clipboard', 'builderp' ); ?>
 					</button>
 					<button type="button" id="berp-download-code" class="button button-secondary">
 						<span class="dashicons dashicons-download"></span>
-						<?php esc_html_e( 'Download as PHP File', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Download as PHP File', 'builderp' ); ?>
 					</button>
 				</div>
 				<pre id="berp-code-output" class="berp-code-block"><code></code></pre>
 
 				<div class="berp-code-info">
-					<h4><?php esc_html_e( 'Implementation Notes', 'aic_builderp' ); ?></h4>
+					<h4><?php esc_html_e( 'Implementation Notes', 'builderp' ); ?></h4>
 					<ul>
-						<li><?php esc_html_e( 'Add these functions to your includes/functions.php file', 'aic_builderp' ); ?></li>
-						<li><?php esc_html_e( 'All functions follow BuildErp naming conventions', 'aic_builderp' ); ?></li>
-						<li><?php esc_html_e( 'Input is sanitized and output is escaped', 'aic_builderp' ); ?></li>
-						<li><?php esc_html_e( 'Functions include proper documentation', 'aic_builderp' ); ?></li>
+						<li><?php esc_html_e( 'Add these functions to your includes/functions.php file', 'builderp' ); ?></li>
+						<li><?php esc_html_e( 'All functions follow BuildErp naming conventions', 'builderp' ); ?></li>
+						<li><?php esc_html_e( 'Input is sanitized and output is escaped', 'builderp' ); ?></li>
+						<li><?php esc_html_e( 'Functions include proper documentation', 'builderp' ); ?></li>
 					</ul>
 				</div>
 			</div>
@@ -485,3 +485,4 @@ class BERP_Tools_Helper_Generator {
 		return isset( $sanitization[ $data_type ] ) ? $sanitization[ $data_type ] : '$value = sanitize_text_field($value);';
 	}
 }
+

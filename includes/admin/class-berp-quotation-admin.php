@@ -43,11 +43,11 @@ class BERP_Quotation_Admin {
 			$quotation_id = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : 0;
 
 			if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ), 'berp_send_quotation_' . $quotation_id ) ) {
-				wp_die( esc_html__( 'Security check failed', 'aic_builderp' ) );
+				wp_die( esc_html__( 'Security check failed', 'builderp' ) );
 			}
 
 			if ( ! current_user_can( 'berp_manage_quotations' ) ) {
-				wp_die( esc_html__( 'You do not have permission', 'aic_builderp' ) );
+				wp_die( esc_html__( 'You do not have permission', 'builderp' ) );
 			}
 
 			$result = $this->send_quotation_email( $quotation_id );
@@ -55,7 +55,7 @@ class BERP_Quotation_Admin {
 			if ( is_wp_error( $result ) ) {
 				set_transient( 'berp_quotation_send_error', $result->get_error_message(), 30 );
 			} else {
-				set_transient( 'berp_quotation_send_success', __( 'Quotation sent successfully', 'aic_builderp' ), 30 );
+				set_transient( 'berp_quotation_send_success', __( 'Quotation sent successfully', 'builderp' ), 30 );
 			}
 
 			wp_safe_redirect( admin_url( 'edit.php?post_type=berp_quotation' ) );
@@ -67,11 +67,11 @@ class BERP_Quotation_Admin {
 			$quotation_id = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : 0;
 
 			if ( ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['_wpnonce'] ) ), 'berp_convert_site_' . $quotation_id ) ) {
-				wp_die( esc_html__( 'Security check failed', 'aic_builderp' ) );
+				wp_die( esc_html__( 'Security check failed', 'builderp' ) );
 			}
 
 			if ( ! current_user_can( 'berp_manage_quotations' ) ) {
-				wp_die( esc_html__( 'You do not have permission', 'aic_builderp' ) );
+				wp_die( esc_html__( 'You do not have permission', 'builderp' ) );
 			}
 
 			$site_id = $this->convert_to_site( $quotation_id );
@@ -80,7 +80,7 @@ class BERP_Quotation_Admin {
 				set_transient( 'berp_quotation_convert_error', $site_id->get_error_message(), 30 );
 				wp_safe_redirect( admin_url( 'edit.php?post_type=berp_quotation' ) );
 			} else {
-				set_transient( 'berp_quotation_convert_success', __( 'Quotation converted to site successfully', 'aic_builderp' ), 30 );
+				set_transient( 'berp_quotation_convert_success', __( 'Quotation converted to site successfully', 'builderp' ), 30 );
 				wp_safe_redirect( admin_url( 'post.php?post=' . $site_id . '&action=edit' ) );
 			}
 			exit;
@@ -98,18 +98,18 @@ class BERP_Quotation_Admin {
 		$quotation = berp_get_quotation( $quotation_id );
 
 		if ( ! $quotation ) {
-			return new WP_Error( 'invalid_quotation', __( 'Invalid quotation', 'aic_builderp' ) );
+			return new WP_Error( 'invalid_quotation', __( 'Invalid quotation', 'builderp' ) );
 		}
 
 		// Get client email.
 		$client_id = get_post_meta( $quotation_id, '_berp_client_id', true );
 		if ( ! $client_id ) {
-			return new WP_Error( 'no_client', __( 'No client assigned to quotation', 'aic_builderp' ) );
+			return new WP_Error( 'no_client', __( 'No client assigned to quotation', 'builderp' ) );
 		}
 
 		$client_email = get_post_meta( $client_id, '_berp_client_email', true );
 		if ( ! $client_email || ! is_email( $client_email ) ) {
-			return new WP_Error( 'invalid_email', __( 'Client email is invalid', 'aic_builderp' ) );
+			return new WP_Error( 'invalid_email', __( 'Client email is invalid', 'builderp' ) );
 		}
 
 		// Generate PDF.
@@ -128,14 +128,14 @@ class BERP_Quotation_Admin {
 
 		$subject = sprintf(
 			/* translators: 1: Quotation number, 2: Company name */
-			__( 'Quotation %1$s from %2$s', 'aic_builderp' ),
+			__( 'Quotation %1$s from %2$s', 'builderp' ),
 			$quotation_number,
 			$company_name
 		);
 
 		$message = sprintf(
 			/* translators: 1: Client name, 2: Quotation number, 3: Company name */
-			__( "Dear %1\$s,\n\nPlease find attached quotation %2\$s.\n\nThank you for your business.\n\nBest regards,\n%3\$s", 'aic_builderp' ),
+			__( "Dear %1\$s,\n\nPlease find attached quotation %2\$s.\n\nThank you for your business.\n\nBest regards,\n%3\$s", 'builderp' ),
 			$client->post_title,
 			$quotation_number,
 			$company_name
@@ -156,11 +156,11 @@ class BERP_Quotation_Admin {
 
 		// Clean up temp file.
 		if ( file_exists( $temp_file ) ) {
-			unlink( $temp_file );
+			wp_delete_file( $temp_file );
 		}
 
 		if ( ! $sent ) {
-			return new WP_Error( 'email_failed', __( 'Failed to send email', 'aic_builderp' ) );
+			return new WP_Error( 'email_failed', __( 'Failed to send email', 'builderp' ) );
 		}
 
 		// Update quotation status and metadata.
@@ -186,13 +186,13 @@ class BERP_Quotation_Admin {
 		$quotation = berp_get_quotation( $quotation_id );
 
 		if ( ! $quotation ) {
-			return new WP_Error( 'invalid_quotation', __( 'Invalid quotation', 'aic_builderp' ) );
+			return new WP_Error( 'invalid_quotation', __( 'Invalid quotation', 'builderp' ) );
 		}
 
 		// Check if already converted.
 		$existing_site = get_post_meta( $quotation_id, '_berp_converted_to_site', true );
 		if ( $existing_site ) {
-			return new WP_Error( 'already_converted', __( 'Quotation already converted to site', 'aic_builderp' ) );
+			return new WP_Error( 'already_converted', __( 'Quotation already converted to site', 'builderp' ) );
 		}
 
 		// Get quotation data.
@@ -202,7 +202,8 @@ class BERP_Quotation_Admin {
 
 		// Create site.
 		$site_data = array(
-			'post_title'  => sprintf( __( 'Site from Quotation %s', 'aic_builderp' ), $quotation_number ),
+			/* translators: %s: quotation number */
+			'post_title'  => sprintf( __( 'Site from Quotation %s', 'builderp' ), $quotation_number ),
 			'post_type'   => 'berp_site',
 			'post_status' => 'publish',
 		);
@@ -238,11 +239,11 @@ class BERP_Quotation_Admin {
 		$quotation_id = isset( $_GET['id'] ) ? absint( $_GET['id'] ) : 0;
 
 		if ( ! $quotation_id ) {
-			wp_die( esc_html__( 'Invalid quotation ID', 'aic_builderp' ) );
+			wp_die( esc_html__( 'Invalid quotation ID', 'builderp' ) );
 		}
 
 		if ( ! current_user_can( 'berp_view_quotations', $quotation_id ) ) {
-			wp_die( esc_html__( 'You do not have permission', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission', 'builderp' ) );
 		}
 
 		$pdf_generator = new BERP_Quotation_PDF();
@@ -277,3 +278,4 @@ class BERP_Quotation_Admin {
 		}
 	}
 }
+

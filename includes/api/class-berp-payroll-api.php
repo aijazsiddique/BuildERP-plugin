@@ -206,7 +206,7 @@ class BERP_Payroll_API {
 
 		return new WP_Error(
 			'berp_invalid_params',
-			__( 'Invalid parameters provided', 'aic_builderp' ),
+			__( 'Invalid parameters provided', 'builderp' ),
 			array( 'status' => 400 )
 		);
 	}
@@ -230,7 +230,7 @@ class BERP_Payroll_API {
 		if ( empty( $employee_ids ) || ! is_array( $employee_ids ) || empty( $month ) ) {
 			return new WP_Error(
 				'berp_invalid_params',
-				__( 'Invalid parameters provided', 'aic_builderp' ),
+				__( 'Invalid parameters provided', 'builderp' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -279,7 +279,7 @@ class BERP_Payroll_API {
 					'employee_id'   => $employee_id,
 					'employee_name' => get_the_title( $employee_id ),
 					'success'       => false,
-					'error'         => __( 'Payroll already exists for this month', 'aic_builderp' ),
+					'error'         => __( 'Payroll already exists for this month', 'builderp' ),
 				);
 				continue;
 			}
@@ -374,8 +374,9 @@ class BERP_Payroll_API {
 				'batch_success' => $success_count,
 				'batch_errors'  => $error_count,
 				'emails_sent'   => $emails_sent,
+				/* translators: 1: completed employees, 2: total employees, 3: succeeded count, 4: failed count */
 				'message'       => sprintf(
-					__( 'Processed %1$d of %2$d employees (%3$d succeeded, %4$d failed)', 'aic_builderp' ),
+					__( 'Processed %1$d of %2$d employees (%3$d succeeded, %4$d failed)', 'builderp' ),
 					$completed,
 					$total_employees,
 					$success_count,
@@ -398,7 +399,7 @@ class BERP_Payroll_API {
 		if ( empty( $payroll_id ) ) {
 			return new WP_Error(
 				'berp_invalid_params',
-				__( 'Invalid payroll ID', 'aic_builderp' ),
+				__( 'Invalid payroll ID', 'builderp' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -414,7 +415,7 @@ class BERP_Payroll_API {
 		return new WP_REST_Response(
 			array(
 				'success'    => true,
-				'message'    => __( 'Payroll marked as paid successfully', 'aic_builderp' ),
+				'message'    => __( 'Payroll marked as paid successfully', 'builderp' ),
 				'expense_id' => $result,
 			),
 			200
@@ -433,7 +434,7 @@ class BERP_Payroll_API {
 		if ( empty( $payroll_id ) ) {
 			return new WP_Error(
 				'berp_invalid_params',
-				__( 'Invalid payroll ID', 'aic_builderp' ),
+				__( 'Invalid payroll ID', 'builderp' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -449,7 +450,7 @@ class BERP_Payroll_API {
 		if ( ! $result ) {
 			return new WP_Error(
 				'berp_email_failed',
-				__( 'Failed to send email', 'aic_builderp' ),
+				__( 'Failed to send email', 'builderp' ),
 				array( 'status' => 500 )
 			);
 		}
@@ -457,7 +458,7 @@ class BERP_Payroll_API {
 		return new WP_REST_Response(
 			array(
 				'success' => true,
-				'message' => __( 'Salary slip emailed successfully', 'aic_builderp' ),
+				'message' => __( 'Salary slip emailed successfully', 'builderp' ),
 			),
 			200
 		);
@@ -475,7 +476,7 @@ class BERP_Payroll_API {
 		if ( empty( $payroll_id ) ) {
 			return new WP_Error(
 				'berp_invalid_params',
-				__( 'Invalid payroll ID', 'aic_builderp' ),
+				__( 'Invalid payroll ID', 'builderp' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -534,7 +535,7 @@ class BERP_Payroll_API {
 		if ( ! $payroll || 'berp_payroll' !== $payroll->post_type ) {
 			return new WP_Error(
 				'berp_invalid_payroll',
-				__( 'Invalid payroll record', 'aic_builderp' )
+				__( 'Invalid payroll record', 'builderp' )
 			);
 		}
 
@@ -543,7 +544,7 @@ class BERP_Payroll_API {
 		if ( 'paid' === $status ) {
 			return new WP_Error(
 				'berp_already_paid',
-				__( 'Payroll already marked as paid', 'aic_builderp' )
+				__( 'Payroll already marked as paid', 'builderp' )
 			);
 		}
 
@@ -555,13 +556,14 @@ class BERP_Payroll_API {
 		if ( empty( $employee_id ) || empty( $net_salary ) ) {
 			return new WP_Error(
 				'berp_incomplete_payroll',
-				__( 'Payroll data is incomplete', 'aic_builderp' )
+				__( 'Payroll data is incomplete', 'builderp' )
 			);
 		}
 
 		// Create expense record
 		$employee_name = get_the_title( $employee_id );
-		$expense_title = sprintf( __( 'Payroll - %1$s - %2$s', 'aic_builderp' ), $employee_name, gmdate( 'F Y', strtotime( $month . '-01' ) ) );
+		/* translators: 1: employee name, 2: payroll month */
+		$expense_title = sprintf( __( 'Payroll - %1$s - %2$s', 'builderp' ), $employee_name, gmdate( 'F Y', strtotime( $month . '-01' ) ) );
 
 		$expense_id = wp_insert_post(
 			array(
@@ -628,7 +630,7 @@ class BERP_Payroll_API {
 		if ( empty( $email ) || ! is_email( $email ) ) {
 			return new WP_Error(
 				'berp_invalid_email',
-				__( 'Employee does not have a valid email address', 'aic_builderp' )
+				__( 'Employee does not have a valid email address', 'builderp' )
 			);
 		}
 
@@ -637,7 +639,8 @@ class BERP_Payroll_API {
 		$month_name = gmdate( 'F Y', strtotime( $month . '-01' ) );
 
 		// Email subject
-		$subject = sprintf( __( 'Salary Slip - %s', 'aic_builderp' ), $month_name );
+		/* translators: %s: payroll month */
+		$subject = sprintf( __( 'Salary Slip - %s', 'builderp' ), $month_name );
 
 		// Email message (HTML)
 		$employee_name = get_the_title( $employee_id );
@@ -656,7 +659,7 @@ class BERP_Payroll_API {
 		if ( false === $tmp_file ) {
 			return new WP_Error(
 				'berp_temp_file',
-				__( 'Unable to create temporary file for PDF attachment.', 'aic_builderp' )
+				__( 'Unable to create temporary file for PDF attachment.', 'builderp' )
 			);
 		}
 
@@ -666,7 +669,7 @@ class BERP_Payroll_API {
 
 		// Clean up temp file.
 		if ( file_exists( $tmp_file ) ) {
-			unlink( $tmp_file );
+			wp_delete_file( $tmp_file );
 		}
 
 		// Log email sent
@@ -702,12 +705,17 @@ class BERP_Payroll_API {
 		<body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px;">
 			<div style="background: #f4f4f4; padding: 20px; border-radius: 5px;">
 				<h2 style="color: #2271b1; margin-top: 0;"><?php echo esc_html( $company_name ); ?></h2>
-				<p><?php esc_html_e( 'Dear', 'aic_builderp' ); ?> <?php echo esc_html( $employee_name ); ?>,</p>
-				<p><?php printf( esc_html__( 'Please find attached your salary slip for %s.', 'aic_builderp' ), esc_html( $month_name ) ); ?></p>
-				<p><?php esc_html_e( 'If you have any questions regarding your salary, please contact the HR department.', 'aic_builderp' ); ?></p>
+				<p><?php esc_html_e( 'Dear', 'builderp' ); ?> <?php echo esc_html( $employee_name ); ?>,</p>
+				<p>
+					<?php
+					/* translators: %s: payroll month */
+					printf( esc_html__( 'Please find attached your salary slip for %s.', 'builderp' ), esc_html( $month_name ) );
+					?>
+				</p>
+				<p><?php esc_html_e( 'If you have any questions regarding your salary, please contact the HR department.', 'builderp' ); ?></p>
 				<hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
 				<p style="font-size: 12px; color: #666;">
-					<?php esc_html_e( 'This is an automated email. Please do not reply to this message.', 'aic_builderp' ); ?>
+					<?php esc_html_e( 'This is an automated email. Please do not reply to this message.', 'builderp' ); ?>
 				</p>
 			</div>
 		</body>
@@ -749,3 +757,4 @@ class BERP_Payroll_API {
 		return $query->have_posts() ? $query->posts[0] : null;
 	}
 }
+

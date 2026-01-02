@@ -25,19 +25,19 @@ class BERP_Advance_CPT {
 	 */
 	public function register() {
 		$labels = array(
-			'name'               => _x( 'Salary Advances', 'Post type general name', 'aic_builderp' ),
-			'singular_name'      => _x( 'Advance', 'Post type singular name', 'aic_builderp' ),
-			'menu_name'          => _x( 'Advances', 'Admin Menu text', 'aic_builderp' ),
-			'name_admin_bar'     => _x( 'Advance', 'Add New on Toolbar', 'aic_builderp' ),
-			'add_new'            => __( 'Pay Advance', 'aic_builderp' ),
-			'add_new_item'       => __( 'Pay Advance to Employee', 'aic_builderp' ),
-			'new_item'           => __( 'New Advance Payment', 'aic_builderp' ),
-			'edit_item'          => __( 'Edit Advance', 'aic_builderp' ),
-			'view_item'          => __( 'View Advance', 'aic_builderp' ),
-			'all_items'          => __( 'All Advances', 'aic_builderp' ),
-			'search_items'       => __( 'Search Advances', 'aic_builderp' ),
-			'not_found'          => __( 'No advances found.', 'aic_builderp' ),
-			'not_found_in_trash' => __( 'No advances found in Trash.', 'aic_builderp' ),
+			'name'               => _x( 'Salary Advances', 'Post type general name', 'builderp' ),
+			'singular_name'      => _x( 'Advance', 'Post type singular name', 'builderp' ),
+			'menu_name'          => _x( 'Advances', 'Admin Menu text', 'builderp' ),
+			'name_admin_bar'     => _x( 'Advance', 'Add New on Toolbar', 'builderp' ),
+			'add_new'            => __( 'Pay Advance', 'builderp' ),
+			'add_new_item'       => __( 'Pay Advance to Employee', 'builderp' ),
+			'new_item'           => __( 'New Advance Payment', 'builderp' ),
+			'edit_item'          => __( 'Edit Advance', 'builderp' ),
+			'view_item'          => __( 'View Advance', 'builderp' ),
+			'all_items'          => __( 'All Advances', 'builderp' ),
+			'search_items'       => __( 'Search Advances', 'builderp' ),
+			'not_found'          => __( 'No advances found.', 'builderp' ),
+			'not_found_in_trash' => __( 'No advances found in Trash.', 'builderp' ),
 		);
 
 		$args = array(
@@ -70,3 +70,4 @@ class BERP_Advance_CPT {
 		register_post_type( 'berp_advance', $args );
 	}
 }
+

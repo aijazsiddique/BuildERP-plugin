@@ -78,7 +78,7 @@ class BERP_Expense_API {
 		if ( empty( $data['category'] ) ) {
 			return new WP_Error(
 				'berp_missing_category',
-				__( 'Category is required', 'aic_builderp' ),
+				__( 'Category is required', 'builderp' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -86,7 +86,7 @@ class BERP_Expense_API {
 		if ( empty( $data['amount'] ) || floatval( $data['amount'] ) <= 0 ) {
 			return new WP_Error(
 				'berp_invalid_amount',
-				__( 'Amount must be greater than zero', 'aic_builderp' ),
+				__( 'Amount must be greater than zero', 'builderp' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -100,7 +100,7 @@ class BERP_Expense_API {
 		if ( ! in_array( strtolower( $data['category'] ), $valid_categories ) ) {
 			return new WP_Error(
 				'berp_invalid_category',
-				__( 'Invalid category', 'aic_builderp' ),
+				__( 'Invalid category', 'builderp' ),
 				array( 'status' => 400 )
 			);
 		}
@@ -109,7 +109,7 @@ class BERP_Expense_API {
 		$expense_id = wp_insert_post(
 			array(
 				'post_type'    => 'berp_expense',
-				'post_title'   => isset( $data['title'] ) ? sanitize_text_field( $data['title'] ) : __( 'Expense', 'aic_builderp' ),
+				'post_title'   => isset( $data['title'] ) ? sanitize_text_field( $data['title'] ) : __( 'Expense', 'builderp' ),
 				'post_content' => isset( $data['description'] ) ? sanitize_textarea_field( $data['description'] ) : '',
 				'post_status'  => 'publish',
 				'post_author'  => get_current_user_id(),
@@ -139,7 +139,7 @@ class BERP_Expense_API {
 		return new WP_REST_Response(
 			array(
 				'success'    => true,
-				'message'    => __( 'Expense created successfully', 'aic_builderp' ),
+				'message'    => __( 'Expense created successfully', 'builderp' ),
 				'expense_id' => $expense_id,
 			),
 			201
@@ -161,6 +161,10 @@ class BERP_Expense_API {
 		$date_to   = $request->get_param( 'date_to' );
 		$site_id   = $request->get_param( 'site_id' );
 
+		$date_from = $date_from ? sanitize_text_field( $date_from ) : '';
+		$date_to   = $date_to ? sanitize_text_field( $date_to ) : '';
+		$site_id   = $site_id ? absint( $site_id ) : 0;
+
 		// Build base query
 		$sql = "SELECT
                     pm_category.meta_value as category,
@@ -170,33 +174,52 @@ class BERP_Expense_API {
                 INNER JOIN {$wpdb->postmeta} pm_amount ON p.ID = pm_amount.post_id AND pm_amount.meta_key = '_berp_expense_amount'
                 INNER JOIN {$wpdb->postmeta} pm_category ON p.ID = pm_category.post_id AND pm_category.meta_key = '_berp_expense_category'";
 
+		$joins  = array();
+		$where  = array();
+		$params = array();
+
 		// Add date filter if provided
 		if ( $date_from || $date_to ) {
-			$sql .= " INNER JOIN {$wpdb->postmeta} pm_date ON p.ID = pm_date.post_id AND pm_date.meta_key = '_berp_expense_date'";
+			$joins[] = "INNER JOIN {$wpdb->postmeta} pm_date ON p.ID = pm_date.post_id AND pm_date.meta_key = '_berp_expense_date'";
 		}
 
 		// Add site filter if provided
 		if ( $site_id ) {
-			$sql .= " INNER JOIN {$wpdb->postmeta} pm_site ON p.ID = pm_site.post_id AND pm_site.meta_key = '_berp_site_id'";
+			$joins[] = "INNER JOIN {$wpdb->postmeta} pm_site ON p.ID = pm_site.post_id AND pm_site.meta_key = '_berp_site_id'";
 		}
 
-		$sql .= " WHERE p.post_type = 'berp_expense' AND p.post_status = 'publish'";
+		$where[]  = 'p.post_type = %s';
+		$params[] = 'berp_expense';
+		$where[]  = 'p.post_status = %s';
+		$params[] = 'publish';
 
 		// Add date conditions
 		if ( $date_from && $date_to ) {
-			$sql .= $wpdb->prepare( ' AND pm_date.meta_value BETWEEN %s AND %s', $date_from, $date_to );
+			$where[]  = 'pm_date.meta_value BETWEEN %s AND %s';
+			$params[] = $date_from;
+			$params[] = $date_to;
 		} elseif ( $date_from ) {
-			$sql .= $wpdb->prepare( ' AND pm_date.meta_value >= %s', $date_from );
+			$where[]  = 'pm_date.meta_value >= %s';
+			$params[] = $date_from;
 		} elseif ( $date_to ) {
-			$sql .= $wpdb->prepare( ' AND pm_date.meta_value <= %s', $date_to );
+			$where[]  = 'pm_date.meta_value <= %s';
+			$params[] = $date_to;
 		}
 
 		// Add site condition
 		if ( $site_id ) {
-			$sql .= $wpdb->prepare( ' AND pm_site.meta_value = %d', $site_id );
+			$where[]  = 'pm_site.meta_value = %d';
+			$params[] = $site_id;
 		}
 
+		if ( ! empty( $joins ) ) {
+			$sql .= ' ' . implode( ' ', $joins );
+		}
+
+		$sql .= ' WHERE ' . implode( ' AND ', $where );
 		$sql .= ' GROUP BY pm_category.meta_value ORDER BY total DESC';
+
+		$sql = $wpdb->prepare( $sql, $params );
 
 		// Execute query
 		$results = $wpdb->get_results( $sql );
@@ -275,3 +298,4 @@ class BERP_Expense_API {
 		update_post_meta( $site_id, '_berp_budget_spent', floatval( $total ) );
 	}
 }
+

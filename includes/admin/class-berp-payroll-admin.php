@@ -39,8 +39,8 @@ class BERP_Payroll_Admin {
 	public function add_admin_menu() {
 		add_submenu_page(
 			'edit.php?post_type=berp_payroll',
-			__( 'Process Bulk Payroll', 'aic_builderp' ),
-			__( 'Bulk Process', 'aic_builderp' ),
+			__( 'Process Bulk Payroll', 'builderp' ),
+			__( 'Bulk Process', 'builderp' ),
 			'manage_options', // Use admin capability as fallback
 			'berp-process-payroll',
 			array( $this, 'render_page' )
@@ -48,8 +48,8 @@ class BERP_Payroll_Admin {
 
 		add_submenu_page(
 			'edit.php?post_type=berp_payroll',
-			__( 'Bulk Pay Salaries', 'aic_builderp' ),
-			__( 'Bulk Pay', 'aic_builderp' ),
+			__( 'Bulk Pay Salaries', 'builderp' ),
+			__( 'Bulk Pay', 'builderp' ),
 			'manage_options',
 			'berp-bulk-pay-salaries',
 			array( $this, 'render_bulk_pay_page' )
@@ -57,8 +57,8 @@ class BERP_Payroll_Admin {
 
 		add_submenu_page(
 			'edit.php?post_type=berp_payroll',
-			__( 'Payroll Register', 'aic_builderp' ),
-			__( 'Payroll Register', 'aic_builderp' ),
+			__( 'Payroll Register', 'builderp' ),
+			__( 'Payroll Register', 'builderp' ),
 			'manage_options',
 			'berp-payroll-register',
 			array( $this, 'render_register_report' )
@@ -78,12 +78,12 @@ class BERP_Payroll_Admin {
 			?>
 			<div class="notice notice-info is-dismissible">
 				<p>
-					<strong><?php esc_html_e( 'Quick Actions:', 'aic_builderp' ); ?></strong>
+					<strong><?php esc_html_e( 'Quick Actions:', 'builderp' ); ?></strong>
 					<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=berp_payroll&page=berp-process-payroll' ) ); ?>" class="button button-small button-primary">
-						<?php esc_html_e( 'Bulk Process Payroll', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Bulk Process Payroll', 'builderp' ); ?>
 					</a>
 					<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=berp_payroll&page=berp-bulk-pay-salaries' ) ); ?>" class="button button-small button-secondary">
-						<?php esc_html_e( 'Bulk Pay Salaries', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Bulk Pay Salaries', 'builderp' ); ?>
 					</a>
 				</p>
 			</div>
@@ -142,14 +142,14 @@ class BERP_Payroll_Admin {
 				'currencySymbol'   => $currency_symbol,
 				'currencyPosition' => $currency_position,
 				'strings'          => array(
-					'calculating'     => __( 'Calculating...', 'aic_builderp' ),
-					'processing'      => __( 'Processing payroll...', 'aic_builderp' ),
-					'complete'        => __( 'Complete!', 'aic_builderp' ),
-					'error'           => __( 'Error occurred', 'aic_builderp' ),
-					'confirmGenerate' => __( 'Generate payroll for selected employees?', 'aic_builderp' ),
-					'markPaidConfirm' => __( 'Mark this payroll as paid? This will create an expense record.', 'aic_builderp' ),
-					'markPaidSuccess' => __( 'Payroll marked as paid successfully', 'aic_builderp' ),
-					'markPaidError'   => __( 'Failed to mark as paid', 'aic_builderp' ),
+					'calculating'     => __( 'Calculating...', 'builderp' ),
+					'processing'      => __( 'Processing payroll...', 'builderp' ),
+					'complete'        => __( 'Complete!', 'builderp' ),
+					'error'           => __( 'Error occurred', 'builderp' ),
+					'confirmGenerate' => __( 'Generate payroll for selected employees?', 'builderp' ),
+					'markPaidConfirm' => __( 'Mark this payroll as paid? This will create an expense record.', 'builderp' ),
+					'markPaidSuccess' => __( 'Payroll marked as paid successfully', 'builderp' ),
+					'markPaidError'   => __( 'Failed to mark as paid', 'builderp' ),
 				),
 			)
 		);
@@ -161,7 +161,7 @@ class BERP_Payroll_Admin {
 	public function render_page() {
 		// Check permission
 		if ( ! current_user_can( 'berp_process_payroll' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page', 'builderp' ) );
 		}
 
 		// Get all active employees
@@ -198,8 +198,8 @@ class BERP_Payroll_Admin {
 
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'Bulk Payroll Processing', 'aic_builderp' ); ?></h1>
-			<p><?php esc_html_e( 'Generate payroll for multiple employees at once. Select a month, choose employees, and preview calculations before generating.', 'aic_builderp' ); ?></p>
+			<h1><?php esc_html_e( 'Bulk Payroll Processing', 'builderp' ); ?></h1>
+			<p><?php esc_html_e( 'Generate payroll for multiple employees at once. Select a month, choose employees, and preview calculations before generating.', 'builderp' ); ?></p>
 
 			<div class="berp-bulk-payroll-form">
 				<form id="berp-bulk-payroll-form">
@@ -209,24 +209,25 @@ class BERP_Payroll_Admin {
 						<tbody>
 							<tr>
 								<th scope="row">
-									<label for="payroll_month"><?php esc_html_e( 'Payroll Month', 'aic_builderp' ); ?> <span class="required">*</span></label>
+									<label for="payroll_month"><?php esc_html_e( 'Payroll Month', 'builderp' ); ?> <span class="required">*</span></label>
 								</th>
 								<td>
 									<input type="month" name="payroll_month" id="payroll_month" value="<?php echo esc_attr( $default_month ); ?>" class="regular-text" required>
-									<p class="description"><?php esc_html_e( 'Select the month for payroll processing', 'aic_builderp' ); ?></p>
+									<p class="description"><?php esc_html_e( 'Select the month for payroll processing', 'builderp' ); ?></p>
 								</td>
 							</tr>
 							<tr>
 								<th scope="row">
-									<label><?php esc_html_e( 'Employee Selection', 'aic_builderp' ); ?></label>
+									<label><?php esc_html_e( 'Employee Selection', 'builderp' ); ?></label>
 								</th>
 								<td>
 									<fieldset>
 										<label>
 											<input type="radio" name="employee_mode" value="all" checked>
 											<?php
+											/* translators: %d: number of active employees */
 											printf(
-												esc_html__( 'All Active Employees (%d)', 'aic_builderp' ),
+												esc_html__( 'All Active Employees (%d)', 'builderp' ),
 												count( $employees )
 											);
 											?>
@@ -234,7 +235,7 @@ class BERP_Payroll_Admin {
 										<br>
 										<label>
 											<input type="radio" name="employee_mode" value="selected">
-											<?php esc_html_e( 'Selected Employees Only', 'aic_builderp' ); ?>
+											<?php esc_html_e( 'Selected Employees Only', 'builderp' ); ?>
 										</label>
 									</fieldset>
 
@@ -252,27 +253,27 @@ class BERP_Payroll_Admin {
 												</option>
 											<?php endforeach; ?>
 										</select>
-										<p class="description"><?php esc_html_e( 'Hold Ctrl/Cmd to select multiple employees', 'aic_builderp' ); ?></p>
+										<p class="description"><?php esc_html_e( 'Hold Ctrl/Cmd to select multiple employees', 'builderp' ); ?></p>
 									</div>
 								</td>
 							</tr>
 							<tr>
 								<th scope="row">
-									<label><?php esc_html_e( 'Processing Options', 'aic_builderp' ); ?></label>
+									<label><?php esc_html_e( 'Processing Options', 'builderp' ); ?></label>
 								</th>
 								<td>
 									<fieldset>
 										<label>
 											<input type="checkbox" name="auto_mark_paid" id="auto_mark_paid">
-											<?php esc_html_e( 'Automatically mark as paid', 'aic_builderp' ); ?>
+											<?php esc_html_e( 'Automatically mark as paid', 'builderp' ); ?>
 										</label>
-										<p class="description"><?php esc_html_e( 'Create expense records and update employee balances automatically', 'aic_builderp' ); ?></p>
+										<p class="description"><?php esc_html_e( 'Create expense records and update employee balances automatically', 'builderp' ); ?></p>
 										<br>
 										<label>
 											<input type="checkbox" name="send_emails" id="send_emails">
-											<?php esc_html_e( 'Send email notifications', 'aic_builderp' ); ?>
+											<?php esc_html_e( 'Send email notifications', 'builderp' ); ?>
 										</label>
-										<p class="description"><?php esc_html_e( 'Email salary slips to employees (requires valid email addresses)', 'aic_builderp' ); ?></p>
+										<p class="description"><?php esc_html_e( 'Email salary slips to employees (requires valid email addresses)', 'builderp' ); ?></p>
 									</fieldset>
 								</td>
 							</tr>
@@ -281,10 +282,10 @@ class BERP_Payroll_Admin {
 
 					<p class="submit">
 						<button type="button" class="button button-secondary" id="berp-preview-payroll">
-							<?php esc_html_e( 'Preview Calculations', 'aic_builderp' ); ?>
+							<?php esc_html_e( 'Preview Calculations', 'builderp' ); ?>
 						</button>
 						<button type="button" class="button button-primary" id="berp-generate-payroll" disabled>
-							<?php esc_html_e( 'Generate Payroll', 'aic_builderp' ); ?>
+							<?php esc_html_e( 'Generate Payroll', 'builderp' ); ?>
 						</button>
 						<span class="spinner" style="float: none; margin-top: 0;"></span>
 					</p>
@@ -292,14 +293,14 @@ class BERP_Payroll_Admin {
 
 				<!-- Preview Results -->
 				<div id="berp-payroll-preview" style="display: none; margin-top: 30px;">
-					<h2><?php esc_html_e( 'Preview Results', 'aic_builderp' ); ?></h2>
-					<p class="description"><?php esc_html_e( 'Review calculations before generating payroll records', 'aic_builderp' ); ?></p>
+					<h2><?php esc_html_e( 'Preview Results', 'builderp' ); ?></h2>
+					<p class="description"><?php esc_html_e( 'Review calculations before generating payroll records', 'builderp' ); ?></p>
 					<div id="berp-preview-content"></div>
 				</div>
 
 				<!-- Processing Results -->
 				<div id="berp-payroll-results" style="display: none; margin-top: 30px;">
-					<h2><?php esc_html_e( 'Processing Results', 'aic_builderp' ); ?></h2>
+					<h2><?php esc_html_e( 'Processing Results', 'builderp' ); ?></h2>
 					<div id="berp-results-content"></div>
 				</div>
 			</div>
@@ -377,7 +378,7 @@ class BERP_Payroll_Admin {
 	 */
 	public function render_register_report() {
 		if ( ! current_user_can( 'berp_view_payroll' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page', 'builderp' ) );
 		}
 
 		$selected_month = isset( $_GET['payroll_month'] ) ? sanitize_text_field( wp_unslash( $_GET['payroll_month'] ) ) : gmdate( 'Y-m' );
@@ -484,21 +485,21 @@ class BERP_Payroll_Admin {
 		header( 'Content-Type: text/csv; charset=UTF-8' );
 		header( 'Content-Disposition: attachment; filename="payroll-register-' . sanitize_file_name( $selected_month ) . '.csv"' );
 
-		$output = fopen( 'php://output', 'w' );
+		$output = fopen( 'php://output', 'w' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
 		fputcsv(
 			$output,
 			array(
-				__( 'Employee Name', 'aic_builderp' ),
-				__( 'Employee ID', 'aic_builderp' ),
-				__( 'Basic Salary', 'aic_builderp' ),
-				__( 'Total Allowances', 'aic_builderp' ),
-				__( 'Present Days', 'aic_builderp' ),
-				__( 'OT Hours', 'aic_builderp' ),
-				__( 'OT Amount', 'aic_builderp' ),
-				__( 'Gross Salary', 'aic_builderp' ),
-				__( 'Total Deductions', 'aic_builderp' ),
-				__( 'Net Salary', 'aic_builderp' ),
-				__( 'Status', 'aic_builderp' ),
+				__( 'Employee Name', 'builderp' ),
+				__( 'Employee ID', 'builderp' ),
+				__( 'Basic Salary', 'builderp' ),
+				__( 'Total Allowances', 'builderp' ),
+				__( 'Present Days', 'builderp' ),
+				__( 'OT Hours', 'builderp' ),
+				__( 'OT Amount', 'builderp' ),
+				__( 'Gross Salary', 'builderp' ),
+				__( 'Total Deductions', 'builderp' ),
+				__( 'Net Salary', 'builderp' ),
+				__( 'Status', 'builderp' ),
 			)
 		);
 
@@ -521,7 +522,7 @@ class BERP_Payroll_Admin {
 			);
 		}
 
-		fclose( $output );
+		fclose( $output ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
 	}
 
 	/**
@@ -539,7 +540,7 @@ class BERP_Payroll_Admin {
 		}
 
 		if ( ! class_exists( '\Mpdf\Mpdf' ) ) {
-			wp_die( esc_html__( 'PDF library is not available. Please install mpdf/mpdf.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'PDF library is not available. Please install mpdf/mpdf.', 'builderp' ) );
 		}
 
 		try {
@@ -593,25 +594,25 @@ class BERP_Payroll_Admin {
 	protected function build_report_html( $report_data, $selected_month ) {
 		ob_start();
 		?>
-		<h1><?php esc_html_e( 'Payroll Register', 'aic_builderp' ); ?></h1>
+		<h1><?php esc_html_e( 'Payroll Register', 'builderp' ); ?></h1>
 		<div class="meta">
-			<strong><?php esc_html_e( 'Month:', 'aic_builderp' ); ?></strong>
-			<?php echo esc_html( $selected_month ? gmdate( 'F Y', strtotime( $selected_month . '-01' ) ) : __( 'All Months', 'aic_builderp' ) ); ?>
+			<strong><?php esc_html_e( 'Month:', 'builderp' ); ?></strong>
+			<?php echo esc_html( $selected_month ? gmdate( 'F Y', strtotime( $selected_month . '-01' ) ) : __( 'All Months', 'builderp' ) ); ?>
 		</div>
 		<table>
 			<thead>
 				<tr>
-					<th><?php esc_html_e( 'Employee Name', 'aic_builderp' ); ?></th>
-					<th><?php esc_html_e( 'Employee ID', 'aic_builderp' ); ?></th>
-					<th><?php esc_html_e( 'Basic Salary', 'aic_builderp' ); ?></th>
-					<th><?php esc_html_e( 'Allowances', 'aic_builderp' ); ?></th>
-					<th><?php esc_html_e( 'Present Days', 'aic_builderp' ); ?></th>
-					<th><?php esc_html_e( 'OT Hours', 'aic_builderp' ); ?></th>
-					<th><?php esc_html_e( 'OT Amount', 'aic_builderp' ); ?></th>
-					<th><?php esc_html_e( 'Gross', 'aic_builderp' ); ?></th>
-					<th><?php esc_html_e( 'Deductions', 'aic_builderp' ); ?></th>
-					<th><?php esc_html_e( 'Net', 'aic_builderp' ); ?></th>
-					<th><?php esc_html_e( 'Status', 'aic_builderp' ); ?></th>
+					<th><?php esc_html_e( 'Employee Name', 'builderp' ); ?></th>
+					<th><?php esc_html_e( 'Employee ID', 'builderp' ); ?></th>
+					<th><?php esc_html_e( 'Basic Salary', 'builderp' ); ?></th>
+					<th><?php esc_html_e( 'Allowances', 'builderp' ); ?></th>
+					<th><?php esc_html_e( 'Present Days', 'builderp' ); ?></th>
+					<th><?php esc_html_e( 'OT Hours', 'builderp' ); ?></th>
+					<th><?php esc_html_e( 'OT Amount', 'builderp' ); ?></th>
+					<th><?php esc_html_e( 'Gross', 'builderp' ); ?></th>
+					<th><?php esc_html_e( 'Deductions', 'builderp' ); ?></th>
+					<th><?php esc_html_e( 'Net', 'builderp' ); ?></th>
+					<th><?php esc_html_e( 'Status', 'builderp' ); ?></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -633,7 +634,7 @@ class BERP_Payroll_Admin {
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="2"><?php esc_html_e( 'Totals', 'aic_builderp' ); ?></td>
+					<td colspan="2"><?php esc_html_e( 'Totals', 'builderp' ); ?></td>
 					<td class="num"><?php echo esc_html( berp_format_currency( $report_data['totals']['basic_salary'] ) ); ?></td>
 					<td class="num"><?php echo esc_html( berp_format_currency( $report_data['totals']['total_allowances'] ) ); ?></td>
 					<td class="num"><?php echo esc_html( $report_data['totals']['present_days'] ); ?></td>
@@ -656,7 +657,7 @@ class BERP_Payroll_Admin {
 	public function render_bulk_pay_page() {
 		// Check permission
 		if ( ! current_user_can( 'berp_process_payroll' ) ) {
-			wp_die( esc_html__( 'You do not have permission to access this page', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to access this page', 'builderp' ) );
 		}
 
 		// Default month (current month)
@@ -675,8 +676,8 @@ class BERP_Payroll_Admin {
 
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'Bulk Pay Salaries', 'aic_builderp' ); ?></h1>
-			<p><?php esc_html_e( 'Pay multiple pending salaries at once. You can adjust the payment amount for each employee - underpayments will be added to balance, overpayments will be added to advance.', 'aic_builderp' ); ?></p>
+			<h1><?php esc_html_e( 'Bulk Pay Salaries', 'builderp' ); ?></h1>
+			<p><?php esc_html_e( 'Pay multiple pending salaries at once. You can adjust the payment amount for each employee - underpayments will be added to balance, overpayments will be added to advance.', 'builderp' ); ?></p>
 
 			<!-- Month Selection Form -->
 			<div class="berp-bulk-pay-month-selector" style="background: #fff; padding: 15px; margin: 20px 0; border: 1px solid #ccd0d4;">
@@ -684,11 +685,11 @@ class BERP_Payroll_Admin {
 					<input type="hidden" name="post_type" value="berp_payroll">
 					<input type="hidden" name="page" value="berp-bulk-pay-salaries">
 					<label for="month" style="font-weight: 600;">
-						<?php esc_html_e( 'Select Month:', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Select Month:', 'builderp' ); ?>
 					</label>
 					<input type="month" name="month" id="month" value="<?php echo esc_attr( $selected_month ); ?>" class="regular-text">
 					<button type="submit" class="button button-secondary">
-						<?php esc_html_e( 'Load Payrolls', 'aic_builderp' ); ?>
+						<?php esc_html_e( 'Load Payrolls', 'builderp' ); ?>
 					</button>
 				</form>
 			</div>
@@ -699,7 +700,7 @@ class BERP_Payroll_Admin {
 						<?php
 						printf(
 							/* translators: %s: selected month */
-							esc_html__( 'No pending payrolls found for %s.', 'aic_builderp' ),
+							esc_html__( 'No pending payrolls found for %s.', 'builderp' ),
 							esc_html( gmdate( 'F Y', strtotime( $selected_month . '-01' ) ) )
 						);
 						?>
@@ -715,7 +716,7 @@ class BERP_Payroll_Admin {
 							<?php
 							printf(
 								/* translators: 1: month name, 2: count */
-								esc_html__( 'Pending Payrolls - %1$s (%2$d employees)', 'aic_builderp' ),
+								esc_html__( 'Pending Payrolls - %1$s (%2$d employees)', 'builderp' ),
 								esc_html( gmdate( 'F Y', strtotime( $selected_month . '-01' ) ) ),
 								count( $pending_payrolls )
 							);
@@ -723,10 +724,10 @@ class BERP_Payroll_Admin {
 						</h2>
 						<div>
 							<button type="button" id="berp-select-all-payrolls" class="button">
-								<?php esc_html_e( 'Select All', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Select All', 'builderp' ); ?>
 							</button>
 							<button type="button" id="berp-deselect-all-payrolls" class="button">
-								<?php esc_html_e( 'Deselect All', 'aic_builderp' ); ?>
+								<?php esc_html_e( 'Deselect All', 'builderp' ); ?>
 							</button>
 						</div>
 					</div>
@@ -737,13 +738,13 @@ class BERP_Payroll_Admin {
 								<th style="width: 40px;">
 									<input type="checkbox" id="berp-select-all-checkbox">
 								</th>
-								<th><?php esc_html_e( 'Employee', 'aic_builderp' ); ?></th>
-								<th><?php esc_html_e( 'Employee ID', 'aic_builderp' ); ?></th>
-								<th><?php esc_html_e( 'Net Salary', 'aic_builderp' ); ?></th>
-								<th><?php esc_html_e( 'Current Balance', 'aic_builderp' ); ?></th>
-								<th><?php esc_html_e( 'Current Advance', 'aic_builderp' ); ?></th>
-								<th><?php esc_html_e( 'Payment Amount', 'aic_builderp' ); ?></th>
-								<th><?php esc_html_e( 'Difference', 'aic_builderp' ); ?></th>
+								<th><?php esc_html_e( 'Employee', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'Employee ID', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'Net Salary', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'Current Balance', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'Current Advance', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'Payment Amount', 'builderp' ); ?></th>
+								<th><?php esc_html_e( 'Difference', 'builderp' ); ?></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -796,7 +797,7 @@ class BERP_Payroll_Admin {
 						</tbody>
 						<tfoot>
 							<tr style="background: #f9f9f9; font-weight: 600;">
-								<td colspan="3"><?php esc_html_e( 'Total', 'aic_builderp' ); ?></td>
+								<td colspan="3"><?php esc_html_e( 'Total', 'builderp' ); ?></td>
 								<td id="berp-total-net-salary"><?php echo esc_html( berp_format_currency( $total_net_salary ) ); ?></td>
 								<td colspan="2"></td>
 								<td id="berp-total-payment"><?php echo esc_html( berp_format_currency( $total_payment ) ); ?></td>
@@ -808,17 +809,17 @@ class BERP_Payroll_Admin {
 					</table>
 
 					<div style="margin-top: 20px; padding: 15px; background: #f0f6fc; border-left: 4px solid #2271b1;">
-						<p style="margin: 0 0 10px 0;"><strong><?php esc_html_e( 'Payment Notes:', 'aic_builderp' ); ?></strong></p>
+						<p style="margin: 0 0 10px 0;"><strong><?php esc_html_e( 'Payment Notes:', 'builderp' ); ?></strong></p>
 						<ul style="margin: 0; padding-left: 20px;">
-							<li><?php esc_html_e( 'Payment = Net Salary: Normal payment (no balance/advance change)', 'aic_builderp' ); ?></li>
-							<li><?php esc_html_e( 'Payment < Net Salary: Difference added to employee balance (underpayment)', 'aic_builderp' ); ?></li>
-							<li><?php esc_html_e( 'Payment > Net Salary: Difference added to employee advance (overpayment)', 'aic_builderp' ); ?></li>
+							<li><?php esc_html_e( 'Payment = Net Salary: Normal payment (no balance/advance change)', 'builderp' ); ?></li>
+							<li><?php esc_html_e( 'Payment < Net Salary: Difference added to employee balance (underpayment)', 'builderp' ); ?></li>
+							<li><?php esc_html_e( 'Payment > Net Salary: Difference added to employee advance (overpayment)', 'builderp' ); ?></li>
 						</ul>
 					</div>
 
 					<p class="submit" style="margin-top: 20px;">
 						<button type="submit" class="button button-primary button-large" id="berp-submit-bulk-pay">
-							<?php esc_html_e( 'Pay Selected Salaries', 'aic_builderp' ); ?>
+							<?php esc_html_e( 'Pay Selected Salaries', 'builderp' ); ?>
 						</button>
 						<span class="spinner" style="float: none; margin-top: 0;"></span>
 					</p>
@@ -916,11 +917,11 @@ class BERP_Payroll_Admin {
 				const checked = $('.berp-payroll-checkbox:checked').length;
 				if (checked === 0) {
 					e.preventDefault();
-					alert('<?php echo esc_js( __( 'Please select at least one payroll to pay.', 'aic_builderp' ) ); ?>');
+					alert('<?php echo esc_js( __( 'Please select at least one payroll to pay.', 'builderp' ) ); ?>');
 					return false;
 				}
 
-				if (!confirm('<?php echo esc_js( __( 'Are you sure you want to pay the selected salaries? This will create expense records and update employee balances/advances.', 'aic_builderp' ) ); ?>')) {
+				if (!confirm('<?php echo esc_js( __( 'Are you sure you want to pay the selected salaries? This will create expense records and update employee balances/advances.', 'builderp' ) ); ?>')) {
 					e.preventDefault();
 					return false;
 				}
@@ -995,7 +996,7 @@ class BERP_Payroll_Admin {
 				function () {
 					?>
 					<div class="notice notice-error">
-						<p><?php esc_html_e( 'No payrolls selected.', 'aic_builderp' ); ?></p>
+						<p><?php esc_html_e( 'No payrolls selected.', 'builderp' ); ?></p>
 					</div>
 					<?php
 				}
@@ -1026,7 +1027,7 @@ class BERP_Payroll_Admin {
 			// Validate
 			if ( 'paid' === $status ) {
 				++$error_count;
-				$errors[] = get_the_title( $employee_id ) . ': ' . __( 'Already paid', 'aic_builderp' );
+				$errors[] = get_the_title( $employee_id ) . ': ' . __( 'Already paid', 'builderp' );
 				continue;
 			}
 
@@ -1035,7 +1036,8 @@ class BERP_Payroll_Admin {
 
 			// Create expense record
 			$employee_name = get_the_title( $employee_id );
-			$expense_title = sprintf( __( 'Payroll - %1$s - %2$s', 'aic_builderp' ), $employee_name, gmdate( 'F Y', strtotime( $month . '-01' ) ) );
+			/* translators: 1: employee name, 2: payroll month */
+			$expense_title = sprintf( __( 'Payroll - %1$s - %2$s', 'builderp' ), $employee_name, gmdate( 'F Y', strtotime( $month . '-01' ) ) );
 
 			$expense_id = wp_insert_post(
 				array(
@@ -1122,7 +1124,7 @@ class BERP_Payroll_Admin {
 					// Create berp_advance post for tracking
 					$advance_title = sprintf(
 						/* translators: 1: Employee name */
-						__( 'Salary Advance - %s', 'aic_builderp' ),
+						__( 'Salary Advance - %s', 'builderp' ),
 						$employee_name
 					);
 
@@ -1154,7 +1156,7 @@ class BERP_Payroll_Admin {
 							'_berp_advance_reason',
 							sprintf(
 								/* translators: 1: Month, 2: Net salary, 3: Actual payment */
-								__( 'Overpayment in %1$s payroll. Net Salary: %2$s, Paid: %3$s', 'aic_builderp' ),
+								__( 'Overpayment in %1$s payroll. Net Salary: %2$s, Paid: %3$s', 'builderp' ),
 								gmdate( 'F Y', strtotime( $month . '-01' ) ),
 								berp_format_currency( $net_salary ),
 								berp_format_currency( $payment_amount )
@@ -1176,7 +1178,7 @@ class BERP_Payroll_Admin {
 						$deductions[] = array(
 							'label'      => sprintf(
 								/* translators: %d: Advance ID */
-								__( 'Advance Repayment #%d', 'aic_builderp' ),
+								__( 'Advance Repayment #%d', 'builderp' ),
 								$advance_id
 							),
 							'amount'     => $installment_amount,
@@ -1209,7 +1211,7 @@ class BERP_Payroll_Admin {
 							<?php
 							printf(
 								/* translators: %d: number of payrolls */
-								esc_html( _n( '%d salary paid successfully.', '%d salaries paid successfully.', $success_count, 'aic_builderp' ) ),
+								esc_html( _n( '%d salary paid successfully.', '%d salaries paid successfully.', $success_count, 'builderp' ) ),
 								esc_html( $success_count )
 							);
 							?>
@@ -1225,7 +1227,7 @@ class BERP_Payroll_Admin {
 							<?php
 							printf(
 								/* translators: %d: number of errors */
-								esc_html( _n( '%d error occurred.', '%d errors occurred.', $error_count, 'aic_builderp' ) ),
+								esc_html( _n( '%d error occurred.', '%d errors occurred.', $error_count, 'builderp' ) ),
 								esc_html( $error_count )
 							);
 							?>
@@ -1244,3 +1246,5 @@ class BERP_Payroll_Admin {
 		);
 	}
 }
+
+

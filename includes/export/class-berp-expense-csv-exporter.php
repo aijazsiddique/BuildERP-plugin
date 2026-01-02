@@ -51,14 +51,14 @@ class BERP_Expense_CSV_Exporter {
 
 		// Headers
 		$csv_data[] = array(
-			__( 'Title', 'aic_builderp' ),
-			__( 'Date', 'aic_builderp' ),
-			__( 'Amount', 'aic_builderp' ),
-			__( 'Category', 'aic_builderp' ),
-			__( 'Site', 'aic_builderp' ),
-			__( 'Payment Method', 'aic_builderp' ),
-			__( 'Description', 'aic_builderp' ),
-			__( 'Recurring', 'aic_builderp' ),
+			__( 'Title', 'builderp' ),
+			__( 'Date', 'builderp' ),
+			__( 'Amount', 'builderp' ),
+			__( 'Category', 'builderp' ),
+			__( 'Site', 'builderp' ),
+			__( 'Payment Method', 'builderp' ),
+			__( 'Description', 'builderp' ),
+			__( 'Recurring', 'builderp' ),
 		);
 
 		// Data rows
@@ -85,7 +85,7 @@ class BERP_Expense_CSV_Exporter {
 				$site_name,
 				ucfirst( str_replace( '_', ' ', $payment_method ) ),
 				$description,
-				$is_recurring == '1' ? __( 'Yes', 'aic_builderp' ) : __( 'No', 'aic_builderp' ),
+				$is_recurring == '1' ? __( 'Yes', 'builderp' ) : __( 'No', 'builderp' ),
 			);
 
 			$total_amount += $amount;
@@ -94,7 +94,7 @@ class BERP_Expense_CSV_Exporter {
 		// Add total row
 		$csv_data[] = array();
 		$csv_data[] = array(
-			__( 'TOTAL', 'aic_builderp' ),
+			__( 'TOTAL', 'builderp' ),
 			'',
 			$currency_symbol . number_format( $total_amount, 2 ),
 			'',
@@ -106,12 +106,12 @@ class BERP_Expense_CSV_Exporter {
 
 		// Set headers for CSV download
 		header( 'Content-Type: text/csv; charset=utf-8' );
-		header( 'Content-Disposition: attachment; filename="expenses-' . date( 'Y-m-d-His' ) . '.csv"' );
+		header( 'Content-Disposition: attachment; filename="expenses-' . gmdate( 'Y-m-d-His' ) . '.csv"' );
 		header( 'Pragma: no-cache' );
 		header( 'Expires: 0' );
 
 		// Output CSV
-		$output = fopen( 'php://output', 'w' );
+		$output = fopen( 'php://output', 'w' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
 
 		// Add UTF-8 BOM for Excel compatibility
 		fprintf( $output, chr( 0xEF ) . chr( 0xBB ) . chr( 0xBF ) );
@@ -121,7 +121,10 @@ class BERP_Expense_CSV_Exporter {
 			fputcsv( $output, $row );
 		}
 
-		fclose( $output );
+		fclose( $output ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
 		exit;
 	}
 }
+
+
+

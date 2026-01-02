@@ -45,10 +45,10 @@ class BERP_Employee_Admin {
 
 		$selected_status = isset( $_GET['berp_status'] ) ? sanitize_key( wp_unslash( $_GET['berp_status'] ) ) : '';
 		$statuses        = array(
-			''         => __( 'All statuses', 'aic_builderp' ),
-			'active'   => __( 'Active', 'aic_builderp' ),
-			'inactive' => __( 'Inactive', 'aic_builderp' ),
-			'on_leave' => __( 'On Leave', 'aic_builderp' ),
+			''         => __( 'All statuses', 'builderp' ),
+			'active'   => __( 'Active', 'builderp' ),
+			'inactive' => __( 'Inactive', 'builderp' ),
+			'on_leave' => __( 'On Leave', 'builderp' ),
 		);
 		?>
 		<select name="berp_status">
@@ -60,16 +60,16 @@ class BERP_Employee_Admin {
 		$soft = isset( $_GET['berp_soft_deleted'] ) ? sanitize_text_field( wp_unslash( $_GET['berp_soft_deleted'] ) ) : '';
 		?>
 		<select name="berp_soft_deleted">
-			<option value=""><?php esc_html_e( 'Active records', 'aic_builderp' ); ?></option>
-			<option value="with_deleted" <?php selected( $soft, 'with_deleted' ); ?>><?php esc_html_e( 'Include soft deleted', 'aic_builderp' ); ?></option>
-			<option value="only_deleted" <?php selected( $soft, 'only_deleted' ); ?>><?php esc_html_e( 'Only soft deleted', 'aic_builderp' ); ?></option>
+			<option value=""><?php esc_html_e( 'Active records', 'builderp' ); ?></option>
+			<option value="with_deleted" <?php selected( $soft, 'with_deleted' ); ?>><?php esc_html_e( 'Include soft deleted', 'builderp' ); ?></option>
+			<option value="only_deleted" <?php selected( $soft, 'only_deleted' ); ?>><?php esc_html_e( 'Only soft deleted', 'builderp' ); ?></option>
 		</select>
 		<?php
 		if ( taxonomy_exists( 'berp_department' ) ) {
 			$dept_selected = isset( $_GET['berp_department'] ) ? sanitize_title( wp_unslash( $_GET['berp_department'] ) ) : '';
 			wp_dropdown_categories(
 				array(
-					'show_option_all' => __( 'All departments', 'aic_builderp' ),
+					'show_option_all' => __( 'All departments', 'builderp' ),
 					'taxonomy'        => 'berp_department',
 					'name'            => 'berp_department',
 					'orderby'         => 'name',
@@ -162,8 +162,8 @@ class BERP_Employee_Admin {
 	 * @return array
 	 */
 	public function register_bulk_actions( $actions ) {
-		$actions['berp_soft_delete'] = __( 'Soft delete', 'aic_builderp' );
-		$actions['berp_restore']     = __( 'Restore (soft delete)', 'aic_builderp' );
+		$actions['berp_soft_delete'] = __( 'Soft delete', 'builderp' );
+		$actions['berp_restore']     = __( 'Restore (soft delete)', 'builderp' );
 		return $actions;
 	}
 
@@ -207,8 +207,8 @@ class BERP_Employee_Admin {
 		$csv_url = wp_nonce_url( admin_url( 'admin-post.php?action=berp_export_employees' ), 'berp_export_employees', 'berp_export_nonce' );
 		$pdf_url = wp_nonce_url( admin_url( 'admin-post.php?action=berp_export_employees_pdf' ), 'berp_export_employees_pdf', 'berp_export_pdf_nonce' );
 		echo '<div class="alignleft actions">';
-		echo '<a class="button" href="' . esc_url( $csv_url ) . '">' . esc_html__( 'Export CSV', 'aic_builderp' ) . '</a> ';
-		echo '<a class="button" href="' . esc_url( $pdf_url ) . '">' . esc_html__( 'Export PDF', 'aic_builderp' ) . '</a>';
+		echo '<a class="button" href="' . esc_url( $csv_url ) . '">' . esc_html__( 'Export CSV', 'builderp' ) . '</a> ';
+		echo '<a class="button" href="' . esc_url( $pdf_url ) . '">' . esc_html__( 'Export PDF', 'builderp' ) . '</a>';
 		echo '</div>';
 	}
 
@@ -224,7 +224,7 @@ class BERP_Employee_Admin {
 		}
 		?>
 		<div class="alignleft actions">
-			<button type="button" class="button" id="berp-employee-import-trigger"><?php esc_html_e( 'Import CSV', 'aic_builderp' ); ?></button>
+			<button type="button" class="button" id="berp-employee-import-trigger"><?php esc_html_e( 'Import CSV', 'builderp' ); ?></button>
 			<span id="berp-employee-import-filename" style="margin-left:6px;"></span>
 		</div>
 		<?php
@@ -275,10 +275,10 @@ class BERP_Employee_Admin {
 	 */
 	public function handle_export() {
 		if ( ! current_user_can( 'berp_manage_employees' ) ) {
-			wp_die( esc_html__( 'You do not have permission to export employees.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to export employees.', 'builderp' ) );
 		}
 		if ( empty( $_GET['berp_export_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['berp_export_nonce'] ) ), 'berp_export_employees' ) ) {
-			wp_die( esc_html__( 'Invalid export request.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'Invalid export request.', 'builderp' ) );
 		}
 
 		$args      = array(
@@ -305,7 +305,7 @@ class BERP_Employee_Admin {
 		header( 'Content-Type: text/csv; charset=utf-8' );
 		header( 'Content-Disposition: attachment; filename="employees.csv"' );
 
-		$output = fopen( 'php://output', 'w' );
+		$output = fopen( 'php://output', 'w' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
 		fputcsv( $output, array( 'Name', 'Employee ID', 'Email', 'Phone', 'Status', 'Basic Salary' ) );
 
 		foreach ( $employees as $employee ) {
@@ -322,7 +322,7 @@ class BERP_Employee_Admin {
 			);
 		}
 
-		fclose( $output );
+		fclose( $output ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
 		exit;
 	}
 
@@ -331,10 +331,10 @@ class BERP_Employee_Admin {
 	 */
 	public function handle_export_pdf() {
 		if ( ! current_user_can( 'berp_manage_employees' ) ) {
-			wp_die( esc_html__( 'You do not have permission to export employees.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to export employees.', 'builderp' ) );
 		}
 		if ( empty( $_GET['berp_export_pdf_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_GET['berp_export_pdf_nonce'] ) ), 'berp_export_employees_pdf' ) ) {
-			wp_die( esc_html__( 'Invalid export request.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'Invalid export request.', 'builderp' ) );
 		}
 
 		$args      = array(
@@ -375,9 +375,9 @@ class BERP_Employee_Admin {
             th, td { border: 1px solid #ddd; padding: 6px; text-align: left; }
             th { background: #f6f6f6; }
         </style></head><body>
-        <h2>' . esc_html__( 'Employees', 'aic_builderp' ) . '</h2>
+        <h2>' . esc_html__( 'Employees', 'builderp' ) . '</h2>
         <table>
-        <thead><tr><th>' . esc_html__( 'Name', 'aic_builderp' ) . '</th><th>' . esc_html__( 'Employee ID', 'aic_builderp' ) . '</th><th>' . esc_html__( 'Email', 'aic_builderp' ) . '</th><th>' . esc_html__( 'Phone', 'aic_builderp' ) . '</th><th>' . esc_html__( 'Status', 'aic_builderp' ) . '</th><th>' . esc_html__( 'Basic Salary', 'aic_builderp' ) . '</th></tr></thead>
+        <thead><tr><th>' . esc_html__( 'Name', 'builderp' ) . '</th><th>' . esc_html__( 'Employee ID', 'builderp' ) . '</th><th>' . esc_html__( 'Email', 'builderp' ) . '</th><th>' . esc_html__( 'Phone', 'builderp' ) . '</th><th>' . esc_html__( 'Status', 'builderp' ) . '</th><th>' . esc_html__( 'Basic Salary', 'builderp' ) . '</th></tr></thead>
         <tbody>' . $rows . '</tbody></table></body></html>';
 
 		if ( ! class_exists( 'Dompdf\Dompdf' ) ) {
@@ -403,19 +403,19 @@ class BERP_Employee_Admin {
 	 */
 	public function handle_import() {
 		if ( ! current_user_can( 'berp_manage_employees' ) ) {
-			wp_die( esc_html__( 'You do not have permission to import employees.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'You do not have permission to import employees.', 'builderp' ) );
 		}
 		if ( empty( $_POST['berp_import_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['berp_import_nonce'] ) ), 'berp_import_employees' ) ) {
-			wp_die( esc_html__( 'Invalid import request.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'Invalid import request.', 'builderp' ) );
 		}
 		if ( empty( $_FILES['berp_employee_csv']['tmp_name'] ) ) {
-			wp_die( esc_html__( 'Please upload a CSV file.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'Please upload a CSV file.', 'builderp' ) );
 		}
 
 		// Validate file type - only allow CSV.
 		$file_ext = strtolower( pathinfo( $_FILES['berp_employee_csv']['name'], PATHINFO_EXTENSION ) );
 		if ( 'csv' !== $file_ext ) {
-			wp_die( esc_html__( 'Invalid file type. Only CSV files are allowed.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'Invalid file type. Only CSV files are allowed.', 'builderp' ) );
 		}
 
 		// Validate MIME type.
@@ -425,14 +425,14 @@ class BERP_Employee_Admin {
 			finfo_close( $finfo );
 			$allowed_mimes = array( 'text/csv', 'text/plain', 'application/csv', 'application/vnd.ms-excel' );
 			if ( ! in_array( $mime, $allowed_mimes, true ) ) {
-				wp_die( esc_html__( 'Invalid file type. Only CSV files are allowed.', 'aic_builderp' ) );
+				wp_die( esc_html__( 'Invalid file type. Only CSV files are allowed.', 'builderp' ) );
 			}
 		}
 
 		$tmp_name = sanitize_text_field( wp_unslash( $_FILES['berp_employee_csv']['tmp_name'] ) );
-		$file     = fopen( $tmp_name, 'r' );
+		$file     = fopen( $tmp_name, 'r' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
 		if ( ! $file ) {
-			wp_die( esc_html__( 'Could not read CSV file.', 'aic_builderp' ) );
+			wp_die( esc_html__( 'Could not read CSV file.', 'builderp' ) );
 		}
 
 		$created = 0;
@@ -497,7 +497,7 @@ class BERP_Employee_Admin {
 				}
 			}
 		}
-		fclose( $file );
+		fclose( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
 
 		$redirect = admin_url( 'edit.php?post_type=berp_employee' );
 		$redirect = add_query_arg(
@@ -541,3 +541,5 @@ class BERP_Employee_Admin {
 		return false;
 	}
 }
+
+
